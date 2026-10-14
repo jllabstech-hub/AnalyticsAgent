@@ -1,7 +1,9 @@
 # Deployment guide
 
-No paid resource or public service has been created. Applying the prepared
-Blueprint creates a paid public Web Service and requires authorization first.
+Render deployment is authorized as of 14 October 2026. No paid resource or public
+service has been created yet. The prepared 1c-2g compute plan is US$25/month in
+the current dashboard; explicit recurring-cost approval and production login
+configuration are pending. The prepared creation form is in the Render dashboard.
 
 ## Windows setup
 
@@ -26,8 +28,8 @@ backend configuration classes; hot reload can retain older imported modules.
 ## GitHub instructions
 
 The selected repository is https://github.com/jllabstech-hub/AnalyticsAgent.
-GitHub source upload is authorized; paid/public application hosting still requires
-separate authorization. For a new checkout:
+GitHub source upload and Render deployment are authorized; recurring compute-cost
+approval is pending. For a new checkout:
 
 ```powershell
 git clone https://github.com/jllabstech-hub/AnalyticsAgent.git
@@ -42,7 +44,7 @@ reference fixtures are bundled. The agent does not import evaluation fixtures.
 
 ## Render Web Service
 
-After authorizing hosting and the resource plan, connect the private repository,
+After approving the resource cost, connect the public repository,
 choose **New → Web Service**, select Python, and configure the following. A
 Blueprint with the same settings is supplied in `render.yaml`. Auto-deploy is off.
 
@@ -50,6 +52,7 @@ Blueprint with the same settings is supplied in `render.yaml`. Auto-deploy is of
 - Start: `streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true`
 - Health: `/_stcore/health`
 - Python: `PYTHON_VERSION=3.14.5`
+- Region: Singapore (`singapore`)
 - DuckDB: `DUCKDB_MEMORY_LIMIT=512MB`; one thread, no disk spill.
 - Prepared plan: `1c-2g` (2 GB RAM). This is a paid configuration, not an approved purchase.
 
@@ -60,7 +63,8 @@ configuration provides headroom for a small demonstration; concurrency and Linux
 memory behavior still need hosted verification. No persistent disk is needed.
 
 Put API keys only in Render environment variables. Default provider is Ollama;
-the Windows laptop's localhost is unreachable from Render. Use explicit demo
+OLLAMA_BASE_URL is deliberately empty in the hosted configuration until a secured
+reachable endpoint is supplied. The Windows laptop's localhost is unreachable from Render. Use explicit demo
 mode when no provider is reachable, or select configured OpenAI in Settings.
 
 For OpenAI set `OPENAI_API_KEY`, `OPENAI_MODEL=gpt-4.1-mini`, and choose OpenAI.

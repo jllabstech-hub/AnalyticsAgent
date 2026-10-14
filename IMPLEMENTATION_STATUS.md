@@ -27,7 +27,7 @@ to jllabstech-hub/AnalyticsAgent on main, and matching local/remote commits veri
 
 1. Install Ollama and a chosen model only when authorized; verify actual local inference.
 2. Rotate the exposed OpenAI server key and expand live evaluation only with authorization.
-3. Authorize a public Render service and paid resource plan before applying the Blueprint.
+3. Approve the displayed US$25/month Render compute cost and configure OIDC login/scopes. Public Render deployment is authorized; the creation form is prepared.
 4. After deployment, verify Render memory, hosted health, provider behavior and restart.
 
 Remaining product limits: synthetic data only, governed explanations, bounded demo
@@ -68,3 +68,8 @@ User authorized source upload to https://github.com/jllabstech-hub/AnalyticsAgen
 ### 2026-10-14 - GitHub delivery and Linux quality verification complete
 
 Application source is pushed to main at jllabstech-hub/AnalyticsAgent and tracked as origin/main. Corrected source commit 2060e661aa98b2a8443a21a1d90ed0dcade7e336 matches the remote. Actual GitHub Actions run 38500606126 passed all steps: 191 passed, 0 failed, 2 skipped of 193 in 142.91s, credential source check, zero known dependency advisories and two Linux HTTP 200/ok startup/restart checks. Final Windows suite also passed 191/0/2 (174.12s); both 30-question reference suites remain 30/30. Sanitized remote evidence is reports/github_validation.json. Updated team handover reflects current counts and Linux CI. No credentials are tracked; local .env remains ignored. Ollama installation/model download, real IdP lifecycle and Render/paid hosting remain separately pending. Final evidence-only commit will skip duplicate CI because application runtime source is unchanged.
+
+
+### 2026-10-14T02:35:19.202606+00:00 - Render deployment preparation
+
+User authorized Render deployment. Inspected the signed-in Render workspace and prepared the new Web Service form from the public repository, main, Python 3.14.5, Singapore, tested build/start commands, 1c-2g (displayed US$25/month), production guard, health path and manual deploys. No creation/charge has occurred. Existing local OIDC secrets file is absent; analytics stays locked until real login and scopes are configured. No OpenAI key has been copied to Render. Automatic approval review rejected a planned localhost Ollama endpoint because the laptop is unreachable from Render. Corrected the form and Blueprint to an explicitly empty endpoint; no network calls target an invented remote service. Full-page screenshot timed out; supported viewport capture succeeded. Saved the review screenshot and requested explicit recurring-cost approval plus login/deployment preference. Configuration/access tests running.

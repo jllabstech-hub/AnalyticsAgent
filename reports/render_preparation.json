@@ -1,0 +1,31 @@
+{
+  "checked_at_utc": "2026-10-14T02:35:19.202606+00:00",
+  "authorization": "User authorized Render deployment; recurring cost approval pending",
+  "status": "configured_creation_form_not_submitted",
+  "repository": "https://github.com/jllabstech-hub/AnalyticsAgent",
+  "branch": "main",
+  "service_name": "bdc-analytics-agent-prototype",
+  "runtime": "python",
+  "region": "singapore",
+  "plan": "1c-2g",
+  "displayed_compute_USD_per_month": 25,
+  "auto_deploy": false,
+  "health_path": "/_stcore/health",
+  "api_credentials_transferred": false,
+  "oidc_configured": false,
+  "ollama_remote_endpoint_configured": false,
+  "ollama_base_url": "",
+  "created_service": false,
+  "known_blockers": [
+    "Explicit recurring-cost approval pending",
+    "OIDC login and approved principal scopes missing",
+    "Secured reachable Ollama endpoint not supplied; deterministic mode requires explicit opt-in after sign-in"
+  ],
+  "proof": "reports/render-prepared.png",
+  "local_configuration_access_tests": {
+    "passed": 17,
+    "failed": 0,
+    "duration_seconds": 7.62
+  },
+  "proof_visibility": "Local-only account screenshot; excluded from Git"
+}

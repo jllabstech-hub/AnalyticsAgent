@@ -2,6 +2,7 @@ services:
   - type: web
     name: bdc-analytics-agent-prototype
     runtime: python
+    region: singapore
     # Prepared paid 2GB plan. Apply only after hosting/resource authorization.
     plan: 1c-2g
     autoDeploy: false
@@ -17,6 +18,10 @@ services:
         value: ollama
       - key: OLLAMA_MODEL
         value: qwen3:8b
+      # Configure a secured reachable endpoint before enabling hosted Ollama.
+      # Empty deliberately prevents using the laptop's localhost on Render.
+      - key: OLLAMA_BASE_URL
+        value: ''
       - key: OPENAI_MODEL
         value: gpt-4.1-mini
       - key: OPENAI_FALLBACK_TO_OLLAMA

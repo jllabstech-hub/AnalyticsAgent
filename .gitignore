@@ -33,3 +33,5 @@ deliverables/architecture_qa/
 .setup/
 .ollama-models/
 tools/ollama/
+# Render dashboard screenshots contain account context; retain locally only.
+reports/render-prepared.png

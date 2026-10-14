@@ -15,6 +15,8 @@ def test_render_configuration_uses_assigned_port_and_bundled_data():
     assert "--server.port $PORT" in service["startCommand"]
     assert service["healthCheckPath"] == "/_stcore/health"
     assert "disk" not in service and service["autoDeploy"] is False
+    assert service["region"] == "singapore"
+    assert {item["key"]:item.get("value") for item in service["envVars"]}["OLLAMA_BASE_URL"] == ""
     assert not any(item["key"] == "OPENAI_API_KEY" and item.get("value") for item in service["envVars"])
 
 
