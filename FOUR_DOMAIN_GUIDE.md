@@ -89,6 +89,19 @@ and XSRF protection and does not expose the service on the LAN. Actual HTTP and
 WebSocket checks pass for localhost, 127.0.0.1 and ::1; the owner confirmed that
 the page opens after correction. See reports/local_preview_validation.json.
 
+To test with OpenAI, restart using the same command **without `--demo`**. Click the
+visible **LLM Settings** sidebar button, select **OpenAI API**, then **Test Connection**.
+The server reads `OPENAI_API_KEY` from the environment or local `.env`; keys never
+enter browser inputs or session state. A normal local run restores Settings even
+after a prior demo run. Public Render mode continues to hide provider controls.
+
+The owner confirms that Settings is visible. An actual OpenAI connection test and
+Finance profit comparison pass with gpt-4.1-mini; the latter returns USD
+4,003,078.54 to 2,896,087.27, matching independent pandas values with seven
+completed components. These are individual live checks, not a broad model
+accuracy certification. Evidence: reports/local_openai_settings_validation.json
+and reports/local_openai_finance_validation.json.
+
 ```powershell
 .\.venv\Scripts\python.exe -m scripts.generate_business_data
 .\.venv\Scripts\python.exe -m scripts.business_reference
@@ -102,8 +115,8 @@ agents never import reference answers. Actual traces for all twenty documented
 workflows are in reports/four_domain_pipeline_trace.json. Existing Usage and
 Sales references and behaviors are preserved.
 
-Final Windows and Linux CI: 459 passed, zero failed, two optional live-provider
-skips of 461. The defined suite matches 125 independent calculations and 125
+Latest Windows suite: 462 passed, zero failed, two optional live-provider skips
+of 464. Prior deployed-source Linux CI: 459 passed with two skips of 461. The defined suite matches 125 independent calculations and 125
 natural-language questions. All ten new-domain hosted demonstrations pass;
 107 independent numerical comparisons cover their totals, trends and groups.
 An actual hosted restart preserves reference comparisons across all four domains.
@@ -121,7 +134,8 @@ trace displays component functionality and outputs, without hidden model reasoni
 Public Free mode permits only the four fixed bundled synthetic warehouses and
 blocks all LLM calls. Local/private mode retains explicit Ollama/OpenAI selection;
 new-domain planning uses validated plan_marketing/plan_finance tool contracts.
-Actual new-domain LLM inference is not claimed from mocked tests.
+Actual Finance inference is separately verified; live Marketing/Sales inference
+and broader provider behavior are not claimed from mocked tests.
 
 Private grants still default to Usage only. Add marketing or finance explicitly
 to the server-owned principal domains list. K1 grants comparison capability;

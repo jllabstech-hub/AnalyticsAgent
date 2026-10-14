@@ -12,7 +12,7 @@ def evaluate():
     output = PROJECT_ROOT / "reports"
     output.mkdir(exist_ok=True)
     started = time.perf_counter()
-    completed = subprocess.run([sys.executable,"-m","pytest","-q",f"--junitxml={output / 'test_results.xml'}"],cwd=PROJECT_ROOT)
+    completed = subprocess.run([sys.executable,"-m","pytest","-q",str(PROJECT_ROOT / "tests"),f"--junitxml={output / 'test_results.xml'}"],cwd=PROJECT_ROOT)
     cases = ET.parse(output / "test_results.xml").getroot().findall(".//testcase")
     failed = [c for c in cases if c.find("failure") is not None or c.find("error") is not None]
     skipped = [c for c in cases if c.find("skipped") is not None]

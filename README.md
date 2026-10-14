@@ -64,6 +64,16 @@ to synthetic analytics without any LLM calls, add `--demo`:
 .\.venv\Scripts\python.exe -m scripts.run_local --demo
 ```
 
+For OpenAI testing, launch **without** `--demo`. A normal local launch clears any
+inherited public-demo flag, restores the sidebar **LLM Settings** button and keeps
+Ollama as the default provider unless explicitly configured otherwise. Open
+**LLM Settings**, select **OpenAI API**, choose the model and click **Test Connection**.
+The connection test makes a real inference request using the server-side key.
+Set `OPENAI_API_KEY` in your local `.env` and restart after replacing it; there is
+no browser key field. An empty `OPENAI_API_KEY` environment variable can override
+the file, so remove that variable or launch from a fresh terminal if Settings
+reports **Missing** despite a configured file. Replace any key exposed in a chat.
+
 Use `--port 8503` if the default port is already occupied. Render continues to use
 the Streamlit start command in render.yaml with its assigned `$PORT`.
 
@@ -164,8 +174,11 @@ Missing key, timeout, connection or temporary service failure can fall back to
 Ollama only if enabled, reachable and the selected model is available.
 Authentication errors and invalid requests do not fall back. Ollama never
 selects OpenAI automatically; fallback remains local for the rest of an answer.
-Passive startup and status inspection do not call OpenAI. Live OpenAI is unverified
-and no cloud inference was initiated during this build.
+Passive startup and status inspection do not call OpenAI. Actual local OpenAI
+connection and one Finance comparison now pass, in addition to the earlier Usage
+workflow. The Finance result matches the independent pandas calculation and has
+seven completed components; see reports/local_openai_finance_validation.json.
+Broader live-provider accuracy and Ollama inference remain unverified.
 
 ## Tests and measured evidence
 

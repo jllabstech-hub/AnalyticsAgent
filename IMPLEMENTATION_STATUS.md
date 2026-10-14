@@ -1,7 +1,7 @@
 # Implementation status — BDC Analytics Agent Prototype V1
 
 All twelve phases' feasible local implementation, testing and documentation are complete.
-Current release: four domains, application source a8203bc65066decdaabf5432b58e69b098f905b5, verified 14 October 2026. Later sections preserve the dated implementation history.
+Current local release: four domains with visible LLM Settings and actual OpenAI Finance verification, 14 October 2026. Latest Windows suite is 462/0/2 of 464; prior Linux/Free deployment evidence belongs to source a8203bc65066decdaabf5432b58e69b098f905b5. Later sections preserve dated implementation history.
 
 | Phase | Status | Evidence |
 |---|---|---|
@@ -13,7 +13,7 @@ Current release: four domains, application source a8203bc65066decdaabf5432b58e69
 | 6 Hybrid providers | Complete; OpenAI connection and K1 live verified | Real browser inference; broader live evaluation pending |
 | 7 Orchestrator | Complete | Bounded planning, execution, context and clarification tests |
 | 8 Streamlit | Complete | AppTest plus browser verification |
-| 9 Evaluation | Complete | 459 passed, 0 failed, 2 skipped of 461 on Windows and Linux CI; 125 independent calculations and 125 question workflows match |
+| 9 Evaluation | Complete | Current Windows: 462 passed, 0 failed, 2 skipped of 464; previous Linux: 459/0/2 of 461; all 125 independent and 125 question workflows match |
 | 10 Render | Four-domain public synthetic demo verified | Ten new-domain workflows and fresh comparisons across all four domains pass after actual restart; seven components, exports and new-domain Explorer verified; Free only, no LLM calls |
 | 11 EVP package | Complete | Twenty complete executed demonstration workflows across four domains |
 | 12 Final integration | Complete locally | Full suite, performance, security, startup/browser and final reports |
@@ -137,3 +137,8 @@ Usage, Sales, Marketing and Finance are complete for the synthetic core pipeline
 ### 14 October 2026 - Local preview restored
 
 Corrected local IPv6 localhost refusal with scripts/run_local.py; serve the same four-domain application through the existing Streamlit ASGI/Uvicorn runtime on both localhost loopbacks. Actual three-address HTTP 200/ok and WebSocket negotiation checks pass; two invalid-port checks pass. Owner confirms the page now opens. Start with .\.venv\Scripts\python.exe -m scripts.run_local --demo and open http://localhost:8502/. Listener remains computer-local, providers are blocked in demo mode, and CORS/XSRF protection is retained. Render runtime and analytical implementation are unchanged. Full analytical suite remains the prior verified 459/0/2; new evidence is reports/local_preview_validation.json. Automated browser inspection was blocked by browser URL policy and was not bypassed.
+
+
+### 14 October 2026 - Local OpenAI Settings and current full regression complete
+
+Normal local launches now clear inherited demo mode; a visible LLM Settings button opens provider controls. Owner confirms Settings is visible on localhost:8502. The server-side key is configured, one real OpenAI connection succeeds, and one real Finance F1 workflow matches independent values with seven completed components. Keys never enter session or rendered text. Targeted suite: 38 passed. Final full Windows suite with permissions for its own restart subprocesses: 462 passed, zero failed, two optional live-provider skips of 464 (271.72s pytest). Both 125-question reference suites match. Public Render provider restrictions and Ollama default remain intact. Actual Ollama inference, live Marketing/Sales workflows and broad model accuracy remain unverified. Evidence: reports/local_openai_settings_validation.json and reports/local_openai_finance_validation.json.

@@ -1,0 +1,18 @@
+{
+  "checked_at_utc": "2026-10-14T14:40:48.317018+00:00",
+  "status": "ok",
+  "provider": "openai",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "message": "Observed profit: $4,003,078.54 USD \u2192 $2,896,087.27 USD; change $-1,106,991.27 USD (-27.65% relative).",
+  "settings_button_verified": true,
+  "server_key_configured": true,
+  "credentials_in_session": false,
+  "actual_llm_workflow": true,
+  "browser_test_method": "Streamlit AppTest with real OpenAI provider; browser automation blocked",
+  "baseline": 4003078.54,
+  "current": 2896087.27,
+  "absolute_change": -1106991.27,
+  "seven_components_complete": true,
+  "independent_pandas_check": "pass",
+  "elapsed_ms": 44624.89700014703
+}

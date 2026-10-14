@@ -48,6 +48,7 @@ def test_anonymous_hosted_demo_executes_real_queries_without_llm(monkeypatch):
     assert not app.exception and app.chat_input and not app.error
     assert app.toggle(key="demo_mode").value and app.toggle(key="demo_mode").disabled
     assert "Settings" not in app.selectbox(key="page").options
+    assert not any(button.label == "LLM Settings" for button in app.button)
     assert any("Public synthetic demo" in info.value for info in app.info)
     # A stale provider preference must not reopen cloud access.
     app.session_state["demo_mode"] = False

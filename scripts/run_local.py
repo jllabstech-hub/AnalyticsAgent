@@ -16,8 +16,9 @@ def main():
     if not 1 <= args.port <= 65535:
         parser.error('--port must be between 1 and 65535')
     os.environ['APP_ENV'] = 'local'
-    if args.demo:
-        os.environ['PUBLIC_DEMO_ENABLED'] = 'true'
+    # A previous --demo run can leave an inherited flag; normal local runs
+    # must restore provider Settings. Render uses its separate start command.
+    os.environ['PUBLIC_DEMO_ENABLED'] = 'true' if args.demo else 'false'
     # Streamlit's CLI binds a single socket for an explicit IPv4 address.
     # Uvicorn resolves localhost and opens both loopback listeners in one process.
     uvicorn.run(st.App(PROJECT_ROOT / 'app.py'), host='localhost', port=args.port, log_level='info')

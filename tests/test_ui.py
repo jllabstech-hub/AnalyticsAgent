@@ -4,6 +4,34 @@ from streamlit.testing.v1 import AppTest
 APP = str(Path(__file__).resolve().parents[1] / "app.py")
 
 
+def test_visible_settings_button_supports_openai_connection_without_exposing_key(monkeypatch):
+    from unittest.mock import Mock
+    from analytics_agent import ui
+    secret = "fictional-connection-test-secret"
+    monkeypatch.setenv("RENDER", "false")
+    monkeypatch.setenv("APP_ENV", "local")
+    monkeypatch.setenv("PUBLIC_DEMO_ENABLED", "false")
+    monkeypatch.setenv("LLM_PROVIDER", "ollama")
+    monkeypatch.setenv("OPENAI_API_KEY", secret)
+    manager = Mock(last_fallback_reason=None)
+    manager.test_connection.return_value = {"provider":"openai","model":"gpt-4.1-mini","inference_verified":True}
+    factory = Mock(return_value=manager)
+    monkeypatch.setattr(ui,"manager_from_settings",factory)
+    app = AppTest.from_file(APP,default_timeout=30).run()
+    assert app.session_state["selected_provider"] == "ollama"
+    app.button(key="open_llm_settings").click().run()
+    assert app.selectbox(key="page").value == "Settings"
+    assert any(caption.value == "OpenAI server credential: Configured" for caption in app.caption)
+    app.radio(key="_selected_provider").set_value("openai").run()
+    next(button for button in app.button if button.label == "Test Connection").click().run()
+    assert not app.exception and app.session_state["connection_status"]["inference_verified"]
+    assert factory.call_args.args[1] == "openai"
+    manager.test_connection.assert_called_once()
+    manager.close.assert_called_once()
+    assert secret not in str(app.session_state)
+    assert secret not in " ".join(element.value for element in app.caption)
+
+
 def test_deterministic_chat_displays_computed_kpis(monkeypatch):
     monkeypatch.setenv("OPENAI_API_KEY", "")
     app = AppTest.from_file(APP, default_timeout=30).run()

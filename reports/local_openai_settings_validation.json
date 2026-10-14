@@ -1,0 +1,30 @@
+{
+  "checked_at_utc": "2026-10-14T14:35:20.546182+00:00",
+  "selected_provider": "openai",
+  "key_configured": true,
+  "public_demo_enabled": false,
+  "model": "gpt-4.1-mini",
+  "fallback_enabled_for_test": false,
+  "request": "One minimal Reply with OK inference",
+  "credentials_logged": false,
+  "status": "pass",
+  "inference_verified": true,
+  "actual_provider": "openai",
+  "latency_ms": 46423.33439993672,
+  "local_url": "http://localhost:8502/",
+  "settings_button": "LLM Settings",
+  "owner_browser_confirmation": "Yes, Settings is visible",
+  "targeted_tests_passed": 38,
+  "local_startup_mode": "provider Settings enabled; demo toggle optional",
+  "application_default_provider": "ollama",
+  "current_test_session_provider": "openai",
+  "render_demo_restrictions_changed": false,
+  "browser_automation": "blocked by existing browser URL policy; owner confirmation and independent AppTest used",
+  "full_offline_suite": {
+    "total": 464,
+    "passed": 462,
+    "failed": 0,
+    "skipped": 2,
+    "pytest_seconds": 271.72
+  }
+}

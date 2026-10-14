@@ -138,6 +138,10 @@ def save_preference(name):
     st.session_state.pop("connection_status", None)
 
 
+def show_llm_settings():
+    st.session_state.page = "Settings"
+
+
 def settings_panel(settings):
     if settings.public_demo_enabled:
         st.info("Provider settings are disabled in the public synthetic demo. No LLM connections are used.")
@@ -152,6 +156,7 @@ def settings_panel(settings):
     st.toggle("Automatic OpenAI-to-Ollama fallback", key="_automatic_fallback", on_change=save_preference, args=("automatic_fallback",))
     st.caption("Ollama failures never select OpenAI. Remote Ollama requires a secured endpoint configured on the server.")
     st.caption("OpenAI server credential: " + ("Configured" if settings.openai_api_key else "Missing"))
+    st.caption("Configure OPENAI_API_KEY on the server (local .env) and restart after changing it.")
     if st.session_state.selected_provider == "openai":
         st.info("OpenAI sends questions and synthetic evidence to the cloud. Connection tests and analysis use your API account.")
     else: st.info("Ollama requires an installed model. Use a smaller model if the default does not fit your hardware.")
@@ -255,6 +260,8 @@ def main():
         st.session_state.demo_mode = True
         st.info("Public synthetic demo · No sign-in required · Deterministic analytics · No LLM calls")
     with st.sidebar:
+        if not settings.public_demo_enabled:
+            st.button("LLM Settings", key="open_llm_settings", on_click=show_llm_settings, width="stretch")
         pages = ["Analytics Workspace","Agent Execution","Settings","Data Explorer","Evaluation Dashboard"]
         if settings.public_demo_enabled:
             pages.remove("Settings")

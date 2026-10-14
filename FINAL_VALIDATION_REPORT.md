@@ -6,7 +6,7 @@ Verdict: **hardened four-domain synthetic prototype with actual public Free Rend
 
 | Check | Actual result | Evidence |
 |---|---|---|
-| Full Windows automated suite | 459 passed / 0 failed / 2 skipped; 461 total; 263.38s pytest | reports/test_results.xml; reports/evaluation.json |
+| Full Windows automated suite | 462 passed / 0 failed / 2 skipped; 464 total; 271.72s pytest | reports/test_results.xml; reports/evaluation.json |
 | Independent pandas reference comparisons | Usage 30/30; Sales 40/40; Marketing/Finance 55/55 matched | tests/fixtures/reference_answers.json; tests/fixtures/sales_reference_answers.json; tests/fixtures/business_reference_answers.json |
 | Human-question agent workflows | Usage 30/30; Sales 40/40; Marketing/Finance 55/55 matched | tests/test_e2e_references.py; tests/test_sales_pipeline.py; tests/test_business_domains.py |
 | Demonstration workflows | All twenty documented local demos; 140 completed components; ten new-domain hosted demos | reports/four_domain_pipeline_trace.json; reports/four_domain_hosted_verification.json |
@@ -111,3 +111,12 @@ Finance is a modeled booked revenue/expense subtotal, not audited net income or
 a double-entry ledger. Public mode uses no LLM. Real sources, messaging channels,
 actual identity lifecycle, live business-domain provider inference and sustained
 hosted capacity remain outside verified synthetic acceptance.
+
+
+## Current local OpenAI Settings verification - 14 October 2026
+
+The local app on port 8502 restores provider Settings on normal startup and has a visible LLM Settings button. Public demo mode still hides that control and blocks provider initialization. Owner confirms Settings is visible. Server credentials remain outside session/rendered text, and the current key successfully completes one real OpenAI connection test (46.423s). A real-provider AppTest Finance F1 comparison returns USD 4,003,078.54 to 2,896,087.27, matching independent pandas values with seven completed components (44.625s, gpt-4.1-mini-2025-04-14). Those individual checks are separate from the offline suite.
+
+Final Windows suite: 462 passed, zero failed, two opt-in live-provider skips of 464 (271.72s; 272.920s evaluator); all 125 independent and 125 human reference questions match. Initial test collection walked protected historical QA folders; evaluation now explicitly selects tests/. A restricted-run smoke subprocess shutdown failed, then the exact check and complete suite passed with the needed Windows process permissions. The orphan test server was cleaned up; the owner app remains healthy. Prior Linux/Free evidence above remains tied to the deployed four-domain source; this local configuration change has not been deployed to the public service.
+
+Reports/local_openai_settings_validation.json, local_openai_finance_validation.json and local_openai_finance_trace.json record actual checks. Live Ollama, Marketing/Sales model workflows and broader provider accuracy remain unverified.
