@@ -1,0 +1,2854 @@
+{
+  "domain": "sales",
+  "status": "ok",
+  "provider": "deterministic demo",
+  "model": "",
+  "fallback_reason": null,
+  "message": "Observed net sales: $8,885,850.33 USD → $9,786,830.25 USD; change $900,979.92 USD (+10.14% relative).",
+  "findings": [
+    "Observed net sales: $8,885,850.33 USD → $9,786,830.25 USD; change $900,979.92 USD (+10.14% relative).",
+    "Largest observed group change: Market A changed by $1,469,477.38 USD.",
+    "Group changes reconcile to the total.",
+    "These are fictional sales observations and contributions; they do not establish a confirmed business cause."
+  ],
+  "results": [
+    {
+      "skill": "S2",
+      "skill_version": "1.0",
+      "metric_version": "1.0",
+      "request": {
+        "metric": "net_sales",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "product": "Orion One",
+        "channel": null,
+        "scenario": "primary"
+      },
+      "definition": {
+        "metric_id": "net_sales",
+        "version": "1.0",
+        "owner": "Fictional Sales Analytics Demo",
+        "timezone": "UTC",
+        "currency": "USD",
+        "supported_dimensions": [
+          "market",
+          "product",
+          "channel"
+        ],
+        "source_datasets": [
+          "sales_fact",
+          "product_dim",
+          "market_dim",
+          "calendar_dim"
+        ],
+        "required_joins": [
+          "sales_fact.product_id=product_dim.product_id",
+          "sales_fact.market_id=market_dim.market_id",
+          "sales_fact.sale_date=calendar_dim.sale_date"
+        ],
+        "data_quality_requirements": [
+          "unique dimension keys",
+          "no orphan foreign keys",
+          "canonical sales_line_id",
+          "consistent order grain",
+          "valid money and return units",
+          "complete coverage",
+          "snapshot freshness"
+        ],
+        "business_meaning": "Invoiced sales less discounts and returns, plus signed adjustments; synthetic USD only.",
+        "calculation_method": "SUM(gross_cents-discount_cents-return_cents+adjustment_cents)/100",
+        "aggregation_grain": "order line; additive across exclusive groups",
+        "numerator": "canonical net USD cents",
+        "denominator": null
+      },
+      "baseline": 8885850.33,
+      "current": 9786830.25,
+      "absolute_change": 900979.9199999999,
+      "percentage_change": 10.139490161770484,
+      "records": [
+        {
+          "group": "Market A",
+          "baseline": 1748539.73,
+          "current": 3218017.11,
+          "change": 1469477.38,
+          "percentage_change": 84.0402625566878
+        },
+        {
+          "group": "Market B",
+          "baseline": 1821760.87,
+          "current": 1768300.33,
+          "change": -53460.54000000004,
+          "percentage_change": -2.9345530953247465
+        },
+        {
+          "group": "Market C",
+          "baseline": 1762255.36,
+          "current": 1809980.05,
+          "change": 47724.689999999944,
+          "percentage_change": 2.708159730040483
+        },
+        {
+          "group": "Market D",
+          "baseline": 1736113.53,
+          "current": 1204338.95,
+          "change": -531774.5800000001,
+          "percentage_change": -30.630173131592382
+        },
+        {
+          "group": "Market E",
+          "baseline": 1817180.84,
+          "current": 1786193.81,
+          "change": -30987.030000000028,
+          "percentage_change": -1.705225441404061
+        }
+      ],
+      "trend": [],
+      "warnings": [
+        "Removed 124 duplicate sales lines.",
+        "Included 485 lines arriving more than 24 hours late."
+      ],
+      "quality": {
+        "complete": true,
+        "freshness_valid": true,
+        "freshness_basis": "Historical synthetic snapshot 2026-10-10",
+        "integrity": "passed",
+        "coverage": [
+          {
+            "scenario": "primary",
+            "dataset": "sales_fact",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "available_through": "2026-05-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "sales_fact",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "available_through": "2026-06-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "sales_fact",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "available_through": "2026-07-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "sales_fact",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "available_through": "2026-08-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "sales_fact",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "available_through": "2026-09-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "sales_fact",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "available_through": "2026-10-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "product_dim",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "available_through": "2026-05-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "product_dim",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "available_through": "2026-06-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "product_dim",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "available_through": "2026-07-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "product_dim",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "available_through": "2026-08-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "product_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "available_through": "2026-09-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "product_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "available_through": "2026-10-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "available_through": "2026-05-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "available_through": "2026-06-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "available_through": "2026-07-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "available_through": "2026-08-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "available_through": "2026-09-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "available_through": "2026-10-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "available_through": "2026-05-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "available_through": "2026-06-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "available_through": "2026-07-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "available_through": "2026-08-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "available_through": "2026-09-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "available_through": "2026-10-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "available_through": "2026-05-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "available_through": "2026-06-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "available_through": "2026-07-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "available_through": "2026-08-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "available_through": "2026-09-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "available_through": "2026-10-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          }
+        ],
+        "events": {
+          "raw_rows": 12522,
+          "unique_lines": 12398,
+          "late_lines": 485
+        }
+      },
+      "evidence": [
+        {
+          "query_id": "ce1aee459483c27f",
+          "template": "sales.quality.integrity",
+          "duration_ms": 1104.23,
+          "rows": 1,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "sales_fact",
+            "product_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "8fc0e99ff00d2393",
+          "template": "sales.quality.events",
+          "duration_ms": 192.551,
+          "rows": 1,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "sales_fact",
+            "product_dim",
+            "market_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "f4f98df71aa2fb7d",
+          "template": "sales.quality.coverage",
+          "duration_ms": 2.107,
+          "rows": 30,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "af657a2f9a906314",
+          "template": "sales.total.net_sales.market",
+          "duration_ms": 304.269,
+          "rows": 1,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "f8ff3b8e8637df2296d5e1c155fc389ac1fa0bb98ca32fa6809008ba2c8b5e18"
+          },
+          "sources": [
+            "sales_fact",
+            "product_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "e6ebb9550c084baf",
+          "template": "sales.total.net_sales.market",
+          "duration_ms": 300.049,
+          "rows": 1,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "f8ff3b8e8637df2296d5e1c155fc389ac1fa0bb98ca32fa6809008ba2c8b5e18"
+          },
+          "sources": [
+            "sales_fact",
+            "product_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "be5005adf2471865",
+          "template": "sales.breakdown.net_sales.market",
+          "duration_ms": 303.136,
+          "rows": 5,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "0ff80247a552898be1dce944e85eaec766430e650325b6f8892fa7b65898213f"
+          },
+          "sources": [
+            "sales_fact",
+            "product_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "41891a2cb631424d",
+          "template": "sales.breakdown.net_sales.market",
+          "duration_ms": 304.43,
+          "rows": 5,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "0ff80247a552898be1dce944e85eaec766430e650325b6f8892fa7b65898213f"
+          },
+          "sources": [
+            "sales_fact",
+            "product_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ],
+      "reconciliation": {
+        "additive": true,
+        "mutually_exclusive": true,
+        "reconciled": true,
+        "sum_group_changes": 900979.9199999997,
+        "total_change": 900979.9199999999
+      },
+      "queries": [
+        {
+          "request": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "baseline",
+          "dimension": "market",
+          "template": "sales.total.net_sales.market",
+          "sql": "SELECT 'All' AS group_name, SUM(net_cents)::BIGINT net_cents, SUM(units_sold)::BIGINT units_sold, COUNT(DISTINCT order_id)::BIGINT orders FROM joined_sales WHERE sale_date>=?::DATE AND sale_date<?::DATE AND market IN (?,?,?,?,?) AND product_name=?",
+          "parameters": [
+            "2026-04-01",
+            "2026-07-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Orion One"
+          ]
+        },
+        {
+          "request": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "current",
+          "dimension": "market",
+          "template": "sales.total.net_sales.market",
+          "sql": "SELECT 'All' AS group_name, SUM(net_cents)::BIGINT net_cents, SUM(units_sold)::BIGINT units_sold, COUNT(DISTINCT order_id)::BIGINT orders FROM joined_sales WHERE sale_date>=?::DATE AND sale_date<?::DATE AND market IN (?,?,?,?,?) AND product_name=?",
+          "parameters": [
+            "2026-07-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Orion One"
+          ]
+        },
+        {
+          "request": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "kind": "breakdown",
+          "period": "baseline",
+          "dimension": "market",
+          "template": "sales.breakdown.net_sales.market",
+          "sql": "SELECT market AS group_name, SUM(net_cents)::BIGINT net_cents, SUM(units_sold)::BIGINT units_sold, COUNT(DISTINCT order_id)::BIGINT orders FROM joined_sales WHERE sale_date>=?::DATE AND sale_date<?::DATE AND market IN (?,?,?,?,?) AND product_name=? GROUP BY market ORDER BY market",
+          "parameters": [
+            "2026-04-01",
+            "2026-07-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Orion One"
+          ]
+        },
+        {
+          "request": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "kind": "breakdown",
+          "period": "current",
+          "dimension": "market",
+          "template": "sales.breakdown.net_sales.market",
+          "sql": "SELECT market AS group_name, SUM(net_cents)::BIGINT net_cents, SUM(units_sold)::BIGINT units_sold, COUNT(DISTINCT order_id)::BIGINT orders FROM joined_sales WHERE sale_date>=?::DATE AND sale_date<?::DATE AND market IN (?,?,?,?,?) AND product_name=? GROUP BY market ORDER BY market",
+          "parameters": [
+            "2026-07-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Orion One"
+          ]
+        }
+      ],
+      "duration_ms": 3402.66
+    }
+  ],
+  "followups": [
+    "Which markets contributed to the change in net sales for the same periods?",
+    "Now compare only Orion One for the same periods.",
+    "Investigate net sales across products for the same periods."
+  ],
+  "trace": [
+    {
+      "component_id": 1,
+      "stage": "User Query",
+      "status": "complete",
+      "elapsed_ms": 0.034,
+      "duration_ms": 0.034,
+      "characters": 74,
+      "execution_mode": "demo"
+    },
+    {
+      "component_id": 2,
+      "stage": "Intent Understanding",
+      "status": "complete",
+      "elapsed_ms": 0.867,
+      "duration_ms": 0.833,
+      "domain": "sales",
+      "action": "execute",
+      "request": {
+        "metric": "net_sales",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "product": "Orion One",
+        "channel": null,
+        "scenario": "primary"
+      }
+    },
+    {
+      "component_id": 3,
+      "stage": "Domain & Skill Selection",
+      "status": "complete",
+      "elapsed_ms": 0.897,
+      "duration_ms": 0.03,
+      "registry": {
+        "version": "1.0",
+        "skill_id": "sales_analytics",
+        "name": "Sales Analytics",
+        "operations": [
+          "S1",
+          "S2"
+        ],
+        "metrics": [
+          "net_sales",
+          "units_sold",
+          "orders",
+          "avg_order_value"
+        ],
+        "source": "synthetic_sales",
+        "date_range": "April–September 2026 UTC"
+      },
+      "operation": "contribution",
+      "dimension": "market"
+    },
+    {
+      "component_id": 4,
+      "stage": "Knowledge Retrieval",
+      "status": "complete",
+      "elapsed_ms": 247.524,
+      "duration_ms": 246.627,
+      "definition": {
+        "metric_id": "net_sales",
+        "version": "1.0",
+        "owner": "Fictional Sales Analytics Demo",
+        "timezone": "UTC",
+        "currency": "USD",
+        "supported_dimensions": [
+          "market",
+          "product",
+          "channel"
+        ],
+        "source_datasets": [
+          "sales_fact",
+          "product_dim",
+          "market_dim",
+          "calendar_dim"
+        ],
+        "required_joins": [
+          "sales_fact.product_id=product_dim.product_id",
+          "sales_fact.market_id=market_dim.market_id",
+          "sales_fact.sale_date=calendar_dim.sale_date"
+        ],
+        "data_quality_requirements": [
+          "unique dimension keys",
+          "no orphan foreign keys",
+          "canonical sales_line_id",
+          "consistent order grain",
+          "valid money and return units",
+          "complete coverage",
+          "snapshot freshness"
+        ],
+        "business_meaning": "Invoiced sales less discounts and returns, plus signed adjustments; synthetic USD only.",
+        "calculation_method": "SUM(gross_cents-discount_cents-return_cents+adjustment_cents)/100",
+        "aggregation_grain": "order line; additive across exclusive groups",
+        "numerator": "canonical net USD cents",
+        "denominator": null
+      },
+      "catalog": {
+        "logical_database": "synthetic_sales",
+        "storage": "bundled Parquet read-only DuckDB views",
+        "tables": {
+          "sales_fact": {
+            "grain": "one invoiced order line; sales_line_id deduplicates physical retransmissions",
+            "key": "sales_line_id",
+            "columns": {
+              "sales_line_id": "Fictional line identifier",
+              "order_id": "Fictional order identifier; multiple product lines may share an order",
+              "product_id": "Product foreign key",
+              "market_id": "Market foreign key",
+              "sale_date": "UTC accounting date; matches sale_at normalized to a day",
+              "channel": "Approved fictional channel",
+              "units_sold": "Gross invoiced units",
+              "gross_cents": "Gross USD cents before discounts and returns",
+              "discount_cents": "Nonnegative USD cents deducted",
+              "return_cents": "Nonnegative USD cents deducted for returns",
+              "adjustment_cents": "Signed USD cents for accounting adjustments",
+              "ingested_at": "UTC arrival timestamp; may arrive late"
+            }
+          },
+          "product_dim": {
+            "grain": "one fictional product",
+            "key": "product_id",
+            "columns": {
+              "product_id": "Unique product key",
+              "product_name": "Fictional product",
+              "category": "Fictional category",
+              "list_price_cents": "Synthetic list price"
+            }
+          },
+          "market_dim": {
+            "grain": "one fictional market",
+            "key": "market_id",
+            "columns": {
+              "market_id": "Unique market key",
+              "market": "Market A–E",
+              "region": "Fictional region"
+            }
+          },
+          "calendar_dim": {
+            "grain": "one UTC day",
+            "key": "sale_date",
+            "columns": {
+              "sale_date": "Unique date key",
+              "quarter": "Calendar quarter",
+              "fiscal_quarter": "Fiscal quarter with January year start",
+              "month_label": "Calendar YYYY-MM"
+            }
+          },
+          "data_quality_status": {
+            "grain": "source/scenario/month coverage",
+            "key": [
+              "scenario",
+              "dataset",
+              "period_start"
+            ],
+            "columns": {
+              "complete": "Coverage certification",
+              "available_through": "Exclusive available boundary",
+              "loaded_at": "Snapshot load time",
+              "snapshot_as_of": "Historical reference time"
+            }
+          }
+        },
+        "joins": [
+          "sales_fact.product_id → product_dim.product_id (many-to-one)",
+          "sales_fact.market_id → market_dim.market_id (many-to-one)",
+          "sales_fact.sale_date → calendar_dim.sale_date (many-to-one)"
+        ],
+        "policies": [
+          "Only registered sources, metrics, dimensions and internal SQL templates",
+          "No LLM-generated SQL or arbitrary code",
+          "Dates use UTC half-open boundaries; relative questions anchor to complete Q3 2026",
+          "Private sales requires an explicit sales domain grant",
+          "Public demo accepts only the bundled synthetic sales warehouse"
+        ]
+      },
+      "schemas": {
+        "sales_fact": [
+          {
+            "column_name": "sales_line_id",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "order_id",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "product_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "market_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "channel",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "sale_date",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "sale_at",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "units_sold",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "returned_units",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "gross_cents",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "discount_cents",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "return_cents",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "adjustment_cents",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "currency",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "ingested_at",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "product_dim": [
+          {
+            "column_name": "product_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "product_name",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "category",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "list_price_cents",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "market_dim": [
+          {
+            "column_name": "market_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "market",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "region",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "calendar_dim": [
+          {
+            "column_name": "sale_date",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "year",
+            "column_type": "INTEGER",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "month",
+            "column_type": "INTEGER",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "quarter",
+            "column_type": "INTEGER",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "month_label",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "fiscal_year",
+            "column_type": "INTEGER",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "fiscal_quarter",
+            "column_type": "INTEGER",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "data_quality_status": [
+          {
+            "column_name": "scenario",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "dataset",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "period_start",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "period_end",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "available_through",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "complete",
+            "column_type": "BOOLEAN",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "loaded_at",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "snapshot_as_of",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "status",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ]
+      },
+      "query_evidence": [
+        {
+          "query_id": "02e88b6953192d64",
+          "template": "sales.schema.sales_fact",
+          "duration_ms": 1.28,
+          "rows": 15,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "sales_fact"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "fd70bc8bc9deafda",
+          "template": "sales.schema.product_dim",
+          "duration_ms": 0.74,
+          "rows": 4,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "product_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "6af78e0b820c219f",
+          "template": "sales.schema.market_dim",
+          "duration_ms": 0.778,
+          "rows": 3,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "market_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "115b576aa40876c2",
+          "template": "sales.schema.calendar_dim",
+          "duration_ms": 0.823,
+          "rows": 7,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "6dbbde83ea66cd4d",
+          "template": "sales.schema.data_quality_status",
+          "duration_ms": 0.845,
+          "rows": 9,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ]
+    },
+    {
+      "component_id": 5,
+      "stage": "Approved Query Generation",
+      "status": "complete",
+      "elapsed_ms": 247.704,
+      "duration_ms": 0.18,
+      "policy": "Allowlisted parameterized SQL; no unrestricted model SQL",
+      "queries": [
+        {
+          "request": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "baseline",
+          "dimension": "market",
+          "template": "sales.total.net_sales.market",
+          "sql": "SELECT 'All' AS group_name, SUM(net_cents)::BIGINT net_cents, SUM(units_sold)::BIGINT units_sold, COUNT(DISTINCT order_id)::BIGINT orders FROM joined_sales WHERE sale_date>=?::DATE AND sale_date<?::DATE AND market IN (?,?,?,?,?) AND product_name=?",
+          "parameters": [
+            "2026-04-01",
+            "2026-07-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Orion One"
+          ]
+        },
+        {
+          "request": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "current",
+          "dimension": "market",
+          "template": "sales.total.net_sales.market",
+          "sql": "SELECT 'All' AS group_name, SUM(net_cents)::BIGINT net_cents, SUM(units_sold)::BIGINT units_sold, COUNT(DISTINCT order_id)::BIGINT orders FROM joined_sales WHERE sale_date>=?::DATE AND sale_date<?::DATE AND market IN (?,?,?,?,?) AND product_name=?",
+          "parameters": [
+            "2026-07-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Orion One"
+          ]
+        },
+        {
+          "request": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "kind": "breakdown",
+          "period": "baseline",
+          "dimension": "market",
+          "template": "sales.breakdown.net_sales.market",
+          "sql": "SELECT market AS group_name, SUM(net_cents)::BIGINT net_cents, SUM(units_sold)::BIGINT units_sold, COUNT(DISTINCT order_id)::BIGINT orders FROM joined_sales WHERE sale_date>=?::DATE AND sale_date<?::DATE AND market IN (?,?,?,?,?) AND product_name=? GROUP BY market ORDER BY market",
+          "parameters": [
+            "2026-04-01",
+            "2026-07-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Orion One"
+          ]
+        },
+        {
+          "request": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "kind": "breakdown",
+          "period": "current",
+          "dimension": "market",
+          "template": "sales.breakdown.net_sales.market",
+          "sql": "SELECT market AS group_name, SUM(net_cents)::BIGINT net_cents, SUM(units_sold)::BIGINT units_sold, COUNT(DISTINCT order_id)::BIGINT orders FROM joined_sales WHERE sale_date>=?::DATE AND sale_date<?::DATE AND market IN (?,?,?,?,?) AND product_name=? GROUP BY market ORDER BY market",
+          "parameters": [
+            "2026-07-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Orion One"
+          ]
+        }
+      ]
+    },
+    {
+      "component_id": 6,
+      "stage": "Execute & Validate",
+      "status": "complete",
+      "elapsed_ms": 3650.649,
+      "duration_ms": 3402.945,
+      "executed_skills": [
+        "S2"
+      ],
+      "quality": {
+        "complete": true,
+        "freshness_valid": true,
+        "freshness_basis": "Historical synthetic snapshot 2026-10-10",
+        "integrity": "passed",
+        "coverage": [
+          {
+            "scenario": "primary",
+            "dataset": "sales_fact",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "available_through": "2026-05-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "sales_fact",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "available_through": "2026-06-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "sales_fact",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "available_through": "2026-07-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "sales_fact",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "available_through": "2026-08-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "sales_fact",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "available_through": "2026-09-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "sales_fact",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "available_through": "2026-10-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "product_dim",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "available_through": "2026-05-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "product_dim",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "available_through": "2026-06-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "product_dim",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "available_through": "2026-07-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "product_dim",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "available_through": "2026-08-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "product_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "available_through": "2026-09-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "product_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "available_through": "2026-10-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "available_through": "2026-05-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "available_through": "2026-06-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "available_through": "2026-07-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "available_through": "2026-08-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "available_through": "2026-09-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "available_through": "2026-10-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "available_through": "2026-05-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "available_through": "2026-06-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "available_through": "2026-07-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "available_through": "2026-08-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "available_through": "2026-09-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "available_through": "2026-10-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "available_through": "2026-05-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "available_through": "2026-06-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "available_through": "2026-07-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "available_through": "2026-08-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "available_through": "2026-09-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "available_through": "2026-10-01T00:00:00",
+            "complete": true,
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00",
+            "status": "complete"
+          }
+        ],
+        "events": {
+          "raw_rows": 12522,
+          "unique_lines": 12398,
+          "late_lines": 485
+        }
+      },
+      "reconciliations": [
+        {
+          "additive": true,
+          "mutually_exclusive": true,
+          "reconciled": true,
+          "sum_group_changes": 900979.9199999997,
+          "total_change": 900979.9199999999
+        }
+      ],
+      "query_evidence": [
+        {
+          "query_id": "ce1aee459483c27f",
+          "template": "sales.quality.integrity",
+          "duration_ms": 1104.23,
+          "rows": 1,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "sales_fact",
+            "product_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "8fc0e99ff00d2393",
+          "template": "sales.quality.events",
+          "duration_ms": 192.551,
+          "rows": 1,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "sales_fact",
+            "product_dim",
+            "market_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "f4f98df71aa2fb7d",
+          "template": "sales.quality.coverage",
+          "duration_ms": 2.107,
+          "rows": 30,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "af657a2f9a906314",
+          "template": "sales.total.net_sales.market",
+          "duration_ms": 304.269,
+          "rows": 1,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "f8ff3b8e8637df2296d5e1c155fc389ac1fa0bb98ca32fa6809008ba2c8b5e18"
+          },
+          "sources": [
+            "sales_fact",
+            "product_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "e6ebb9550c084baf",
+          "template": "sales.total.net_sales.market",
+          "duration_ms": 300.049,
+          "rows": 1,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "f8ff3b8e8637df2296d5e1c155fc389ac1fa0bb98ca32fa6809008ba2c8b5e18"
+          },
+          "sources": [
+            "sales_fact",
+            "product_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "be5005adf2471865",
+          "template": "sales.breakdown.net_sales.market",
+          "duration_ms": 303.136,
+          "rows": 5,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "0ff80247a552898be1dce944e85eaec766430e650325b6f8892fa7b65898213f"
+          },
+          "sources": [
+            "sales_fact",
+            "product_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "41891a2cb631424d",
+          "template": "sales.breakdown.net_sales.market",
+          "duration_ms": 304.43,
+          "rows": 5,
+          "parameters": {
+            "metric": "net_sales",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "product": "Orion One",
+            "channel": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "0ff80247a552898be1dce944e85eaec766430e650325b6f8892fa7b65898213f"
+          },
+          "sources": [
+            "sales_fact",
+            "product_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ]
+    },
+    {
+      "component_id": 7,
+      "stage": "Results & Insights",
+      "status": "complete",
+      "elapsed_ms": 3650.711,
+      "duration_ms": 0.062,
+      "result_count": 1,
+      "finding_basis": "Executed query values only",
+      "chart_rows": 5
+    }
+  ],
+  "context": {
+    "domain": "sales",
+    "usage": {
+      "request": null
+    },
+    "sales": {
+      "request": {
+        "metric": "net_sales",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "product": "Orion One",
+        "channel": null,
+        "scenario": "primary"
+      }
+    }
+  },
+  "elapsed_ms": 3650.7175259757787,
+  "tool_calls": 1,
+  "knowledge": {
+    "metric": {
+      "metric_id": "net_sales",
+      "version": "1.0",
+      "owner": "Fictional Sales Analytics Demo",
+      "timezone": "UTC",
+      "currency": "USD",
+      "supported_dimensions": [
+        "market",
+        "product",
+        "channel"
+      ],
+      "source_datasets": [
+        "sales_fact",
+        "product_dim",
+        "market_dim",
+        "calendar_dim"
+      ],
+      "required_joins": [
+        "sales_fact.product_id=product_dim.product_id",
+        "sales_fact.market_id=market_dim.market_id",
+        "sales_fact.sale_date=calendar_dim.sale_date"
+      ],
+      "data_quality_requirements": [
+        "unique dimension keys",
+        "no orphan foreign keys",
+        "canonical sales_line_id",
+        "consistent order grain",
+        "valid money and return units",
+        "complete coverage",
+        "snapshot freshness"
+      ],
+      "business_meaning": "Invoiced sales less discounts and returns, plus signed adjustments; synthetic USD only.",
+      "calculation_method": "SUM(gross_cents-discount_cents-return_cents+adjustment_cents)/100",
+      "aggregation_grain": "order line; additive across exclusive groups",
+      "numerator": "canonical net USD cents",
+      "denominator": null
+    },
+    "catalog": {
+      "logical_database": "synthetic_sales",
+      "storage": "bundled Parquet read-only DuckDB views",
+      "tables": {
+        "sales_fact": {
+          "grain": "one invoiced order line; sales_line_id deduplicates physical retransmissions",
+          "key": "sales_line_id",
+          "columns": {
+            "sales_line_id": "Fictional line identifier",
+            "order_id": "Fictional order identifier; multiple product lines may share an order",
+            "product_id": "Product foreign key",
+            "market_id": "Market foreign key",
+            "sale_date": "UTC accounting date; matches sale_at normalized to a day",
+            "channel": "Approved fictional channel",
+            "units_sold": "Gross invoiced units",
+            "gross_cents": "Gross USD cents before discounts and returns",
+            "discount_cents": "Nonnegative USD cents deducted",
+            "return_cents": "Nonnegative USD cents deducted for returns",
+            "adjustment_cents": "Signed USD cents for accounting adjustments",
+            "ingested_at": "UTC arrival timestamp; may arrive late"
+          }
+        },
+        "product_dim": {
+          "grain": "one fictional product",
+          "key": "product_id",
+          "columns": {
+            "product_id": "Unique product key",
+            "product_name": "Fictional product",
+            "category": "Fictional category",
+            "list_price_cents": "Synthetic list price"
+          }
+        },
+        "market_dim": {
+          "grain": "one fictional market",
+          "key": "market_id",
+          "columns": {
+            "market_id": "Unique market key",
+            "market": "Market A–E",
+            "region": "Fictional region"
+          }
+        },
+        "calendar_dim": {
+          "grain": "one UTC day",
+          "key": "sale_date",
+          "columns": {
+            "sale_date": "Unique date key",
+            "quarter": "Calendar quarter",
+            "fiscal_quarter": "Fiscal quarter with January year start",
+            "month_label": "Calendar YYYY-MM"
+          }
+        },
+        "data_quality_status": {
+          "grain": "source/scenario/month coverage",
+          "key": [
+            "scenario",
+            "dataset",
+            "period_start"
+          ],
+          "columns": {
+            "complete": "Coverage certification",
+            "available_through": "Exclusive available boundary",
+            "loaded_at": "Snapshot load time",
+            "snapshot_as_of": "Historical reference time"
+          }
+        }
+      },
+      "joins": [
+        "sales_fact.product_id → product_dim.product_id (many-to-one)",
+        "sales_fact.market_id → market_dim.market_id (many-to-one)",
+        "sales_fact.sale_date → calendar_dim.sale_date (many-to-one)"
+      ],
+      "policies": [
+        "Only registered sources, metrics, dimensions and internal SQL templates",
+        "No LLM-generated SQL or arbitrary code",
+        "Dates use UTC half-open boundaries; relative questions anchor to complete Q3 2026",
+        "Private sales requires an explicit sales domain grant",
+        "Public demo accepts only the bundled synthetic sales warehouse"
+      ]
+    },
+    "schemas": {
+      "sales_fact": [
+        {
+          "column_name": "sales_line_id",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "order_id",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "product_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "market_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "channel",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "sale_date",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "sale_at",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "units_sold",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "returned_units",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "gross_cents",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "discount_cents",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "return_cents",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "adjustment_cents",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "currency",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "ingested_at",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "product_dim": [
+        {
+          "column_name": "product_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "product_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "category",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "list_price_cents",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "market_dim": [
+        {
+          "column_name": "market_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "market",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "region",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "calendar_dim": [
+        {
+          "column_name": "sale_date",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "year",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "month",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "quarter",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "month_label",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fiscal_year",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fiscal_quarter",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "data_quality_status": [
+        {
+          "column_name": "scenario",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "dataset",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "period_start",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "period_end",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "available_through",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "complete",
+          "column_type": "BOOLEAN",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "loaded_at",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "snapshot_as_of",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "status",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ]
+    },
+    "synthetic_manifest": {
+      "is_synthetic": true,
+      "domain": "sales",
+      "seed": 20260401,
+      "unique_orders": 25000,
+      "period_start": "2026-04-01",
+      "period_end_exclusive": "2026-10-01",
+      "relative_period_anchor": "2026-10-01",
+      "timezone": "UTC",
+      "currency": "USD",
+      "fiscal_year_start_month": 1,
+      "source_grain": "one invoiced order line; physical duplicates identified by sales_line_id",
+      "row_counts": {
+        "sales_fact": 50500,
+        "product_dim": 4,
+        "market_dim": 5,
+        "calendar_dim": 183,
+        "data_quality_status": 60
+      },
+      "unique_sales_lines": 50000,
+      "incomplete_scenario": "separate partition omits September 24–30; primary Q2/Q3 complete"
+    }
+  }
+}

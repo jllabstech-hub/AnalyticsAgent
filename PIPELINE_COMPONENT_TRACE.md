@@ -62,3 +62,19 @@ definitions, approved operations and independent reference tests, followed by a
 registry entry. Unsupported domains and cross-domain joins are clarified rather
 than producing invented results. Actual enterprise connectors, Teams/Slack/email,
 real identity lifecycle and sustained production load remain separate integrations.
+
+
+## Actual delivery verification
+
+The corrected build runs on the existing Free Render app. All five documented sales
+questions execute successfully after an actual service restart. Downloaded hosted
+traces expose every component as complete. Independent pandas calculations match
+every total, monthly chart value and contribution group. The original usage
+comparison also passes after restart (66,025 to 65,292; change -733).
+
+Full Windows and Linux CI suites: 306 passed, zero failed, two opt-in live-provider
+skips of 308. Hosted CSV, Excel, PDF and JSON exports reopen with executed values;
+Sales Explorer shows 50,500 source rows. Evidence: reports/platform_hosted_verification.json
+and reports/platform_hosted_*_trace.json. This verifies the synthetic core pipeline;
+real enterprise sources, messaging channels, actual identity login, live Sales LLM
+inference and sustained hosted capacity are not established.

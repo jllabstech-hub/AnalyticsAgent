@@ -20,7 +20,7 @@ Verdict: **hardened prototype suitable for controlled acceptance testing; not ye
 
 3. **Hosted reliability and operational limits are unverified.**
    - What this is: render.yaml uses the user-selected Free single-process service with 512 MB host RAM and a 320 MB DuckDB budget; paid resources are not authorized.
-   - Current evidence: GitHub Linux CI verifies all 205 tests. The Free Render service runs the owner-authorized public synthetic demo, with root/health HTTP 200 and a working anonymous MAU comparison. Local Streamlit peaks at 422.12 MiB with the reduced budget. Hosted authenticated analytics memory and sustained capacity remain unverified. Free-plan application memory/CPU telemetry requires an upgrade, which is not authorized.
+   - Current evidence: GitHub Linux CI verifies all 308 tests. The Free Render service runs the owner-authorized public synthetic demo, with root/health HTTP 200 and a working anonymous MAU comparison. The local both-domain UI/export check peaks at 424.27 MiB with the reduced budget. Hosted authenticated analytics memory and sustained capacity remain unverified. Free-plan application memory/CPU telemetry requires an upgrade, which is not authorized.
    - Remaining work: Configure OIDC, test hosted authenticated workflows and representative load, establish monitoring and any separately authorized API spend limit, then assess against an agreed traffic/SLA target.
    - If we skip it: Local success may be mistaken for a reliable hosted service or a tested operating budget.
 
@@ -46,11 +46,11 @@ Verdict: **hardened prototype suitable for controlled acceptance testing; not ye
 
 ## Actual acceptance evidence
 
-203 passed, 0 failed, 2 skipped of 205 tests on both Windows and GitHub Linux CI. Both the 30 independent calculations and 30 human-question deterministic workflows matched all references. Five EVP demos were actually executed. All displayed numerical findings in these workflows came from the shared skills and approved queries. A separate real OpenAI browser comparison also returned the independent MAU totals; public mode disables providers.
+306 passed, 0 failed, 2 skipped of 308 tests on both Windows and GitHub Linux CI. Usage references match 30/30 calculations and 30/30 human questions; Sales references match 40/40 calculations and 40/40 questions. Five EVP demos were actually executed. All displayed numerical findings in these workflows came from the shared skills and approved queries. A separate real OpenAI browser comparison also returned the independent MAU totals; public mode disables providers.
 
 Measured cold investigation 7.196s, warm 5.683ms, four simultaneous investigations all passed, peak backend 385.04 MiB. Two real startup/restart checks passed. Desktop 1366x900 and normal compact browser layouts were inspected; production guard and revocation paths were exercised with simulated claims.
 
-No source credential candidates were found in the local scan. The dependency scan checked 83 packages with 0 known findings and no skipped packages. These checks are not penetration testing, production security certification, live model evaluation or hosted capacity approval.
+No source credential candidates were found in the local scan. The current local dependency scan checked 86 packages with 0 known findings and no skipped packages. These checks are not penetration testing, production security certification, live model evaluation or hosted capacity approval.
 
 ## Reproduce and review
 
@@ -65,4 +65,7 @@ Not checked: real enterprise data, broad live LLM accuracy, live Ollama, signed 
 
 ## Sales extension acceptance and remaining limits
 
-Final local suite is 306 passed / 0 failed / 2 skipped of 308; 40 independent sales calculations and 40 question workflows match, alongside both 30-question usage suites. Seven observable components, read-only metadata/catalog retrieval, parameterized sales operations, private domain grants and exports are verified. The actual both-domain Streamlit/export peak is 424.27 MiB on Windows. Published dependency audit checks 86 packages with zero known findings. New-source Linux CI and Free hosted sales verification follow. Public mode runs only bundled fictional data with no providers. Enterprise databases, Teams/Slack/email, real sales-provider inference, actual identity lifecycle and sustained hosted traffic remain unverified or unconnected. The supplied architecture is implemented for the synthetic core pipeline, not claimed as a complete enterprise platform.
+Final local suite is 306 passed / 0 failed / 2 skipped of 308; 40 independent sales calculations and 40 question workflows match, alongside both 30-question usage suites. Seven observable components, read-only metadata/catalog retrieval, parameterized sales operations, private domain grants and exports are verified. The actual both-domain Streamlit/export peak is 424.27 MiB on Windows. Published dependency audit checks 86 packages with zero known findings. New-source Linux CI and Free hosted sales verification now pass; final evidence is recorded below. Public mode runs only bundled fictional data with no providers. Enterprise databases, Teams/Slack/email, real sales-provider inference, actual identity lifecycle and sustained hosted traffic remain unverified or unconnected. The supplied architecture is implemented for the synthetic core pipeline, not claimed as a complete enterprise platform.
+
+
+Final synthetic acceptance: corrected-source Windows and Linux suites both pass 306/0/2 of 308. Runtime 94bbe25 is Live on Free; five Sales workflows and the preserved Usage comparison all pass after an actual restart with seven completed components. Independent pandas validation checks every Sales total, monthly trend and contribution group. Read-only Sales Explorer and all download formats are verified. Details: reports/platform_hosted_verification.json and PIPELINE_COMPONENT_TRACE.md. These checks supersede earlier pending new-source CI/hosted statements; the external production requirements above remain in force.

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-14T10:25:55.531993+00:00",
+  "generated_at_utc": "2026-10-14T10:42:12.319635+00:00",
   "total": 308,
   "passed": 306,
   "failed": 0,
@@ -13,7 +13,7 @@
   "correct_sales_reference_questions": 40,
   "sales_natural_language_e2e_questions": 40,
   "correct_sales_natural_language_e2e_questions": 40,
-  "test_duration_seconds": 210.547,
+  "test_duration_seconds": 223.918,
   "limitations": [
     "Synthetic evaluation only; not enterprise production accuracy.",
     "Live LLM inference requires services, credentials and explicit opt-in.",

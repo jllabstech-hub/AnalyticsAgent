@@ -1,17 +1,17 @@
 {
-  "checked_at_utc": "2026-10-14T05:23:40.769417+00:00",
+  "checked_at_utc": "2026-10-14T10:42:30.634037+00:00",
   "repository": "jllabstech-hub/AnalyticsAgent",
   "branch": "main",
-  "local_sha": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
-  "remote_sha": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
+  "local_sha": "94bbe25292beccd1108db4fb387a943e4307eac7",
+  "remote_sha": "94bbe25292beccd1108db4fb387a943e4307eac7",
   "commit_verified": true,
   "run": {
-    "id": 38516053075,
+    "id": 38551074152,
     "name": "Analytics quality",
     "status": "completed",
     "conclusion": "success",
-    "html_url": "https://github.com/jllabstech-hub/AnalyticsAgent/actions/runs/38516053075",
-    "head_sha": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0"
+    "html_url": "https://github.com/jllabstech-hub/AnalyticsAgent/actions/runs/38551074152",
+    "head_sha": "94bbe25292beccd1108db4fb387a943e4307eac7"
   },
   "jobs": [
     {
@@ -80,31 +80,31 @@
   "log_evidence": [
     {
       "log": "validate/5_Full analytical and UI evaluation.txt",
-      "line": "2026-10-14T05:23:22.5156311Z 203 passed, 2 skipped in 151.32s (0:02:31)"
+      "line": "2026-10-14T10:42:03.5412343Z 306 passed, 2 skipped in 127.30s (0:02:07)"
     },
     {
       "log": "validate/6_Credential source check.txt",
-      "line": "2026-10-14T05:23:23.0920403Z   \"status\": \"pass\","
+      "line": "2026-10-14T10:42:04.3594736Z   \"status\": \"pass\","
     },
     {
       "log": "validate/7_Published dependency advisories.txt",
-      "line": "2026-10-14T05:23:24.3358012Z No known vulnerabilities found"
+      "line": "2026-10-14T10:42:06.5488105Z No known vulnerabilities found"
     },
     {
       "log": "validate/8_Startup and restart smoke.txt",
-      "line": "2026-10-14T05:23:26.8561459Z   \"status\": \"pass\","
+      "line": "2026-10-14T10:42:08.6396355Z   \"status\": \"pass\","
     },
     {
       "log": "validate/8_Startup and restart smoke.txt",
-      "line": "2026-10-14T05:23:26.8566447Z       \"health\": \"ok\","
+      "line": "2026-10-14T10:42:08.6397409Z       \"health\": \"ok\","
     },
     {
       "log": "validate/8_Startup and restart smoke.txt",
-      "line": "2026-10-14T05:23:26.8568020Z       \"health\": \"ok\","
+      "line": "2026-10-14T10:42:08.6398147Z       \"health\": \"ok\","
     },
     {
       "log": "validate/8_Startup and restart smoke.txt",
-      "line": "2026-10-14T05:23:26.8568867Z   \"platform\": \"linux\","
+      "line": "2026-10-14T10:42:08.6398647Z   \"platform\": \"linux\","
     }
   ]
 }

@@ -1,22 +1,22 @@
 {
-  "checked_at_utc": "2026-10-14T05:35:47.876Z",
+  "checked_at_utc": "2026-10-14T11:02:14.233799+00:00",
   "public_url": "https://bdc-analytics-agent-prototype.onrender.com",
   "plan": "free",
   "compute_USD_per_month": 0,
   "status": "live",
-  "deployed_commit": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
+  "deployed_commit": "94bbe25292beccd1108db4fb387a943e4307eac7",
   "health_checks": [
     {
       "path": "/_stcore/health",
       "http_status": 200,
       "health": "ok",
-      "elapsed_seconds": 0.412
+      "elapsed_seconds": 0.223
     },
     {
       "path": "/",
       "http_status": 200,
       "health": null,
-      "elapsed_seconds": 0.417
+      "elapsed_seconds": 0.136
     }
   ],
   "production_login_configured": false,
@@ -30,7 +30,10 @@
     "guard_message_visible": false,
     "unhandled_traceback_visible": false,
     "mode": "Public synthetic demo; deterministic only; no LLM calls",
-    "demonstration_workflows_passed": 5,
+    "sales_workflows_passed": 5,
+    "usage_regression_passed": true,
+    "seven_components_verified": true,
+    "read_only_sales_explorer_verified": true,
     "private_authenticated_workflows": "not tested; OIDC configuration missing"
   },
   "initial_deployment": {
@@ -53,9 +56,8 @@
   },
   "final_deployment": {
     "dashboard_status": "Deploy succeeded | Live",
-    "duration_seconds": 118,
-    "source_commit": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
-    "deployed_at_displayed": "14 October 2026 at 10:51:08 Asia/Calcutta"
+    "source_commit": "94bbe25292beccd1108db4fb387a943e4307eac7",
+    "live_at_displayed": "14 October 2026 at 16:11 Asia/Calcutta"
   },
   "prior_protected_deployment": {
     "deployed_commit": "35accac2d5bec66c2d306ec1cc839db76c12cf42",
@@ -94,24 +96,62 @@
   },
   "public_demo_enabled": true,
   "restart": {
-    "deployed_commit": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
     "dashboard_event": "Service restarted by you",
-    "event_displayed_at": "14 October 2026 at 11:02 Asia/Calcutta",
-    "verified_at_utc": "2026-10-14T05:34:55.827638+00:00",
+    "displayed_at": "14 October 2026 at 16:21 Asia/Calcutta",
+    "post_restart_five_sales_workflows_passed": true,
+    "deployed_commit": "94bbe25292beccd1108db4fb387a943e4307eac7",
     "http_status": 200,
     "health": "ok",
-    "elapsed_seconds": 0.316,
-    "sign_in_required_after_restart": false,
-    "fresh_comparison": {
+    "fresh_usage_comparison": {
       "status": "pass",
-      "baseline": 66025,
-      "current": 65292,
-      "absolute_change": -733,
-      "provider": "deterministic demo",
-      "skills": [
-        "K1"
-      ],
-      "displayed_elapsed_seconds": 44.14
+      "metric": "mau",
+      "baseline": 66025.0,
+      "current": 65292.0,
+      "absolute_change": -733.0,
+      "elapsed_seconds": 36.946,
+      "post_restart": true,
+      "all_seven_components_complete": true,
+      "trace_file": "platform_hosted_usage_trace.json"
+    }
+  },
+  "prior_usage_public_deployment": {
+    "checked_at_utc": "2026-10-14T05:35:47.876Z",
+    "deployed_commit": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
+    "final_deployment": {
+      "dashboard_status": "Deploy succeeded | Live",
+      "duration_seconds": 118,
+      "source_commit": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
+      "deployed_at_displayed": "14 October 2026 at 10:51:08 Asia/Calcutta"
+    },
+    "restart": {
+      "deployed_commit": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
+      "dashboard_event": "Service restarted by you",
+      "event_displayed_at": "14 October 2026 at 11:02 Asia/Calcutta",
+      "verified_at_utc": "2026-10-14T05:34:55.827638+00:00",
+      "http_status": 200,
+      "health": "ok",
+      "elapsed_seconds": 0.316,
+      "sign_in_required_after_restart": false,
+      "fresh_comparison": {
+        "status": "pass",
+        "baseline": 66025,
+        "current": 65292,
+        "absolute_change": -733,
+        "provider": "deterministic demo",
+        "skills": [
+          "K1"
+        ],
+        "displayed_elapsed_seconds": 44.14
+      }
+    },
+    "browser_validation": {
+      "title": "BDC Analytics Agent",
+      "sign_in_required": false,
+      "guard_message_visible": false,
+      "unhandled_traceback_visible": false,
+      "mode": "Public synthetic demo; deterministic only; no LLM calls",
+      "demonstration_workflows_passed": 5,
+      "private_authenticated_workflows": "not tested; OIDC configuration missing"
     }
   }
 }

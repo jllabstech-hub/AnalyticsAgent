@@ -1,0 +1,411 @@
+{
+  "checked_at_utc": "2026-10-14T11:02:14.233799+00:00",
+  "public_url": "https://bdc-analytics-agent-prototype.onrender.com",
+  "deployed_commit": "94bbe25292beccd1108db4fb387a943e4307eac7",
+  "plan": "free",
+  "health_checks": [
+    {
+      "path": "/_stcore/health",
+      "http_status": 200,
+      "health": "ok",
+      "elapsed_seconds": 0.223
+    },
+    {
+      "path": "/",
+      "http_status": 200,
+      "health": null,
+      "elapsed_seconds": 0.136
+    }
+  ],
+  "browser_workflows_pending": false,
+  "sales_workflows": [
+    {
+      "case": "comparison",
+      "trace_file": "platform_hosted_trace.json",
+      "status": "pass",
+      "skills": [
+        "S1"
+      ],
+      "request": {
+        "metric": "net_sales",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": "Market A",
+        "product": "Orion One",
+        "channel": null,
+        "scenario": "primary"
+      },
+      "baseline": 1748539.73,
+      "current": 3218017.11,
+      "absolute_change": 1469477.38,
+      "reference_match": true,
+      "component_statuses": [
+        {
+          "id": 1,
+          "component": "User Query",
+          "status": "complete"
+        },
+        {
+          "id": 2,
+          "component": "Intent Understanding",
+          "status": "complete"
+        },
+        {
+          "id": 3,
+          "component": "Domain & Skill Selection",
+          "status": "complete"
+        },
+        {
+          "id": 4,
+          "component": "Knowledge Retrieval",
+          "status": "complete"
+        },
+        {
+          "id": 5,
+          "component": "Approved Query Generation",
+          "status": "complete"
+        },
+        {
+          "id": 6,
+          "component": "Execute & Validate",
+          "status": "complete"
+        },
+        {
+          "id": 7,
+          "component": "Results & Insights",
+          "status": "complete"
+        }
+      ],
+      "elapsed_seconds": 3.704
+    },
+    {
+      "case": "market contribution",
+      "trace_file": "platform_hosted_market_trace.json",
+      "status": "pass",
+      "skills": [
+        "S2"
+      ],
+      "request": {
+        "metric": "net_sales",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "product": "Orion One",
+        "channel": null,
+        "scenario": "primary"
+      },
+      "baseline": 8885850.33,
+      "current": 9786830.25,
+      "absolute_change": 900979.9199999999,
+      "reference_match": true,
+      "component_statuses": [
+        {
+          "id": 1,
+          "component": "User Query",
+          "status": "complete"
+        },
+        {
+          "id": 2,
+          "component": "Intent Understanding",
+          "status": "complete"
+        },
+        {
+          "id": 3,
+          "component": "Domain & Skill Selection",
+          "status": "complete"
+        },
+        {
+          "id": 4,
+          "component": "Knowledge Retrieval",
+          "status": "complete"
+        },
+        {
+          "id": 5,
+          "component": "Approved Query Generation",
+          "status": "complete"
+        },
+        {
+          "id": 6,
+          "component": "Execute & Validate",
+          "status": "complete"
+        },
+        {
+          "id": 7,
+          "component": "Results & Insights",
+          "status": "complete"
+        }
+      ],
+      "elapsed_seconds": 3.651
+    },
+    {
+      "case": "product investigation",
+      "trace_file": "platform_hosted_product_trace.json",
+      "status": "pass",
+      "skills": [
+        "S1",
+        "S2"
+      ],
+      "request": {
+        "metric": "net_sales",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "product": null,
+        "channel": null,
+        "scenario": "primary"
+      },
+      "baseline": 40596341.27,
+      "current": 39788390.29,
+      "absolute_change": -807950.9800000042,
+      "reference_match": true,
+      "component_statuses": [
+        {
+          "id": 1,
+          "component": "User Query",
+          "status": "complete"
+        },
+        {
+          "id": 2,
+          "component": "Intent Understanding",
+          "status": "complete"
+        },
+        {
+          "id": 3,
+          "component": "Domain & Skill Selection",
+          "status": "complete"
+        },
+        {
+          "id": 4,
+          "component": "Knowledge Retrieval",
+          "status": "complete"
+        },
+        {
+          "id": 5,
+          "component": "Approved Query Generation",
+          "status": "complete"
+        },
+        {
+          "id": 6,
+          "component": "Execute & Validate",
+          "status": "complete"
+        },
+        {
+          "id": 7,
+          "component": "Results & Insights",
+          "status": "complete"
+        }
+      ],
+      "elapsed_seconds": 4.855
+    },
+    {
+      "case": "monthly units",
+      "trace_file": "platform_hosted_units_trace.json",
+      "status": "pass",
+      "skills": [
+        "S1"
+      ],
+      "request": {
+        "metric": "units_sold",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "product": null,
+        "channel": null,
+        "scenario": "primary"
+      },
+      "baseline": 20366.0,
+      "current": 20254.0,
+      "absolute_change": -112.0,
+      "reference_match": true,
+      "component_statuses": [
+        {
+          "id": 1,
+          "component": "User Query",
+          "status": "complete"
+        },
+        {
+          "id": 2,
+          "component": "Intent Understanding",
+          "status": "complete"
+        },
+        {
+          "id": 3,
+          "component": "Domain & Skill Selection",
+          "status": "complete"
+        },
+        {
+          "id": 4,
+          "component": "Knowledge Retrieval",
+          "status": "complete"
+        },
+        {
+          "id": 5,
+          "component": "Approved Query Generation",
+          "status": "complete"
+        },
+        {
+          "id": 6,
+          "component": "Execute & Validate",
+          "status": "complete"
+        },
+        {
+          "id": 7,
+          "component": "Results & Insights",
+          "status": "complete"
+        }
+      ],
+      "elapsed_seconds": 4.506
+    },
+    {
+      "case": "contextual channel",
+      "trace_file": "platform_hosted_channel_trace.json",
+      "status": "pass",
+      "skills": [
+        "S1"
+      ],
+      "request": {
+        "metric": "units_sold",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "product": null,
+        "channel": "Fictional Web",
+        "scenario": "primary"
+      },
+      "baseline": 6800.0,
+      "current": 6922.0,
+      "absolute_change": 122.0,
+      "reference_match": true,
+      "component_statuses": [
+        {
+          "id": 1,
+          "component": "User Query",
+          "status": "complete"
+        },
+        {
+          "id": 2,
+          "component": "Intent Understanding",
+          "status": "complete"
+        },
+        {
+          "id": 3,
+          "component": "Domain & Skill Selection",
+          "status": "complete"
+        },
+        {
+          "id": 4,
+          "component": "Knowledge Retrieval",
+          "status": "complete"
+        },
+        {
+          "id": 5,
+          "component": "Approved Query Generation",
+          "status": "complete"
+        },
+        {
+          "id": 6,
+          "component": "Execute & Validate",
+          "status": "complete"
+        },
+        {
+          "id": 7,
+          "component": "Results & Insights",
+          "status": "complete"
+        }
+      ],
+      "elapsed_seconds": 3.552
+    }
+  ],
+  "sales_reference_validation": "All totals, monthly trends and contribution groups independently match pandas calculations.",
+  "restart": {
+    "dashboard_event": "Service restarted by you",
+    "displayed_at": "14 October 2026 at 16:21 Asia/Calcutta",
+    "post_restart_five_sales_workflows_passed": true
+  },
+  "explorer": {
+    "domain": "sales",
+    "dataset": "sales_fact",
+    "physical_rows": 50500,
+    "schema_and_sample_visible": true,
+    "read_only": true
+  },
+  "exports": {
+    "verified_source_commit": "db471a0b4b3fcfa8e4ad11e5b72f74fcf11774d2",
+    "builders_unchanged_in_final_source": true,
+    "csv_monthly_rows": 6,
+    "excel_sheets": [
+      "Summary",
+      "Results",
+      "Component trace"
+    ],
+    "pdf_pages": 2,
+    "pdf_all_seven_components_present": true,
+    "values_reopened_and_verified": true
+  },
+  "responsive_review": {
+    "desktop_dimensions": [
+      1536,
+      738
+    ],
+    "full_currency_cards_visible": true,
+    "phone_dimensions": [
+      390,
+      844
+    ],
+    "all_metric_strings_complete_and_wrapping_enabled": true,
+    "viewport_reset_confirmed": [
+      1536,
+      738
+    ]
+  },
+  "api_key_transferred": false,
+  "paid_resources_created": false,
+  "llm_calls": false,
+  "limitations": [
+    "Synthetic deterministic workflows only; enterprise connectors and message channels are unconnected.",
+    "Live Sales LLM inference and real identity lifecycle are unverified.",
+    "Free hosted memory telemetry is unavailable without a paid upgrade; sustained capacity is not certified."
+  ],
+  "usage_regression": {
+    "status": "pass",
+    "metric": "mau",
+    "baseline": 66025.0,
+    "current": 65292.0,
+    "absolute_change": -733.0,
+    "elapsed_seconds": 36.946,
+    "post_restart": true,
+    "all_seven_components_complete": true,
+    "trace_file": "platform_hosted_usage_trace.json"
+  },
+  "status": "pass"
+}
