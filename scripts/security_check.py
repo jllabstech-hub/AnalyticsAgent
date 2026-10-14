@@ -26,7 +26,7 @@ def check():
     report = {"status":"pass" if not findings else "fail","candidate_text_files_checked":inspected,"findings":findings,
         "git_repository_present":git_repository,"openai_key_configured":bool(load_settings().openai_api_key),
         "controls":["Typed tool arguments and allowlist","Scope checks including cache hits","Read-only approved SQL templates","Restricted DuckDB file access","Server-side credentials excluded from repr/session","Remote Ollama requires HTTPS and bearer token","No automatic local-to-cloud switch","Production OIDC and server scope guard fail closed"],
-        "limitations":["Source scan plus behavioral tests; not a formal penetration test.","Actual identity-provider login is unverified.","Hosted application deployment and production operation remain unverified."]}
+        "limitations":["Source scan plus behavioral tests; not a formal penetration test.","Actual identity-provider login is unverified.","Hosted signed-in analytics and production operation remain unverified."]}
     output = PROJECT_ROOT / "reports" / "security.json"
     output.parent.mkdir(exist_ok=True)
     output.write_text(json.dumps(report,indent=2),encoding="utf-8")

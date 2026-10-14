@@ -215,7 +215,7 @@ table(['Item','Implemented scope'],[
     ('Analytics','Six governed metrics; K1 comparison, K2 contribution, K3 cohorts'),
     ('Interaction','Streamlit; default Ollama; optional explicitly selected OpenAI; explicit demo mode'),
     ('Recorded verification',f"{evaluation['total']} tests: {evaluation['passed']} passed, {evaluation['failed']} failed, {evaluation['skipped']} skipped"),
-    ('Release status','Windows and Linux CI pass; broader live integration and hosting pending')
+    ('Release status','Free Render startup verified; production login and broader live evaluation pending')
 ], [1.55,5.28])
 h('Reading guide')
 p('Pages 2 to 5 explain the architecture, technology stack, and warehouse. Pages 6 to 9 explain metrics, quality controls, contracts, orchestration, and providers. Pages 10 to 13 cover security, execution resources, the interface, and deployment. Pages 14 to 16 cover measured validation, development stages, and team handover.')
@@ -428,7 +428,7 @@ table(['Setting','Default','Meaning'],[
     ('MAX_TOOL_CALLS / INVESTIGATION_DEPTH','6 / 3','Bounded plan; both limits apply'),
     ('INVESTIGATION_TIMEOUT_SECONDS','120','Total investigation deadline'),
     ('RESULT_LIMIT','500','Query and analytical record limit'),
-    ('DUCKDB_MEMORY_LIMIT','512MB','DuckDB tracked memory budget'),
+    ('DUCKDB_MEMORY_LIMIT','512MB local; 320MB hosted','DuckDB tracked memory budget'),
     ('Engine query timeout / threads','15 seconds / 1','Interrupted execution; bounded CPU'),
     ('APP_ENV','local','production requires configured access')
 ], [2.65,1.6,2.58], compact=True)
@@ -472,7 +472,7 @@ p('For a fresh machine, create .venv, upgrade pip to 26.2.1, install requirement
 h('Prepared hosting contract')
 table(['Item','Prepared value'],[
     ('Service','Render Python Web Service; auto-deploy disabled'),
-    ('Runtime and resources','Python 3.14.5; paid 1c-2g plan with 2 GB RAM'),
+    ('Runtime and resources','Python 3.14.5; Free plan with 0.1 CPU and 512 MB host RAM'),
     ('Health endpoint','/_stcore/health'),
     ('State','Bundled Parquet plus ephemeral in-memory DuckDB; no persistent disk'),
     ('Access','APP_ENV=production and configured OIDC plus account scopes')
@@ -483,7 +483,7 @@ code('streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server
 p('Bind to the assigned PORT. Configure OPENAI_API_KEY in environment variables or use a separately secured reachable Ollama endpoint. Localhost on Render refers to Render, not the Windows laptop.')
 h('Release procedure')
 p('Review and push the source and synthetic datasets to the authorized jllabstech-hub/AnalyticsAgent GitHub repository. Run the prepared Linux quality workflow. After hosting and resource authorization, configure staging secrets and account grants, deploy, verify sign-in and all five demos, restart, and repeat the comparison. Monitor failures, memory, latency, and API expenditure before release approval.')
-p('The 2 GB plan is prepared, not purchased. A 256 MB DuckDB budget failed warehouse join validation; a 512 MB total host should not be assumed sufficient. Source is uploaded to main and Linux CI passes; public application hosting remains unauthorized.')
+p('The user selected Free hosting. The live URL is https://bdc-analytics-agent-prototype.onrender.com. Health and a recorded restart return 200/ok. Analytics stays locked until OIDC and account scopes are configured. Hosted settings use 320 MB DuckDB memory, 100 result rows and a 180-second investigation deadline; no paid resources or API keys were added.')
 
 # Page 14
 page('13 Validation performance and reproducibility')
@@ -500,7 +500,7 @@ table(['Recorded check','Result'],[
     ('Peak backend working set',f"{performance['peak_process_memory_mb']:.2f} MiB on Windows")
 ], [2.55,4.28], compact=True)
 p('Evidence is from the recorded local validation run on 14 October 2026 India time. Accuracy is 100% on the defined synthetic reference suite; it is not enterprise accuracy or live-model routing accuracy. Backend timings exclude live LLM latency and additional hosted/UI overhead. Four simultaneous requests do not establish sustained production capacity.')
-p('Separate live evidence confirms OpenAI inference and the full August and September K1 browser comparison: 66,025 to 65,292 users, change -733, completed in 49.12 seconds with demo mode off. See reports/openai_live_validation.json. Linux CI also passes the full suite, credential and dependency scans, and both restarts; see reports/github_validation.json.')
+p('Separate live evidence confirms one OpenAI K1 browser comparison: 66,025 to 65,292 users, change -733, in 49.12 seconds with demo mode off. Linux CI passes the full suite, scans and both restarts. The reduced hosted budget also matches all 30 independent comparisons; local Streamlit peaks at 422.12 MiB. Render startup is verified, while hosted signed-in analytics remains untested. See reports/openai_live_validation.json, free_render_validation.json and render_deployment.json.')
 h('Reproduce the checks')
 code('.\\.venv\\Scripts\\python.exe -m scripts.validate_data\n.\\.venv\\Scripts\\python.exe -m scripts.evaluate\n.\\.venv\\Scripts\\python.exe -m scripts.run_demos\n.\\.venv\\Scripts\\python.exe -m scripts.benchmark\n.\\.venv\\Scripts\\python.exe -m scripts.security_check\n.\\.venv\\Scripts\\python.exe -m scripts.smoke_deployment --port 8765')
 p('To rebuild source data and independent references, run scripts.generate_data followed by scripts.validate_data and scripts.reference_answers before evaluation. This replaces the generated synthetic warehouse intentionally. Use requirements-dev.txt for advisory scanning. Verify hosted CI results in the repository Actions tab.')
@@ -518,7 +518,7 @@ table(['Stage','Main deliverable','Status'],[
     ('7 Agent','Bounded planning, context, findings','Complete locally'),
     ('8 Interface','Workspace, Settings, Explorer, Evaluation','Complete locally'),
     ('9 Evaluation','Independent calculations and regressions','Complete locally'),
-    ('10 Hosting','Render blueprint and restart checks','Linux CI pass; Render pending'),
+    ('10 Hosting','Free Render startup and restart','Live; login setup pending'),
     ('11 EVP demos','Five executed executive workflows','Complete locally'),
     ('12 Hardening','Integration, audit, performance, reports','Complete locally')
 ], [.98,3.83,2.02], compact=True)
@@ -532,7 +532,7 @@ page('15 Team handover and release requirements')
 h('Required verification before production approval')
 bullet('Model integration: rotate the exposed server key, evaluate the reference suite and failure paths in each enabled provider, and install a local model only after approval. One real OpenAI K1 workflow is already verified.')
 bullet('Identity integration: register the actual OIDC client; verify HTTPS login/logout, issuer/subject/expiry claims, expired and revoked users, and restricted market/service access.')
-bullet('Hosted reliability: Linux CI passes. In authorized staging, measure sustained load, memory, restart, network failures, and operational monitoring against agreed acceptance targets.')
+bullet('Hosted reliability: Linux CI and Free Render startup/restart pass. After login setup, measure signed-in workflows, memory, sustained load, network failures and monitoring. Free instances sleep on idle and have monthly usage quotas.')
 bullet('Operating controls: assign ownership for identity grants, model configuration, release review, incident handling, and account-level API expenditure limits. These team responsibilities are proposed, not assigned.')
 h('How to extend the application')
 p('For a new metric, add the versioned YAML definition, update the approved contract and query implementation, calculate independent reference answers, and add population and boundary tests. For a new skill, register its validated inputs and outputs and update the skill allowlist. For a new provider, implement the common adapter contract without changing the calculation layer or weakening selection and fallback controls.')
@@ -549,7 +549,7 @@ table(['Reference','Use'],[
     ('reports/performance.json and deployment_smoke.json','Local measurements and startup evidence'),
     ('IMPLEMENTATION_STATUS.md and BUILD_LOG.md','Phase status and implementation history')
 ], [3.1,3.73], compact=True)
-p('This handover documents the implemented prototype and recorded validation evidence, including one successful live OpenAI comparison. Remaining external verification must be completed before production approval. All data is fictional; public application hosting and paid resource creation remain pending authorization.')
+p('The Free Render service is live with access protected pending login configuration. One local OpenAI comparison is verified. Remaining integration and capacity checks are required before production approval. All data is fictional; paid resources remain unauthorized.')
 
 doc.save(DOCX)
 report = {

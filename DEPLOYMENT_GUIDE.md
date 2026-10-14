@@ -2,7 +2,9 @@
 
 The user authorized Render deployment and selected the Free compute plan on
 14 October 2026. The Blueprint uses Free only, with no paid disk or autoscaling.
-Production login configuration remains required before analytics can be opened.
+The service is live at https://bdc-analytics-agent-prototype.onrender.com.
+Root/health HTTP 200 and a recorded restart are verified. Production login
+configuration remains required before analytics can be opened.
 
 ## Windows setup
 
@@ -84,7 +86,7 @@ map are configured. Local demos retain `APP_ENV=local` and bind to localhost.
 Do not expose local mode as a public service with an API key.
 
 1. Register an OIDC client with your approved identity provider. Configure the exact
-   HTTPS callback `https://YOUR_SERVICE.onrender.com/oauth2callback`.
+   HTTPS callback `https://bdc-analytics-agent-prototype.onrender.com/oauth2callback`.
 2. Use `.streamlit/secrets.example.toml` as a template. Replace every placeholder
    with your actual client ID/secret, HTTPS metadata URL and a random cookie secret
    of at least 32 characters. Authlib is included in the pinned requirements.

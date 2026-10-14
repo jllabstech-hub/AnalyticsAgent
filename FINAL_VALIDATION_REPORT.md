@@ -2,11 +2,11 @@
 
 Updated UTC: 2026-10-14T02:25:18.182168+00:00. Supersedes the initial phase-12 report.
 
-Verdict: **hardened synthetic prototype, verified locally; production approval remains blocked by live-provider, real-identity and hosted validation.**
+Verdict: **hardened synthetic prototype with verified Free Render startup/restart; production approval still requires broader live-provider, real-identity and hosted analytics validation.**
 
 | Check | Actual result | Evidence |
 |---|---|---|
-| Full automated suite | 191 passed / 0 failed / 2 skipped; 193 total | reports/test_results.xml; reports/evaluation.json |
+| Full automated suite | 193 passed / 0 failed / 2 skipped; 195 total | reports/test_results.xml; reports/evaluation.json |
 | Independent pandas reference comparisons | 30/30 matched | tests/fixtures/reference_answers.json |
 | Human-question agent workflows | 30/30 matched | tests/test_e2e_references.py |
 | Five EVP workflows | All executed successfully | reports/demo_results.json |
@@ -14,7 +14,8 @@ Verdict: **hardened synthetic prototype, verified locally; production approval r
 | Published dependency advisories | 0 known vulnerability records across 83 scanned packages; no skipped packages | reports/dependencies_audit.json |
 | Four simultaneous investigations | 4/4 succeeded with identical totals | reports/performance.json |
 | Startup/restart | Two actual HTTP 200 / ok starts | reports/deployment_smoke.json |
-| GitHub Linux CI | 191 passed / 0 failed / 2 skipped; credential and dependency scans plus both restarts pass | reports/github_validation.json; Actions run 38502026568 |
+| GitHub Linux CI | 193 passed / 0 failed / 2 skipped; credential and dependency scans plus both restarts pass | reports/github_validation.json; Actions run 38508157329 |
+| Free Render deployment | Live; root/health HTTP 200; recorded restart and subsequent health pass | reports/render_deployment.json |
 | Browser review | Desktop and compact layout, computed charts, quality warnings, Settings failure and Explorer verified | reports/browser_e2e_verification.json |
 | Production access | Anonymous, expired/unapproved and malformed grants blocked; scoped UI and revocation regression pass | tests/test_access.py |
 
@@ -45,7 +46,7 @@ These are Windows backend measurements, excluding hosted behavior and additional
 
 1. Rotate the exposed OpenAI key and expand live reference/failure-path evaluation. One real OpenAI K1 question has succeeded; live Ollama and broader live accuracy still require verification.
 2. Register a real OIDC client and verify HTTPS login/logout, returned claims, expiry, revoked accounts and scoped data behavior. Current authentication tests use simulated verified claims.
-3. Authorize hosting/resources, deploy to staging, and validate memory, restart, expected concurrency and monitoring there. GitHub source upload and Linux CI are verified; public application deployment and paid resources remain unauthorized.
+3. After OIDC setup, verify authenticated analytics, memory, concurrency and monitoring on the already-deployed Free service. Source upload, Linux CI and hosted startup/restart are verified; paid resources remain unauthorized.
 4. Keep this release synthetic-only. Real enterprise data accuracy, lineage and operational controls require a separate approved integration/evaluation.
 
 Full audit and release gates: PRODUCTION_READINESS.md. Setup: README.md and DEPLOYMENT_GUIDE.md.

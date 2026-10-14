@@ -1,0 +1,41 @@
+{
+  "checked_at_utc": "2026-10-14T03:38:50.435456+00:00",
+  "public_url": "https://bdc-analytics-agent-prototype.onrender.com",
+  "plan": "free",
+  "compute_USD_per_month": 0,
+  "status": "live",
+  "deployed_commit": "5219517befe037a92caa1183652f670a8281bd44",
+  "health_checks": [
+    {
+      "path": "/_stcore/health",
+      "http_status": 200,
+      "elapsed_seconds": 0.315,
+      "health": "ok"
+    },
+    {
+      "path": "/",
+      "http_status": 200,
+      "elapsed_seconds": 0.274,
+      "health": null
+    }
+  ],
+  "production_login_configured": false,
+  "hosted_analytics_verified": false,
+  "api_key_transferred": false,
+  "paid_resources_created": false,
+  "limitation": "Server availability verified; analytics is intentionally locked until OIDC and approved scopes are configured.",
+  "restart": {
+    "dashboard_event": "Service restarted by you",
+    "event_displayed_at": "14 October 2026 at 09:09 Asia/Calcutta",
+    "verified_at_utc": "2026-10-14T03:41:29.529193+00:00",
+    "http_status": 200,
+    "health": "ok",
+    "elapsed_seconds": 0.326
+  },
+  "browser_validation": {
+    "title": "BDC Analytics Agent",
+    "guard_message_visible": true,
+    "unhandled_traceback_visible": false,
+    "authenticated_workflows": "not tested; OIDC configuration missing"
+  }
+}

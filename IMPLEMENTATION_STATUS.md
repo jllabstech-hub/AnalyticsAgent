@@ -13,22 +13,23 @@ Evidence timestamp (Asia/Calcutta): 2026-10-14T07:54:06.530019+05:30.
 | 6 Hybrid providers | Complete; OpenAI connection and K1 live verified | Real browser inference; broader live evaluation pending |
 | 7 Orchestrator | Complete | Bounded planning, execution, context and clarification tests |
 | 8 Streamlit | Complete | AppTest plus browser verification |
-| 9 Evaluation | Complete | 191 passed, 0 failed, 2 skipped of 193 on Windows and Linux CI |
-| 10 Render preparation | Complete; hosting pending | YAML, documentation and real Windows/Linux startup/restart checks |
+| 9 Evaluation | Complete | 193 passed, 0 failed, 2 skipped of 195 on Windows and Linux CI |
+| 10 Render | Free service live; login pending | Hosted HTTP 200/ok and confirmed restart; no paid resources |
 | 11 EVP package | Complete | Five complete executed demonstration workflows |
 | 12 Final integration | Complete locally | Full suite, performance, security, startup/browser and final reports |
 
 Phase 12 supplied the complete five workflows missing from the truncated Phase 11.
-No real enterprise data or fabricated model results are used. No cloud service was
-published, paid resource purchased or model downloaded. GitHub source was delivered
+No real enterprise data or fabricated model results are used. A user-authorized Free
+Render service is live with analytics protected pending login setup. No paid resource
+was purchased or model downloaded. GitHub source was delivered
 to jllabstech-hub/AnalyticsAgent on main, and matching local/remote commits verified.
 
 ## Outstanding external actions
 
 1. Install Ollama and a chosen model only when authorized; verify actual local inference.
 2. Rotate the exposed OpenAI server key and expand live evaluation only with authorization.
-3. Deploy the user-selected Free Render service and configure OIDC login/scopes. Paid resources are not authorized.
-4. After deployment, verify Render memory, hosted health, provider behavior and restart.
+3. Configure OIDC login/scopes on the deployed Free service. Paid resources are not authorized.
+4. Verify signed-in hosted workflows, memory, provider behavior and load. Startup and restart already pass.
 
 Remaining product limits: synthetic data only, governed explanations, bounded demo
 parser, actual identity-provider login unverified, no production load certification. See the
@@ -83,3 +84,8 @@ Corrected preparation commit c57cc8c44e49a4b6dcbc638a0f63f448ad5a49b6 is pushed 
 ### 2026-10-14T03:34:06.583914+00:00 - User selected Free Render hosting
 
 Paid deployment approval request is superseded by the explicit free-only instruction. Selected Free in the prepared form (US$0/month compute), 0.1 CPU and 512 MB RAM. Lowered the hosted DuckDB budget to 320MB and results to 100 rows; investigation deadline 180s. A real backend K1/K2/K3 run succeeds (9.559s, peak 372.37 MiB). Actual Streamlit AppTest also succeeds with all three skills and correct 66025/65292 totals (10.145s, peak 422.12 MiB). Configuration/access regression: 17 passed, 0 failed (7.18s). All 100000 fictional users and source partitions are preserved. No API key transmitted, authentication bypassed or paid resource purchased. Independent low-budget references and hosted creation/health checks follow.
+
+
+### 2026-10-14 - Free deployment validation and handover
+
+Created the user-authorized Free service from commit 5219517; hosted root and health return HTTP 200, and Render records a real service restart with subsequent 200/ok. Hosted browser shows the expected missing-login guard without a traceback. No cloud LLM key was copied, paid plan purchased or security guard disabled. Provider correction 36e0c7c now passes the final Windows suite (193 passed, 0 failed, 2 skipped of 195; 169.81s) and actual Linux run 38508157329 (193/0/2; 146.01s), including scans and both local runner restarts. Independent reduced-budget comparisons match 30/30; local UI peak is 422.12 MiB. Refreshed the sixteen-page handover for Free hosting and the new counts; all final pages reviewed and accessibility findings zero. Private Render account screenshots remain local and ignored. The final corrected/evidence build will be applied to the same Free service.
