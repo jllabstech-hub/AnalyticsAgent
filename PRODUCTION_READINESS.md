@@ -19,7 +19,7 @@ Verdict: **hardened prototype suitable for controlled acceptance testing; not ye
    - If we skip it: Approved users may be unable to sign in, or identity lifecycle behavior may differ from the simulated contract.
 
 3. **Hosted reliability and operational limits are unverified.**
-   - What this is: render.yaml prepares a paid 2GB single-process service; no resources have been created.
+   - What this is: render.yaml uses the user-selected Free single-process service with 512 MB host RAM and a 320 MB DuckDB budget; paid resources are not authorized.
    - Current evidence: GitHub Linux CI verifies pinned dependency installation, all 193 tests and two actual startups/restarts. This does not establish Render memory, sustained traffic or hosted cloud-network behavior. A four-request benchmark is not a production capacity test.
    - Remaining work: Authorize staging deployment, repeat startup/restart and representative load there, establish monitoring and an API-account spend limit, then approve the release against an agreed traffic/SLA target.
    - If we skip it: Local success may be mistaken for a reliable hosted service or a tested operating budget.

@@ -1,9 +1,8 @@
 # Deployment guide
 
-Render deployment is authorized as of 14 October 2026. No paid resource or public
-service has been created yet. The prepared 1c-2g compute plan is US$25/month in
-the current dashboard; explicit recurring-cost approval and production login
-configuration are pending. The prepared creation form is in the Render dashboard.
+The user authorized Render deployment and selected the Free compute plan on
+14 October 2026. The Blueprint uses Free only, with no paid disk or autoscaling.
+Production login configuration remains required before analytics can be opened.
 
 ## Windows setup
 
@@ -28,8 +27,7 @@ backend configuration classes; hot reload can retain older imported modules.
 ## GitHub instructions
 
 The selected repository is https://github.com/jllabstech-hub/AnalyticsAgent.
-GitHub source upload and Render deployment are authorized; recurring compute-cost
-approval is pending. For a new checkout:
+GitHub source upload and free Render deployment are authorized. For a new checkout:
 
 ```powershell
 git clone https://github.com/jllabstech-hub/AnalyticsAgent.git
@@ -44,7 +42,7 @@ reference fixtures are bundled. The agent does not import evaluation fixtures.
 
 ## Render Web Service
 
-After approving the resource cost, connect the public repository,
+Connect the public repository,
 choose **New → Web Service**, select Python, and configure the following. A
 Blueprint with the same settings is supplied in `render.yaml`. Auto-deploy is off.
 
@@ -53,14 +51,18 @@ Blueprint with the same settings is supplied in `render.yaml`. Auto-deploy is of
 - Health: `/_stcore/health`
 - Python: `PYTHON_VERSION=3.14.5`
 - Region: Singapore (`singapore`)
-- DuckDB: `DUCKDB_MEMORY_LIMIT=512MB`; one thread, no disk spill.
-- Prepared plan: `1c-2g` (2 GB RAM). This is a paid configuration, not an approved purchase.
+- DuckDB: `DUCKDB_MEMORY_LIMIT=320MB`; one thread, no disk spill.
+- Results: `RESULT_LIMIT=100`; investigation deadline `INVESTIGATION_TIMEOUT_SECONDS=180`.
+- Selected plan: `free` (0.1 CPU, 512 MB RAM, US$0/month compute).
 
-The 256 MB DuckDB budget failed full-warehouse join validation. Do not assume
-Render's 512 MB free instance can accommodate both DuckDB and Streamlit. See
-`reports/performance.json` for measured Windows memory and latency. The 2 GB
-configuration provides headroom for a small demonstration; concurrency and Linux
-memory behavior still need hosted verification. No persistent disk is needed.
+The 256 MB DuckDB budget failed full-warehouse join validation. A 320 MB budget
+passes the three-skill investigation and its Streamlit test, which peaks at 422.12
+MiB on Windows. This does not certify hosted memory or concurrent traffic; verify
+again after sign-in is configured. No persistent disk is needed. The Free service
+sleeps after 15 idle minutes and has monthly instance-hour, bandwidth and build
+quotas. Do not upgrade or add paid resources. Without a payment method, exhausted
+quotas suspend service/builds; with a payment method, overage billing can apply.
+See [Render Free limits](https://render.com/docs/free) and review account usage.
 
 Put API keys only in Render environment variables. Default provider is Ollama;
 OLLAMA_BASE_URL is deliberately empty in the hosted configuration until a secured

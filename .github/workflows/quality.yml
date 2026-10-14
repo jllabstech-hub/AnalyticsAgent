@@ -16,6 +16,9 @@ jobs:
       OPENAI_API_KEY: ''
       RUN_LIVE_OPENAI: '0'
       RUN_LIVE_OLLAMA: '0'
+      DUCKDB_MEMORY_LIMIT: '320MB'
+      RESULT_LIMIT: '100'
+      INVESTIGATION_TIMEOUT_SECONDS: '180'
     steps:
       - uses: actions/checkout@v7
         with:

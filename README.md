@@ -162,9 +162,10 @@ and external blockers; `BUILD_LOG.md` records commands, failures and fixes.
 ## Deployment
 
 `render.yaml` binds to `$PORT` on `0.0.0.0`, reads bundled Parquet and requires no
-persistent disk. The prepared 2 GB Render plan is paid: provisioning and public
-hosting require separate authorization. GitHub source upload is authorized;
-the application has not been publicly deployed.
+persistent disk. The selected Render plan is Free, with a 320 MB DuckDB budget,
+100-row result limit and 180-second investigation deadline. Free hosting is
+authorized; paid resources are not. Production login must be configured before
+analytics is accessible. Free services sleep on idle and have usage quotas.
 Use `DEPLOYMENT_GUIDE.md` for exact Git and Render steps and local restart checks.
 
 ## Project files

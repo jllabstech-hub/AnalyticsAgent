@@ -11,12 +11,15 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_render_configuration_uses_assigned_port_and_bundled_data():
     service = yaml.safe_load((ROOT / "render.yaml").read_text())["services"][0]
     assert service["type"] == "web"
+    assert service["plan"] == "free"
     assert "--server.address 0.0.0.0" in service["startCommand"]
     assert "--server.port $PORT" in service["startCommand"]
     assert service["healthCheckPath"] == "/_stcore/health"
     assert "disk" not in service and service["autoDeploy"] is False
     assert service["region"] == "singapore"
     assert {item["key"]:item.get("value") for item in service["envVars"]}["OLLAMA_BASE_URL"] == ""
+    assert {item["key"]:item.get("value") for item in service["envVars"]}["DUCKDB_MEMORY_LIMIT"] == "320MB"
+    assert {item["key"]:item.get("value") for item in service["envVars"]}["RESULT_LIMIT"] == "100"
     assert not any(item["key"] == "OPENAI_API_KEY" and item.get("value") for item in service["envVars"])
 
 

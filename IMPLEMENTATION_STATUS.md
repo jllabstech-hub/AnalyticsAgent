@@ -27,7 +27,7 @@ to jllabstech-hub/AnalyticsAgent on main, and matching local/remote commits veri
 
 1. Install Ollama and a chosen model only when authorized; verify actual local inference.
 2. Rotate the exposed OpenAI server key and expand live evaluation only with authorization.
-3. Approve the displayed US$25/month Render compute cost and configure OIDC login/scopes. Public Render deployment is authorized; the creation form is prepared.
+3. Deploy the user-selected Free Render service and configure OIDC login/scopes. Paid resources are not authorized.
 4. After deployment, verify Render memory, hosted health, provider behavior and restart.
 
 Remaining product limits: synthetic data only, governed explanations, bounded demo
@@ -78,3 +78,8 @@ User authorized Render deployment. Inspected the signed-in Render workspace and 
 ### 2026-10-14T02:40:51.404733+00:00 - Render preparation validated; creation pending user decisions
 
 Corrected preparation commit c57cc8c44e49a4b6dcbc638a0f63f448ad5a49b6 is pushed and matches remote main. Actual Linux quality run 38502026568 succeeds: 191 passed, 0 failed, 2 skipped of 193 (109.83s), source/advisory scans and both startup/restart checks. Backend explicit deterministic demo with hosted settings, empty Ollama endpoint and no OpenAI secret returns 66025 / 65292 / -733; this is not actual production sign-in verification. Render form confirms Python 3, manual deploys Off, correct name/health path. No service has been created and no key has been transmitted. Recurring-cost approval and login/deployment preference questions remain pending. Dashboard proof is retained locally and excluded from Git and reachable source history.
+
+
+### 2026-10-14T03:34:06.583914+00:00 - User selected Free Render hosting
+
+Paid deployment approval request is superseded by the explicit free-only instruction. Selected Free in the prepared form (US$0/month compute), 0.1 CPU and 512 MB RAM. Lowered the hosted DuckDB budget to 320MB and results to 100 rows; investigation deadline 180s. A real backend K1/K2/K3 run succeeds (9.559s, peak 372.37 MiB). Actual Streamlit AppTest also succeeds with all three skills and correct 66025/65292 totals (10.145s, peak 422.12 MiB). Configuration/access regression: 17 passed, 0 failed (7.18s). All 100000 fictional users and source partitions are preserved. No API key transmitted, authentication bypassed or paid resource purchased. Independent low-budget references and hosted creation/health checks follow.

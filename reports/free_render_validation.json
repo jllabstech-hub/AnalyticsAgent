@@ -1,0 +1,26 @@
+{
+  "ui": {
+    "check": "Actual Streamlit AppTest; explicit demo; local test scope, not hosted identity login",
+    "status": "pass",
+    "duckdb_memory_limit": "320MB",
+    "result_limit": 100,
+    "skills": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "elapsed_seconds": 10.145,
+    "peak_UI_test_MiB": 422.12,
+    "baseline": 66025.0,
+    "current": 65292.0
+  },
+  "references": {
+    "independent_questions": 30,
+    "correct": 30,
+    "status": "pass",
+    "elapsed_seconds": 28.875,
+    "peak_backend_MiB": 343.71,
+    "memory": "320MB",
+    "result_limit": 100
+  }
+}

@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "candidate_text_files_checked": 84,
+  "candidate_text_files_checked": 85,
   "findings": [],
   "git_repository_present": true,
   "openai_key_configured": true,

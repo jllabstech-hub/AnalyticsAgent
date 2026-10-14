@@ -1,14 +1,14 @@
 {
-  "checked_at_utc": "2026-10-14T02:35:19.202606+00:00",
-  "authorization": "User authorized Render deployment; recurring cost approval pending",
-  "status": "configured_creation_form_not_submitted",
+  "checked_at_utc": "2026-10-14T03:34:06.583914+00:00",
+  "authorization": "User explicitly selected free Render hosting; paid resources prohibited",
+  "status": "free_creation_form_ready",
   "repository": "https://github.com/jllabstech-hub/AnalyticsAgent",
   "branch": "main",
   "service_name": "bdc-analytics-agent-prototype",
   "runtime": "python",
   "region": "singapore",
-  "plan": "1c-2g",
-  "displayed_compute_USD_per_month": 25,
+  "plan": "free",
+  "displayed_compute_USD_per_month": 0,
   "auto_deploy": false,
   "health_path": "/_stcore/health",
   "api_credentials_transferred": false,
@@ -17,11 +17,11 @@
   "ollama_base_url": "",
   "created_service": false,
   "known_blockers": [
-    "Explicit recurring-cost approval pending",
     "OIDC login and approved principal scopes missing",
-    "Secured reachable Ollama endpoint not supplied; deterministic mode requires explicit opt-in after sign-in"
+    "Secured reachable Ollama endpoint not supplied; deterministic mode requires explicit opt-in after sign-in",
+    "Hosted analytics memory/latency must be checked after sign-in is configured"
   ],
-  "proof": "reports/render-prepared.png",
+  "proof": "reports/render-private/free-prepared.png",
   "local_configuration_access_tests": {
     "passed": 17,
     "failed": 0,
@@ -55,5 +55,8 @@
     "runtime": "Python 3",
     "auto_deploy": "Off",
     "health_check": "/_stcore/health"
-  }
+  },
+  "duckdb_memory_limit": "320MB",
+  "result_limit": 100,
+  "investigation_timeout_seconds": 180
 }
