@@ -1,0 +1,36 @@
+{
+  "status": "pass",
+  "source": "Actual in-app browser observations",
+  "desktop_viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "compact_viewport_restored": true,
+  "checks": [
+    "Fresh session defaults to Ollama with explicit demo off",
+    "Executed query-backed MAU comparison 66025/65292/-733",
+    "K1/K2/K3 investigation and reconciled market/cohort output",
+    "Execution trace exposes completed skills, no model reasoning",
+    "Incomplete scenario shows 62411 current users with provisional chat and top warning",
+    "Missing chart days displayed as gaps",
+    "OpenAI selection is explicit; server credential missing",
+    "Test Connection reports both_unavailable/missing_key, inference_verified false",
+    "Latest fallback reason remains visible after an earlier demo answer",
+    "Read-only users explorer shows 100000 fictional users and schemas",
+    "Evaluation Dashboard displays actual 185 total/183 passed/2 skipped",
+    "Compact KPI cards show complete numbers without ellipsis"
+  ],
+  "proof_files": [
+    "browser-e2e-desktop.jpg",
+    "browser-e2e-incomplete.jpg",
+    "browser-e2e-settings.jpg",
+    "browser-e2e-explorer.jpg",
+    "browser-e2e-compact.jpg"
+  ],
+  "limitations": [
+    "No real OpenAI or Ollama inference",
+    "No actual OIDC login",
+    "No hosted browser test"
+  ],
+  "generated_at_utc": "2026-10-13T20:07:50.858Z"
+}

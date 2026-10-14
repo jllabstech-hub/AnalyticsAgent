@@ -1,0 +1,64 @@
+{
+  "verified_at_utc": "2026-10-14T01:56:56.265839+00:00",
+  "status": "pass",
+  "provider": "openai",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "credential_storage": "ignored server .env; credential excluded from this report",
+  "sdk_http_status": 200,
+  "settings_connection": {
+    "configured": true,
+    "reachable": true,
+    "inference_verified": true,
+    "fallback_reason": null,
+    "latency_ms": 43066.5624
+  },
+  "browser_workflow": {
+    "question": "Compare August and September active users.",
+    "demo_mode": false,
+    "baseline_period": {
+      "start": "2026-08-01",
+      "end_exclusive": "2026-09-01"
+    },
+    "current_period": {
+      "start": "2026-09-01",
+      "end_exclusive": "2026-10-01"
+    },
+    "skills": [
+      "K1"
+    ],
+    "baseline": 66025,
+    "current": 65292,
+    "absolute_change": -733,
+    "relative_change_pct": -1.1101855357819,
+    "elapsed_seconds_displayed": 49.12,
+    "ui_exception": false
+  },
+  "full_offline_suite": {
+    "total": 192,
+    "passed": 190,
+    "failed": 0,
+    "skipped": 2
+  },
+  "initial_live_issues": [
+    "model month-end dates excluded the final day",
+    "repeated analytical tasks caused duplicate chart IDs"
+  ],
+  "corrections": [
+    "approved recognized-question contracts preserve periods, population and skill intent after original-plan authorization",
+    "identical effective tasks coalesced",
+    "unique result chart and table keys"
+  ],
+  "evidence": [
+    "reports/openai_connection.json",
+    "reports/openai-settings-verified.jpg",
+    "reports/openai-live-comparison.jpg",
+    "reports/openai-live-comparison.txt",
+    "tests/test_live_plan_regressions.py"
+  ],
+  "limitations": [
+    "One approved real question; not broad live-LLM accuracy.",
+    "Ollama and actual OIDC remain unverified.",
+    "Hosted Linux/Render and sustained production traffic remain unverified.",
+    "Posted credential must be revoked and replaced by the owner."
+  ]
+}

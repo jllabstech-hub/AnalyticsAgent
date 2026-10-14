@@ -1,0 +1,103 @@
+- log
+- log
+- paragraph: Workspace section
+- combobox "Workspace section": Analytics Workspace
+- button "Open":
+- switch "Deterministic demo mode"
+- paragraph: Deterministic demo mode
+- paragraph: "Mode: openai"
+- paragraph: A configured LLM connection is required. Use Settings to test it.
+- button "Clear conversation":
+  - paragraph: Clear conversation
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Deploy":
+    - generic: Deploy
+  - button "Main menu":
+- paragraph: BDC / ANALYTICS WORKSPACE
+- heading "BDC Analytics Agent" [level=1]:
+  - text: BDC Analytics Agent
+  - link "Link to heading":
+    - /url: "#bdc-analytics-agent"
+- paragraph: Prototype V1 · Synthetic data only · July–September 2026 · UTC
+- heading "Analytics assistant" [level=3]:
+  - text: Analytics assistant
+  - link "Link to heading":
+    - /url: "#analytics-assistant"
+- generic: face
+- generic "Chat message from user":
+  - paragraph: Compare August and September active users.
+- generic: smart_toy
+- generic "Chat message from assistant":
+  - paragraph: "Observed MAU: 65,698 → 64,990; change -708 (-1.08% relative)."
+- textbox "Ask about fictional account usage"
+- button "Send message" [disabled]:
+- generic "keyboard_arrow_right Suggested questions":
+  - generic: keyboard_arrow_right
+  - paragraph: Suggested questions
+- generic "keyboard_arrow_right Follow-up investigations":
+  - generic: keyboard_arrow_right
+  - paragraph: Follow-up investigations
+- heading "Analytical results" [level=3]:
+  - text: Analytical results
+  - link "Link to heading":
+    - /url: "#analytical-results"
+- paragraph: "Provider used: openai · Model: gpt-4.1-mini-2025-04-14"
+- heading "MAU" [level=3]:
+  - text: MAU
+  - link "Link to heading":
+    - /url: "#mau"
+- paragraph: UTC · 2026-08-01 to 2026-08-31 versus 2026-09-01 to 2026-09-30 · End dates exclusive
+- paragraph: Baseline
+- paragraph: 65,698
+- paragraph: Current
+- paragraph: 64,990
+- paragraph: Absolute change
+- paragraph: "-708"
+- paragraph: "-1.08% relative"
+- heading "Cohort Comparison" [level=3]:
+  - text: Cohort Comparison
+  - link "Link to heading":
+    - /url: "#cohort-comparison"
+- toolbar:
+  - button "Download plot as a PNG":
+  - button "Zoom":
+  - button "Pan":
+  - button "Zoom in":
+  - button "Zoom out":
+  - button "Autoscale":
+  - button "Reset axes":
+  - button "Fullscreen":
+- button "Show/hide columns":
+- button "Download as CSV":
+- button "Search":
+- button "Fullscreen":
+- paragraph: Group deltas reconcile to the total.
+- heading "Cohort Comparison" [level=3]:
+  - text: Cohort Comparison
+  - link "Link to heading":
+    - /url: "#cohort-comparison"
+- alert:
+  - paragraph:
+    - strong: streamlit.errors.StreamlitDuplicateElementId
+    - text: ": There are multiple"
+    - code: plotly_chart
+    - text: elements with the same auto-generated ID. When this element is created, it is assigned an internal ID based on the element type and provided parameters. Multiple elements with the same type and parameters will cause this error.
+  - paragraph:
+    - text: To fix this error, please pass a unique
+    - code: key
+    - text: argument to the
+    - code: plotly_chart
+    - text: element.
+  - generic: "Traceback:"
+  - code:
+    - generic: File "D:\Office\AnalyticsAgent\app.py", line 5, in <module> main() ~~~~^^
+    - generic: "File \"D:\\Office\\AnalyticsAgent\\analytics_agent\\ui.py\", line 221, in main if page == \"Analytics Workspace\": workspace(settings, engine,scope) ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^"
+    - generic: "File \"D:\\Office\\AnalyticsAgent\\analytics_agent\\ui.py\", line 183, in workspace if answer: results_panel(answer) ~~~~~~~~~~~~~^^^^^^^^"
+    - generic: File "D:\Office\AnalyticsAgent\analytics_agent\ui.py", line 81, in results_panel st.plotly_chart(chart, width="stretch") ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  - button "Copy"
+  - link "Ask Google":
+    - /url: https://www.google.com/search?q=streamlit.errors.StreamlitDuplicateElementId%3A%20There%20are%20multiple%20%60plotly_chart%60%20elements%20with%20the%20same%20auto-generated%20ID.%20When%20this%20element%20is%20created%2C%20it%20is%20assigned%20an%20internal%20ID%20based%20on%20the%20element%20type%20and%20provided%20parameters.%20Multiple%20elements%20with%20the%20same%20type%20and%20parameters%20will%20cause%20this%20error.%0A%0ATo%20fix%20this%20error%2C%20please%20pass%20a%20unique%20%60key%60%20argument%20to%20the%20%60plotly_chart%60%20element.
+  - link "Ask ChatGPT":
+    - /url: https://chatgpt.com/?q=streamlit.errors.StreamlitDuplicateElementId%3A%20There%20are%20multiple%20%60plotly_chart%60%20elements%20with%20the%20same%20auto-generated%20ID.%20When%20this%20element%20is%20created%2C%20it%20is%20assigned%20an%20internal%20ID%20based%20on%20the%20element%20type%20and%20provided%20parameters.%20Multiple%20elements%20with%20the%20same%20type%20and%20parameters%20will%20cause%20this%20error.%0A%0ATo%20fix%20this%20error%2C%20please%20pass%20a%20unique%20%60key%60%20argument%20to%20the%20%60plotly_chart%60%20element.%0A%0AFile%20%22D%3A%5COffice%5CAnalyticsAgent%5Capp.py%22%2C%20line%205%2C%20in%20%3Cmodule%3E%0A%20%20%20%20main()%0A%20%20%20%20~~~~%5E%5E%0AFile%20%22D%3A%5COffice%5CAnalyticsAgent%5Canalytics_agent%5Cui.py%22%2C%20line%20221%2C%20in%20main%0A%20%20%20%20if%20page%20%3D%3D%20%22Analytics%20Workspace%22%3A%20workspace(settings%2C%20engine%2Cscope)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20~~~~~~~~~%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%0AFile%20%22D%3A%5COffice%5CAnalyticsAgent%5Canalytics_agent%5Cui.py%22%2C%20line%20183%2C%20in%20workspace%0A%20%20%20%20if%20answer%3A%20results_panel(answer)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20~~~~~~~~~~~~~%5E%5E%5E%5E%5E%5E%5E%5E%0AFile%20%22D%3A%5COffice%5CAnalyticsAgent%5Canalytics_agent%5Cui.py%22%2C%20line%2081%2C%20in%20results_panel%0A%20%20%20%20st.plotly_chart(chart%2C%20width%3D%22stretch%22)%0A%20%20%20%20~~~~~~~~~~~~~~~%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E

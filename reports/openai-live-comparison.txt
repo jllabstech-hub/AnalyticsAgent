@@ -1,0 +1,172 @@
+- log
+- log
+- paragraph: Workspace section
+- combobox "Workspace section": Analytics Workspace
+- button "Open":
+- switch "Deterministic demo mode"
+- paragraph: Deterministic demo mode
+- paragraph: "Mode: openai"
+- paragraph: A configured LLM connection is required. Use Settings to test it.
+- button "Clear conversation":
+  - paragraph: Clear conversation
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Deploy":
+    - generic: Deploy
+  - button "Main menu":
+- paragraph: BDC / ANALYTICS WORKSPACE
+- heading "BDC Analytics Agent" [level=1]:
+  - text: BDC Analytics Agent
+  - link "Link to heading":
+    - /url: "#bdc-analytics-agent"
+- paragraph: Prototype V1 · Synthetic data only · July–September 2026 · UTC
+- heading "Analytics assistant" [level=3]:
+  - text: Analytics assistant
+  - link "Link to heading":
+    - /url: "#analytics-assistant"
+- generic: face
+- generic "Chat message from user":
+  - paragraph: Compare August and September active users.
+- generic: smart_toy
+- generic "Chat message from assistant":
+  - paragraph: "Observed MAU: 66,025 → 65,292; change -733 (-1.11% relative)."
+- textbox "Ask about fictional account usage"
+- button "Send message" [disabled]:
+- generic "keyboard_arrow_right Suggested questions":
+  - generic: keyboard_arrow_right
+  - paragraph: Suggested questions
+- generic "keyboard_arrow_right Follow-up investigations":
+  - generic: keyboard_arrow_right
+  - paragraph: Follow-up investigations
+- heading "Analytical results" [level=3]:
+  - text: Analytical results
+  - link "Link to heading":
+    - /url: "#analytical-results"
+- paragraph: "Provider used: openai · Model: gpt-4.1-mini-2025-04-14"
+- heading "MAU" [level=3]:
+  - text: MAU
+  - link "Link to heading":
+    - /url: "#mau"
+- paragraph: UTC · 2026-08-01 to 2026-09-01 versus 2026-09-01 to 2026-10-01 · End dates exclusive
+- paragraph: Baseline
+- paragraph: 66,025
+- paragraph: Current
+- paragraph: 65,292
+- paragraph: Absolute change
+- paragraph: "-733"
+- paragraph: "-1.11% relative"
+- toolbar:
+  - button "Download plot as a PNG":
+  - button "Zoom":
+  - button "Pan":
+  - button "Zoom in":
+  - button "Zoom out":
+  - button "Autoscale":
+  - button "Reset axes":
+  - button "Fullscreen":
+- heading "Findings" [level=3]:
+  - text: Findings
+  - link "Link to heading":
+    - /url: "#findings"
+- paragraph: "Observed MAU: 66,025 → 65,292; change -733 (-1.11% relative)."
+- paragraph: These synthetic data show changes and associations. Causal explanations remain hypotheses; confirmed root cause requires additional evidence.
+- generic "keyboard_arrow_right Data quality and limitations":
+  - generic: keyboard_arrow_right
+  - paragraph: Data quality and limitations
+- generic "keyboard_arrow_right Evidence, definitions and sources":
+  - generic: keyboard_arrow_right
+  - paragraph: Evidence, definitions and sources
+- generic "keyboard_arrow_down Execution trace" [active]:
+  - generic: keyboard_arrow_down
+  - paragraph: Execution trace
+- paragraph: 1 approved skill calls · 49.12 seconds
+- generic: "["
+- text: "0"
+- generic: ":"
+- generic: "{"
+- text: "\""
+- generic: stage
+- text: "\""
+- generic: ":"
+- generic: "\"Understanding\""
+- text: "\""
+- generic: status
+- text: "\""
+- generic: ":"
+- generic: "\"complete\""
+- generic: "}"
+- text: "1"
+- generic: ":"
+- generic: "{"
+- text: "\""
+- generic: stage
+- text: "\""
+- generic: ":"
+- generic: "\"Skill Selection\""
+- text: "\""
+- generic: status
+- text: "\""
+- generic: ":"
+- generic: "\"complete\""
+- generic: "\"skills\""
+- generic: ":"
+- generic: "["
+- text: "0"
+- generic: ":"
+- generic: "\"K1\""
+- generic: "]"
+- generic: "}"
+- text: "2"
+- generic: ":"
+- generic: "{"
+- text: "\""
+- generic: stage
+- text: "\""
+- generic: ":"
+- generic: "\"Query Execution\""
+- text: "\""
+- generic: skill
+- text: "\""
+- generic: ":"
+- generic: "\"K1\""
+- text: "\""
+- generic: status
+- text: "\""
+- generic: ":"
+- generic: "\"complete\""
+- text: "\""
+- generic: duration_ms
+- text: "\""
+- generic: ":"
+- generic: "4509.935"
+- generic: "}"
+- text: "3"
+- generic: ":"
+- generic: "{"
+- text: "\""
+- generic: stage
+- text: "\""
+- generic: ":"
+- generic: "\"Validation\""
+- text: "\""
+- generic: status
+- text: "\""
+- generic: ":"
+- generic: "\"complete\""
+- generic: "}"
+- text: "4"
+- generic: ":"
+- generic: "{"
+- text: "\""
+- generic: stage
+- text: "\""
+- generic: ":"
+- generic: "\"Findings\""
+- text: "\""
+- generic: status
+- text: "\""
+- generic: ":"
+- generic: "\"complete\""
+- generic: "}"
+- generic: "]"

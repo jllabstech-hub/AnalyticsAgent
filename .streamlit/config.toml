@@ -1,0 +1,17 @@
+[theme]
+base = "light"
+primaryColor = "#007F86"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F3F6FA"
+textColor = "#172B4D"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+# Backend class changes require a clean restart; prevent stale hot-reload imports.
+fileWatcherType = "none"
+
+[secrets]
+files = ["~/.streamlit/secrets.toml", ".streamlit/secrets.toml", "/etc/secrets/secrets.toml"]

@@ -1,0 +1,18 @@
+{
+  "ollama_executable": null,
+  "configured_model": "qwen3:8b",
+  "recommended_smaller_model": "qwen3:1.7b",
+  "inference_verified": false,
+  "gpu": "NVIDIA GeForce MX330, 2048 MiB",
+  "reachable": false,
+  "warning": "Ollama is not reachable. Select deterministic demo mode or configure Ollama.",
+  "checked_at_utc": "2026-10-14T02:01:04.773939+00:00",
+  "executable_found_on_path_or_standard_locations": false,
+  "standard_model_manifests_found": false,
+  "total_ram_gib": 31.73,
+  "available_ram_gib_at_check": 16.07,
+  "selected_ui_model": "qwen3:1.7b",
+  "next_step": "Install official Ollama and download the selected local model after user authorization",
+  "installation_authorized": false,
+  "actual_local_inference_verified": false
+}

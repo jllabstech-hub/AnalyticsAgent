@@ -1,0 +1,66 @@
+{
+  "skill_timings": {
+    "K1": {
+      "duration_ms": 4778.388,
+      "queries": 9,
+      "query_ms": [
+        798.383,
+        798.968,
+        2.648,
+        366.262,
+        135.755,
+        129.017,
+        971.295,
+        230.426,
+        853.293
+      ]
+    },
+    "K2": {
+      "duration_ms": 1619.998,
+      "queries": 10,
+      "query_ms": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        812.648,
+        759.147
+      ]
+    },
+    "K3": {
+      "duration_ms": 1601.859,
+      "queries": 10,
+      "query_ms": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        790.862,
+        767.268
+      ]
+    }
+  },
+  "end_to_end_ms": 7196.470700204372,
+  "warm_end_to_end_ms": 5.683199968189001,
+  "tool_calls": 3,
+  "peak_process_memory_mb": 385.04,
+  "duckdb_memory_limit": "512MB",
+  "llm_latency_ms": null,
+  "concurrent_requests": 4,
+  "concurrent_passed": 4,
+  "concurrent_elapsed_ms": [
+    7333.594,
+    7333.962,
+    7332.845,
+    7334.379
+  ],
+  "notes": "Cold, warm and four simultaneous shared-engine investigations measured locally; not a production load test; live LLM latency unavailable."
+}

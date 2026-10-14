@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "candidate_text_files_checked": 80,
+  "findings": [],
+  "git_repository_present": true,
+  "openai_key_configured": true,
+  "controls": [
+    "Typed tool arguments and allowlist",
+    "Scope checks including cache hits",
+    "Read-only approved SQL templates",
+    "Restricted DuckDB file access",
+    "Server-side credentials excluded from repr/session",
+    "Remote Ollama requires HTTPS and bearer token",
+    "No automatic local-to-cloud switch",
+    "Production OIDC and server scope guard fail closed"
+  ],
+  "limitations": [
+    "Source scan plus behavioral tests; not a formal penetration test.",
+    "Actual identity-provider login is unverified.",
+    "Hosted application deployment and production operation remain unverified."
+  ]
+}

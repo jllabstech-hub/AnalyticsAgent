@@ -1,0 +1,10 @@
+{
+  "ollama_executable": null,
+  "configured_model": "qwen3:8b",
+  "recommended_smaller_model": "qwen3:1.7b",
+  "inference_verified": false,
+  "gpu": "NVIDIA GeForce MX330, 2048 MiB",
+  "reachable": false,
+  "warning": "Ollama is not reachable. Select deterministic demo mode or configure Ollama.",
+  "openai_key_configured": false
+}

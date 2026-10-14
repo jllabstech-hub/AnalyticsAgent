@@ -1,0 +1,25 @@
+{
+  "generated_at_utc": "2026-10-14T01:52:05.080855+00:00",
+  "total": 192,
+  "passed": 190,
+  "failed": 0,
+  "skipped": 2,
+  "reference_questions": 30,
+  "correct_reference_questions": 30,
+  "analytical_accuracy_defined_suite": 1.0,
+  "natural_language_e2e_questions": 30,
+  "correct_natural_language_e2e_questions": 30,
+  "test_duration_seconds": 183.34,
+  "limitations": [
+    "Synthetic evaluation only; not enterprise production accuracy.",
+    "Live LLM inference requires services, credentials and explicit opt-in.",
+    "DAU charts are supporting engagement trends for other metrics.",
+    "OIDC and server scope guards tested with claims; actual identity-provider login remains unverified."
+  ],
+  "skipped_reasons": [
+    "Live Ollama opt-in disabled; local diagnostic reports endpoint unavailable",
+    "Live OpenAI opt-in disabled; no cloud inference authorized in this build"
+  ],
+  "live_validation_report": "reports/openai_live_validation.json",
+  "live_test_note": "Automated suite used disabled live opt-in; separate authorized real OpenAI connection and K1 browser workflow passed."
+}

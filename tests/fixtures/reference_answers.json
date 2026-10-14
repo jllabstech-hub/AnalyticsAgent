@@ -1,0 +1,290 @@
+[
+  {
+    "id": "mau-0",
+    "question": "Compare August and September mau for all users",
+    "metric": "mau",
+    "filters": {},
+    "baseline": 66025.0,
+    "current": 65292.0
+  },
+  {
+    "id": "mau-1",
+    "question": "Compare August and September mau for {'market': 'Market A'}",
+    "metric": "mau",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 13149.0,
+    "current": 8643.0
+  },
+  {
+    "id": "mau-2",
+    "question": "Compare August and September mau for {'market': 'Market B'}",
+    "metric": "mau",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 13132.0,
+    "current": 14960.0
+  },
+  {
+    "id": "mau-3",
+    "question": "Compare August and September mau for {'service': 'Service Alpha'}",
+    "metric": "mau",
+    "filters": {
+      "service": "Service Alpha"
+    },
+    "baseline": 51676.0,
+    "current": 48745.0
+  },
+  {
+    "id": "mau-4",
+    "question": "Compare August and September mau for {'device_model': 'Nova Mini'}",
+    "metric": "mau",
+    "filters": {
+      "device_model": "Nova Mini"
+    },
+    "baseline": 16491.0,
+    "current": 13456.0
+  },
+  {
+    "id": "dau-0",
+    "question": "Compare August and September dau for all users",
+    "metric": "dau",
+    "filters": {},
+    "baseline": 11943.645161290322,
+    "current": 11670.266666666666
+  },
+  {
+    "id": "dau-1",
+    "question": "Compare August and September dau for {'market': 'Market A'}",
+    "metric": "dau",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 2386.7741935483873,
+    "current": 1281.9666666666667
+  },
+  {
+    "id": "dau-2",
+    "question": "Compare August and September dau for {'market': 'Market B'}",
+    "metric": "dau",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 2361.7741935483873,
+    "current": 2914.266666666667
+  },
+  {
+    "id": "dau-3",
+    "question": "Compare August and September dau for {'service': 'Service Alpha'}",
+    "metric": "dau",
+    "filters": {
+      "service": "Service Alpha"
+    },
+    "baseline": 6200.4838709677415,
+    "current": 6019.033333333334
+  },
+  {
+    "id": "dau-4",
+    "question": "Compare August and September dau for {'device_model': 'Nova Mini'}",
+    "metric": "dau",
+    "filters": {
+      "device_model": "Nova Mini"
+    },
+    "baseline": 2992.2580645161293,
+    "current": 2150.9333333333334
+  },
+  {
+    "id": "new_users-0",
+    "question": "Compare August and September new_users for all users",
+    "metric": "new_users",
+    "filters": {},
+    "baseline": 11375.0,
+    "current": 10964.0
+  },
+  {
+    "id": "new_users-1",
+    "question": "Compare August and September new_users for {'market': 'Market A'}",
+    "metric": "new_users",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 2278.0,
+    "current": 2111.0
+  },
+  {
+    "id": "new_users-2",
+    "question": "Compare August and September new_users for {'market': 'Market B'}",
+    "metric": "new_users",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 2198.0,
+    "current": 2171.0
+  },
+  {
+    "id": "new_users-3",
+    "question": "Compare August and September new_users for {'service': 'Service Alpha'}",
+    "metric": "new_users",
+    "filters": {
+      "service": "Service Alpha"
+    },
+    "baseline": 11375.0,
+    "current": 10964.0
+  },
+  {
+    "id": "new_users-4",
+    "question": "Compare August and September new_users for {'device_model': 'Nova Mini'}",
+    "metric": "new_users",
+    "filters": {
+      "device_model": "Nova Mini"
+    },
+    "baseline": 2878.0,
+    "current": 2847.0
+  },
+  {
+    "id": "active_existing_users-0",
+    "question": "Compare August and September active_existing_users for all users",
+    "metric": "active_existing_users",
+    "filters": {},
+    "baseline": 58798.0,
+    "current": 58314.0
+  },
+  {
+    "id": "active_existing_users-1",
+    "question": "Compare August and September active_existing_users for {'market': 'Market A'}",
+    "metric": "active_existing_users",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 11713.0,
+    "current": 7339.0
+  },
+  {
+    "id": "active_existing_users-2",
+    "question": "Compare August and September active_existing_users for {'market': 'Market B'}",
+    "metric": "active_existing_users",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 11713.0,
+    "current": 13504.0
+  },
+  {
+    "id": "active_existing_users-3",
+    "question": "Compare August and September active_existing_users for {'service': 'Service Alpha'}",
+    "metric": "active_existing_users",
+    "filters": {
+      "service": "Service Alpha"
+    },
+    "baseline": 46016.0,
+    "current": 43303.0
+  },
+  {
+    "id": "active_existing_users-4",
+    "question": "Compare August and September active_existing_users for {'device_model': 'Nova Mini'}",
+    "metric": "active_existing_users",
+    "filters": {
+      "device_model": "Nova Mini"
+    },
+    "baseline": 14683.0,
+    "current": 11619.0
+  },
+  {
+    "id": "activation_rate-0",
+    "question": "Compare August and September activation_rate for all users",
+    "metric": "activation_rate",
+    "filters": {},
+    "baseline": 0.7289670329670329,
+    "current": 0.7303903684786575
+  },
+  {
+    "id": "activation_rate-1",
+    "question": "Compare August and September activation_rate for {'market': 'Market A'}",
+    "metric": "activation_rate",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 0.7309043020193152,
+    "current": 0.7167219327333018
+  },
+  {
+    "id": "activation_rate-2",
+    "question": "Compare August and September activation_rate for {'market': 'Market B'}",
+    "metric": "activation_rate",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 0.7315741583257507,
+    "current": 0.7277752187931829
+  },
+  {
+    "id": "activation_rate-3",
+    "question": "Compare August and September activation_rate for {'service': 'Service Alpha'}",
+    "metric": "activation_rate",
+    "filters": {
+      "service": "Service Alpha"
+    },
+    "baseline": 0.7289670329670329,
+    "current": 0.7303903684786575
+  },
+  {
+    "id": "activation_rate-4",
+    "question": "Compare August and September activation_rate for {'device_model': 'Nova Mini'}",
+    "metric": "activation_rate",
+    "filters": {
+      "device_model": "Nova Mini"
+    },
+    "baseline": 0.7227241139680334,
+    "current": 0.7386722866174921
+  },
+  {
+    "id": "service_adoption_rate-0",
+    "question": "Compare August and September service_adoption_rate for all users",
+    "metric": "service_adoption_rate",
+    "filters": {},
+    "baseline": 0.741553978166135,
+    "current": 0.65292
+  },
+  {
+    "id": "service_adoption_rate-1",
+    "question": "Compare August and September service_adoption_rate for {'market': 'Market A'}",
+    "metric": "service_adoption_rate",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 0.7370515695067265,
+    "current": 0.43321136785123554
+  },
+  {
+    "id": "service_adoption_rate-2",
+    "question": "Compare August and September service_adoption_rate for {'market': 'Market B'}",
+    "metric": "service_adoption_rate",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 0.7449934759176263,
+    "current": 0.7556318820082837
+  },
+  {
+    "id": "service_adoption_rate-3",
+    "question": "Compare August and September service_adoption_rate for {'service': 'Service Alpha'}",
+    "metric": "service_adoption_rate",
+    "filters": {
+      "service": "Service Alpha"
+    },
+    "baseline": 0.5803944471899007,
+    "current": 0.48745
+  },
+  {
+    "id": "service_adoption_rate-4",
+    "question": "Compare August and September service_adoption_rate for {'device_model': 'Nova Mini'}",
+    "metric": "service_adoption_rate",
+    "filters": {
+      "device_model": "Nova Mini"
+    },
+    "baseline": 0.7404696690763773,
+    "current": 0.5357114419937893
+  }
+]

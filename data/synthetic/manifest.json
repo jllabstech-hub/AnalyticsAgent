@@ -1,0 +1,9 @@
+{
+  "seed": 20260701,
+  "user_count": 100000,
+  "is_synthetic": true,
+  "timezone": "UTC",
+  "snapshot_as_of": "2026-10-05",
+  "period_start": "2026-07-01",
+  "period_end_exclusive": "2026-10-01"
+}

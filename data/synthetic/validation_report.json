@@ -1,0 +1,30 @@
+{
+  "row_counts": {
+    "data_quality_status": 30,
+    "device_mapping": 103178,
+    "market_reference": 5,
+    "service_activity": 1186245,
+    "service_membership": 205108,
+    "users": 100000
+  },
+  "unique_users": 100000,
+  "event_rows": 1186245,
+  "unique_events": 1180343,
+  "duplicate_rows": 5902,
+  "late_events_over_24h": 23429,
+  "market_distribution": {
+    "Market A": 19951,
+    "Market B": 19798,
+    "Market C": 19944,
+    "Market D": 20108,
+    "Market E": 20199
+  },
+  "monthly_active_users": {
+    "2026-07": 56612,
+    "2026-08": 66025,
+    "2026-09": 65292
+  },
+  "incomplete_september_days": 23,
+  "primary_comparison_complete": true,
+  "integrity": "pass"
+}

@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-10-14T01:38:00.026864+00:00",
+  "provider": "openai",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "configured": true,
+  "inference_verified": true,
+  "reachable": true,
+  "http_status": 200,
+  "latency_ms": 42496.61
+}

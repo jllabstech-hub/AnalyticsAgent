@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "desktop_viewport": [
+    1366,
+    900
+  ],
+  "checks": [
+    "Synthetic label",
+    "Computed KPI comparison and Plotly chart",
+    "Explicit demo mode",
+    "Ollama default and explicit OpenAI selection",
+    "Missing-key/unreachable-fallback warning without a fabricated answer",
+    "Settings preference survives navigation",
+    "Read-only explorer shows 100000 users with schema/sample tables"
+  ],
+  "proofs": [
+    "browser-workspace.jpg",
+    "browser-settings.jpg",
+    "browser-explorer.jpg"
+  ],
+  "hosted_deployment": false,
+  "final_source_reloaded": true,
+  "compact_layout_verified": true
+}

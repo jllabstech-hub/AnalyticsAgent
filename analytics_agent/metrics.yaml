@@ -1,0 +1,63 @@
+defaults: &common
+  version: '1.0'
+  owner: Fictional BDC Analytics Demo
+  timezone: UTC
+  supported_dimensions: [market, device_model, service]
+  required_joins: [user_id, service, device_id, event-time membership and device validity]
+  data_quality_requirements: [complete reporting period, deduplicated event_id, valid temporal joins, valid denominator, snapshot freshness]
+metrics:
+  mau:
+    <<: *common
+    metric_id: mau
+    business_meaning: Unique activated eligible users with at least one usage event in the selected period.
+    calculation_method: COUNT DISTINCT user_id across all selected services; overlapping service populations are unioned.
+    source_datasets: [users, service_activity, service_membership, device_mapping]
+    aggregation_grain: calendar month or explicitly selected period
+    numerator: distinct active users
+    denominator: null
+  dau:
+    <<: *common
+    metric_id: dau
+    business_meaning: Mean daily unique activated eligible users, including zero-activity days.
+    calculation_method: Sum daily distinct user counts divided by the number of calendar days.
+    source_datasets: [users, service_activity, service_membership, device_mapping]
+    aggregation_grain: day; period value is a daily mean
+    numerator: mean daily active users
+    denominator: null
+  new_users:
+    <<: *common
+    metric_id: new_users
+    business_meaning: Users registered in the period and eligible for a selected service during that period.
+    calculation_method: COUNT DISTINCT eligible user_id with registration within the half-open period.
+    source_datasets: [users, service_membership, device_mapping]
+    aggregation_grain: selected period
+    numerator: distinct eligible registrations
+    denominator: null
+  active_existing_users:
+    <<: *common
+    metric_id: active_existing_users
+    business_meaning: Active users registered before the period start.
+    calculation_method: COUNT DISTINCT active user_id where registered_at is before period start.
+    source_datasets: [users, service_activity, service_membership, device_mapping]
+    aggregation_grain: selected period
+    numerator: distinct active existing users
+    denominator: null
+  activation_rate:
+    <<: *common
+    metric_id: activation_rate
+    business_meaning: Share of new eligible registrations activated within the same period.
+    calculation_method: New eligible users activated in the period divided by all new eligible registrations.
+    source_datasets: [users, service_membership, device_mapping]
+    aggregation_grain: selected period; ratio is not additive
+    numerator: new eligible registrations activated in the period
+    denominator: all new eligible registrations
+  service_adoption_rate:
+    <<: *common
+    version: '1.1'
+    metric_id: service_adoption_rate
+    business_meaning: Share of eligible users active in the selected service population during the period.
+    calculation_method: Distinct active eligible users divided by distinct users eligible at any time in the period; device filters include time-valid associations overlapping the period in both populations.
+    source_datasets: [users, service_activity, service_membership, device_mapping]
+    aggregation_grain: selected period; ratio is not additive
+    numerator: distinct active eligible users
+    denominator: distinct users eligible during the period
