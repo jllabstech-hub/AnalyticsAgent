@@ -227,7 +227,7 @@ def main():
         st.error("Server configuration is invalid. Check provider selection and finite, positive execution limits.")
         st.stop()
     st.set_page_config(page_title=settings.app_title, page_icon="📊", layout="wide")
-    st.markdown("<style>h1{font-size:1.9rem!important}h2{font-size:1.3rem!important}h3{font-size:1.05rem!important}.block-container{padding-top:1.7rem}.stMetric{border:1px solid #e6ebef;border-radius:8px;padding:12px}</style>", unsafe_allow_html=True)
+    st.markdown("<style>h1{font-size:1.9rem!important}h2{font-size:1.3rem!important}h3{font-size:1.05rem!important}.block-container{padding-top:1.7rem}.stMetric{border:1px solid #e6ebef;border-radius:8px;padding:12px}.st-key-sales_kpis [data-testid='stMetricValue']{font-size:1.6rem!important;white-space:normal;overflow:visible;text-overflow:clip}.st-key-sales_kpis [data-testid='stMetricValue'] p{white-space:normal;overflow-wrap:anywhere;overflow:visible;text-overflow:clip}</style>", unsafe_allow_html=True)
     st.caption("BDC / ANALYTICS WORKSPACE")
     st.title(settings.app_title)
     st.caption("Synthetic data only · Usage: July–September 2026 · Sales: April–September 2026 · UTC")

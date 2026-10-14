@@ -38,10 +38,10 @@ def sales_panel(answer):
     if not first.quality["complete"]: st.warning("Provisional sales results: reporting coverage is incomplete. Partial months are labeled.")
     st.subheader(first.request.metric.replace("_"," ").title()+(" · USD" if money else ""))
     st.caption(f"UTC | {first.request.baseline.start} to {first.request.baseline.end} vs {first.request.current.start} to {first.request.current.end} | End dates exclusive")
-    with st.container(horizontal=True,wrap=True,gap="small"):
-        st.metric("Baseline",fmt(first.baseline),border=True,width=210)
-        st.metric("Current",fmt(first.current),border=True,width=210)
-        st.metric("Absolute change",fmt(first.absolute_change),f"{first.percentage_change:+.2f}% relative" if first.percentage_change is not None else None,border=True,width=230)
+    with st.container(horizontal=True,wrap=True,gap="small",key="sales_kpis"):
+        st.metric("Baseline",fmt(first.baseline),border=True,width=280)
+        st.metric("Current",fmt(first.current),border=True,width=280)
+        st.metric("Absolute change",fmt(first.absolute_change),f"{first.percentage_change:+.2f}% relative" if first.percentage_change is not None else None,border=True,width=280)
     for result in answer.results:
         if result.trend:
             data=pd.DataFrame(result.trend)
