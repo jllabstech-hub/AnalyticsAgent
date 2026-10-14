@@ -11,16 +11,21 @@ from analytics_agent.providers import ProviderError, manager_from_settings
 from analytics_agent.skills import SkillRegistry
 from analytics_agent.models import AccessScope
 from analytics_agent.access import scope_for_claims, valid_auth_configuration
+from analytics_agent.platform import PlatformAgent,PlatformContext,domain_registry
+from analytics_agent.sales_engine import SalesEngine,SALES_TABLES
+from analytics_agent.sales_parser import SALES_DEMOS
+from analytics_agent.sales_skills import SalesSkills
+from analytics_agent.platform_ui import sales_panel,trace_panel,downloads
 
 
 def current_scope(settings):
     if settings.public_demo_enabled:
         if st.session_state.get("access_fingerprint") != "public_synthetic_demo":
-            for key in ("last_answer", "context", "messages", "connection_status", "last_fallback_reason"):
+            for key in ("last_answer", "context", "messages", "connection_status", "last_fallback_reason", "suggested_domain", "explorer_domain"):
                 st.session_state.pop(key, None)
             st.session_state.access_fingerprint = "public_synthetic_demo"
-        return AccessScope()
-    if settings.app_env != "production": return AccessScope()
+        return AccessScope(domains=("usage","sales"))
+    if settings.app_env != "production": return AccessScope(domains=("usage","sales"))
     try:
         auth = st.secrets["auth"].to_dict()
         access = st.secrets["access"].to_dict()
@@ -39,7 +44,7 @@ def current_scope(settings):
         st.stop()
     fingerprint = hashlib.sha256(json.dumps([st.user.get("iss"),st.user.get("sub"),scope.model_dump(mode="json")],sort_keys=True).encode()).hexdigest()
     if st.session_state.get("access_fingerprint") != fingerprint:
-        for key in ("last_answer","context","messages"): st.session_state.pop(key,None)
+        for key in ("last_answer","context","messages","suggested_domain","explorer_domain"): st.session_state.pop(key,None)
         st.session_state.access_fingerprint = fingerprint
     with st.sidebar: st.button("Sign out",on_click=st.logout)
     return scope
@@ -52,7 +57,16 @@ def analytical_engine(result_limit):
     return Engine(result_limit=result_limit, memory=os.getenv("DUCKDB_MEMORY_LIMIT", "512MB"))
 
 
+@st.cache_resource
+def sales_engine(result_limit):
+    import os
+    return SalesEngine(result_limit=result_limit,memory=os.getenv("DUCKDB_MEMORY_LIMIT","320MB"))
+
+
 def results_panel(answer):
+    if getattr(answer,"domain",None)=="sales":
+        sales_panel(answer)
+        return
     st.caption(f"Provider {'attempted' if answer.status == 'error' else 'used'}: {answer.provider}" + (f" · Model: {answer.model}" if answer.model else ""))
     if answer.fallback_reason: st.warning(f"Fallback to Ollama: {answer.fallback_reason}")
     if answer.status != "ok":
@@ -102,6 +116,10 @@ def results_panel(answer):
     with st.expander("Execution trace"):
         st.caption(f"{answer.tool_calls} approved skill calls · {answer.elapsed_ms/1000:.2f} seconds")
         st.json(answer.trace)
+    if hasattr(answer,"domain"):
+        downloads(answer)
+        with st.expander("Platform component functionality"):
+            trace_panel(answer)
 
 
 def save_preference(name):
@@ -154,15 +172,23 @@ def settings_panel(settings):
     st.caption("Last fallback reason: " + (st.session_state.get("last_fallback_reason",last.fallback_reason if last else connection.get("fallback_reason")) or "None"))
 
 
+def switch_suggested_domain():
+    st.session_state.context=PlatformContext(domain=st.session_state.suggested_domain)
+    st.session_state.pop("last_answer",None)
+
+
 def workspace(settings, engine, scope=AccessScope()):
     left, right = st.columns([2, 3], gap="large")
     with left:
         st.subheader("Analytics assistant")
         for message in st.session_state.messages[-12:]:
             with st.chat_message(message["role"]): st.write(message["content"])
-        question = st.chat_input("Ask about fictional account usage", key="question")
+        question = st.chat_input("Ask about fictional account usage or sales", key="question")
+        available=list(scope.domains)
+        st.selectbox("Suggested domain",available,format_func=lambda name:domain_registry()[name].name,
+            key="suggested_domain",on_change=switch_suggested_domain)
         with st.expander("Suggested questions", expanded=not st.session_state.messages):
-            for index, demo in enumerate(DEMOS):
+            for index, demo in enumerate(SALES_DEMOS if st.session_state.suggested_domain=="sales" else DEMOS):
                 if st.button(demo, key=f"demo_{index}", width="stretch"): question = demo
         previous = st.session_state.get("last_answer")
         if previous and previous.status == "ok":
@@ -175,7 +201,7 @@ def workspace(settings, engine, scope=AccessScope()):
             try:
                 manager = None if mode == "demo" else manager_from_settings(settings, mode, st.session_state.ollama_model, st.session_state.openai_model, st.session_state.automatic_fallback)
                 with st.status("Understanding → Skill Selection → Query Execution → Validation → Findings", expanded=True) as status:
-                    answer = AnalyticsAgent(SkillRegistry(engine), settings,scope).run(question, st.session_state.context, mode, manager)
+                    answer = PlatformAgent(SkillRegistry(engine),lambda:SalesSkills(sales_engine(settings.result_limit)),settings,scope).run(question, st.session_state.context, mode, manager)
                     for step in answer.trace: st.write(f"{step['stage']} · {step.get('skill','')} · {step['status']}")
                     status.update(label="Analysis complete" if answer.status == "ok" else "Analysis needs attention", state="complete" if answer.status == "ok" else "error", expanded=False)
                 st.session_state.last_answer, st.session_state.context = answer, answer.context
@@ -204,11 +230,11 @@ def main():
     st.markdown("<style>h1{font-size:1.9rem!important}h2{font-size:1.3rem!important}h3{font-size:1.05rem!important}.block-container{padding-top:1.7rem}.stMetric{border:1px solid #e6ebef;border-radius:8px;padding:12px}</style>", unsafe_allow_html=True)
     st.caption("BDC / ANALYTICS WORKSPACE")
     st.title(settings.app_title)
-    st.caption("Prototype V1 · Synthetic data only · July–September 2026 · UTC")
+    st.caption("Synthetic data only · Usage: July–September 2026 · Sales: April–September 2026 · UTC")
     scope = current_scope(settings)
     defaults = {"selected_provider":settings.llm_provider,"ollama_model":settings.ollama_model,
         "openai_model":settings.openai_model,"automatic_fallback":settings.fallback_to_ollama,
-        "demo_mode":False,"messages":[],"context":ConversationContext()}
+        "demo_mode":False,"messages":[],"context":PlatformContext()}
     for key, value in defaults.items():
         if key not in st.session_state: st.session_state[key] = value
     if settings.public_demo_enabled:
@@ -227,7 +253,7 @@ def main():
             if not st.session_state.get("connection_status",{}).get("inference_verified") and not st.session_state.get("last_answer"):
                 st.warning("LLM connection unverified. Test it in Settings or explicitly enable deterministic demo mode.")
         if st.button("Clear conversation"):
-            st.session_state.context, st.session_state.messages = ConversationContext(), []
+            st.session_state.context, st.session_state.messages = PlatformContext(), []
             st.session_state.pop("last_answer", None)
             st.rerun()
     engine = analytical_engine(settings.result_limit)
@@ -247,12 +273,21 @@ def main():
     elif page == "Agent Execution":
         st.subheader("Agent Execution")
         answer = st.session_state.get("last_answer")
-        if answer: st.json(answer.trace)
+        if answer: trace_panel(answer)
         else: st.info("Run an analysis to see completed skills and validation steps.")
     elif page == "Data Explorer":
         st.subheader("Data Explorer · Synthetic data")
-        table = st.selectbox("Dataset", list(TABLES))
-        try: schema, count, sample = engine.explore(table,scope)
+        source=st.selectbox("Data domain",list(scope.domains),key="explorer_domain")
+        selected_engine=sales_engine(settings.result_limit) if source=="sales" else engine
+        if source=="sales" and settings.public_demo_enabled:
+            try:
+                marker=json.loads((selected_engine.data_dir/"manifest.json").read_text(encoding="utf-8"))
+                if selected_engine.data_dir!=(PROJECT_ROOT/"data"/"synthetic_sales").resolve() or marker.get("is_synthetic") is not True: raise ValueError()
+            except (OSError,ValueError):
+                st.error("Public sales data validation failed.")
+                return
+        table = st.selectbox("Dataset", list(SALES_TABLES if source=="sales" else TABLES))
+        try: schema, count, sample = selected_engine.explore(table,scope)
         except (PermissionError,TimeoutError,FileNotFoundError):
             st.warning("Data Explorer is unavailable for this account or warehouse state. Use scoped analytics or retry later.")
             return
@@ -265,5 +300,6 @@ def main():
         report_path = PROJECT_ROOT / "reports" / "evaluation.json"
         if report_path.is_file(): st.json(json.loads(report_path.read_text(encoding="utf-8")))
         else: st.info("The evaluation report has not been generated yet.")
-        st.write("Supported skills: " + ", ".join(SkillRegistry.names.values()))
+        st.write("Supported skills: " + ", ".join(list(SkillRegistry.names.values())+list(SalesSkills.names.values())))
+        st.json({key:value.model_dump() for key,value in domain_registry().items()})
         st.caption("Synthetic evaluation does not establish enterprise production accuracy. Live provider tests are tracked separately.")

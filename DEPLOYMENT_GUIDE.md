@@ -78,6 +78,14 @@ queries and analytical skills as private mode. Unsupported questions are refused
 or clarified by the bounded demonstration parser. Anyone with the URL can view
 the fictional data; this mode is inappropriate for real enterprise data.
 
+Both usage and sales Parquet bundles are required. Sales adds approximately 3.6 MB,
+uses the same process-wide warehouse session lock, and keeps the 320 MB DuckDB
+budget. Select Sales Analytics in Suggested domain or type a sales question.
+Agent Execution exposes the seven-component trace; exports are generated in memory.
+Private principal grants remain usage-only unless `domains = ["usage", "sales"]`
+is explicitly added alongside the approved market/service/skill scope. K1 grants
+sales comparison and K2 grants contribution; the sales domain itself must also be granted.
+
 For a private deployment set `PUBLIC_DEMO_ENABLED=false`, configure the sign-in
 settings below and then verify account scopes. Put API keys only in Render
 environment variables. Default provider is Ollama;

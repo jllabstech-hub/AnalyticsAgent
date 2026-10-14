@@ -29,6 +29,6 @@ def scope_for_claims(claims, access, now=None):
     try: scope = AccessScope.model_validate(entry)
     except ValidationError:
         raise PermissionError("This account's access configuration is invalid.") from None
-    if not scope.markets or not scope.services or not scope.skills:
+    if not scope.markets or not scope.services or not scope.skills or not scope.domains:
         raise PermissionError("This account has no approved analytics access.")
     return scope

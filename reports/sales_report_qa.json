@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "pdf_sha256": "bf10452ab74fe7cc8363d51f22134083c19a186fc1709a25a91219a05342a562",
+  "pages_reviewed": [
+    1,
+    2
+  ],
+  "visual_findings": 0,
+  "validation": "Actual bundled Poppler rendering; both final page images visually reviewed. Numeric totals match executed synthetic sales queries.",
+  "note": "Poppler emitted missing fallback-font warnings; both rendered pages are legible with no clipping or missing glyphs."
+}

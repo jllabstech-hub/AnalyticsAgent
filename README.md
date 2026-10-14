@@ -3,6 +3,10 @@
 A working synthetic enterprise analytics prototype with a Streamlit workspace,
 DuckDB, YAML metrics, K1–K3 skills, a bounded orchestrator, Ollama by default and
 optional OpenAI. All accounts, users, markets, devices and services are fictional.
+The platform now also includes a complete synthetic Sales Analytics domain:
+25,000 orders, 50,000 unique lines, Q2/Q3 2026 comparisons, governed SQL, source
+metadata, validation, charts, CSV/Excel/PDF and a seven-component functionality trace.
+See `PIPELINE_COMPONENT_TRACE.md` for the executed architecture mapping.
 
 Repository: https://github.com/jllabstech-hub/AnalyticsAgent
 
@@ -15,7 +19,7 @@ See `PRODUCTION_READINESS.md` for current evidence and deployment blockers.
 Local mode runs only on your own machine. `APP_ENV=production` (forced on Render)
 requires OIDC sign-in and server-defined account scopes before private analytics is shown.
 The owner-authorized public Free demo uses `PUBLIC_DEMO_ENABLED=true`: anonymous
-access to the bundled fictional data, locked deterministic execution, no LLM
+access to the two bundled fictional warehouses, locked deterministic execution, no LLM
 connections and no provider Settings. The application default is false.
 OpenAI connection and one complete live MAU comparison have been verified locally.
 Actual identity-provider login, Ollama inference, broader live model evaluation,

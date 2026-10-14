@@ -1,6 +1,6 @@
 # Production readiness assessment
 
-What this repo does: It answers governed questions over 100,000 fictional accounts using approved DuckDB calculations and K1–K3 skills. Streamlit presents query-backed findings; optional Ollama/OpenAI can plan tools but cannot author displayed numbers. Load assessed: one Streamlit process, four simultaneous investigations on Windows.
+What this repo does: It answers governed questions over 100,000 fictional accounts and 25,000 fictional sales orders using approved DuckDB calculations, K1–K3 usage skills and S1/S2 sales operations. Streamlit presents query-backed findings; optional Ollama/OpenAI can plan tools but cannot author displayed numbers. Load assessed: one Streamlit process, four simultaneous investigations on Windows.
 
 Verdict: **hardened prototype suitable for controlled acceptance testing; not yet production-approved.**
 
@@ -61,3 +61,8 @@ The .github/workflows/quality.yml actually passed tests, credential checks, advi
 Evidence files are under reports/; FINAL_VALIDATION_REPORT.md summarizes actual measurements. DEPLOYMENT_GUIDE.md covers OIDC and Render setup. Streamlit's authentication protocol verifies identity; the application's scope map separately authorizes data access. See [Streamlit authentication](https://docs.streamlit.io/develop/concepts/connections/authentication). Render Secret Files are read from /etc/secrets/secrets.toml; see [Render documentation](https://render.com/docs/configure-environment-variables#secret-files).
 
 Not checked: real enterprise data, broad live LLM accuracy, live Ollama, signed IdP login, hosted signed-in analytics and sustained production traffic, formal penetration testing or disaster-recovery operations. Source was published to the explicitly authorized public GitHub repository; Free application hosting is live; no paid resource creation or model downloads occurred.
+
+
+## Sales extension acceptance and remaining limits
+
+Final local suite is 306 passed / 0 failed / 2 skipped of 308; 40 independent sales calculations and 40 question workflows match, alongside both 30-question usage suites. Seven observable components, read-only metadata/catalog retrieval, parameterized sales operations, private domain grants and exports are verified. The actual both-domain Streamlit/export peak is 424.27 MiB on Windows. Published dependency audit checks 86 packages with zero known findings. New-source Linux CI and Free hosted sales verification follow. Public mode runs only bundled fictional data with no providers. Enterprise databases, Teams/Slack/email, real sales-provider inference, actual identity lifecycle and sustained hosted traffic remain unverified or unconnected. The supplied architecture is implemented for the synthetic core pipeline, not claimed as a complete enterprise platform.

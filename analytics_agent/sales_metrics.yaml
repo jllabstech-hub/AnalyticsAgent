@@ -1,0 +1,42 @@
+defaults: &common
+  version: '1.0'
+  owner: Fictional Sales Analytics Demo
+  timezone: UTC
+  currency: USD
+  supported_dimensions: [market, product, channel]
+  source_datasets: [sales_fact, product_dim, market_dim, calendar_dim]
+  required_joins: [sales_fact.product_id=product_dim.product_id, sales_fact.market_id=market_dim.market_id, sales_fact.sale_date=calendar_dim.sale_date]
+  data_quality_requirements: [unique dimension keys, no orphan foreign keys, canonical sales_line_id, consistent order grain, valid money and return units, complete coverage, snapshot freshness]
+metrics:
+  net_sales:
+    <<: *common
+    metric_id: net_sales
+    business_meaning: Invoiced sales less discounts and returns, plus signed adjustments; synthetic USD only.
+    calculation_method: SUM(gross_cents-discount_cents-return_cents+adjustment_cents)/100
+    aggregation_grain: order line; additive across exclusive groups
+    numerator: canonical net USD cents
+    denominator: null
+  units_sold:
+    <<: *common
+    metric_id: units_sold
+    business_meaning: Gross invoiced units, before returned units; not net retained units.
+    calculation_method: SUM(units_sold) after canonical line deduplication
+    aggregation_grain: order line; additive across exclusive groups
+    numerator: invoiced units
+    denominator: null
+  orders:
+    <<: *common
+    metric_id: orders
+    business_meaning: Distinct invoiced orders with at least one selected product line.
+    calculation_method: COUNT DISTINCT order_id
+    aggregation_grain: distinct order; product populations can overlap
+    numerator: distinct selected orders
+    denominator: null
+  avg_order_value:
+    <<: *common
+    metric_id: avg_order_value
+    business_meaning: Net synthetic USD sales per distinct selected order.
+    calculation_method: canonical net USD cents / 100 / distinct selected orders
+    aggregation_grain: period ratio; not additive
+    numerator: net USD sales
+    denominator: distinct selected orders

@@ -1,7 +1,7 @@
 # Implementation status — BDC Analytics Agent Prototype V1
 
 All twelve phases' feasible local implementation, testing and documentation are complete.
-Evidence timestamp (UTC): 2026-10-14T05:37:04.406879+00:00.
+Evidence timestamp (UTC): 2026-10-14T10:29:22.373010+00:00.
 
 | Phase | Status | Evidence |
 |---|---|---|
@@ -13,7 +13,7 @@ Evidence timestamp (UTC): 2026-10-14T05:37:04.406879+00:00.
 | 6 Hybrid providers | Complete; OpenAI connection and K1 live verified | Real browser inference; broader live evaluation pending |
 | 7 Orchestrator | Complete | Bounded planning, execution, context and clarification tests |
 | 8 Streamlit | Complete | AppTest plus browser verification |
-| 9 Evaluation | Complete | 203 passed, 0 failed, 2 skipped of 205 on Windows and Linux CI |
+| 9 Evaluation | Complete locally | 306 passed, 0 failed, 2 skipped of 308 on Windows; new Linux CI pending |
 | 10 Render | Public synthetic demo verified | Five hosted demos, read-only Explorer, evaluation, phone UI and restart pass; Free only, no LLM calls |
 | 11 EVP package | Complete | Five complete executed demonstration workflows |
 | 12 Final integration | Complete locally | Full suite, performance, security, startup/browser and final reports |
@@ -103,3 +103,14 @@ The owner explicitly chose public synthetic analytics without sign-in, determini
 ### 2026-10-14T05:37:04.406879+00:00 - Public Free demo delivered
 
 Source dfcdebd is Live and both Windows/Linux suites pass 203/0/2 of 205. All five actual anonymous hosted demonstration workflows match executed/reference results. Explorer shows 100000 fictional users; evaluation displays 205 tests. Unsupported enterprise-record requests are refused. Phone workspace verified at 390x844 and viewport restored to 1536x738. Render recorded a real restart at 11:02 Asia/Calcutta, health remains 200/ok, and a fresh comparison returns 66025/65292/-733 in 44.14s. No LLM calls, keys, paid resources or authentication bypass for private data. Sustained hosted load and private identity/provider behavior remain unverified. Sanitized evidence is reports/public_demo_hosted.json; account screenshots stay local and ignored.
+
+### Sales pipeline extension - dataset and engine gates
+Generated five sales Parquet tables and a separately incomplete partition: 25000 orders, 50000 canonical lines, 500 physical duplicate rows, 1987 late unique lines, four fictional products and five fictional markets, April-September 2026. Independent pandas oracle saves 40 reference cases separately from runtime. Data gate: 2 passed. Engine/pipeline gate: 60 passed (16.10s), including exact integer-cent comparisons, seven-stage traces, SQL binding tamper denial, scope isolation, overlap reconciliation, zero denominators, incomplete periods and damaged data refusals. Public providers remain disabled. UI/export integration and the complete regression are next.
+
+### Synthetic platform extension - UI, export and trace gate
+Both domain UIs, domain permissions, safe exports and seven component traces pass. Local dual-domain UI peak: 424.27 MiB under the Free budget. Five sales demonstrations are actually executed and saved in reports/sales_pipeline_trace.json. Two-page report layout verified. Full 307-test code suite passed 305/0/2; a reporting-only counter collision was corrected against saved JUnit evidence. Final 308-test shipping run follows the canonical-arrival edge regression. GitHub delivery and actual hosted sales verification are pending; the existing Free usage demo remains deployed until the new source is applied.
+
+
+### 2026-10-14T10:29:22.373010+00:00 - Two-domain synthetic pipeline shipping validation
+
+New fictional sales warehouse: 25,000 orders, 50,000 canonical lines, 500 duplicated rows and 1,987 late unique lines. Primary Q2/Q3 is complete; incomplete data is isolated. Seven components expose actual schemas, approved SQL/bindings, execution/validation evidence, computed insights and in-memory CSV/Excel/PDF/trace exports. Existing usage domain and private usage-only default grants are preserved. Exact shipping suite: 306 passed, 0 failed, 2 live-provider skips of 308 (209.21s pytest; 210.547s evaluator). Independent sales SQL and question references 40/40 each; usage references 30/30 each. Actual production-flag local startup/restart both 200/ok (1.303s, 1.210s). Both-domain UI/export peak 424.27 MiB on Windows; no hosted load claim. Dependency audit: 86 packages, zero known findings. Final two-page report rendered and visually reviewed. GitHub CI and deployment to the existing Free public demo follow; new sales functionality is not yet claimed hosted.

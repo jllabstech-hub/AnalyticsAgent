@@ -1,0 +1,762 @@
+[
+  {
+    "id": "sales-net_sales-0",
+    "metric": "net_sales",
+    "filters": {},
+    "baseline": {
+      "value": 40596341.27,
+      "net_cents": 4059634127,
+      "orders": 12491,
+      "units_sold": 62327
+    },
+    "current": {
+      "value": 39788390.29,
+      "net_cents": 3978839029,
+      "orders": 12509,
+      "units_sold": 61245
+    }
+  },
+  {
+    "id": "sales-net_sales-1",
+    "metric": "net_sales",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": {
+      "value": 8084155.36,
+      "net_cents": 808415536,
+      "orders": 2484,
+      "units_sold": 12436
+    },
+    "current": {
+      "value": 9696898.17,
+      "net_cents": 969689817,
+      "orders": 2528,
+      "units_sold": 15106
+    }
+  },
+  {
+    "id": "sales-net_sales-2",
+    "metric": "net_sales",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": {
+      "value": 7970499.36,
+      "net_cents": 797049936,
+      "orders": 2480,
+      "units_sold": 12310
+    },
+    "current": {
+      "value": 7975246.91,
+      "net_cents": 797524691,
+      "orders": 2440,
+      "units_sold": 12221
+    }
+  },
+  {
+    "id": "sales-net_sales-3",
+    "metric": "net_sales",
+    "filters": {
+      "product": "Orion One"
+    },
+    "baseline": {
+      "value": 8885850.33,
+      "net_cents": 888585033,
+      "orders": 5409,
+      "units_sold": 15421
+    },
+    "current": {
+      "value": 9786830.25,
+      "net_cents": 978683025,
+      "orders": 5459,
+      "units_sold": 16973
+    }
+  },
+  {
+    "id": "sales-net_sales-4",
+    "metric": "net_sales",
+    "filters": {
+      "product": "Nova Mini"
+    },
+    "baseline": {
+      "value": 4859117.5,
+      "net_cents": 485911750,
+      "orders": 5475,
+      "units_sold": 15727
+    },
+    "current": {
+      "value": 4563397.96,
+      "net_cents": 456339796,
+      "orders": 5453,
+      "units_sold": 14745
+    }
+  },
+  {
+    "id": "sales-net_sales-5",
+    "metric": "net_sales",
+    "filters": {
+      "market": "Market A",
+      "product": "Orion One"
+    },
+    "baseline": {
+      "value": 1748539.73,
+      "net_cents": 174853973,
+      "orders": 1059,
+      "units_sold": 3040
+    },
+    "current": {
+      "value": 3218017.11,
+      "net_cents": 321801711,
+      "orders": 1081,
+      "units_sold": 5509
+    }
+  },
+  {
+    "id": "sales-net_sales-6",
+    "metric": "net_sales",
+    "filters": {
+      "channel": "Fictional Web"
+    },
+    "baseline": {
+      "value": 13647729.03,
+      "net_cents": 1364772903,
+      "orders": 4147,
+      "units_sold": 20831
+    },
+    "current": {
+      "value": 13339579.65,
+      "net_cents": 1333957965,
+      "orders": 4197,
+      "units_sold": 20599
+    }
+  },
+  {
+    "id": "sales-net_sales-7",
+    "metric": "net_sales",
+    "filters": {
+      "market": "Market D"
+    },
+    "baseline": {
+      "value": 7985607.95,
+      "net_cents": 798560795,
+      "orders": 2480,
+      "units_sold": 12310
+    },
+    "current": {
+      "value": 5625736.9,
+      "net_cents": 562573690,
+      "orders": 2516,
+      "units_sold": 8779
+    }
+  },
+  {
+    "id": "sales-net_sales-8",
+    "metric": "net_sales",
+    "filters": {
+      "product": "Nova Fold"
+    },
+    "baseline": {
+      "value": 15056886.97,
+      "net_cents": 1505688697,
+      "orders": 5446,
+      "units_sold": 15480
+    },
+    "current": {
+      "value": 14577755.36,
+      "net_cents": 1457775536,
+      "orders": 5552,
+      "units_sold": 15042
+    }
+  },
+  {
+    "id": "sales-net_sales-9",
+    "metric": "net_sales",
+    "filters": {
+      "market": "Market E",
+      "channel": "Fictional Partners"
+    },
+    "baseline": {
+      "value": 2852409.46,
+      "net_cents": 285240946,
+      "orders": 888,
+      "units_sold": 4430
+    },
+    "current": {
+      "value": 2744561.43,
+      "net_cents": 274456143,
+      "orders": 825,
+      "units_sold": 4157
+    }
+  },
+  {
+    "id": "sales-units_sold-0",
+    "metric": "units_sold",
+    "filters": {},
+    "baseline": {
+      "value": 62327,
+      "net_cents": 4059634127,
+      "orders": 12491,
+      "units_sold": 62327
+    },
+    "current": {
+      "value": 61245,
+      "net_cents": 3978839029,
+      "orders": 12509,
+      "units_sold": 61245
+    }
+  },
+  {
+    "id": "sales-units_sold-1",
+    "metric": "units_sold",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": {
+      "value": 12436,
+      "net_cents": 808415536,
+      "orders": 2484,
+      "units_sold": 12436
+    },
+    "current": {
+      "value": 15106,
+      "net_cents": 969689817,
+      "orders": 2528,
+      "units_sold": 15106
+    }
+  },
+  {
+    "id": "sales-units_sold-2",
+    "metric": "units_sold",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": {
+      "value": 12310,
+      "net_cents": 797049936,
+      "orders": 2480,
+      "units_sold": 12310
+    },
+    "current": {
+      "value": 12221,
+      "net_cents": 797524691,
+      "orders": 2440,
+      "units_sold": 12221
+    }
+  },
+  {
+    "id": "sales-units_sold-3",
+    "metric": "units_sold",
+    "filters": {
+      "product": "Orion One"
+    },
+    "baseline": {
+      "value": 15421,
+      "net_cents": 888585033,
+      "orders": 5409,
+      "units_sold": 15421
+    },
+    "current": {
+      "value": 16973,
+      "net_cents": 978683025,
+      "orders": 5459,
+      "units_sold": 16973
+    }
+  },
+  {
+    "id": "sales-units_sold-4",
+    "metric": "units_sold",
+    "filters": {
+      "product": "Nova Mini"
+    },
+    "baseline": {
+      "value": 15727,
+      "net_cents": 485911750,
+      "orders": 5475,
+      "units_sold": 15727
+    },
+    "current": {
+      "value": 14745,
+      "net_cents": 456339796,
+      "orders": 5453,
+      "units_sold": 14745
+    }
+  },
+  {
+    "id": "sales-units_sold-5",
+    "metric": "units_sold",
+    "filters": {
+      "market": "Market A",
+      "product": "Orion One"
+    },
+    "baseline": {
+      "value": 3040,
+      "net_cents": 174853973,
+      "orders": 1059,
+      "units_sold": 3040
+    },
+    "current": {
+      "value": 5509,
+      "net_cents": 321801711,
+      "orders": 1081,
+      "units_sold": 5509
+    }
+  },
+  {
+    "id": "sales-units_sold-6",
+    "metric": "units_sold",
+    "filters": {
+      "channel": "Fictional Web"
+    },
+    "baseline": {
+      "value": 20831,
+      "net_cents": 1364772903,
+      "orders": 4147,
+      "units_sold": 20831
+    },
+    "current": {
+      "value": 20599,
+      "net_cents": 1333957965,
+      "orders": 4197,
+      "units_sold": 20599
+    }
+  },
+  {
+    "id": "sales-units_sold-7",
+    "metric": "units_sold",
+    "filters": {
+      "market": "Market D"
+    },
+    "baseline": {
+      "value": 12310,
+      "net_cents": 798560795,
+      "orders": 2480,
+      "units_sold": 12310
+    },
+    "current": {
+      "value": 8779,
+      "net_cents": 562573690,
+      "orders": 2516,
+      "units_sold": 8779
+    }
+  },
+  {
+    "id": "sales-units_sold-8",
+    "metric": "units_sold",
+    "filters": {
+      "product": "Nova Fold"
+    },
+    "baseline": {
+      "value": 15480,
+      "net_cents": 1505688697,
+      "orders": 5446,
+      "units_sold": 15480
+    },
+    "current": {
+      "value": 15042,
+      "net_cents": 1457775536,
+      "orders": 5552,
+      "units_sold": 15042
+    }
+  },
+  {
+    "id": "sales-units_sold-9",
+    "metric": "units_sold",
+    "filters": {
+      "market": "Market E",
+      "channel": "Fictional Partners"
+    },
+    "baseline": {
+      "value": 4430,
+      "net_cents": 285240946,
+      "orders": 888,
+      "units_sold": 4430
+    },
+    "current": {
+      "value": 4157,
+      "net_cents": 274456143,
+      "orders": 825,
+      "units_sold": 4157
+    }
+  },
+  {
+    "id": "sales-orders-0",
+    "metric": "orders",
+    "filters": {},
+    "baseline": {
+      "value": 12491,
+      "net_cents": 4059634127,
+      "orders": 12491,
+      "units_sold": 62327
+    },
+    "current": {
+      "value": 12509,
+      "net_cents": 3978839029,
+      "orders": 12509,
+      "units_sold": 61245
+    }
+  },
+  {
+    "id": "sales-orders-1",
+    "metric": "orders",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": {
+      "value": 2484,
+      "net_cents": 808415536,
+      "orders": 2484,
+      "units_sold": 12436
+    },
+    "current": {
+      "value": 2528,
+      "net_cents": 969689817,
+      "orders": 2528,
+      "units_sold": 15106
+    }
+  },
+  {
+    "id": "sales-orders-2",
+    "metric": "orders",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": {
+      "value": 2480,
+      "net_cents": 797049936,
+      "orders": 2480,
+      "units_sold": 12310
+    },
+    "current": {
+      "value": 2440,
+      "net_cents": 797524691,
+      "orders": 2440,
+      "units_sold": 12221
+    }
+  },
+  {
+    "id": "sales-orders-3",
+    "metric": "orders",
+    "filters": {
+      "product": "Orion One"
+    },
+    "baseline": {
+      "value": 5409,
+      "net_cents": 888585033,
+      "orders": 5409,
+      "units_sold": 15421
+    },
+    "current": {
+      "value": 5459,
+      "net_cents": 978683025,
+      "orders": 5459,
+      "units_sold": 16973
+    }
+  },
+  {
+    "id": "sales-orders-4",
+    "metric": "orders",
+    "filters": {
+      "product": "Nova Mini"
+    },
+    "baseline": {
+      "value": 5475,
+      "net_cents": 485911750,
+      "orders": 5475,
+      "units_sold": 15727
+    },
+    "current": {
+      "value": 5453,
+      "net_cents": 456339796,
+      "orders": 5453,
+      "units_sold": 14745
+    }
+  },
+  {
+    "id": "sales-orders-5",
+    "metric": "orders",
+    "filters": {
+      "market": "Market A",
+      "product": "Orion One"
+    },
+    "baseline": {
+      "value": 1059,
+      "net_cents": 174853973,
+      "orders": 1059,
+      "units_sold": 3040
+    },
+    "current": {
+      "value": 1081,
+      "net_cents": 321801711,
+      "orders": 1081,
+      "units_sold": 5509
+    }
+  },
+  {
+    "id": "sales-orders-6",
+    "metric": "orders",
+    "filters": {
+      "channel": "Fictional Web"
+    },
+    "baseline": {
+      "value": 4147,
+      "net_cents": 1364772903,
+      "orders": 4147,
+      "units_sold": 20831
+    },
+    "current": {
+      "value": 4197,
+      "net_cents": 1333957965,
+      "orders": 4197,
+      "units_sold": 20599
+    }
+  },
+  {
+    "id": "sales-orders-7",
+    "metric": "orders",
+    "filters": {
+      "market": "Market D"
+    },
+    "baseline": {
+      "value": 2480,
+      "net_cents": 798560795,
+      "orders": 2480,
+      "units_sold": 12310
+    },
+    "current": {
+      "value": 2516,
+      "net_cents": 562573690,
+      "orders": 2516,
+      "units_sold": 8779
+    }
+  },
+  {
+    "id": "sales-orders-8",
+    "metric": "orders",
+    "filters": {
+      "product": "Nova Fold"
+    },
+    "baseline": {
+      "value": 5446,
+      "net_cents": 1505688697,
+      "orders": 5446,
+      "units_sold": 15480
+    },
+    "current": {
+      "value": 5552,
+      "net_cents": 1457775536,
+      "orders": 5552,
+      "units_sold": 15042
+    }
+  },
+  {
+    "id": "sales-orders-9",
+    "metric": "orders",
+    "filters": {
+      "market": "Market E",
+      "channel": "Fictional Partners"
+    },
+    "baseline": {
+      "value": 888,
+      "net_cents": 285240946,
+      "orders": 888,
+      "units_sold": 4430
+    },
+    "current": {
+      "value": 825,
+      "net_cents": 274456143,
+      "orders": 825,
+      "units_sold": 4157
+    }
+  },
+  {
+    "id": "sales-avg_order_value-0",
+    "metric": "avg_order_value",
+    "filters": {},
+    "baseline": {
+      "value": 3250.047335681691,
+      "net_cents": 4059634127,
+      "orders": 12491,
+      "units_sold": 62327
+    },
+    "current": {
+      "value": 3180.781060836198,
+      "net_cents": 3978839029,
+      "orders": 12509,
+      "units_sold": 61245
+    }
+  },
+  {
+    "id": "sales-avg_order_value-1",
+    "metric": "avg_order_value",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": {
+      "value": 3254.4908856682773,
+      "net_cents": 808415536,
+      "orders": 2484,
+      "units_sold": 12436
+    },
+    "current": {
+      "value": 3835.798326740506,
+      "net_cents": 969689817,
+      "orders": 2528,
+      "units_sold": 15106
+    }
+  },
+  {
+    "id": "sales-avg_order_value-2",
+    "metric": "avg_order_value",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": {
+      "value": 3213.9110322580646,
+      "net_cents": 797049936,
+      "orders": 2480,
+      "units_sold": 12310
+    },
+    "current": {
+      "value": 3268.5438155737706,
+      "net_cents": 797524691,
+      "orders": 2440,
+      "units_sold": 12221
+    }
+  },
+  {
+    "id": "sales-avg_order_value-3",
+    "metric": "avg_order_value",
+    "filters": {
+      "product": "Orion One"
+    },
+    "baseline": {
+      "value": 1642.7898557958958,
+      "net_cents": 888585033,
+      "orders": 5409,
+      "units_sold": 15421
+    },
+    "current": {
+      "value": 1792.7881022165232,
+      "net_cents": 978683025,
+      "orders": 5459,
+      "units_sold": 16973
+    }
+  },
+  {
+    "id": "sales-avg_order_value-4",
+    "metric": "avg_order_value",
+    "filters": {
+      "product": "Nova Mini"
+    },
+    "baseline": {
+      "value": 887.5100456621004,
+      "net_cents": 485911750,
+      "orders": 5475,
+      "units_sold": 15727
+    },
+    "current": {
+      "value": 836.8600696864112,
+      "net_cents": 456339796,
+      "orders": 5453,
+      "units_sold": 14745
+    }
+  },
+  {
+    "id": "sales-avg_order_value-5",
+    "metric": "avg_order_value",
+    "filters": {
+      "market": "Market A",
+      "product": "Orion One"
+    },
+    "baseline": {
+      "value": 1651.1234466477808,
+      "net_cents": 174853973,
+      "orders": 1059,
+      "units_sold": 3040
+    },
+    "current": {
+      "value": 2976.8890934320075,
+      "net_cents": 321801711,
+      "orders": 1081,
+      "units_sold": 5509
+    }
+  },
+  {
+    "id": "sales-avg_order_value-6",
+    "metric": "avg_order_value",
+    "filters": {
+      "channel": "Fictional Web"
+    },
+    "baseline": {
+      "value": 3290.9884326018805,
+      "net_cents": 1364772903,
+      "orders": 4147,
+      "units_sold": 20831
+    },
+    "current": {
+      "value": 3178.3606504646177,
+      "net_cents": 1333957965,
+      "orders": 4197,
+      "units_sold": 20599
+    }
+  },
+  {
+    "id": "sales-avg_order_value-7",
+    "metric": "avg_order_value",
+    "filters": {
+      "market": "Market D"
+    },
+    "baseline": {
+      "value": 3220.0032056451614,
+      "net_cents": 798560795,
+      "orders": 2480,
+      "units_sold": 12310
+    },
+    "current": {
+      "value": 2235.9844594594597,
+      "net_cents": 562573690,
+      "orders": 2516,
+      "units_sold": 8779
+    }
+  },
+  {
+    "id": "sales-avg_order_value-8",
+    "metric": "avg_order_value",
+    "filters": {
+      "product": "Nova Fold"
+    },
+    "baseline": {
+      "value": 2764.760736320235,
+      "net_cents": 1505688697,
+      "orders": 5446,
+      "units_sold": 15480
+    },
+    "current": {
+      "value": 2625.6763976945244,
+      "net_cents": 1457775536,
+      "orders": 5552,
+      "units_sold": 15042
+    }
+  },
+  {
+    "id": "sales-avg_order_value-9",
+    "metric": "avg_order_value",
+    "filters": {
+      "market": "Market E",
+      "channel": "Fictional Partners"
+    },
+    "baseline": {
+      "value": 3212.1728153153153,
+      "net_cents": 285240946,
+      "orders": 888,
+      "units_sold": 4430
+    },
+    "current": {
+      "value": 3326.7411272727277,
+      "net_cents": 274456143,
+      "orders": 825,
+      "units_sold": 4157
+    }
+  }
+]

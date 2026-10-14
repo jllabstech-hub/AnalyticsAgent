@@ -1,0 +1,22 @@
+{
+  "is_synthetic": true,
+  "domain": "sales",
+  "seed": 20260401,
+  "unique_orders": 25000,
+  "period_start": "2026-04-01",
+  "period_end_exclusive": "2026-10-01",
+  "relative_period_anchor": "2026-10-01",
+  "timezone": "UTC",
+  "currency": "USD",
+  "fiscal_year_start_month": 1,
+  "source_grain": "one invoiced order line; physical duplicates identified by sales_line_id",
+  "row_counts": {
+    "sales_fact": 50500,
+    "product_dim": 4,
+    "market_dim": 5,
+    "calendar_dim": 183,
+    "data_quality_status": 60
+  },
+  "unique_sales_lines": 50000,
+  "incomplete_scenario": "separate partition omits September 24\u201330; primary Q2/Q3 complete"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "scope": "Actual local Streamlit AppTest across usage and sales, with generated exports",
+  "memory_limit": "320MB",
+  "result_limit": 100,
+  "peak_process_MiB": 424.27,
+  "usage_elapsed_ms": 4708.951,
+  "sales_elapsed_ms": 561.453,
+  "sales_components": 7,
+  "limitations": "Single-user local process; not a hosted sustained-load certification."
+}

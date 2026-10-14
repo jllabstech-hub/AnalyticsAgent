@@ -9,5 +9,6 @@
 *.ps1 text eol=crlf
 *.parquet binary
 *.docx binary
+*.pdf binary
 *.png binary
 *.jpg binary

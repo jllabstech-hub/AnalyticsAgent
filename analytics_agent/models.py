@@ -36,6 +36,8 @@ class AnalyticsRequest(Contract):
 
 
 class AccessScope(Contract):
+    # Existing private grants stay usage-only until sales is explicitly approved.
+    domains: tuple[Literal["usage", "sales"], ...] = ("usage",)
     markets: tuple[Market, ...] = ("Market A", "Market B", "Market C", "Market D", "Market E")
     services: tuple[Service, ...] = ("Service Alpha", "Service Beta", "Service Gamma")
     skills: tuple[Literal["K1", "K2", "K3"], ...] = ("K1", "K2", "K3")

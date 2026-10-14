@@ -1,0 +1,62 @@
+version: '1.0'
+domains:
+  usage:
+    skill_id: usage_analytics
+    name: Account and Service Usage
+    operations: [K1, K2, K3]
+    metrics: [mau, dau, new_users, active_existing_users, activation_rate, service_adoption_rate]
+    source: synthetic_usage
+    date_range: July–September 2026 UTC
+  sales:
+    skill_id: sales_analytics
+    name: Sales Analytics
+    operations: [S1, S2]
+    metrics: [net_sales, units_sold, orders, avg_order_value]
+    source: synthetic_sales
+    date_range: April–September 2026 UTC
+sales_catalog:
+  logical_database: synthetic_sales
+  storage: bundled Parquet read-only DuckDB views
+  tables:
+    sales_fact:
+      grain: one invoiced order line; sales_line_id deduplicates physical retransmissions
+      key: sales_line_id
+      columns:
+        sales_line_id: Fictional line identifier
+        order_id: Fictional order identifier; multiple product lines may share an order
+        product_id: Product foreign key
+        market_id: Market foreign key
+        sale_date: UTC accounting date; matches sale_at normalized to a day
+        channel: Approved fictional channel
+        units_sold: Gross invoiced units
+        gross_cents: Gross USD cents before discounts and returns
+        discount_cents: Nonnegative USD cents deducted
+        return_cents: Nonnegative USD cents deducted for returns
+        adjustment_cents: Signed USD cents for accounting adjustments
+        ingested_at: UTC arrival timestamp; may arrive late
+    product_dim:
+      grain: one fictional product
+      key: product_id
+      columns: {product_id: Unique product key, product_name: Fictional product, category: Fictional category, list_price_cents: Synthetic list price}
+    market_dim:
+      grain: one fictional market
+      key: market_id
+      columns: {market_id: Unique market key, market: Market A–E, region: Fictional region}
+    calendar_dim:
+      grain: one UTC day
+      key: sale_date
+      columns: {sale_date: Unique date key, quarter: Calendar quarter, fiscal_quarter: Fiscal quarter with January year start, month_label: Calendar YYYY-MM}
+    data_quality_status:
+      grain: source/scenario/month coverage
+      key: [scenario, dataset, period_start]
+      columns: {complete: Coverage certification, available_through: Exclusive available boundary, loaded_at: Snapshot load time, snapshot_as_of: Historical reference time}
+  joins:
+    - sales_fact.product_id → product_dim.product_id (many-to-one)
+    - sales_fact.market_id → market_dim.market_id (many-to-one)
+    - sales_fact.sale_date → calendar_dim.sale_date (many-to-one)
+  policies:
+    - Only registered sources, metrics, dimensions and internal SQL templates
+    - No LLM-generated SQL or arbitrary code
+    - Dates use UTC half-open boundaries; relative questions anchor to complete Q3 2026
+    - Private sales requires an explicit sales domain grant
+    - Public demo accepts only the bundled synthetic sales warehouse

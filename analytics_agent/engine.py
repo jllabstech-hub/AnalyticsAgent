@@ -15,6 +15,7 @@ from analytics_agent.models import AccessScope, AnalyticsRequest, MetricValue, P
 
 LOGGER = logging.getLogger(__name__)
 DEADLINE = ContextVar("analytics_deadline", default=None)
+WAREHOUSE_SESSION_SLOT = threading.RLock()
 TABLES = ("users", "service_activity", "service_membership", "device_mapping", "market_reference", "data_quality_status")
 GROUPS = {"market": "market", "device_model": "device_model", "service": "service",
           "new_existing": "CASE WHEN registered_at >= b.start_at THEN 'New' ELSE 'Existing' END",
@@ -29,7 +30,7 @@ class Engine:
         self.timeout, self.result_limit, self.memory = timeout, result_limit, memory
         self._cache, self._cache_lock = OrderedDict(), threading.Lock()
         # Streamlit shares this engine: one warehouse session bounds aggregate memory.
-        self._session_slot = threading.RLock()
+        self._session_slot = WAREHOUSE_SESSION_SLOT
 
     def _cached(self, operation, request, scope, arguments, calculate):
         self.authorize(request, scope)
@@ -66,6 +67,8 @@ class Engine:
         finally: self._session_slot.release()
 
     def authorize(self, request: AnalyticsRequest, scope: AccessScope):
+        if "usage" not in scope.domains:
+            raise PermissionError("Usage domain outside authorized scope.")
         if not scope.markets or not scope.services:
             raise PermissionError("No authorized population.")
         if request.market and request.market not in scope.markets:
@@ -108,7 +111,7 @@ class Engine:
             if connection is not None: connection.close()
             self._session_slot.release()
 
-    def _execute(self, connection, sql, params, template, request, execution=None):
+    def _execute(self, connection, sql, params, template, request, execution=None, source_names=None):
         if not sql.lstrip().upper().startswith(("SELECT", "WITH", "DESCRIBE")) or ";" in sql:
             raise ValueError("Only internal read-only templates are accepted.")
         started = time.perf_counter()
@@ -134,7 +137,7 @@ class Engine:
         source_map = {"quality.coverage":["data_quality_status"],"quality.events":["service_activity","users","device_mapping"],
             "quality.temporal_keys":["users","service_activity","service_membership","device_mapping","market_reference"],"quality.source_grain":["service_activity"],
             "quality.conflicting_duplicates":["service_activity"]}
-        sources = source_map.get(template,["users","service_activity","service_membership","device_mapping"])
+        sources = source_names or source_map.get(template,["users","service_activity","service_membership","device_mapping"])
         if template.startswith(("metric.new_users.","metric.activation_rate.")):
             sources = ["users","service_membership","device_mapping"]
         evidence = QueryEvidence(query_id=hashlib.sha256((template + str(params)).encode()).hexdigest()[:16],
@@ -248,6 +251,8 @@ class Engine:
         return quality, stats[0], [evidence, stats_evidence, key_evidence, source_evidence, join_evidence,conflict_evidence]
 
     def explore(self, table, scope=AccessScope()):
+        if "usage" not in scope.domains:
+            raise PermissionError("Usage Explorer outside authorized domain.")
         if table not in TABLES:
             raise ValueError("Unknown dataset.")
         full = AccessScope()

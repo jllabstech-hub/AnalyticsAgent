@@ -7,13 +7,13 @@
       "restart": 0,
       "http_status": 200,
       "health": "ok",
-      "startup_seconds": 1.311
+      "startup_seconds": 1.303
     },
     {
       "restart": 1,
       "http_status": 200,
       "health": "ok",
-      "startup_seconds": 1.231
+      "startup_seconds": 1.21
     }
   ],
   "platform": "win32",

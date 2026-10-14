@@ -19,3 +19,7 @@ pytest==9.1.1
 pydantic==2.14.1
 requests==2.34.2
 Authlib==1.8.0
+
+# In-memory application report exports; no persistent Render storage.
+openpyxl==3.1.5
+reportlab==4.4.6

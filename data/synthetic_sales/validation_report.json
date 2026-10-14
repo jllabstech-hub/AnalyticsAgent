@@ -1,0 +1,33 @@
+{
+  "status": "pass",
+  "row_counts": {
+    "sales_fact": 50500,
+    "product_dim": 4,
+    "market_dim": 5,
+    "calendar_dim": 183,
+    "data_quality_status": 60
+  },
+  "unique_orders": 25000,
+  "unique_sales_lines": 50000,
+  "duplicate_rows": 500,
+  "late_unique_lines": 1987,
+  "market_distribution": {
+    "Market A": 10024,
+    "Market B": 9840,
+    "Market C": 9912,
+    "Market D": 9992,
+    "Market E": 10232
+  },
+  "monthly_net_cents": {
+    "2026-04": 1353612556,
+    "2026-05": 1376054826,
+    "2026-06": 1329966745,
+    "2026-07": 1347824166,
+    "2026-08": 1317246517,
+    "2026-09": 1313768346
+  },
+  "join_cardinality": "pass",
+  "money_grain": "integer USD cents",
+  "primary_Q2_Q3_complete": true,
+  "quality_demonstration": "separate incomplete sales partition omits September 24\u201330"
+}
