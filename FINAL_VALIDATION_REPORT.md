@@ -4,6 +4,15 @@ Updated 14 October 2026 for four-domain application source a8203bc65066decdaabf5
 
 Verdict: **hardened four-domain synthetic prototype with actual public Free Render workflows and startup/restart; production approval still requires broader live-provider, real-identity and hosted capacity validation.**
 
+Local OpenAI follow-up: the owner reported a connection failure in the running app
+after standalone and AppTest inference succeeded. Those tests had approved network
+access; the server had inherited restricted access (Windows error 10013). After
+restarting only the localhost:8502 server with approved network access, the owner
+confirmed **Inference connection verified** in the actual app. This confirmation
+does not add a new analytical accuracy or latency measurement. No application
+source, public Render configuration or full-suite result changed.
+See `reports/local_openai_network_recovery.json` for the test-method distinction.
+
 | Check | Actual result | Evidence |
 |---|---|---|
 | Full Windows automated suite | 462 passed / 0 failed / 2 skipped; 464 total; 271.72s pytest | reports/test_results.xml; reports/evaluation.json |

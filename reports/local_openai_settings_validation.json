@@ -26,5 +26,12 @@
     "failed": 0,
     "skipped": 2,
     "pytest_seconds": 271.72
+  },
+  "verification_scope_clarification": {
+    "added_at_utc": "2026-10-14T15:08:02.234889+00:00",
+    "test_method": "Standalone CLI with the real OpenAI provider; this did not test the running browser server.",
+    "network_context": "approved outbound network access",
+    "running_server_had_matching_network_access_at_that_time": false,
+    "actual_app_connection_followup": "reports/local_openai_network_recovery.json"
   }
 }

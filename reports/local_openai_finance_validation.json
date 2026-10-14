@@ -14,5 +14,12 @@
   "absolute_change": -1106991.27,
   "seven_components_complete": true,
   "independent_pandas_check": "pass",
-  "elapsed_ms": 44624.89700014703
+  "elapsed_ms": 44624.89700014703,
+  "verification_scope_clarification": {
+    "added_at_utc": "2026-10-14T15:08:02.234889+00:00",
+    "test_method": "Independent Streamlit AppTest with the real OpenAI provider; this did not test the running browser server.",
+    "network_context": "approved outbound network access",
+    "running_server_had_matching_network_access_at_that_time": false,
+    "actual_app_connection_followup": "reports/local_openai_network_recovery.json"
+  }
 }

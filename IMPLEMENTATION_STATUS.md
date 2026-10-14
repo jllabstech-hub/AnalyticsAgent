@@ -3,6 +3,14 @@
 All twelve phases' feasible local implementation, testing and documentation are complete.
 Current local release: four domains with visible LLM Settings and actual OpenAI Finance verification, 14 October 2026. Latest Windows suite is 462/0/2 of 464; prior Linux/Free deployment evidence belongs to source a8203bc65066decdaabf5432b58e69b098f905b5. Later sections preserve dated implementation history.
 
+Latest local connection recovery: the port-8502 server inherited outbound network
+restrictions, while the successful standalone and AppTest OpenAI checks used
+approved network access. Restarted only that server with approved network access;
+the owner then confirmed **Inference connection verified** in the actual app.
+Evidence: `reports/local_openai_network_recovery.json`. This was a process-launch
+correction; application source and the prior complete test results are unchanged.
+Ollama remains unavailable locally; the public Free Render demo still disables LLMs.
+
 | Phase | Status | Evidence |
 |---|---|---|
 | 1 Setup | Complete | Virtual environment, dependencies and startup checks |

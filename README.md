@@ -74,6 +74,14 @@ no browser key field. An empty `OPENAI_API_KEY` environment variable can overrid
 the file, so remove that variable or launch from a fresh terminal if Settings
 reports **Missing** despite a configured file. Replace any key exposed in a chat.
 
+If Settings reports a **connection** failure while the key is **Configured**, check
+the server process's network access. A server launched inside restricted automation
+can be blocked even when this computer's browser and separately approved tests can
+reach OpenAI. Stop that server and run the command above in a regular PowerShell
+terminal, or restart the automation-launched server with approved network access.
+The owner confirmed an actual in-app connection after this correction; see
+`reports/local_openai_network_recovery.json`.
+
 Use `--port 8503` if the default port is already occupied. Render continues to use
 the Streamlit start command in render.yaml with its assigned `$PORT`.
 

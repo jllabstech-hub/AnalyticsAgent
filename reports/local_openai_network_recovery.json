@@ -1,0 +1,81 @@
+{
+  "checked_at_utc": "2026-10-14T15:08:02.234889+00:00",
+  "application_source_commit": "31b9411003b402b9e955d28296f2bfb4af8032fa",
+  "local_url": "http://localhost:8502/",
+  "reported_failure": {
+    "provider": "openai",
+    "inference_verified": false,
+    "error_code": "both_unavailable",
+    "fallback_reason": "connection"
+  },
+  "root_cause": "The automation-launched local server inherited outbound network restrictions; prior successful CLI and AppTest checks ran with approved network access.",
+  "credential_free_transport_checks": {
+    "restricted_process": {
+      "https_reachable": false,
+      "exception_types": [
+        "ConnectError",
+        "ConnectError",
+        "PermissionError"
+      ],
+      "errno": 13,
+      "winerror": 10013
+    },
+    "approved_process": {
+      "https_reachable": true,
+      "http_status": 401
+    },
+    "endpoint": "https://api.openai.com/v1/models",
+    "credentials_sent": false,
+    "inference_performed": false
+  },
+  "recovery": {
+    "action": "Verified the existing launcher/server identity, stopped only that tree, and restarted scripts.run_local --port 8502 with approved outbound network access.",
+    "loopback_listeners": [
+      "127.0.0.1:8502",
+      "[::1]:8502"
+    ],
+    "listener_server_pid": 48196,
+    "local_health": [
+      {
+        "origin": "http://localhost:8502",
+        "http_status": 200,
+        "body": "ok"
+      },
+      {
+        "origin": "http://127.0.0.1:8502",
+        "http_status": 200,
+        "body": "ok"
+      },
+      {
+        "origin": "http://[::1]:8502",
+        "http_status": 200,
+        "body": "ok"
+      }
+    ],
+    "server_key_configured": true,
+    "ollama_loopback_endpoint_reachable": false,
+    "provider_for_requested_local_test": "openai"
+  },
+  "actual_app_verification": {
+    "method": "Owner refreshed the running app and clicked Settings > OpenAI API > Test Connection.",
+    "owner_reported_result": "Inference connection verified",
+    "automated_browser_verification": false,
+    "model_response_and_latency_captured": false,
+    "new_analytical_workflow_evaluated": false
+  },
+  "scope": {
+    "application_source_changed": false,
+    "full_suite_rerun": false,
+    "last_full_suite": {
+      "total": 464,
+      "passed": 462,
+      "failed": 0,
+      "skipped": 2
+    },
+    "credentials_printed_or_committed": false,
+    "key_copied_to_render": false,
+    "public_render_configuration_changed": false,
+    "ollama_installed_or_models_downloaded": false,
+    "firewall_proxy_or_tls_configuration_changed": false
+  }
+}
