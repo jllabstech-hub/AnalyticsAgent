@@ -1,7 +1,7 @@
 # Implementation status — BDC Analytics Agent Prototype V1
 
 All twelve phases' feasible local implementation, testing and documentation are complete.
-Current local release: four domains with visible LLM Settings and actual OpenAI Finance verification, 14 October 2026. Latest Windows suite is 462/0/2 of 464; prior Linux/Free deployment evidence belongs to source a8203bc65066decdaabf5432b58e69b098f905b5. Later sections preserve dated implementation history.
+Current local release: four domains with visible LLM Settings, relative sales months and actual OpenAI Finance/Sales verification, 14 October 2026. Latest Windows suite is 490/0/2 of 492; prior Linux/Free deployment evidence belongs to source a8203bc65066decdaabf5432b58e69b098f905b5. Later sections preserve dated implementation history.
 
 Latest local connection recovery: the port-8502 server inherited outbound network
 restrictions, while the successful standalone and AppTest OpenAI checks used
@@ -21,7 +21,7 @@ Ollama remains unavailable locally; the public Free Render demo still disables L
 | 6 Hybrid providers | Complete; OpenAI connection and K1 live verified | Real browser inference; broader live evaluation pending |
 | 7 Orchestrator | Complete | Bounded planning, execution, context and clarification tests |
 | 8 Streamlit | Complete | AppTest plus browser verification |
-| 9 Evaluation | Complete | Current Windows: 462 passed, 0 failed, 2 skipped of 464; previous Linux: 459/0/2 of 461; all 125 independent and 125 question workflows match |
+| 9 Evaluation | Complete | Current Windows: 490 passed, 0 failed, 2 skipped of 492; previous Linux: 459/0/2 of 461; all 125 independent and 125 question workflows match |
 | 10 Render | Four-domain public synthetic demo verified | Ten new-domain workflows and fresh comparisons across all four domains pass after actual restart; seven components, exports and new-domain Explorer verified; Free only, no LLM calls |
 | 11 EVP package | Complete | Twenty complete executed demonstration workflows across four domains |
 | 12 Final integration | Complete locally | Full suite, performance, security, startup/browser and final reports |
@@ -150,3 +150,10 @@ Corrected local IPv6 localhost refusal with scripts/run_local.py; serve the same
 ### 14 October 2026 - Local OpenAI Settings and current full regression complete
 
 Normal local launches now clear inherited demo mode; a visible LLM Settings button opens provider controls. Owner confirms Settings is visible on localhost:8502. The server-side key is configured, one real OpenAI connection succeeds, and one real Finance F1 workflow matches independent values with seven completed components. Keys never enter session or rendered text. Targeted suite: 38 passed. Final full Windows suite with permissions for its own restart subprocesses: 462 passed, zero failed, two optional live-provider skips of 464 (271.72s pytest). Both 125-question reference suites match. Public Render provider restrictions and Ollama default remain intact. Actual Ollama inference, live Marketing/Sales workflows and broad model accuracy remain unverified. Evidence: reports/local_openai_settings_validation.json and reports/local_openai_finance_validation.json.
+
+
+### 14 October 2026 - Relative sales months resolved and verified
+
+Corrected both reported questions: "how is sales last month" selects S1; "why last month sales down?" selects S1/S2. Last/previous month is the prior complete UTC calendar month relative to the current server date, with the preceding month as baseline. In October 2026 this is September versus August. The interpretation appears in chat, findings and intent trace; explicit relative periods replace old conversational periods while approved filters remain. Unsupported filters, SQL and conflicting periods still stop before execution. Comparisons outside bundled April–September coverage explain the resolved dates and availability instead of substituting historical data.
+
+Added 28 regressions for natural phrasing, calendar boundaries/year changes, missing coverage, conflicting periods, context, authorization/filter refusal, all three execution modes and Streamlit UI. Targeted suite: 129 passed (41.60s). Complete Windows suite: 490 passed, zero failed, two optional live-provider skips of 492 (264.98s pytest, 266.211s evaluator); original 125 independent calculations and 125 reference question workflows all match. Real OpenAI Streamlit AppTest separately passes the two exact user questions using gpt-4.1-mini-2025-04-14. Approved queries return USD 13172465.17 / 13137683.46 / -34781.71 (-0.26%); an independent pandas canonical-line oracle matches. All seven components complete. These two live AppTest cases are not automated browser measurements or a broad model-accuracy claim. The local port-8502 process was restarted with approved network access; localhost/IPv4/IPv6 health is HTTP 200 / ok. Public Free Render has not been redeployed for this local fix.

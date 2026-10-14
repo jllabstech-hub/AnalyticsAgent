@@ -1,5 +1,6 @@
 """Bounded, documented sales question grammar; unknown filters never disappear."""
 import re
+from datetime import date, datetime, timedelta, timezone
 from analytics_agent.sales_models import SalesPlan, SalesRequest, SalesContext
 
 SALES_DEMOS = ["Show Orion One sales performance in Market A for Q3 2026 compared with Q2 2026.",
@@ -12,13 +13,13 @@ CHANNELS=("Fictional Web","Fictional Shops","Fictional Partners")
 MONTHS={"april":4,"may":5,"june":6,"july":7,"august":8,"september":9}
 
 
-def parse_sales(question, context=SalesContext()):
+def parse_sales(question, context=SalesContext(), *, as_of: date | None = None):
     text=question.strip().lower()
     if len(text)>2000 or re.search(r"\b(sql|delete|drop|password|real data|employee|forecast|predict|confirmed cause)\b",text):
         return SalesPlan(action="unsupported",message="Only governed fictional sales questions are supported.")
     if re.search(r"\b(202[0-57-9]|20[013-9]\d|january|february|march|october|november|december|q[14])\b",text):
         return SalesPlan(action="unsupported",message="Sales data covers April–September 2026 (Q2 and Q3) only.")
-    if not re.search(r"\b(show|compare|which|investigate|why|now)\b",text):
+    if not re.search(r"\b(show|compare|which|investigate|why|now|how|what)\b",text):
         return SalesPlan(action="clarify",message="Ask for a sales comparison or contribution, with two months or Q2/Q3 2026.")
     if re.search(r"\b(?:april|may|june|july|august|september)\s+\d{1,2}\b|\d{4}-\d{2}-\d{2}",text):
         return SalesPlan(action="clarify",message="Use whole-month names or Q2/Q3 2026 in the synthetic sales demo.")
@@ -32,7 +33,20 @@ def parse_sales(question, context=SalesContext()):
     relative=bool(re.search(r"last (?:three|3) months|last complete quarter",text))
     quarters=re.findall(r"\bq([23])\b",text)
     months=re.findall(r"\b(april|may|june|july|august|september)\b",text)
-    if relative or set(quarters)=={"2","3"}:
+    last_month=bool(re.search(r"\b(?:last|previous) month\b",text))
+    resolution=""
+    if last_month:
+        if months or quarters or relative:
+            return SalesPlan(action="clarify",message="Use last month by itself for a comparison with the preceding month, or specify two explicit months.")
+        end=(as_of or datetime.now(timezone.utc).date()).replace(day=1)
+        start=(end-timedelta(days=1)).replace(day=1)
+        baseline=(start-timedelta(days=1)).replace(day=1)
+        resolution=f"Last month means {start:%B %Y}, compared with {baseline:%B %Y}, using the UTC calendar."
+        if baseline<date(2026,4,1) or end>date(2026,10,1):
+            return SalesPlan(action="clarify",message=resolution+" That comparison is outside the available April–September 2026 sales data. Choose two months within that range.")
+        data["baseline"]={"start":baseline.isoformat(),"end":start.isoformat()}
+        data["current"]={"start":start.isoformat(),"end":end.isoformat()}
+    elif relative or set(quarters)=={"2","3"}:
         data["baseline"]={"start":"2026-04-01","end":"2026-07-01"}
         data["current"]={"start":"2026-07-01","end":"2026-10-01"}
     elif months:
@@ -58,7 +72,7 @@ def parse_sales(question, context=SalesContext()):
     residual=text
     for name in PRODUCTS+CHANNELS: residual=residual.replace(name.lower()," ")
     residual=re.sub(r"\bmarket\s+[a-e]\b|\bq[23]\b|\b2026\b", " ", residual)
-    allowed=set("show compare which investigate why now only for in on with versus vs and the same periods period to of across all markets products channels market product channel sales net revenue performance contributed contribute contribution change growth average avg order value aov units sold orders compared previous quarter last complete three months 3 baseline current breakdown primary incomplete scenario data calendar fiscal".split()) | set(MONTHS)
+    allowed=set("show compare which investigate why now how what is are was were did do doing perform performing down up declined decline dropped decreased decrease increased increase changed only for in on with versus vs and the same periods period to of across all markets products channels market product channel sales net revenue performance contributed contribute contribution change growth average avg order value aov units sold orders compared previous quarter last complete three month months 3 baseline current breakdown primary incomplete scenario data calendar fiscal".split()) | set(MONTHS)
     unknown=[word for word in re.findall(r"[a-z0-9_-]+",residual) if word not in allowed]
     if unknown: return SalesPlan(action="unsupported",message="An unregistered product, country, filter, or operation was requested. Use the fictional catalog and documented sales questions.")
     for phrase,key in (("all markets","market"),("all products","product"),("all channels","channel")):
@@ -71,4 +85,4 @@ def parse_sales(question, context=SalesContext()):
         if dimension=="market" and not matches: data["market"]=None
         if dimension=="product" and not found: data["product"]=None
         if dimension=="channel" and not channels: data["channel"]=None
-    return SalesPlan(action="execute",request=SalesRequest.model_validate(data),operation=operation,dimension=dimension)
+    return SalesPlan(action="execute",request=SalesRequest.model_validate(data),operation=operation,dimension=dimension,message=resolution)

@@ -12,6 +12,14 @@ CSV/Excel/PDF exports and a seven-component functionality trace:
 - Finance: 30,000 booked transactions, revenue/expense/profit/margin metrics.
 
 Sales, Marketing and Finance cover complete Q2/Q3 2026 with separate incomplete scenarios.
+
+Sales accepts **"how is sales last month"** and **"why last month sales down?"**.
+"Last month" uses the server's current UTC calendar date and compares the previous
+complete calendar month with the month before it. In October 2026 this resolves to
+September versus August 2026. The answer and component trace show the interpretation;
+the investigation checks the observed change before reporting contributions.
+If those dates fall outside the bundled data, the assistant explains the coverage
+limit instead of substituting another period.
 See `FOUR_DOMAIN_GUIDE.md` for metrics, examples, permissions and reproducible commands.
 See `PIPELINE_COMPONENT_TRACE.md` for the executed architecture mapping.
 

@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "candidate_text_files_checked": 297,
+  "candidate_text_files_checked": 308,
   "findings": [],
   "git_repository_present": true,
   "openai_key_configured": false,
@@ -19,5 +19,6 @@
     "Source scan plus behavioral tests; not a formal penetration test.",
     "Actual identity-provider login is unverified.",
     "Hosted signed-in analytics and production operation remain unverified."
-  ]
+  ],
+  "key_configuration_check_scope": "Isolated scanner process with empty OPENAI_API_KEY; actual app configuration is not probed by this field."
 }

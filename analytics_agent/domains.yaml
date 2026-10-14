@@ -75,6 +75,8 @@ sales_catalog:
   policies:
     - Only registered sources, metrics, dimensions and internal SQL templates
     - No LLM-generated SQL or arbitrary code
-    - Dates use UTC half-open boundaries; relative questions anchor to complete Q3 2026
+    - Dates use UTC half-open boundaries; last three months and last complete quarter demos anchor to Q3 2026
+    - Last month or previous month means the prior UTC calendar month relative to the server date, compared with its preceding month
+    - Unavailable relative comparisons require an explicit coverage explanation; never substitute the latest available month
     - Private sales requires an explicit sales domain grant
     - Public demo accepts only the bundled synthetic sales warehouse

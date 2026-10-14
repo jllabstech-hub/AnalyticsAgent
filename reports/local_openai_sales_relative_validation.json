@@ -1,0 +1,125 @@
+{
+  "checked_at_utc": "2026-10-14T15:18:29.694737+00:00",
+  "method": "Independent Streamlit AppTest with real OpenAI provider and approved network access; not an automated browser test of the port-8502 server.",
+  "clock_basis": "Current UTC server date; October 2026 for this check.",
+  "independent_reference_method": "Pandas canonical sales lines, integer-cent sums for August and September 2026; no agent calculations reused.",
+  "cases": [
+    {
+      "question": "how is sales last month",
+      "status": "ok",
+      "provider": "openai",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "skills": [
+        "S1"
+      ],
+      "elapsed_ms": 47111.346,
+      "checks": {
+        "status_ok": true,
+        "actual_provider_openai": true,
+        "dates_visible": true,
+        "seven_components_complete": true,
+        "independent_totals_match": true,
+        "credentials_not_in_session": true
+      },
+      "request": {
+        "metric": "net_sales",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "product": null,
+        "channel": null,
+        "scenario": "primary"
+      },
+      "baseline": 13172465.17,
+      "current": 13137683.46,
+      "absolute_change": -34781.70999999903,
+      "findings": [
+        "Last month means September 2026, compared with August 2026, using the UTC calendar.",
+        "Observed net sales: $13,172,465.17 USD \u2192 $13,137,683.46 USD; change $-34,781.71 USD (-0.26% relative).",
+        "These are fictional sales observations and contributions; they do not establish a confirmed business cause."
+      ]
+    },
+    {
+      "question": "why last month sales down?",
+      "status": "ok",
+      "provider": "openai",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "skills": [
+        "S1",
+        "S2"
+      ],
+      "elapsed_ms": 45296.197,
+      "checks": {
+        "status_ok": true,
+        "actual_provider_openai": true,
+        "dates_visible": true,
+        "seven_components_complete": true,
+        "independent_totals_match": true,
+        "credentials_not_in_session": true
+      },
+      "request": {
+        "metric": "net_sales",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "product": null,
+        "channel": null,
+        "scenario": "primary"
+      },
+      "baseline": 13172465.17,
+      "current": 13137683.46,
+      "absolute_change": -34781.70999999903,
+      "findings": [
+        "Last month means September 2026, compared with August 2026, using the UTC calendar.",
+        "Observed net sales: $13,172,465.17 USD \u2192 $13,137,683.46 USD; change $-34,781.71 USD (-0.26% relative).",
+        "Largest observed group change: Market E changed by $236,096.77 USD.",
+        "Group changes reconcile to the total.",
+        "These are fictional sales observations and contributions; they do not establish a confirmed business cause."
+      ]
+    }
+  ],
+  "status": "pass",
+  "key_printed_or_committed": false,
+  "local_server_followup": {
+    "action": "Restarted only the verified port-8502 server with approved outbound network access to load the fix.",
+    "health": [
+      {
+        "origin": "http://localhost:8502",
+        "http_status": 200,
+        "body": "ok"
+      },
+      {
+        "origin": "http://127.0.0.1:8502",
+        "http_status": 200,
+        "body": "ok"
+      },
+      {
+        "origin": "http://[::1]:8502",
+        "http_status": 200,
+        "body": "ok"
+      }
+    ],
+    "owner_browser_questions_retested": false,
+    "public_render_redeployed": false
+  },
+  "offline_suite": {
+    "total": 492,
+    "passed": 490,
+    "failed": 0,
+    "skipped": 2,
+    "pytest_seconds": 264.98,
+    "evaluator_seconds": 266.211
+  }
+}

@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-10-14T14:50:28.773364+00:00",
-  "total": 464,
-  "passed": 462,
+  "generated_at_utc": "2026-10-14T15:20:23.801723+00:00",
+  "total": 492,
+  "passed": 490,
   "failed": 0,
   "skipped": 2,
   "reference_questions": 30,
@@ -17,7 +17,7 @@
   "correct_marketing_finance_reference_questions": 55,
   "marketing_finance_natural_language_e2e_questions": 55,
   "correct_marketing_finance_natural_language_e2e_questions": 55,
-  "test_duration_seconds": 272.92,
+  "test_duration_seconds": 266.211,
   "limitations": [
     "Synthetic evaluation only; not enterprise production accuracy.",
     "Live LLM inference requires services, credentials and explicit opt-in.",

@@ -180,7 +180,7 @@ class PlatformAgent:
             is_sales=domain=="sales"
             domain_context=getattr(context,domain)
             plan=parse_sales(question,domain_context) if is_sales else parse_business(question,domain,domain_context)
-            event(2,domain=domain,action=plan.action,request=plan.request.model_dump(mode="json") if plan.request else None)
+            event(2,domain=domain,action=plan.action,request=plan.request.model_dump(mode="json") if plan.request else None,period_resolution=plan.message)
             if plan.action!="execute": return answer("clarification" if plan.action=="clarify" else "unsupported",plan.message or "Use a supported domain question.")
             skills=(self.sales_skills or SalesSkills()) if is_sales else (self.business_skills.get(domain) or BusinessSkills(domain))
             if callable(skills): skills=skills()
@@ -222,12 +222,16 @@ class PlatformAgent:
             event(6,executed_skills=[r.skill for r in results],quality=results[0].quality,
                 reconciliations=[r.reconciliation for r in results],query_evidence=[e.model_dump(mode="json") for e in results[0].evidence])
             findings=sales_findings(results) if is_sales else business_findings(results)
+            summary=findings[0]
+            if plan.message:
+                findings.insert(0,plan.message)
+                summary=plan.message+" "+summary
             context=PlatformContext(domain=domain,**{domain:SalesContext(request=plan.request) if is_sales else BusinessContext(request=plan.request)})
             event(7,result_count=len(results),finding_basis="Executed query values only",chart_rows=sum(len(r.trend)+len(r.records) for r in results))
             followups=["Which markets contributed to the change in net sales for the same periods?","Now compare only Orion One for the same periods.","Investigate net sales across products for the same periods."] if is_sales else (
                 ["Which campaigns contributed to the change in marketing conversions for the same periods?","Now compare only Campaign Aurora for the same periods.","Investigate marketing spend across channels for the same periods."] if domain=='marketing' else
                 ["Which departments contributed to the change in finance expenses for the same periods?","Now compare only Department Boreal for the same periods.","Investigate finance profit across categories for the same periods."])
-            return answer("ok",findings[0],findings=findings,followups=followups)
+            return answer("ok",summary,findings=findings,followups=followups)
         except (PermissionError,ValueError,TimeoutError,ProviderError,FileNotFoundError) as error:
             results=[]
             if manager is not None: fallback=manager.last_fallback_reason

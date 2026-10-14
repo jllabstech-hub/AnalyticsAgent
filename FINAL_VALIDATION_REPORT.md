@@ -15,7 +15,7 @@ See `reports/local_openai_network_recovery.json` for the test-method distinction
 
 | Check | Actual result | Evidence |
 |---|---|---|
-| Full Windows automated suite | 462 passed / 0 failed / 2 skipped; 464 total; 271.72s pytest | reports/test_results.xml; reports/evaluation.json |
+| Full Windows automated suite | 490 passed / 0 failed / 2 skipped; 492 total; 264.98s pytest | reports/test_results.xml; reports/evaluation.json |
 | Independent pandas reference comparisons | Usage 30/30; Sales 40/40; Marketing/Finance 55/55 matched | tests/fixtures/reference_answers.json; tests/fixtures/sales_reference_answers.json; tests/fixtures/business_reference_answers.json |
 | Human-question agent workflows | Usage 30/30; Sales 40/40; Marketing/Finance 55/55 matched | tests/test_e2e_references.py; tests/test_sales_pipeline.py; tests/test_business_domains.py |
 | Demonstration workflows | All twenty documented local demos; 140 completed components; ten new-domain hosted demos | reports/four_domain_pipeline_trace.json; reports/four_domain_hosted_verification.json |
@@ -129,3 +129,12 @@ The local app on port 8502 restores provider Settings on normal startup and has 
 Final Windows suite: 462 passed, zero failed, two opt-in live-provider skips of 464 (271.72s; 272.920s evaluator); all 125 independent and 125 human reference questions match. Initial test collection walked protected historical QA folders; evaluation now explicitly selects tests/. A restricted-run smoke subprocess shutdown failed, then the exact check and complete suite passed with the needed Windows process permissions. The orphan test server was cleaned up; the owner app remains healthy. Prior Linux/Free evidence above remains tied to the deployed four-domain source; this local configuration change has not been deployed to the public service.
 
 Reports/local_openai_settings_validation.json, local_openai_finance_validation.json and local_openai_finance_trace.json record actual checks. Live Ollama, Marketing/Sales model workflows and broader provider accuracy remain unverified.
+
+
+## Relative sales periods and actual OpenAI questions - 14 October 2026
+
+The reported natural questions now resolve last month before any model call: September versus August when the current UTC date is in October 2026. The answer, findings and intent trace expose that interpretation. Contextual filters are preserved; relative dates override older periods. Coverage failures show the resolved dates and unavailable range. No latest-data substitution or assumed business cause is introduced.
+
+Current full Windows suite: 490 passed, zero failed, two opt-in skips of 492 (264.98s; evaluator 266.211s). All original 125 independent calculations and 125 reference questions match. The 28 new regressions include six pipeline cases across deterministic/Ollama/OpenAI modes, with mocked providers and an independent pandas oracle. Streamlit AppTest exercises both exact reported questions and visible dates.
+
+Two separate real OpenAI AppTest workflows pass: "how is sales last month" (S1, 47.111s) and "why last month sales down?" (S1/S2, 45.296s), model gpt-4.1-mini-2025-04-14. Actual net sales are USD 13,172,465.17 in August and 13,137,683.46 in September, down 34,781.71 (-0.26%); independent canonical-line integer-cent sums match. Market contributions reconcile. Seven components complete and keys are absent from session state. Evidence: reports/local_openai_sales_relative_validation.json and both complete trace files. These are approved-network AppTest checks, not automated browser checks of the port-8502 server. The restarted actual local server is healthy over localhost, IPv4 and IPv6. No provider key was copied to Render, public deployment performed or Ollama model downloaded. Marketing live-model workflows and broader live-provider/failure-path evaluation remain unverified; prior Linux/Free evidence remains tied to the deployed source above.

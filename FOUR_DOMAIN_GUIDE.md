@@ -41,6 +41,16 @@ registered analytical operations. Generic revenue follows Finance in an existing
 Finance conversation and otherwise retains the established Sales interpretation.
 Use "finance revenue" or "net sales" to make the intended source explicit.
 
+Sales also accepts "how is sales last month" and "why last month sales down?".
+These resolve using the current UTC server date: in October 2026, September is
+compared with August. The interpretation appears in chat, findings and the intent
+trace; contextual follow-ups retain the resolved periods. If either month lies
+outside April–September 2026, a coverage explanation replaces the generic period
+question. The "why" workflow measures the change before reporting observed
+contributions; it does not assume a decline or establish a business cause.
+This relative-month update is available locally and in current GitHub source;
+the existing Free Render release has not yet been redeployed for this change.
+
 ## Population and numerical meaning
 
 Marketing counts observations rather than unique people. Each canonical event
@@ -115,8 +125,8 @@ agents never import reference answers. Actual traces for all twenty documented
 workflows are in reports/four_domain_pipeline_trace.json. Existing Usage and
 Sales references and behaviors are preserved.
 
-Latest Windows suite: 462 passed, zero failed, two optional live-provider skips
-of 464. Prior deployed-source Linux CI: 459 passed with two skips of 461. The defined suite matches 125 independent calculations and 125
+Latest Windows suite: 490 passed, zero failed, two optional live-provider skips
+of 492. Prior deployed-source Linux CI: 459 passed with two skips of 461. The defined suite matches 125 independent calculations and 125
 natural-language questions. All ten new-domain hosted demonstrations pass;
 107 independent numerical comparisons cover their totals, trends and groups.
 An actual hosted restart preserves reference comparisons across all four domains.
