@@ -1,0 +1,391 @@
+{
+  "status": "pass",
+  "method": "Separate pandas reference module; no runtime engine or agent calculations",
+  "workflows_checked": 10,
+  "numeric_comparisons": 107,
+  "workflows": [
+    {
+      "domain": "marketing",
+      "demo": 1,
+      "trace_file": "reports/hosted_marketing_1.json",
+      "status": "pass",
+      "metric": "click_through_rate",
+      "request": {
+        "domain": "marketing",
+        "metric": "click_through_rate",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      },
+      "baseline": 0.1410627693965517,
+      "current": 0.14410638859556493,
+      "absolute_change": 0.00304361919901322,
+      "skills": [
+        "M1"
+      ],
+      "component_count": 7,
+      "elapsed_ms": 4172.019069083035,
+      "reference_totals_trends_groups": "pass"
+    },
+    {
+      "domain": "marketing",
+      "demo": 2,
+      "trace_file": "reports/hosted_marketing_2.json",
+      "status": "pass",
+      "metric": "conversions",
+      "request": {
+        "domain": "marketing",
+        "metric": "conversions",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      },
+      "baseline": 787.0,
+      "current": 820.0,
+      "absolute_change": 33.0,
+      "skills": [
+        "M2"
+      ],
+      "component_count": 7,
+      "elapsed_ms": 4250.422414392233,
+      "reference_totals_trends_groups": "pass"
+    },
+    {
+      "domain": "marketing",
+      "demo": 3,
+      "trace_file": "reports/hosted_marketing_3.json",
+      "status": "pass",
+      "metric": "marketing_spend",
+      "request": {
+        "domain": "marketing",
+        "metric": "marketing_spend",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      },
+      "baseline": 5928.06,
+      "current": 6080.58,
+      "absolute_change": 152.51999999999953,
+      "skills": [
+        "M1",
+        "M2"
+      ],
+      "component_count": 7,
+      "elapsed_ms": 5438.736280426383,
+      "reference_totals_trends_groups": "pass"
+    },
+    {
+      "domain": "marketing",
+      "demo": 4,
+      "trace_file": "reports/hosted_marketing_4.json",
+      "status": "pass",
+      "metric": "conversions",
+      "request": {
+        "domain": "marketing",
+        "metric": "conversions",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      },
+      "baseline": 267.0,
+      "current": 264.0,
+      "absolute_change": -3.0,
+      "skills": [
+        "M1"
+      ],
+      "component_count": 7,
+      "elapsed_ms": 4144.341208040714,
+      "reference_totals_trends_groups": "pass"
+    },
+    {
+      "domain": "marketing",
+      "demo": 5,
+      "trace_file": "reports/hosted_marketing_5.json",
+      "status": "pass",
+      "metric": "conversions",
+      "request": {
+        "domain": "marketing",
+        "metric": "conversions",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": "Campaign Aurora",
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      },
+      "baseline": 58.0,
+      "current": 48.0,
+      "absolute_change": -10.0,
+      "skills": [
+        "M1"
+      ],
+      "component_count": 7,
+      "elapsed_ms": 3949.911189265549,
+      "reference_totals_trends_groups": "pass"
+    },
+    {
+      "domain": "finance",
+      "demo": 1,
+      "trace_file": "reports/hosted_finance_1.json",
+      "status": "pass",
+      "metric": "profit",
+      "request": {
+        "domain": "finance",
+        "metric": "profit",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      },
+      "baseline": 4003078.54,
+      "current": 2896087.27,
+      "absolute_change": -1106991.27,
+      "skills": [
+        "F1"
+      ],
+      "component_count": 7,
+      "elapsed_ms": 3077.167215757072,
+      "reference_totals_trends_groups": "pass"
+    },
+    {
+      "domain": "finance",
+      "demo": 2,
+      "trace_file": "reports/hosted_finance_2.json",
+      "status": "pass",
+      "metric": "expenses",
+      "request": {
+        "domain": "finance",
+        "metric": "expenses",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      },
+      "baseline": 5736915.49,
+      "current": 6969131.37,
+      "absolute_change": 1232215.88,
+      "skills": [
+        "F2"
+      ],
+      "component_count": 7,
+      "elapsed_ms": 2800.648780539632,
+      "reference_totals_trends_groups": "pass"
+    },
+    {
+      "domain": "finance",
+      "demo": 3,
+      "trace_file": "reports/hosted_finance_3.json",
+      "status": "pass",
+      "metric": "profit",
+      "request": {
+        "domain": "finance",
+        "metric": "profit",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      },
+      "baseline": 4003078.54,
+      "current": 2896087.27,
+      "absolute_change": -1106991.27,
+      "skills": [
+        "F1",
+        "F2"
+      ],
+      "component_count": 7,
+      "elapsed_ms": 3835.4850839823484,
+      "reference_totals_trends_groups": "pass"
+    },
+    {
+      "domain": "finance",
+      "demo": 4,
+      "trace_file": "reports/hosted_finance_4.json",
+      "status": "pass",
+      "metric": "profit_margin",
+      "request": {
+        "domain": "finance",
+        "metric": "profit_margin",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      },
+      "baseline": 0.29584436161066957,
+      "current": 0.23095318930994957,
+      "absolute_change": -0.06489117230072,
+      "skills": [
+        "F1"
+      ],
+      "component_count": 7,
+      "elapsed_ms": 2799.335672520101,
+      "reference_totals_trends_groups": "pass"
+    },
+    {
+      "domain": "finance",
+      "demo": 5,
+      "trace_file": "reports/hosted_finance_5.json",
+      "status": "pass",
+      "metric": "profit_margin",
+      "request": {
+        "domain": "finance",
+        "metric": "profit_margin",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": "Department Boreal",
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      },
+      "baseline": 0.12566241057455563,
+      "current": -0.039640782690881234,
+      "absolute_change": -0.16530319326543685,
+      "skills": [
+        "F1"
+      ],
+      "component_count": 7,
+      "elapsed_ms": 3046.8514943495393,
+      "reference_totals_trends_groups": "pass"
+    }
+  ],
+  "post_restart_workflows": [
+    {
+      "domain": "usage",
+      "status": "pass",
+      "trace_file": "reports/hosted_usage_four_domain.json",
+      "metric": "mau",
+      "baseline": 66025.0,
+      "current": 65292.0,
+      "absolute_change": -733.0,
+      "elapsed_ms": 42760.45435597189,
+      "seven_components_complete": true,
+      "reference_totals": "pass"
+    },
+    {
+      "domain": "sales",
+      "status": "pass",
+      "trace_file": "reports/hosted_sales_four_domain.json",
+      "metric": "net_sales",
+      "baseline": 1748539.73,
+      "current": 3218017.11,
+      "absolute_change": 1469477.38,
+      "elapsed_ms": 4253.989249933511,
+      "seven_components_complete": true,
+      "reference_totals": "pass"
+    },
+    {
+      "domain": "marketing",
+      "status": "pass",
+      "trace_file": "reports/hosted_marketing_restart.json",
+      "metric": "click_through_rate",
+      "baseline": 0.1410627693965517,
+      "current": 0.14410638859556493,
+      "absolute_change": 0.00304361919901322,
+      "elapsed_ms": 4049.0087340585887,
+      "seven_components_complete": true,
+      "reference_totals": "pass"
+    },
+    {
+      "domain": "finance",
+      "status": "pass",
+      "trace_file": "reports/hosted_finance_restart.json",
+      "metric": "profit",
+      "baseline": 4003078.54,
+      "current": 2896087.27,
+      "absolute_change": -1106991.27,
+      "elapsed_ms": 3209.426332032308,
+      "seven_components_complete": true,
+      "reference_totals": "pass"
+    }
+  ],
+  "numeric_comparisons_including_restart": 119
+}

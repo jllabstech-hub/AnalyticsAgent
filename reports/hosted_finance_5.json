@@ -1,0 +1,2164 @@
+{
+  "domain": "finance",
+  "status": "ok",
+  "provider": "deterministic demo",
+  "model": "",
+  "fallback_reason": null,
+  "message": "Observed profit margin: 12.57% → -3.96%; change -16.53 pp (-131.55% relative).",
+  "findings": [
+    "Observed profit margin: 12.57% → -3.96%; change -16.53 pp (-131.55% relative).",
+    "These synthetic observations and contributions do not establish a confirmed business cause."
+  ],
+  "results": [
+    {
+      "skill": "F1",
+      "skill_version": "1.0",
+      "metric_version": "1.0",
+      "request": {
+        "domain": "finance",
+        "metric": "profit_margin",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": "Department Boreal",
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      },
+      "definition": {
+        "metric_id": "profit_margin",
+        "domain": "finance",
+        "version": "1.0",
+        "owner": "Fictional Finance Analytics Demo",
+        "timezone": "UTC",
+        "currency": "USD",
+        "unit": "ratio",
+        "additive": false,
+        "supported_dimensions": [
+          "market",
+          "department",
+          "category"
+        ],
+        "source_datasets": [
+          "finance_fact",
+          "department_dim",
+          "market_dim",
+          "calendar_dim"
+        ],
+        "required_joins": [
+          "finance_fact.entity_id=department_dim.entity_id with valid department dates",
+          "finance_fact.market_id=market_dim.market_id",
+          "finance_fact.activity_date=calendar_dim.activity_date"
+        ],
+        "data_quality_requirements": [
+          "integer counters and money",
+          "canonical event_id",
+          "unique dimension keys",
+          "no orphan or time-invalid joins",
+          "valid populations",
+          "complete coverage",
+          "historical snapshot freshness"
+        ],
+        "business_meaning": "Modeled profit divided by booked revenue in exactly the same selected population; not an average of group margins.",
+        "calculation_method": "SUM(revenue_cents-expense_cents)/SUM(revenue_cents), undefined if no revenue",
+        "aggregation_grain": "selected period population ratio",
+        "numerator": "modeled profit",
+        "denominator": "booked revenue"
+      },
+      "baseline": 0.12566241057455563,
+      "current": -0.039640782690881234,
+      "absolute_change": -0.16530319326543685,
+      "percentage_change": -131.54545779412874,
+      "records": [],
+      "trend": [
+        {
+          "period": "baseline",
+          "month": "2026-08",
+          "value": 0.12566241057455563,
+          "coverage_complete": true,
+          "revenue_cents": 111586949,
+          "expense_cents": 97564664,
+          "profit_cents": 14022285
+        },
+        {
+          "period": "current",
+          "month": "2026-09",
+          "value": -0.039640782690881234,
+          "coverage_complete": true,
+          "revenue_cents": 99520260,
+          "expense_cents": 103465321,
+          "profit_cents": -3945061
+        }
+      ],
+      "warnings": [
+        "Removed 38 duplicated observations.",
+        "Included 141 observations arriving more than 24 hours late."
+      ],
+      "quality": {
+        "complete": true,
+        "freshness_valid": true,
+        "freshness_basis": "Historical synthetic snapshot 2026-10-10",
+        "integrity": "passed",
+        "coverage": [
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          }
+        ],
+        "events": {
+          "raw_rows": 3347,
+          "unique_lines": 3309,
+          "late_lines": 141
+        }
+      },
+      "evidence": [
+        {
+          "query_id": "8f10b08094862d16",
+          "template": "finance.quality.integrity",
+          "duration_ms": 799.822,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim",
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "80e3421f6fcb7dce",
+          "template": "finance.quality.events",
+          "duration_ms": 100.561,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "d6a018443d28628f",
+          "template": "finance.quality.coverage",
+          "duration_ms": 2.397,
+          "rows": 10,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "afda4854bd7ae650",
+          "template": "finance.total.profit_margin.market",
+          "duration_ms": 206.369,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "7d81c871a30ab9c3fd268e76e5a33a5bf64d1d17e9b2b9f53b36223f4ab6e921"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "efbd84a490c6fa78",
+          "template": "finance.total.profit_margin.market",
+          "duration_ms": 289.469,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "7d81c871a30ab9c3fd268e76e5a33a5bf64d1d17e9b2b9f53b36223f4ab6e921"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "150c3a279c671c22",
+          "template": "finance.trend.profit_margin.market",
+          "duration_ms": 294.198,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "3218cb31149a5d5831fcbb28abecc43e64f66a9f57601d80b87dc25b586aa539"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "b0a842186aefbe54",
+          "template": "finance.trend.profit_margin.market",
+          "duration_ms": 205.598,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "3218cb31149a5d5831fcbb28abecc43e64f66a9f57601d80b87dc25b586aa539"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ],
+      "reconciliation": {},
+      "queries": [
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "baseline",
+          "dimension": "market",
+          "template": "finance.total.profit_margin.market",
+          "sql": "SELECT 'All' group_name,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) AND entity_name=?",
+          "parameters": [
+            "2026-08-01",
+            "2026-09-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Department Boreal"
+          ]
+        },
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "current",
+          "dimension": "market",
+          "template": "finance.total.profit_margin.market",
+          "sql": "SELECT 'All' group_name,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) AND entity_name=?",
+          "parameters": [
+            "2026-09-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Department Boreal"
+          ]
+        },
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "trend",
+          "period": "baseline",
+          "dimension": "market",
+          "template": "finance.trend.profit_margin.market",
+          "sql": "WITH spine AS (SELECT DISTINCT month_label FROM calendar_dim WHERE activity_date>=?::DATE AND activity_date<?::DATE),\n                amounts AS (SELECT month_label,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) AND entity_name=? GROUP BY month_label)\n                SELECT spine.month_label group_name,COALESCE(revenue_cents,0)::BIGINT revenue_cents, COALESCE(expense_cents,0)::BIGINT expense_cents, COALESCE(profit_cents,0)::BIGINT profit_cents FROM spine LEFT JOIN amounts USING(month_label) ORDER BY spine.month_label",
+          "parameters": [
+            "2026-08-01",
+            "2026-09-01",
+            "2026-08-01",
+            "2026-09-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Department Boreal"
+          ]
+        },
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "trend",
+          "period": "current",
+          "dimension": "market",
+          "template": "finance.trend.profit_margin.market",
+          "sql": "WITH spine AS (SELECT DISTINCT month_label FROM calendar_dim WHERE activity_date>=?::DATE AND activity_date<?::DATE),\n                amounts AS (SELECT month_label,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) AND entity_name=? GROUP BY month_label)\n                SELECT spine.month_label group_name,COALESCE(revenue_cents,0)::BIGINT revenue_cents, COALESCE(expense_cents,0)::BIGINT expense_cents, COALESCE(profit_cents,0)::BIGINT profit_cents FROM spine LEFT JOIN amounts USING(month_label) ORDER BY spine.month_label",
+          "parameters": [
+            "2026-09-01",
+            "2026-10-01",
+            "2026-09-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Department Boreal"
+          ]
+        }
+      ],
+      "duration_ms": 2794.518
+    }
+  ],
+  "followups": [
+    "Which departments contributed to the change in finance expenses for the same periods?",
+    "Now compare only Department Boreal for the same periods.",
+    "Investigate finance profit across categories for the same periods."
+  ],
+  "trace": [
+    {
+      "component_id": 1,
+      "stage": "User Query",
+      "status": "complete",
+      "elapsed_ms": 0.031,
+      "duration_ms": 0.031,
+      "characters": 56,
+      "execution_mode": "demo"
+    },
+    {
+      "component_id": 2,
+      "stage": "Intent Understanding",
+      "status": "complete",
+      "elapsed_ms": 0.424,
+      "duration_ms": 0.393,
+      "domain": "finance",
+      "action": "execute",
+      "request": {
+        "domain": "finance",
+        "metric": "profit_margin",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": "Department Boreal",
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      }
+    },
+    {
+      "component_id": 3,
+      "stage": "Domain & Skill Selection",
+      "status": "complete",
+      "elapsed_ms": 1.003,
+      "duration_ms": 0.579,
+      "registry": {
+        "version": "1.0",
+        "skill_id": "finance_analytics",
+        "name": "Finance Analytics",
+        "operations": [
+          "F1",
+          "F2"
+        ],
+        "metrics": [
+          "finance_revenue",
+          "expenses",
+          "profit",
+          "profit_margin"
+        ],
+        "source": "synthetic_finance",
+        "date_range": "April–September 2026 UTC"
+      },
+      "operation": "comparison",
+      "dimension": "market"
+    },
+    {
+      "component_id": 4,
+      "stage": "Knowledge Retrieval",
+      "status": "complete",
+      "elapsed_ms": 251.79,
+      "duration_ms": 250.787,
+      "definition": {
+        "metric_id": "profit_margin",
+        "domain": "finance",
+        "version": "1.0",
+        "owner": "Fictional Finance Analytics Demo",
+        "timezone": "UTC",
+        "currency": "USD",
+        "unit": "ratio",
+        "additive": false,
+        "supported_dimensions": [
+          "market",
+          "department",
+          "category"
+        ],
+        "source_datasets": [
+          "finance_fact",
+          "department_dim",
+          "market_dim",
+          "calendar_dim"
+        ],
+        "required_joins": [
+          "finance_fact.entity_id=department_dim.entity_id with valid department dates",
+          "finance_fact.market_id=market_dim.market_id",
+          "finance_fact.activity_date=calendar_dim.activity_date"
+        ],
+        "data_quality_requirements": [
+          "integer counters and money",
+          "canonical event_id",
+          "unique dimension keys",
+          "no orphan or time-invalid joins",
+          "valid populations",
+          "complete coverage",
+          "historical snapshot freshness"
+        ],
+        "business_meaning": "Modeled profit divided by booked revenue in exactly the same selected population; not an average of group margins.",
+        "calculation_method": "SUM(revenue_cents-expense_cents)/SUM(revenue_cents), undefined if no revenue",
+        "aggregation_grain": "selected period population ratio",
+        "numerator": "modeled profit",
+        "denominator": "booked revenue"
+      },
+      "catalog": {
+        "logical_database": "synthetic_finance",
+        "grain": "one booked revenue or expense transaction; event_id deduplicates retransmissions",
+        "entity": "department_dim",
+        "relationships": [
+          "many-to-one department valid at booking time",
+          "many-to-one market",
+          "many-to-one UTC date"
+        ],
+        "accounting_scope": "synthetic revenue and expense analytical subtotal; excludes tax, financing, FX and double-entry balancing",
+        "policies": [
+          "integer USD cents only",
+          "approved categories and department filters",
+          "no SQL supplied by models",
+          "one domain per question",
+          "explicit private finance grant"
+        ]
+      },
+      "schemas": {
+        "finance_fact": [
+          {
+            "column_name": "event_id",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "entity_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "market_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "activity_date",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "activity_at",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "ingested_at",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "currency",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "category",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "revenue_cents",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "expense_cents",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "department_dim": [
+          {
+            "column_name": "entity_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "entity_name",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "valid_from",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "valid_to",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "market_dim": [
+          {
+            "column_name": "market_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "market",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "calendar_dim": [
+          {
+            "column_name": "activity_date",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "month_label",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "quarter",
+            "column_type": "INTEGER",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "data_quality_status": [
+          {
+            "column_name": "scenario",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "dataset",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "period_start",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "period_end",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "complete",
+            "column_type": "BOOLEAN",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "available_through",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "loaded_at",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "snapshot_as_of",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ]
+      },
+      "query_evidence": [
+        {
+          "query_id": "8a85fefd102c66f7",
+          "template": "finance.schema.finance_fact",
+          "duration_ms": 1.072,
+          "rows": 10,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "finance_fact"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "a808f24698f902ad",
+          "template": "finance.schema.department_dim",
+          "duration_ms": 0.909,
+          "rows": 4,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "department_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "888bf08bbcc02686",
+          "template": "finance.schema.market_dim",
+          "duration_ms": 0.72,
+          "rows": 2,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "market_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "bb9119896b31d442",
+          "template": "finance.schema.calendar_dim",
+          "duration_ms": 0.773,
+          "rows": 3,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "aa6e571a26601fb2",
+          "template": "finance.schema.data_quality_status",
+          "duration_ms": 0.745,
+          "rows": 8,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ]
+    },
+    {
+      "component_id": 5,
+      "stage": "Approved Query Generation",
+      "status": "complete",
+      "elapsed_ms": 252.058,
+      "duration_ms": 0.268,
+      "policy": "Allowlisted parameterized SQL; no unrestricted model SQL",
+      "queries": [
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "baseline",
+          "dimension": "market",
+          "template": "finance.total.profit_margin.market",
+          "sql": "SELECT 'All' group_name,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) AND entity_name=?",
+          "parameters": [
+            "2026-08-01",
+            "2026-09-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Department Boreal"
+          ]
+        },
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "current",
+          "dimension": "market",
+          "template": "finance.total.profit_margin.market",
+          "sql": "SELECT 'All' group_name,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) AND entity_name=?",
+          "parameters": [
+            "2026-09-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Department Boreal"
+          ]
+        },
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "trend",
+          "period": "baseline",
+          "dimension": "market",
+          "template": "finance.trend.profit_margin.market",
+          "sql": "WITH spine AS (SELECT DISTINCT month_label FROM calendar_dim WHERE activity_date>=?::DATE AND activity_date<?::DATE),\n                amounts AS (SELECT month_label,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) AND entity_name=? GROUP BY month_label)\n                SELECT spine.month_label group_name,COALESCE(revenue_cents,0)::BIGINT revenue_cents, COALESCE(expense_cents,0)::BIGINT expense_cents, COALESCE(profit_cents,0)::BIGINT profit_cents FROM spine LEFT JOIN amounts USING(month_label) ORDER BY spine.month_label",
+          "parameters": [
+            "2026-08-01",
+            "2026-09-01",
+            "2026-08-01",
+            "2026-09-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Department Boreal"
+          ]
+        },
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "trend",
+          "period": "current",
+          "dimension": "market",
+          "template": "finance.trend.profit_margin.market",
+          "sql": "WITH spine AS (SELECT DISTINCT month_label FROM calendar_dim WHERE activity_date>=?::DATE AND activity_date<?::DATE),\n                amounts AS (SELECT month_label,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) AND entity_name=? GROUP BY month_label)\n                SELECT spine.month_label group_name,COALESCE(revenue_cents,0)::BIGINT revenue_cents, COALESCE(expense_cents,0)::BIGINT expense_cents, COALESCE(profit_cents,0)::BIGINT profit_cents FROM spine LEFT JOIN amounts USING(month_label) ORDER BY spine.month_label",
+          "parameters": [
+            "2026-09-01",
+            "2026-10-01",
+            "2026-09-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E",
+            "Department Boreal"
+          ]
+        }
+      ]
+    },
+    {
+      "component_id": 6,
+      "stage": "Execute & Validate",
+      "status": "complete",
+      "elapsed_ms": 3046.794,
+      "duration_ms": 2794.736,
+      "executed_skills": [
+        "F1"
+      ],
+      "quality": {
+        "complete": true,
+        "freshness_valid": true,
+        "freshness_basis": "Historical synthetic snapshot 2026-10-10",
+        "integrity": "passed",
+        "coverage": [
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          }
+        ],
+        "events": {
+          "raw_rows": 3347,
+          "unique_lines": 3309,
+          "late_lines": 141
+        }
+      },
+      "reconciliations": [
+        {}
+      ],
+      "query_evidence": [
+        {
+          "query_id": "8f10b08094862d16",
+          "template": "finance.quality.integrity",
+          "duration_ms": 799.822,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim",
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "80e3421f6fcb7dce",
+          "template": "finance.quality.events",
+          "duration_ms": 100.561,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "d6a018443d28628f",
+          "template": "finance.quality.coverage",
+          "duration_ms": 2.397,
+          "rows": 10,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "afda4854bd7ae650",
+          "template": "finance.total.profit_margin.market",
+          "duration_ms": 206.369,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "7d81c871a30ab9c3fd268e76e5a33a5bf64d1d17e9b2b9f53b36223f4ab6e921"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "efbd84a490c6fa78",
+          "template": "finance.total.profit_margin.market",
+          "duration_ms": 289.469,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "7d81c871a30ab9c3fd268e76e5a33a5bf64d1d17e9b2b9f53b36223f4ab6e921"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "150c3a279c671c22",
+          "template": "finance.trend.profit_margin.market",
+          "duration_ms": 294.198,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "3218cb31149a5d5831fcbb28abecc43e64f66a9f57601d80b87dc25b586aa539"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "b0a842186aefbe54",
+          "template": "finance.trend.profit_margin.market",
+          "duration_ms": 205.598,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "profit_margin",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": "Department Boreal",
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "3218cb31149a5d5831fcbb28abecc43e64f66a9f57601d80b87dc25b586aa539"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ]
+    },
+    {
+      "component_id": 7,
+      "stage": "Results & Insights",
+      "status": "complete",
+      "elapsed_ms": 3046.846,
+      "duration_ms": 0.052,
+      "result_count": 1,
+      "finding_basis": "Executed query values only",
+      "chart_rows": 2
+    }
+  ],
+  "context": {
+    "domain": "finance",
+    "usage": {
+      "request": null
+    },
+    "sales": {
+      "request": null
+    },
+    "marketing": {
+      "request": null
+    },
+    "finance": {
+      "request": {
+        "domain": "finance",
+        "metric": "profit_margin",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": "Department Boreal",
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      }
+    }
+  },
+  "elapsed_ms": 3046.8514943495393,
+  "tool_calls": 1,
+  "knowledge": {
+    "metric": {
+      "metric_id": "profit_margin",
+      "domain": "finance",
+      "version": "1.0",
+      "owner": "Fictional Finance Analytics Demo",
+      "timezone": "UTC",
+      "currency": "USD",
+      "unit": "ratio",
+      "additive": false,
+      "supported_dimensions": [
+        "market",
+        "department",
+        "category"
+      ],
+      "source_datasets": [
+        "finance_fact",
+        "department_dim",
+        "market_dim",
+        "calendar_dim"
+      ],
+      "required_joins": [
+        "finance_fact.entity_id=department_dim.entity_id with valid department dates",
+        "finance_fact.market_id=market_dim.market_id",
+        "finance_fact.activity_date=calendar_dim.activity_date"
+      ],
+      "data_quality_requirements": [
+        "integer counters and money",
+        "canonical event_id",
+        "unique dimension keys",
+        "no orphan or time-invalid joins",
+        "valid populations",
+        "complete coverage",
+        "historical snapshot freshness"
+      ],
+      "business_meaning": "Modeled profit divided by booked revenue in exactly the same selected population; not an average of group margins.",
+      "calculation_method": "SUM(revenue_cents-expense_cents)/SUM(revenue_cents), undefined if no revenue",
+      "aggregation_grain": "selected period population ratio",
+      "numerator": "modeled profit",
+      "denominator": "booked revenue"
+    },
+    "catalog": {
+      "logical_database": "synthetic_finance",
+      "grain": "one booked revenue or expense transaction; event_id deduplicates retransmissions",
+      "entity": "department_dim",
+      "relationships": [
+        "many-to-one department valid at booking time",
+        "many-to-one market",
+        "many-to-one UTC date"
+      ],
+      "accounting_scope": "synthetic revenue and expense analytical subtotal; excludes tax, financing, FX and double-entry balancing",
+      "policies": [
+        "integer USD cents only",
+        "approved categories and department filters",
+        "no SQL supplied by models",
+        "one domain per question",
+        "explicit private finance grant"
+      ]
+    },
+    "schemas": {
+      "finance_fact": [
+        {
+          "column_name": "event_id",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "entity_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "market_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "activity_date",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "activity_at",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "ingested_at",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "currency",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "category",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "revenue_cents",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "expense_cents",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "department_dim": [
+        {
+          "column_name": "entity_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "entity_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "valid_from",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "valid_to",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "market_dim": [
+        {
+          "column_name": "market_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "market",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "calendar_dim": [
+        {
+          "column_name": "activity_date",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "month_label",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "quarter",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "data_quality_status": [
+        {
+          "column_name": "scenario",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "dataset",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "period_start",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "period_end",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "complete",
+          "column_type": "BOOLEAN",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "available_through",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "loaded_at",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "snapshot_as_of",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ]
+    },
+    "synthetic_manifest": {
+      "is_synthetic": true,
+      "domain": "finance",
+      "seed": 20260403,
+      "canonical_rows": 30000,
+      "row_counts": {
+        "finance_fact": 30300,
+        "department_dim": 3,
+        "market_dim": 5,
+        "calendar_dim": 183,
+        "data_quality_status": 60
+      },
+      "period_start": "2026-04-01",
+      "period_end_exclusive": "2026-10-01",
+      "relative_period_anchor": "2026-10-01",
+      "timezone": "UTC",
+      "currency": "USD",
+      "grain": "one booked revenue or expense transaction; not a double-entry general ledger",
+      "quality_scenario": "incomplete September 24–30 isolated from primary"
+    }
+  }
+}

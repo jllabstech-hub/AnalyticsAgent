@@ -1,6 +1,6 @@
 # Production readiness assessment
 
-What this repo does: It answers governed questions over 100,000 fictional accounts and 25,000 fictional sales orders using approved DuckDB calculations, K1–K3 usage skills and S1/S2 sales operations. Streamlit presents query-backed findings; optional Ollama/OpenAI can plan tools but cannot author displayed numbers. Load assessed: one Streamlit process, four simultaneous investigations on Windows.
+What this repo does: It answers governed questions across Usage, Sales, Marketing and Finance using approved DuckDB calculations and nine registered operations. Sources contain 100,000 fictional users, 25,000 sales orders, 60,000 canonical marketing observations and 30,000 booked finance transactions. Streamlit presents query-backed findings; optional Ollama/OpenAI can plan validated tools but cannot author displayed numbers. Public Free mode permits deterministic execution only. See FOUR_DOMAIN_GUIDE.md for populations, definitions and tracing.
 
 Verdict: **hardened prototype suitable for controlled acceptance testing; not yet production-approved.**
 
@@ -20,7 +20,7 @@ Verdict: **hardened prototype suitable for controlled acceptance testing; not ye
 
 3. **Hosted reliability and operational limits are unverified.**
    - What this is: render.yaml uses the user-selected Free single-process service with 512 MB host RAM and a 320 MB DuckDB budget; paid resources are not authorized.
-   - Current evidence: GitHub Linux CI verifies all 308 tests. The Free Render service runs the owner-authorized public synthetic demo, with root/health HTTP 200 and a working anonymous MAU comparison. The local both-domain UI/export check peaks at 424.27 MiB with the reduced budget. Hosted authenticated analytics memory and sustained capacity remain unverified. Free-plan application memory/CPU telemetry requires an upgrade, which is not authorized.
+   - Current evidence: Exact-source Windows and GitHub Linux suites pass 459 tests, with two live-provider opt-in skips, of 461. The Free Render service runs the owner-authorized four-domain synthetic demo. All ten new-domain workflows pass; independent pandas calculations match their totals, trends and contribution groups. Actual restart and fresh comparisons across all four domains pass. The local four-domain UI/export check peaks at 423.57 MiB with the reduced budget. Hosted authenticated analytics memory and sustained capacity remain unverified. No paid telemetry upgrade was made.
    - Remaining work: Configure OIDC, test hosted authenticated workflows and representative load, establish monitoring and any separately authorized API spend limit, then assess against an agreed traffic/SLA target.
    - If we skip it: Local success may be mistaken for a reliable hosted service or a tested operating budget.
 
@@ -46,7 +46,7 @@ Verdict: **hardened prototype suitable for controlled acceptance testing; not ye
 
 ## Actual acceptance evidence
 
-306 passed, 0 failed, 2 skipped of 308 tests on both Windows and GitHub Linux CI. Usage references match 30/30 calculations and 30/30 human questions; Sales references match 40/40 calculations and 40/40 questions. Five EVP demos were actually executed. All displayed numerical findings in these workflows came from the shared skills and approved queries. A separate real OpenAI browser comparison also returned the independent MAU totals; public mode disables providers.
+459 passed, 0 failed, 2 skipped of 461 tests on both Windows and GitHub Linux CI. Usage references match 30/30 calculations and 30/30 human questions; Sales match 40/40 and 40/40; Marketing/Finance match 55/55 and 55/55. All twenty documented workflows execute locally with 140 completed component events. Ten fresh hosted Marketing/Finance workflows pass; all four domains return their reference values after an actual hosted restart. All displayed numerical findings come from shared skills and approved queries. The earlier real OpenAI Usage comparison remains a separate single-workflow result; live Sales/Marketing/Finance provider inference is unverified and public mode disables providers.
 
 Measured cold investigation 7.196s, warm 5.683ms, four simultaneous investigations all passed, peak backend 385.04 MiB. Two real startup/restart checks passed. Desktop 1366x900 and normal compact browser layouts were inspected; production guard and revocation paths were exercised with simulated claims.
 
@@ -56,14 +56,14 @@ No source credential candidates were found in the local scan. The current local 
 
 Run python -m scripts.evaluate, scripts.validate_data, scripts.run_demos, scripts.benchmark, scripts.security_check and scripts.smoke_deployment --port 8765 using the project virtual-environment Python. For published advisories, install requirements-dev.txt and run python -m pip_audit --format json --output reports/dependencies_audit.json.
 
-The .github/workflows/quality.yml actually passed tests, credential checks, advisories and restart smoke on Linux without live credentials. Run 38508157329 verifies application source commit 36e0c7c0c72279f4af713d8fb6519952ab2e8f32; see reports/github_validation.json and the repository Actions tab. Direct runtime packages are pinned; transitive dependencies are not fully locked and must be scanned in the target environment.
+The .github/workflows/quality.yml actually passed tests, credential checks, advisories and restart smoke on Linux without live credentials. Run 38560216690 verifies application source commit a8203bc65066decdaabf5432b58e69b098f905b5; see reports/github_validation.json and the repository Actions tab. Direct runtime packages are pinned; transitive dependencies are not fully locked and must be scanned in the target environment.
 
 Evidence files are under reports/; FINAL_VALIDATION_REPORT.md summarizes actual measurements. DEPLOYMENT_GUIDE.md covers OIDC and Render setup. Streamlit's authentication protocol verifies identity; the application's scope map separately authorizes data access. See [Streamlit authentication](https://docs.streamlit.io/develop/concepts/connections/authentication). Render Secret Files are read from /etc/secrets/secrets.toml; see [Render documentation](https://render.com/docs/configure-environment-variables#secret-files).
 
 Not checked: real enterprise data, broad live LLM accuracy, live Ollama, signed IdP login, hosted signed-in analytics and sustained production traffic, formal penetration testing or disaster-recovery operations. Source was published to the explicitly authorized public GitHub repository; Free application hosting is live; no paid resource creation or model downloads occurred.
 
 
-## Sales extension acceptance and remaining limits
+## Historical two-domain acceptance
 
 Final local suite is 306 passed / 0 failed / 2 skipped of 308; 40 independent sales calculations and 40 question workflows match, alongside both 30-question usage suites. Seven observable components, read-only metadata/catalog retrieval, parameterized sales operations, private domain grants and exports are verified. The actual both-domain Streamlit/export peak is 424.27 MiB on Windows. Published dependency audit checks 86 packages with zero known findings. New-source Linux CI and Free hosted sales verification now pass; final evidence is recorded below. Public mode runs only bundled fictional data with no providers. Enterprise databases, Teams/Slack/email, real sales-provider inference, actual identity lifecycle and sustained hosted traffic remain unverified or unconnected. The supplied architecture is implemented for the synthetic core pipeline, not claimed as a complete enterprise platform.
 

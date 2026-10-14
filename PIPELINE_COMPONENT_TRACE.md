@@ -82,3 +82,19 @@ Sales Explorer shows 50,500 source rows. Evidence: reports/platform_hosted_verif
 and reports/platform_hosted_*_trace.json. This verifies the synthetic core pipeline;
 real enterprise sources, messaging channels, actual identity login, live Sales LLM
 inference and sustained hosted capacity are not established.
+
+## Current four-domain hosted delivery
+
+Usage, Sales, Marketing and Finance are registered with 21 metrics and nine
+operations. All twenty local demonstration workflows produce seven completed
+component events. The actual Free Render release passes ten new-domain workflows
+and fresh reference comparisons across all four domains after service restart.
+Every hosted trace exposes input resolution, skill selection, retrieved schemas,
+approved SQL/bindings, execution, numerical/quality validation and findings.
+
+Independent hosted validation matches all ten new-domain totals, monthly trends
+and contribution groups (107 checks). CSV, Excel, PDF and trace JSON reopen;
+the new-domain Explorer shows actual source schemas and samples. See
+FOUR_DOMAIN_GUIDE.md and reports/four_domain_hosted_verification.json. Windows
+and Linux suites pass 459/0/2 of 461. This verifies synthetic component behavior;
+the public app remains deterministic and uses no provider calls.

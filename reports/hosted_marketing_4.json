@@ -1,0 +1,2191 @@
+{
+  "domain": "marketing",
+  "status": "ok",
+  "provider": "deterministic demo",
+  "model": "",
+  "fallback_reason": null,
+  "message": "Observed conversions: 267 → 264; change -3 (-1.12% relative).",
+  "findings": [
+    "Observed conversions: 267 → 264; change -3 (-1.12% relative).",
+    "These synthetic observations and contributions do not establish a confirmed business cause."
+  ],
+  "results": [
+    {
+      "skill": "M1",
+      "skill_version": "1.0",
+      "metric_version": "1.0",
+      "request": {
+        "domain": "marketing",
+        "metric": "conversions",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      },
+      "definition": {
+        "metric_id": "conversions",
+        "domain": "marketing",
+        "version": "1.0",
+        "owner": "Fictional Marketing Analytics Demo",
+        "timezone": "UTC",
+        "currency": "USD",
+        "unit": "count",
+        "additive": true,
+        "supported_dimensions": [
+          "market",
+          "campaign",
+          "channel"
+        ],
+        "source_datasets": [
+          "marketing_fact",
+          "campaign_dim",
+          "market_dim",
+          "calendar_dim"
+        ],
+        "required_joins": [
+          "marketing_fact.entity_id=campaign_dim.entity_id with valid campaign dates",
+          "marketing_fact.market_id=market_dim.market_id",
+          "marketing_fact.activity_date=calendar_dim.activity_date"
+        ],
+        "data_quality_requirements": [
+          "integer counters and money",
+          "canonical event_id",
+          "unique dimension keys",
+          "no orphan or time-invalid joins",
+          "valid populations",
+          "complete coverage",
+          "historical snapshot freshness"
+        ],
+        "business_meaning": "Clicked impressions with one observed conversion; not unique people or orders.",
+        "calculation_method": "SUM(conversions), with conversions <= clicks",
+        "aggregation_grain": "impression observation",
+        "numerator": "observed conversions",
+        "denominator": null
+      },
+      "baseline": 267.0,
+      "current": 264.0,
+      "absolute_change": -3.0,
+      "percentage_change": -1.1235955056179776,
+      "records": [],
+      "trend": [
+        {
+          "period": "baseline",
+          "month": "2026-08",
+          "value": 267,
+          "coverage_complete": true,
+          "impressions": 10148,
+          "clicks": 1431,
+          "conversions": 267,
+          "spend_cents": 202479
+        },
+        {
+          "period": "current",
+          "month": "2026-09",
+          "value": 264,
+          "coverage_complete": true,
+          "impressions": 9957,
+          "clicks": 1437,
+          "conversions": 264,
+          "spend_cents": 201614
+        }
+      ],
+      "warnings": [
+        "Removed 201 duplicated observations.",
+        "Included 1,049 observations arriving more than 24 hours late."
+      ],
+      "quality": {
+        "complete": true,
+        "freshness_valid": true,
+        "freshness_basis": "Historical synthetic snapshot 2026-10-10",
+        "integrity": "passed",
+        "coverage": [
+          {
+            "scenario": "primary",
+            "dataset": "marketing_fact",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "marketing_fact",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "campaign_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "campaign_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          }
+        ],
+        "events": {
+          "raw_rows": 20306,
+          "unique_lines": 20105,
+          "late_lines": 1049
+        }
+      },
+      "evidence": [
+        {
+          "query_id": "3a094e27d4be72dd",
+          "template": "marketing.quality.integrity",
+          "duration_ms": 1290.818,
+          "rows": 1,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "marketing_fact",
+            "campaign_dim",
+            "market_dim",
+            "calendar_dim",
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "3aba6eead94276e4",
+          "template": "marketing.quality.events",
+          "duration_ms": 110.919,
+          "rows": 1,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "marketing_fact",
+            "campaign_dim",
+            "market_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "d9744822799d3f3d",
+          "template": "marketing.quality.coverage",
+          "duration_ms": 1.985,
+          "rows": 10,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "1aceb55e96b10a7d",
+          "template": "marketing.total.conversions.market",
+          "duration_ms": 306.721,
+          "rows": 1,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "23b49704f8558067e74ab31fa84f104cc48af094ade4c0f4a31a5e57cd5cfb67"
+          },
+          "sources": [
+            "marketing_fact",
+            "campaign_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "d8cdced9cc3f94e9",
+          "template": "marketing.total.conversions.market",
+          "duration_ms": 306.001,
+          "rows": 1,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "23b49704f8558067e74ab31fa84f104cc48af094ade4c0f4a31a5e57cd5cfb67"
+          },
+          "sources": [
+            "marketing_fact",
+            "campaign_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "7c6bb0070a2256a0",
+          "template": "marketing.trend.conversions.market",
+          "duration_ms": 400.132,
+          "rows": 1,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "eecb3f125592f3316d39bd941320769017ef4ab2026e43f6ecfbaecf0bbe4dbe"
+          },
+          "sources": [
+            "marketing_fact",
+            "campaign_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "12e938a8d0deb642",
+          "template": "marketing.trend.conversions.market",
+          "duration_ms": 307.927,
+          "rows": 1,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "eecb3f125592f3316d39bd941320769017ef4ab2026e43f6ecfbaecf0bbe4dbe"
+          },
+          "sources": [
+            "marketing_fact",
+            "campaign_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ],
+      "reconciliation": {},
+      "queries": [
+        {
+          "request": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "baseline",
+          "dimension": "market",
+          "template": "marketing.total.conversions.market",
+          "sql": "SELECT 'All' group_name,SUM(impressions)::BIGINT impressions, SUM(clicks)::BIGINT clicks, SUM(conversions)::BIGINT conversions, SUM(spend_cents)::BIGINT spend_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?)",
+          "parameters": [
+            "2026-08-01",
+            "2026-09-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        },
+        {
+          "request": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "current",
+          "dimension": "market",
+          "template": "marketing.total.conversions.market",
+          "sql": "SELECT 'All' group_name,SUM(impressions)::BIGINT impressions, SUM(clicks)::BIGINT clicks, SUM(conversions)::BIGINT conversions, SUM(spend_cents)::BIGINT spend_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?)",
+          "parameters": [
+            "2026-09-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        },
+        {
+          "request": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "trend",
+          "period": "baseline",
+          "dimension": "market",
+          "template": "marketing.trend.conversions.market",
+          "sql": "WITH spine AS (SELECT DISTINCT month_label FROM calendar_dim WHERE activity_date>=?::DATE AND activity_date<?::DATE),\n                amounts AS (SELECT month_label,SUM(impressions)::BIGINT impressions, SUM(clicks)::BIGINT clicks, SUM(conversions)::BIGINT conversions, SUM(spend_cents)::BIGINT spend_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) GROUP BY month_label)\n                SELECT spine.month_label group_name,COALESCE(impressions,0)::BIGINT impressions, COALESCE(clicks,0)::BIGINT clicks, COALESCE(conversions,0)::BIGINT conversions, COALESCE(spend_cents,0)::BIGINT spend_cents FROM spine LEFT JOIN amounts USING(month_label) ORDER BY spine.month_label",
+          "parameters": [
+            "2026-08-01",
+            "2026-09-01",
+            "2026-08-01",
+            "2026-09-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        },
+        {
+          "request": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "trend",
+          "period": "current",
+          "dimension": "market",
+          "template": "marketing.trend.conversions.market",
+          "sql": "WITH spine AS (SELECT DISTINCT month_label FROM calendar_dim WHERE activity_date>=?::DATE AND activity_date<?::DATE),\n                amounts AS (SELECT month_label,SUM(impressions)::BIGINT impressions, SUM(clicks)::BIGINT clicks, SUM(conversions)::BIGINT conversions, SUM(spend_cents)::BIGINT spend_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) GROUP BY month_label)\n                SELECT spine.month_label group_name,COALESCE(impressions,0)::BIGINT impressions, COALESCE(clicks,0)::BIGINT clicks, COALESCE(conversions,0)::BIGINT conversions, COALESCE(spend_cents,0)::BIGINT spend_cents FROM spine LEFT JOIN amounts USING(month_label) ORDER BY spine.month_label",
+          "parameters": [
+            "2026-09-01",
+            "2026-10-01",
+            "2026-09-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        }
+      ],
+      "duration_ms": 3796.97
+    }
+  ],
+  "followups": [
+    "Which campaigns contributed to the change in marketing conversions for the same periods?",
+    "Now compare only Campaign Aurora for the same periods.",
+    "Investigate marketing spend across channels for the same periods."
+  ],
+  "trace": [
+    {
+      "component_id": 1,
+      "stage": "User Query",
+      "status": "complete",
+      "elapsed_ms": 0.03,
+      "duration_ms": 0.03,
+      "characters": 75,
+      "execution_mode": "demo"
+    },
+    {
+      "component_id": 2,
+      "stage": "Intent Understanding",
+      "status": "complete",
+      "elapsed_ms": 0.504,
+      "duration_ms": 0.474,
+      "domain": "marketing",
+      "action": "execute",
+      "request": {
+        "domain": "marketing",
+        "metric": "conversions",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      }
+    },
+    {
+      "component_id": 3,
+      "stage": "Domain & Skill Selection",
+      "status": "complete",
+      "elapsed_ms": 1.194,
+      "duration_ms": 0.69,
+      "registry": {
+        "version": "1.0",
+        "skill_id": "marketing_analytics",
+        "name": "Marketing Analytics",
+        "operations": [
+          "M1",
+          "M2"
+        ],
+        "metrics": [
+          "impressions",
+          "clicks",
+          "conversions",
+          "marketing_spend",
+          "click_through_rate",
+          "conversion_rate",
+          "cost_per_click"
+        ],
+        "source": "synthetic_marketing",
+        "date_range": "April–September 2026 UTC"
+      },
+      "operation": "comparison",
+      "dimension": "market"
+    },
+    {
+      "component_id": 4,
+      "stage": "Knowledge Retrieval",
+      "status": "complete",
+      "elapsed_ms": 346.669,
+      "duration_ms": 345.475,
+      "definition": {
+        "metric_id": "conversions",
+        "domain": "marketing",
+        "version": "1.0",
+        "owner": "Fictional Marketing Analytics Demo",
+        "timezone": "UTC",
+        "currency": "USD",
+        "unit": "count",
+        "additive": true,
+        "supported_dimensions": [
+          "market",
+          "campaign",
+          "channel"
+        ],
+        "source_datasets": [
+          "marketing_fact",
+          "campaign_dim",
+          "market_dim",
+          "calendar_dim"
+        ],
+        "required_joins": [
+          "marketing_fact.entity_id=campaign_dim.entity_id with valid campaign dates",
+          "marketing_fact.market_id=market_dim.market_id",
+          "marketing_fact.activity_date=calendar_dim.activity_date"
+        ],
+        "data_quality_requirements": [
+          "integer counters and money",
+          "canonical event_id",
+          "unique dimension keys",
+          "no orphan or time-invalid joins",
+          "valid populations",
+          "complete coverage",
+          "historical snapshot freshness"
+        ],
+        "business_meaning": "Clicked impressions with one observed conversion; not unique people or orders.",
+        "calculation_method": "SUM(conversions), with conversions <= clicks",
+        "aggregation_grain": "impression observation",
+        "numerator": "observed conversions",
+        "denominator": null
+      },
+      "catalog": {
+        "logical_database": "synthetic_marketing",
+        "grain": "one impression observation; event_id deduplicates retransmissions",
+        "entity": "campaign_dim",
+        "relationships": [
+          "many-to-one campaign valid at activity time",
+          "many-to-one market",
+          "many-to-one UTC date"
+        ],
+        "attribution": "conversions are observed clicked impressions; no causal or cross-domain revenue attribution",
+        "policies": [
+          "approved counters and filters only",
+          "no SQL supplied by models",
+          "one domain per question",
+          "explicit private marketing grant"
+        ]
+      },
+      "schemas": {
+        "marketing_fact": [
+          {
+            "column_name": "event_id",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "entity_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "market_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "activity_date",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "activity_at",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "ingested_at",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "currency",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "channel",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "impressions",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "clicks",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "conversions",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "spend_cents",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "campaign_dim": [
+          {
+            "column_name": "entity_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "entity_name",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "valid_from",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "valid_to",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "market_dim": [
+          {
+            "column_name": "market_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "market",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "calendar_dim": [
+          {
+            "column_name": "activity_date",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "month_label",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "quarter",
+            "column_type": "INTEGER",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "data_quality_status": [
+          {
+            "column_name": "scenario",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "dataset",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "period_start",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "period_end",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "complete",
+            "column_type": "BOOLEAN",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "available_through",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "loaded_at",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "snapshot_as_of",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ]
+      },
+      "query_evidence": [
+        {
+          "query_id": "10c4ee3ab08b1f37",
+          "template": "marketing.schema.marketing_fact",
+          "duration_ms": 2.486,
+          "rows": 12,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "marketing_fact"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "23d531ac49297f9a",
+          "template": "marketing.schema.campaign_dim",
+          "duration_ms": 1.199,
+          "rows": 4,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "campaign_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "3b06589560f53fca",
+          "template": "marketing.schema.market_dim",
+          "duration_ms": 0.994,
+          "rows": 2,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "market_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "1e2f4212e4d35685",
+          "template": "marketing.schema.calendar_dim",
+          "duration_ms": 0.999,
+          "rows": 3,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "df9b207f6050a4ac",
+          "template": "marketing.schema.data_quality_status",
+          "duration_ms": 1.062,
+          "rows": 8,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ]
+    },
+    {
+      "component_id": 5,
+      "stage": "Approved Query Generation",
+      "status": "complete",
+      "elapsed_ms": 347.004,
+      "duration_ms": 0.335,
+      "policy": "Allowlisted parameterized SQL; no unrestricted model SQL",
+      "queries": [
+        {
+          "request": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "baseline",
+          "dimension": "market",
+          "template": "marketing.total.conversions.market",
+          "sql": "SELECT 'All' group_name,SUM(impressions)::BIGINT impressions, SUM(clicks)::BIGINT clicks, SUM(conversions)::BIGINT conversions, SUM(spend_cents)::BIGINT spend_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?)",
+          "parameters": [
+            "2026-08-01",
+            "2026-09-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        },
+        {
+          "request": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "current",
+          "dimension": "market",
+          "template": "marketing.total.conversions.market",
+          "sql": "SELECT 'All' group_name,SUM(impressions)::BIGINT impressions, SUM(clicks)::BIGINT clicks, SUM(conversions)::BIGINT conversions, SUM(spend_cents)::BIGINT spend_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?)",
+          "parameters": [
+            "2026-09-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        },
+        {
+          "request": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "trend",
+          "period": "baseline",
+          "dimension": "market",
+          "template": "marketing.trend.conversions.market",
+          "sql": "WITH spine AS (SELECT DISTINCT month_label FROM calendar_dim WHERE activity_date>=?::DATE AND activity_date<?::DATE),\n                amounts AS (SELECT month_label,SUM(impressions)::BIGINT impressions, SUM(clicks)::BIGINT clicks, SUM(conversions)::BIGINT conversions, SUM(spend_cents)::BIGINT spend_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) GROUP BY month_label)\n                SELECT spine.month_label group_name,COALESCE(impressions,0)::BIGINT impressions, COALESCE(clicks,0)::BIGINT clicks, COALESCE(conversions,0)::BIGINT conversions, COALESCE(spend_cents,0)::BIGINT spend_cents FROM spine LEFT JOIN amounts USING(month_label) ORDER BY spine.month_label",
+          "parameters": [
+            "2026-08-01",
+            "2026-09-01",
+            "2026-08-01",
+            "2026-09-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        },
+        {
+          "request": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "trend",
+          "period": "current",
+          "dimension": "market",
+          "template": "marketing.trend.conversions.market",
+          "sql": "WITH spine AS (SELECT DISTINCT month_label FROM calendar_dim WHERE activity_date>=?::DATE AND activity_date<?::DATE),\n                amounts AS (SELECT month_label,SUM(impressions)::BIGINT impressions, SUM(clicks)::BIGINT clicks, SUM(conversions)::BIGINT conversions, SUM(spend_cents)::BIGINT spend_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) GROUP BY month_label)\n                SELECT spine.month_label group_name,COALESCE(impressions,0)::BIGINT impressions, COALESCE(clicks,0)::BIGINT clicks, COALESCE(conversions,0)::BIGINT conversions, COALESCE(spend_cents,0)::BIGINT spend_cents FROM spine LEFT JOIN amounts USING(month_label) ORDER BY spine.month_label",
+          "parameters": [
+            "2026-09-01",
+            "2026-10-01",
+            "2026-09-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        }
+      ]
+    },
+    {
+      "component_id": 6,
+      "stage": "Execute & Validate",
+      "status": "complete",
+      "elapsed_ms": 4144.283,
+      "duration_ms": 3797.279,
+      "executed_skills": [
+        "M1"
+      ],
+      "quality": {
+        "complete": true,
+        "freshness_valid": true,
+        "freshness_basis": "Historical synthetic snapshot 2026-10-10",
+        "integrity": "passed",
+        "coverage": [
+          {
+            "scenario": "primary",
+            "dataset": "marketing_fact",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "marketing_fact",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "campaign_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "campaign_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          }
+        ],
+        "events": {
+          "raw_rows": 20306,
+          "unique_lines": 20105,
+          "late_lines": 1049
+        }
+      },
+      "reconciliations": [
+        {}
+      ],
+      "query_evidence": [
+        {
+          "query_id": "3a094e27d4be72dd",
+          "template": "marketing.quality.integrity",
+          "duration_ms": 1290.818,
+          "rows": 1,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "marketing_fact",
+            "campaign_dim",
+            "market_dim",
+            "calendar_dim",
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "3aba6eead94276e4",
+          "template": "marketing.quality.events",
+          "duration_ms": 110.919,
+          "rows": 1,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "marketing_fact",
+            "campaign_dim",
+            "market_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "d9744822799d3f3d",
+          "template": "marketing.quality.coverage",
+          "duration_ms": 1.985,
+          "rows": 10,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "1aceb55e96b10a7d",
+          "template": "marketing.total.conversions.market",
+          "duration_ms": 306.721,
+          "rows": 1,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "23b49704f8558067e74ab31fa84f104cc48af094ade4c0f4a31a5e57cd5cfb67"
+          },
+          "sources": [
+            "marketing_fact",
+            "campaign_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "d8cdced9cc3f94e9",
+          "template": "marketing.total.conversions.market",
+          "duration_ms": 306.001,
+          "rows": 1,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "23b49704f8558067e74ab31fa84f104cc48af094ade4c0f4a31a5e57cd5cfb67"
+          },
+          "sources": [
+            "marketing_fact",
+            "campaign_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "7c6bb0070a2256a0",
+          "template": "marketing.trend.conversions.market",
+          "duration_ms": 400.132,
+          "rows": 1,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "eecb3f125592f3316d39bd941320769017ef4ab2026e43f6ecfbaecf0bbe4dbe"
+          },
+          "sources": [
+            "marketing_fact",
+            "campaign_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "12e938a8d0deb642",
+          "template": "marketing.trend.conversions.market",
+          "duration_ms": 307.927,
+          "rows": 1,
+          "parameters": {
+            "domain": "marketing",
+            "metric": "conversions",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "eecb3f125592f3316d39bd941320769017ef4ab2026e43f6ecfbaecf0bbe4dbe"
+          },
+          "sources": [
+            "marketing_fact",
+            "campaign_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ]
+    },
+    {
+      "component_id": 7,
+      "stage": "Results & Insights",
+      "status": "complete",
+      "elapsed_ms": 4144.336,
+      "duration_ms": 0.053,
+      "result_count": 1,
+      "finding_basis": "Executed query values only",
+      "chart_rows": 2
+    }
+  ],
+  "context": {
+    "domain": "marketing",
+    "usage": {
+      "request": null
+    },
+    "sales": {
+      "request": null
+    },
+    "marketing": {
+      "request": {
+        "domain": "marketing",
+        "metric": "conversions",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      }
+    },
+    "finance": {
+      "request": null
+    }
+  },
+  "elapsed_ms": 4144.341208040714,
+  "tool_calls": 1,
+  "knowledge": {
+    "metric": {
+      "metric_id": "conversions",
+      "domain": "marketing",
+      "version": "1.0",
+      "owner": "Fictional Marketing Analytics Demo",
+      "timezone": "UTC",
+      "currency": "USD",
+      "unit": "count",
+      "additive": true,
+      "supported_dimensions": [
+        "market",
+        "campaign",
+        "channel"
+      ],
+      "source_datasets": [
+        "marketing_fact",
+        "campaign_dim",
+        "market_dim",
+        "calendar_dim"
+      ],
+      "required_joins": [
+        "marketing_fact.entity_id=campaign_dim.entity_id with valid campaign dates",
+        "marketing_fact.market_id=market_dim.market_id",
+        "marketing_fact.activity_date=calendar_dim.activity_date"
+      ],
+      "data_quality_requirements": [
+        "integer counters and money",
+        "canonical event_id",
+        "unique dimension keys",
+        "no orphan or time-invalid joins",
+        "valid populations",
+        "complete coverage",
+        "historical snapshot freshness"
+      ],
+      "business_meaning": "Clicked impressions with one observed conversion; not unique people or orders.",
+      "calculation_method": "SUM(conversions), with conversions <= clicks",
+      "aggregation_grain": "impression observation",
+      "numerator": "observed conversions",
+      "denominator": null
+    },
+    "catalog": {
+      "logical_database": "synthetic_marketing",
+      "grain": "one impression observation; event_id deduplicates retransmissions",
+      "entity": "campaign_dim",
+      "relationships": [
+        "many-to-one campaign valid at activity time",
+        "many-to-one market",
+        "many-to-one UTC date"
+      ],
+      "attribution": "conversions are observed clicked impressions; no causal or cross-domain revenue attribution",
+      "policies": [
+        "approved counters and filters only",
+        "no SQL supplied by models",
+        "one domain per question",
+        "explicit private marketing grant"
+      ]
+    },
+    "schemas": {
+      "marketing_fact": [
+        {
+          "column_name": "event_id",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "entity_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "market_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "activity_date",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "activity_at",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "ingested_at",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "currency",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "channel",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "impressions",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "clicks",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "conversions",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "spend_cents",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "campaign_dim": [
+        {
+          "column_name": "entity_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "entity_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "valid_from",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "valid_to",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "market_dim": [
+        {
+          "column_name": "market_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "market",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "calendar_dim": [
+        {
+          "column_name": "activity_date",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "month_label",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "quarter",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "data_quality_status": [
+        {
+          "column_name": "scenario",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "dataset",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "period_start",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "period_end",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "complete",
+          "column_type": "BOOLEAN",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "available_through",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "loaded_at",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "snapshot_as_of",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ]
+    },
+    "synthetic_manifest": {
+      "is_synthetic": true,
+      "domain": "marketing",
+      "seed": 20260402,
+      "canonical_rows": 60000,
+      "row_counts": {
+        "marketing_fact": 60600,
+        "campaign_dim": 4,
+        "market_dim": 5,
+        "calendar_dim": 183,
+        "data_quality_status": 60
+      },
+      "period_start": "2026-04-01",
+      "period_end_exclusive": "2026-10-01",
+      "relative_period_anchor": "2026-10-01",
+      "timezone": "UTC",
+      "currency": "USD",
+      "grain": "one impression observation",
+      "quality_scenario": "incomplete September 24–30 isolated from primary"
+    }
+  }
+}

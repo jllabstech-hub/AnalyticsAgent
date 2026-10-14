@@ -1,0 +1,18 @@
+{
+  "checked_at_utc": "2026-10-14T12:20:24.478805+00:00",
+  "restart_dashboard_time": "2026-10-14 17:48 Asia/Calcutta",
+  "checks": [
+    {
+      "path": "/",
+      "http_status": 200,
+      "health": null,
+      "elapsed_seconds": 0.201
+    },
+    {
+      "path": "/_stcore/health",
+      "http_status": 200,
+      "health": "ok",
+      "elapsed_seconds": 0.106
+    }
+  ]
+}

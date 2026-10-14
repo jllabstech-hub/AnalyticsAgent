@@ -1,0 +1,2565 @@
+{
+  "domain": "finance",
+  "status": "ok",
+  "provider": "deterministic demo",
+  "model": "",
+  "fallback_reason": null,
+  "message": "Observed expenses: $5,736,915.49 USD → $6,969,131.37 USD; change $1,232,215.88 USD (+21.48% relative).",
+  "findings": [
+    "Observed expenses: $5,736,915.49 USD → $6,969,131.37 USD; change $1,232,215.88 USD (+21.48% relative).",
+    "Largest observed group change: Department Boreal changed by $1,093,884.93 USD.",
+    "Exclusive group amounts reconcile to the total.",
+    "These synthetic observations and contributions do not establish a confirmed business cause."
+  ],
+  "results": [
+    {
+      "skill": "F2",
+      "skill_version": "1.0",
+      "metric_version": "1.0",
+      "request": {
+        "domain": "finance",
+        "metric": "expenses",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      },
+      "definition": {
+        "metric_id": "expenses",
+        "domain": "finance",
+        "version": "1.0",
+        "owner": "Fictional Finance Analytics Demo",
+        "timezone": "UTC",
+        "currency": "USD",
+        "unit": "usd",
+        "additive": true,
+        "supported_dimensions": [
+          "market",
+          "department",
+          "category"
+        ],
+        "source_datasets": [
+          "finance_fact",
+          "department_dim",
+          "market_dim",
+          "calendar_dim"
+        ],
+        "required_joins": [
+          "finance_fact.entity_id=department_dim.entity_id with valid department dates",
+          "finance_fact.market_id=market_dim.market_id",
+          "finance_fact.activity_date=calendar_dim.activity_date"
+        ],
+        "data_quality_requirements": [
+          "integer counters and money",
+          "canonical event_id",
+          "unique dimension keys",
+          "no orphan or time-invalid joins",
+          "valid populations",
+          "complete coverage",
+          "historical snapshot freshness"
+        ],
+        "business_meaning": "Booked cost of goods and operating expense transactions, excluding tax and financing.",
+        "calculation_method": "SUM(expense_cents)/100 after event_id deduplication",
+        "aggregation_grain": "booked transaction",
+        "numerator": "booked USD expenses",
+        "denominator": null
+      },
+      "baseline": 5736915.49,
+      "current": 6969131.37,
+      "absolute_change": 1232215.88,
+      "percentage_change": 21.478717651460467,
+      "records": [
+        {
+          "group": "Department Aurora",
+          "baseline": 1860663.56,
+          "current": 1973399.82,
+          "change": 112736.26000000001,
+          "percentage_change": 6.058927708564358
+        },
+        {
+          "group": "Department Boreal",
+          "baseline": 1913745.17,
+          "current": 3007630.1,
+          "change": 1093884.9300000002,
+          "percentage_change": 57.15938292871042
+        },
+        {
+          "group": "Department Cinder",
+          "baseline": 1962506.76,
+          "current": 1988101.45,
+          "change": 25594.689999999944,
+          "percentage_change": 1.3041835331053813
+        }
+      ],
+      "trend": [],
+      "warnings": [
+        "Removed 300 duplicated observations.",
+        "Included 1,465 observations arriving more than 24 hours late."
+      ],
+      "quality": {
+        "complete": true,
+        "freshness_valid": true,
+        "freshness_basis": "Historical synthetic snapshot 2026-10-10",
+        "integrity": "passed",
+        "coverage": [
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-05-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-06-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-07-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-08-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-05-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-06-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-07-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-08-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-05-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-06-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-07-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-08-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-05-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-06-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-07-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-08-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-05-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-06-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-07-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-08-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          }
+        ],
+        "events": {
+          "raw_rows": 30300,
+          "unique_lines": 30000,
+          "late_lines": 1465
+        }
+      },
+      "evidence": [
+        {
+          "query_id": "8f10b08094862d16",
+          "template": "finance.quality.integrity",
+          "duration_ms": 698.383,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim",
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "cf84368373aafe83",
+          "template": "finance.quality.events",
+          "duration_ms": 205.507,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "d4b5659482182993",
+          "template": "finance.quality.coverage",
+          "duration_ms": 3.673,
+          "rows": 30,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "e31a3a8df9ae9b32",
+          "template": "finance.total.expenses.department",
+          "duration_ms": 201.372,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "282c14a37b60730d7391dc0ceccdeaba58fb86e57ba8905edd125107d3dfa871"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "f32d28c389cec47e",
+          "template": "finance.total.expenses.department",
+          "duration_ms": 196.887,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "282c14a37b60730d7391dc0ceccdeaba58fb86e57ba8905edd125107d3dfa871"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "1d6722c85a432886",
+          "template": "finance.breakdown.expenses.department",
+          "duration_ms": 198.213,
+          "rows": 3,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "6af5657c1b95c69ce2687ee8af08609ac44a34707eac401a84488b7473a5fd98"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "b7cc2112aa5c232f",
+          "template": "finance.breakdown.expenses.department",
+          "duration_ms": 202.628,
+          "rows": 3,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "6af5657c1b95c69ce2687ee8af08609ac44a34707eac401a84488b7473a5fd98"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ],
+      "reconciliation": {
+        "additive": true,
+        "mutually_exclusive": true,
+        "reconciled": true,
+        "sum_group_changes": 1232215.8800000001,
+        "total_change": 1232215.88
+      },
+      "queries": [
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "baseline",
+          "dimension": "department",
+          "template": "finance.total.expenses.department",
+          "sql": "SELECT 'All' group_name,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?)",
+          "parameters": [
+            "2026-04-01",
+            "2026-07-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        },
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "current",
+          "dimension": "department",
+          "template": "finance.total.expenses.department",
+          "sql": "SELECT 'All' group_name,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?)",
+          "parameters": [
+            "2026-07-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        },
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "breakdown",
+          "period": "baseline",
+          "dimension": "department",
+          "template": "finance.breakdown.expenses.department",
+          "sql": "SELECT entity_name group_name,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) GROUP BY entity_name ORDER BY entity_name",
+          "parameters": [
+            "2026-04-01",
+            "2026-07-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        },
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "breakdown",
+          "period": "current",
+          "dimension": "department",
+          "template": "finance.breakdown.expenses.department",
+          "sql": "SELECT entity_name group_name,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) GROUP BY entity_name ORDER BY entity_name",
+          "parameters": [
+            "2026-07-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        }
+      ],
+      "duration_ms": 2500.857
+    }
+  ],
+  "followups": [
+    "Which departments contributed to the change in finance expenses for the same periods?",
+    "Now compare only Department Boreal for the same periods.",
+    "Investigate finance profit across categories for the same periods."
+  ],
+  "trace": [
+    {
+      "component_id": 1,
+      "stage": "User Query",
+      "status": "complete",
+      "elapsed_ms": 0.023,
+      "duration_ms": 0.023,
+      "characters": 85,
+      "execution_mode": "demo"
+    },
+    {
+      "component_id": 2,
+      "stage": "Intent Understanding",
+      "status": "complete",
+      "elapsed_ms": 0.373,
+      "duration_ms": 0.35,
+      "domain": "finance",
+      "action": "execute",
+      "request": {
+        "domain": "finance",
+        "metric": "expenses",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      }
+    },
+    {
+      "component_id": 3,
+      "stage": "Domain & Skill Selection",
+      "status": "complete",
+      "elapsed_ms": 1.342,
+      "duration_ms": 0.969,
+      "registry": {
+        "version": "1.0",
+        "skill_id": "finance_analytics",
+        "name": "Finance Analytics",
+        "operations": [
+          "F1",
+          "F2"
+        ],
+        "metrics": [
+          "finance_revenue",
+          "expenses",
+          "profit",
+          "profit_margin"
+        ],
+        "source": "synthetic_finance",
+        "date_range": "April–September 2026 UTC"
+      },
+      "operation": "contribution",
+      "dimension": "department"
+    },
+    {
+      "component_id": 4,
+      "stage": "Knowledge Retrieval",
+      "status": "complete",
+      "elapsed_ms": 299.308,
+      "duration_ms": 297.966,
+      "definition": {
+        "metric_id": "expenses",
+        "domain": "finance",
+        "version": "1.0",
+        "owner": "Fictional Finance Analytics Demo",
+        "timezone": "UTC",
+        "currency": "USD",
+        "unit": "usd",
+        "additive": true,
+        "supported_dimensions": [
+          "market",
+          "department",
+          "category"
+        ],
+        "source_datasets": [
+          "finance_fact",
+          "department_dim",
+          "market_dim",
+          "calendar_dim"
+        ],
+        "required_joins": [
+          "finance_fact.entity_id=department_dim.entity_id with valid department dates",
+          "finance_fact.market_id=market_dim.market_id",
+          "finance_fact.activity_date=calendar_dim.activity_date"
+        ],
+        "data_quality_requirements": [
+          "integer counters and money",
+          "canonical event_id",
+          "unique dimension keys",
+          "no orphan or time-invalid joins",
+          "valid populations",
+          "complete coverage",
+          "historical snapshot freshness"
+        ],
+        "business_meaning": "Booked cost of goods and operating expense transactions, excluding tax and financing.",
+        "calculation_method": "SUM(expense_cents)/100 after event_id deduplication",
+        "aggregation_grain": "booked transaction",
+        "numerator": "booked USD expenses",
+        "denominator": null
+      },
+      "catalog": {
+        "logical_database": "synthetic_finance",
+        "grain": "one booked revenue or expense transaction; event_id deduplicates retransmissions",
+        "entity": "department_dim",
+        "relationships": [
+          "many-to-one department valid at booking time",
+          "many-to-one market",
+          "many-to-one UTC date"
+        ],
+        "accounting_scope": "synthetic revenue and expense analytical subtotal; excludes tax, financing, FX and double-entry balancing",
+        "policies": [
+          "integer USD cents only",
+          "approved categories and department filters",
+          "no SQL supplied by models",
+          "one domain per question",
+          "explicit private finance grant"
+        ]
+      },
+      "schemas": {
+        "finance_fact": [
+          {
+            "column_name": "event_id",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "entity_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "market_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "activity_date",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "activity_at",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "ingested_at",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "currency",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "category",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "revenue_cents",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "expense_cents",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "department_dim": [
+          {
+            "column_name": "entity_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "entity_name",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "valid_from",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "valid_to",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "market_dim": [
+          {
+            "column_name": "market_id",
+            "column_type": "BIGINT",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "market",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "calendar_dim": [
+          {
+            "column_name": "activity_date",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "month_label",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "quarter",
+            "column_type": "INTEGER",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ],
+        "data_quality_status": [
+          {
+            "column_name": "scenario",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "dataset",
+            "column_type": "VARCHAR",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "period_start",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "period_end",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "complete",
+            "column_type": "BOOLEAN",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "available_through",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "loaded_at",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          },
+          {
+            "column_name": "snapshot_as_of",
+            "column_type": "TIMESTAMP",
+            "null": "YES",
+            "key": null,
+            "default": null,
+            "extra": null
+          }
+        ]
+      },
+      "query_evidence": [
+        {
+          "query_id": "8a85fefd102c66f7",
+          "template": "finance.schema.finance_fact",
+          "duration_ms": 1.268,
+          "rows": 10,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "finance_fact"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "a808f24698f902ad",
+          "template": "finance.schema.department_dim",
+          "duration_ms": 85.736,
+          "rows": 4,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "department_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "888bf08bbcc02686",
+          "template": "finance.schema.market_dim",
+          "duration_ms": 1.462,
+          "rows": 2,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "market_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "bb9119896b31d442",
+          "template": "finance.schema.calendar_dim",
+          "duration_ms": 0.853,
+          "rows": 3,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "aa6e571a26601fb2",
+          "template": "finance.schema.data_quality_status",
+          "duration_ms": 1.013,
+          "rows": 8,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ]
+    },
+    {
+      "component_id": 5,
+      "stage": "Approved Query Generation",
+      "status": "complete",
+      "elapsed_ms": 299.515,
+      "duration_ms": 0.207,
+      "policy": "Allowlisted parameterized SQL; no unrestricted model SQL",
+      "queries": [
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "baseline",
+          "dimension": "department",
+          "template": "finance.total.expenses.department",
+          "sql": "SELECT 'All' group_name,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?)",
+          "parameters": [
+            "2026-04-01",
+            "2026-07-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        },
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "total",
+          "period": "current",
+          "dimension": "department",
+          "template": "finance.total.expenses.department",
+          "sql": "SELECT 'All' group_name,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?)",
+          "parameters": [
+            "2026-07-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        },
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "breakdown",
+          "period": "baseline",
+          "dimension": "department",
+          "template": "finance.breakdown.expenses.department",
+          "sql": "SELECT entity_name group_name,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) GROUP BY entity_name ORDER BY entity_name",
+          "parameters": [
+            "2026-04-01",
+            "2026-07-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        },
+        {
+          "request": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "kind": "breakdown",
+          "period": "current",
+          "dimension": "department",
+          "template": "finance.breakdown.expenses.department",
+          "sql": "SELECT entity_name group_name,SUM(revenue_cents)::BIGINT revenue_cents, SUM(expense_cents)::BIGINT expense_cents, SUM(profit_cents)::BIGINT profit_cents FROM joined_events WHERE activity_date>=?::DATE AND activity_date<?::DATE AND market IN (?,?,?,?,?) GROUP BY entity_name ORDER BY entity_name",
+          "parameters": [
+            "2026-07-01",
+            "2026-10-01",
+            "Market A",
+            "Market B",
+            "Market C",
+            "Market D",
+            "Market E"
+          ]
+        }
+      ]
+    },
+    {
+      "component_id": 6,
+      "stage": "Execute & Validate",
+      "status": "complete",
+      "elapsed_ms": 2800.581,
+      "duration_ms": 2501.066,
+      "executed_skills": [
+        "F2"
+      ],
+      "quality": {
+        "complete": true,
+        "freshness_valid": true,
+        "freshness_basis": "Historical synthetic snapshot 2026-10-10",
+        "integrity": "passed",
+        "coverage": [
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-05-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-06-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-07-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-08-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "finance_fact",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-05-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-06-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-07-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-08-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "department_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-05-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-06-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-07-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-08-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "market_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-05-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-06-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-07-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-08-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "calendar_dim",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-04-01T00:00:00",
+            "period_end": "2026-05-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-05-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-05-01T00:00:00",
+            "period_end": "2026-06-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-06-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-06-01T00:00:00",
+            "period_end": "2026-07-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-07-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-07-01T00:00:00",
+            "period_end": "2026-08-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-08-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          },
+          {
+            "scenario": "primary",
+            "dataset": "data_quality_status",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-09T00:00:00",
+            "snapshot_as_of": "2026-10-10T00:00:00"
+          }
+        ],
+        "events": {
+          "raw_rows": 30300,
+          "unique_lines": 30000,
+          "late_lines": 1465
+        }
+      },
+      "reconciliations": [
+        {
+          "additive": true,
+          "mutually_exclusive": true,
+          "reconciled": true,
+          "sum_group_changes": 1232215.8800000001,
+          "total_change": 1232215.88
+        }
+      ],
+      "query_evidence": [
+        {
+          "query_id": "8f10b08094862d16",
+          "template": "finance.quality.integrity",
+          "duration_ms": 698.383,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim",
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "cf84368373aafe83",
+          "template": "finance.quality.events",
+          "duration_ms": 205.507,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "d4b5659482182993",
+          "template": "finance.quality.coverage",
+          "duration_ms": 3.673,
+          "rows": 30,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "e31a3a8df9ae9b32",
+          "template": "finance.total.expenses.department",
+          "duration_ms": 201.372,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "282c14a37b60730d7391dc0ceccdeaba58fb86e57ba8905edd125107d3dfa871"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "f32d28c389cec47e",
+          "template": "finance.total.expenses.department",
+          "duration_ms": 196.887,
+          "rows": 1,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "282c14a37b60730d7391dc0ceccdeaba58fb86e57ba8905edd125107d3dfa871"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "1d6722c85a432886",
+          "template": "finance.breakdown.expenses.department",
+          "duration_ms": 198.213,
+          "rows": 3,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "6af5657c1b95c69ce2687ee8af08609ac44a34707eac401a84488b7473a5fd98"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "b7cc2112aa5c232f",
+          "template": "finance.breakdown.expenses.department",
+          "duration_ms": 202.628,
+          "rows": 3,
+          "parameters": {
+            "domain": "finance",
+            "metric": "expenses",
+            "baseline": {
+              "start": "2026-04-01",
+              "end": "2026-07-01"
+            },
+            "current": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "entity": null,
+            "channel": null,
+            "category": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-07-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            },
+            "sql_sha256": "6af5657c1b95c69ce2687ee8af08609ac44a34707eac401a84488b7473a5fd98"
+          },
+          "sources": [
+            "finance_fact",
+            "department_dim",
+            "market_dim",
+            "calendar_dim"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ]
+    },
+    {
+      "component_id": 7,
+      "stage": "Results & Insights",
+      "status": "complete",
+      "elapsed_ms": 2800.643,
+      "duration_ms": 0.062,
+      "result_count": 1,
+      "finding_basis": "Executed query values only",
+      "chart_rows": 3
+    }
+  ],
+  "context": {
+    "domain": "finance",
+    "usage": {
+      "request": null
+    },
+    "sales": {
+      "request": null
+    },
+    "marketing": {
+      "request": null
+    },
+    "finance": {
+      "request": {
+        "domain": "finance",
+        "metric": "expenses",
+        "baseline": {
+          "start": "2026-04-01",
+          "end": "2026-07-01"
+        },
+        "current": {
+          "start": "2026-07-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "entity": null,
+        "channel": null,
+        "category": null,
+        "scenario": "primary"
+      }
+    }
+  },
+  "elapsed_ms": 2800.648780539632,
+  "tool_calls": 1,
+  "knowledge": {
+    "metric": {
+      "metric_id": "expenses",
+      "domain": "finance",
+      "version": "1.0",
+      "owner": "Fictional Finance Analytics Demo",
+      "timezone": "UTC",
+      "currency": "USD",
+      "unit": "usd",
+      "additive": true,
+      "supported_dimensions": [
+        "market",
+        "department",
+        "category"
+      ],
+      "source_datasets": [
+        "finance_fact",
+        "department_dim",
+        "market_dim",
+        "calendar_dim"
+      ],
+      "required_joins": [
+        "finance_fact.entity_id=department_dim.entity_id with valid department dates",
+        "finance_fact.market_id=market_dim.market_id",
+        "finance_fact.activity_date=calendar_dim.activity_date"
+      ],
+      "data_quality_requirements": [
+        "integer counters and money",
+        "canonical event_id",
+        "unique dimension keys",
+        "no orphan or time-invalid joins",
+        "valid populations",
+        "complete coverage",
+        "historical snapshot freshness"
+      ],
+      "business_meaning": "Booked cost of goods and operating expense transactions, excluding tax and financing.",
+      "calculation_method": "SUM(expense_cents)/100 after event_id deduplication",
+      "aggregation_grain": "booked transaction",
+      "numerator": "booked USD expenses",
+      "denominator": null
+    },
+    "catalog": {
+      "logical_database": "synthetic_finance",
+      "grain": "one booked revenue or expense transaction; event_id deduplicates retransmissions",
+      "entity": "department_dim",
+      "relationships": [
+        "many-to-one department valid at booking time",
+        "many-to-one market",
+        "many-to-one UTC date"
+      ],
+      "accounting_scope": "synthetic revenue and expense analytical subtotal; excludes tax, financing, FX and double-entry balancing",
+      "policies": [
+        "integer USD cents only",
+        "approved categories and department filters",
+        "no SQL supplied by models",
+        "one domain per question",
+        "explicit private finance grant"
+      ]
+    },
+    "schemas": {
+      "finance_fact": [
+        {
+          "column_name": "event_id",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "entity_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "market_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "activity_date",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "activity_at",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "ingested_at",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "currency",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "category",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "revenue_cents",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "expense_cents",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "department_dim": [
+        {
+          "column_name": "entity_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "entity_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "valid_from",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "valid_to",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "market_dim": [
+        {
+          "column_name": "market_id",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "market",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "calendar_dim": [
+        {
+          "column_name": "activity_date",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "month_label",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "quarter",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ],
+      "data_quality_status": [
+        {
+          "column_name": "scenario",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "dataset",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "period_start",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "period_end",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "complete",
+          "column_type": "BOOLEAN",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "available_through",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "loaded_at",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "snapshot_as_of",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ]
+    },
+    "synthetic_manifest": {
+      "is_synthetic": true,
+      "domain": "finance",
+      "seed": 20260403,
+      "canonical_rows": 30000,
+      "row_counts": {
+        "finance_fact": 30300,
+        "department_dim": 3,
+        "market_dim": 5,
+        "calendar_dim": 183,
+        "data_quality_status": 60
+      },
+      "period_start": "2026-04-01",
+      "period_end_exclusive": "2026-10-01",
+      "relative_period_anchor": "2026-10-01",
+      "timezone": "UTC",
+      "currency": "USD",
+      "grain": "one booked revenue or expense transaction; not a double-entry general ledger",
+      "quality_scenario": "incomplete September 24–30 isolated from primary"
+    }
+  }
+}

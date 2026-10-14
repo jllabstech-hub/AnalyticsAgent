@@ -1,22 +1,22 @@
 {
-  "checked_at_utc": "2026-10-14T11:02:14.233799+00:00",
+  "checked_at_utc": "2026-10-14T12:26:19.358863+00:00",
   "public_url": "https://bdc-analytics-agent-prototype.onrender.com",
   "plan": "free",
   "compute_USD_per_month": 0,
   "status": "live",
-  "deployed_commit": "94bbe25292beccd1108db4fb387a943e4307eac7",
+  "deployed_commit": "a8203bc65066decdaabf5432b58e69b098f905b5",
   "health_checks": [
-    {
-      "path": "/_stcore/health",
-      "http_status": 200,
-      "health": "ok",
-      "elapsed_seconds": 0.223
-    },
     {
       "path": "/",
       "http_status": 200,
       "health": null,
-      "elapsed_seconds": 0.136
+      "elapsed_seconds": 0.201
+    },
+    {
+      "path": "/_stcore/health",
+      "http_status": 200,
+      "health": "ok",
+      "elapsed_seconds": 0.106
     }
   ],
   "production_login_configured": false,
@@ -27,13 +27,13 @@
   "browser_validation": {
     "title": "BDC Analytics Agent",
     "sign_in_required": false,
-    "guard_message_visible": false,
-    "unhandled_traceback_visible": false,
-    "mode": "Public synthetic demo; deterministic only; no LLM calls",
-    "sales_workflows_passed": 5,
-    "usage_regression_passed": true,
+    "mode": "anonymous synthetic deterministic demo; no LLM calls",
+    "marketing_workflows_passed": 5,
+    "finance_workflows_passed": 5,
+    "usage_and_sales_post_restart_passed": true,
     "seven_components_verified": true,
-    "read_only_sales_explorer_verified": true,
+    "read_only_new_domain_explorer_verified": true,
+    "trace_report": "reports/four_domain_hosted_verification.json",
     "private_authenticated_workflows": "not tested; OIDC configuration missing"
   },
   "initial_deployment": {
@@ -55,9 +55,10 @@
     ]
   },
   "final_deployment": {
-    "dashboard_status": "Deploy succeeded | Live",
-    "source_commit": "94bbe25292beccd1108db4fb387a943e4307eac7",
-    "live_at_displayed": "14 October 2026 at 16:11 Asia/Calcutta"
+    "dashboard_status": "Live",
+    "source_commit": "a8203bc65066decdaabf5432b58e69b098f905b5",
+    "duration_displayed": "1m58s",
+    "live_at_displayed": "14 October 2026 at 17:30 Asia/Calcutta"
   },
   "prior_protected_deployment": {
     "deployed_commit": "35accac2d5bec66c2d306ec1cc839db76c12cf42",
@@ -97,22 +98,77 @@
   "public_demo_enabled": true,
   "restart": {
     "dashboard_event": "Service restarted by you",
-    "displayed_at": "14 October 2026 at 16:21 Asia/Calcutta",
-    "post_restart_five_sales_workflows_passed": true,
-    "deployed_commit": "94bbe25292beccd1108db4fb387a943e4307eac7",
-    "http_status": 200,
-    "health": "ok",
-    "fresh_usage_comparison": {
-      "status": "pass",
-      "metric": "mau",
-      "baseline": 66025.0,
-      "current": 65292.0,
-      "absolute_change": -733.0,
-      "elapsed_seconds": 36.946,
-      "post_restart": true,
-      "all_seven_components_complete": true,
-      "trace_file": "platform_hosted_usage_trace.json"
-    }
+    "displayed_at": "14 October 2026 at 17:48 Asia/Calcutta",
+    "health": {
+      "checked_at_utc": "2026-10-14T12:20:24.478805+00:00",
+      "restart_dashboard_time": "2026-10-14 17:48 Asia/Calcutta",
+      "checks": [
+        {
+          "path": "/",
+          "http_status": 200,
+          "health": null,
+          "elapsed_seconds": 0.201
+        },
+        {
+          "path": "/_stcore/health",
+          "http_status": 200,
+          "health": "ok",
+          "elapsed_seconds": 0.106
+        }
+      ]
+    },
+    "fresh_comparisons": [
+      {
+        "domain": "usage",
+        "status": "pass",
+        "trace_file": "reports/hosted_usage_four_domain.json",
+        "metric": "mau",
+        "baseline": 66025.0,
+        "current": 65292.0,
+        "absolute_change": -733.0,
+        "elapsed_ms": 42760.45435597189,
+        "seven_components_complete": true,
+        "reference_totals": "pass"
+      },
+      {
+        "domain": "sales",
+        "status": "pass",
+        "trace_file": "reports/hosted_sales_four_domain.json",
+        "metric": "net_sales",
+        "baseline": 1748539.73,
+        "current": 3218017.11,
+        "absolute_change": 1469477.38,
+        "elapsed_ms": 4253.989249933511,
+        "seven_components_complete": true,
+        "reference_totals": "pass"
+      },
+      {
+        "domain": "marketing",
+        "status": "pass",
+        "trace_file": "reports/hosted_marketing_restart.json",
+        "metric": "click_through_rate",
+        "baseline": 0.1410627693965517,
+        "current": 0.14410638859556493,
+        "absolute_change": 0.00304361919901322,
+        "elapsed_ms": 4049.0087340585887,
+        "seven_components_complete": true,
+        "reference_totals": "pass"
+      },
+      {
+        "domain": "finance",
+        "status": "pass",
+        "trace_file": "reports/hosted_finance_restart.json",
+        "metric": "profit",
+        "baseline": 4003078.54,
+        "current": 2896087.27,
+        "absolute_change": -1106991.27,
+        "elapsed_ms": 3209.426332032308,
+        "seven_components_complete": true,
+        "reference_totals": "pass"
+      }
+    ],
+    "all_four_reference_totals_match": true,
+    "all_seven_components_complete": true
   },
   "prior_usage_public_deployment": {
     "checked_at_utc": "2026-10-14T05:35:47.876Z",
@@ -153,5 +209,60 @@
       "demonstration_workflows_passed": 5,
       "private_authenticated_workflows": "not tested; OIDC configuration missing"
     }
-  }
+  },
+  "prior_two_domain_deployment": {
+    "checked_at_utc": "2026-10-14T11:02:14.233799+00:00",
+    "deployed_commit": "94bbe25292beccd1108db4fb387a943e4307eac7",
+    "health_checks": [
+      {
+        "path": "/_stcore/health",
+        "http_status": 200,
+        "health": "ok",
+        "elapsed_seconds": 0.223
+      },
+      {
+        "path": "/",
+        "http_status": 200,
+        "health": null,
+        "elapsed_seconds": 0.136
+      }
+    ],
+    "browser_validation": {
+      "title": "BDC Analytics Agent",
+      "sign_in_required": false,
+      "guard_message_visible": false,
+      "unhandled_traceback_visible": false,
+      "mode": "Public synthetic demo; deterministic only; no LLM calls",
+      "sales_workflows_passed": 5,
+      "usage_regression_passed": true,
+      "seven_components_verified": true,
+      "read_only_sales_explorer_verified": true,
+      "private_authenticated_workflows": "not tested; OIDC configuration missing"
+    },
+    "final_deployment": {
+      "dashboard_status": "Deploy succeeded | Live",
+      "source_commit": "94bbe25292beccd1108db4fb387a943e4307eac7",
+      "live_at_displayed": "14 October 2026 at 16:11 Asia/Calcutta"
+    },
+    "restart": {
+      "dashboard_event": "Service restarted by you",
+      "displayed_at": "14 October 2026 at 16:21 Asia/Calcutta",
+      "post_restart_five_sales_workflows_passed": true,
+      "deployed_commit": "94bbe25292beccd1108db4fb387a943e4307eac7",
+      "http_status": 200,
+      "health": "ok",
+      "fresh_usage_comparison": {
+        "status": "pass",
+        "metric": "mau",
+        "baseline": 66025.0,
+        "current": 65292.0,
+        "absolute_change": -733.0,
+        "elapsed_seconds": 36.946,
+        "post_restart": true,
+        "all_seven_components_complete": true,
+        "trace_file": "platform_hosted_usage_trace.json"
+      }
+    }
+  },
+  "domain_count": 4
 }

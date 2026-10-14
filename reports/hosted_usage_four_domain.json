@@ -1,0 +1,1509 @@
+{
+  "domain": "usage",
+  "status": "ok",
+  "provider": "deterministic demo",
+  "model": "",
+  "fallback_reason": null,
+  "message": "Observed MAU: 66,025 → 65,292; change -733 (-1.11% relative).",
+  "findings": [
+    "Observed MAU: 66,025 → 65,292; change -733 (-1.11% relative).",
+    "These synthetic data show changes and associations. Causal explanations remain hypotheses; confirmed root cause requires additional evidence."
+  ],
+  "results": [
+    {
+      "skill": "K1",
+      "skill_version": "1.1",
+      "metric_version": "1.0",
+      "request": {
+        "metric": "mau",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "service": null,
+        "device_model": null,
+        "scenario": "primary"
+      },
+      "definition": {
+        "metric_id": "mau",
+        "version": "1.0",
+        "business_meaning": "Unique activated eligible users with at least one usage event in the selected period.",
+        "calculation_method": "COUNT DISTINCT user_id across all selected services; overlapping service populations are unioned.",
+        "source_datasets": [
+          "users",
+          "service_activity",
+          "service_membership",
+          "device_mapping"
+        ],
+        "required_joins": [
+          "user_id",
+          "service",
+          "device_id",
+          "event-time membership and device validity"
+        ],
+        "timezone": "UTC",
+        "aggregation_grain": "calendar month or explicitly selected period",
+        "supported_dimensions": [
+          "market",
+          "device_model",
+          "service"
+        ],
+        "numerator": "distinct active users",
+        "denominator": null,
+        "owner": "Fictional BDC Analytics Demo",
+        "data_quality_requirements": [
+          "complete reporting period",
+          "deduplicated event_id",
+          "valid temporal joins",
+          "valid denominator",
+          "snapshot freshness"
+        ]
+      },
+      "baseline": 66025.0,
+      "current": 65292.0,
+      "absolute_change": -733.0,
+      "percentage_change": -1.1101855357819008,
+      "records": [],
+      "trend": [
+        {
+          "activity_day": "2026-08-01",
+          "active_users": 10586
+        },
+        {
+          "activity_day": "2026-08-02",
+          "active_users": 10724
+        },
+        {
+          "activity_day": "2026-08-03",
+          "active_users": 10728
+        },
+        {
+          "activity_day": "2026-08-04",
+          "active_users": 10945
+        },
+        {
+          "activity_day": "2026-08-05",
+          "active_users": 10991
+        },
+        {
+          "activity_day": "2026-08-06",
+          "active_users": 10929
+        },
+        {
+          "activity_day": "2026-08-07",
+          "active_users": 10915
+        },
+        {
+          "activity_day": "2026-08-08",
+          "active_users": 11072
+        },
+        {
+          "activity_day": "2026-08-09",
+          "active_users": 11250
+        },
+        {
+          "activity_day": "2026-08-10",
+          "active_users": 11109
+        },
+        {
+          "activity_day": "2026-08-11",
+          "active_users": 11295
+        },
+        {
+          "activity_day": "2026-08-12",
+          "active_users": 11243
+        },
+        {
+          "activity_day": "2026-08-13",
+          "active_users": 11576
+        },
+        {
+          "activity_day": "2026-08-14",
+          "active_users": 11517
+        },
+        {
+          "activity_day": "2026-08-15",
+          "active_users": 11618
+        },
+        {
+          "activity_day": "2026-08-16",
+          "active_users": 11670
+        },
+        {
+          "activity_day": "2026-08-17",
+          "active_users": 11772
+        },
+        {
+          "activity_day": "2026-08-18",
+          "active_users": 11908
+        },
+        {
+          "activity_day": "2026-08-19",
+          "active_users": 11937
+        },
+        {
+          "activity_day": "2026-08-20",
+          "active_users": 12321
+        },
+        {
+          "activity_day": "2026-08-21",
+          "active_users": 12300
+        },
+        {
+          "activity_day": "2026-08-22",
+          "active_users": 12300
+        },
+        {
+          "activity_day": "2026-08-23",
+          "active_users": 12560
+        },
+        {
+          "activity_day": "2026-08-24",
+          "active_users": 12769
+        },
+        {
+          "activity_day": "2026-08-25",
+          "active_users": 12765
+        },
+        {
+          "activity_day": "2026-08-26",
+          "active_users": 13052
+        },
+        {
+          "activity_day": "2026-08-27",
+          "active_users": 13366
+        },
+        {
+          "activity_day": "2026-08-28",
+          "active_users": 13390
+        },
+        {
+          "activity_day": "2026-08-29",
+          "active_users": 13730
+        },
+        {
+          "activity_day": "2026-08-30",
+          "active_users": 13750
+        },
+        {
+          "activity_day": "2026-08-31",
+          "active_users": 14165
+        },
+        {
+          "activity_day": "2026-09-01",
+          "active_users": 10483
+        },
+        {
+          "activity_day": "2026-09-02",
+          "active_users": 10506
+        },
+        {
+          "activity_day": "2026-09-03",
+          "active_users": 10693
+        },
+        {
+          "activity_day": "2026-09-04",
+          "active_users": 10523
+        },
+        {
+          "activity_day": "2026-09-05",
+          "active_users": 10626
+        },
+        {
+          "activity_day": "2026-09-06",
+          "active_users": 10684
+        },
+        {
+          "activity_day": "2026-09-07",
+          "active_users": 10805
+        },
+        {
+          "activity_day": "2026-09-08",
+          "active_users": 10732
+        },
+        {
+          "activity_day": "2026-09-09",
+          "active_users": 10922
+        },
+        {
+          "activity_day": "2026-09-10",
+          "active_users": 11102
+        },
+        {
+          "activity_day": "2026-09-11",
+          "active_users": 11003
+        },
+        {
+          "activity_day": "2026-09-12",
+          "active_users": 11094
+        },
+        {
+          "activity_day": "2026-09-13",
+          "active_users": 11251
+        },
+        {
+          "activity_day": "2026-09-14",
+          "active_users": 11317
+        },
+        {
+          "activity_day": "2026-09-15",
+          "active_users": 11381
+        },
+        {
+          "activity_day": "2026-09-16",
+          "active_users": 11517
+        },
+        {
+          "activity_day": "2026-09-17",
+          "active_users": 11544
+        },
+        {
+          "activity_day": "2026-09-18",
+          "active_users": 11818
+        },
+        {
+          "activity_day": "2026-09-19",
+          "active_users": 11716
+        },
+        {
+          "activity_day": "2026-09-20",
+          "active_users": 11904
+        },
+        {
+          "activity_day": "2026-09-21",
+          "active_users": 12009
+        },
+        {
+          "activity_day": "2026-09-22",
+          "active_users": 11975
+        },
+        {
+          "activity_day": "2026-09-23",
+          "active_users": 12428
+        },
+        {
+          "activity_day": "2026-09-24",
+          "active_users": 12438
+        },
+        {
+          "activity_day": "2026-09-25",
+          "active_users": 12644
+        },
+        {
+          "activity_day": "2026-09-26",
+          "active_users": 12970
+        },
+        {
+          "activity_day": "2026-09-27",
+          "active_users": 13057
+        },
+        {
+          "activity_day": "2026-09-28",
+          "active_users": 13273
+        },
+        {
+          "activity_day": "2026-09-29",
+          "active_users": 13725
+        },
+        {
+          "activity_day": "2026-09-30",
+          "active_users": 13968
+        }
+      ],
+      "trend_metric": "Daily Active Users",
+      "warnings": [
+        "Removed 4,103 duplicate event rows before counting users.",
+        "16,321 unique events arrived more than 24 hours late; the primary snapshot includes them."
+      ],
+      "quality": {
+        "coverage": [
+          {
+            "dataset": "users",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-04T00:00:00",
+            "snapshot_as_of": "2026-10-05T00:00:00",
+            "status": "complete"
+          },
+          {
+            "dataset": "users",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-04T00:00:00",
+            "snapshot_as_of": "2026-10-05T00:00:00",
+            "status": "complete"
+          },
+          {
+            "dataset": "service_activity",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-04T00:00:00",
+            "snapshot_as_of": "2026-10-05T00:00:00",
+            "status": "complete"
+          },
+          {
+            "dataset": "service_activity",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-04T00:00:00",
+            "snapshot_as_of": "2026-10-05T00:00:00",
+            "status": "complete"
+          },
+          {
+            "dataset": "service_membership",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-04T00:00:00",
+            "snapshot_as_of": "2026-10-05T00:00:00",
+            "status": "complete"
+          },
+          {
+            "dataset": "service_membership",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-04T00:00:00",
+            "snapshot_as_of": "2026-10-05T00:00:00",
+            "status": "complete"
+          },
+          {
+            "dataset": "device_mapping",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-04T00:00:00",
+            "snapshot_as_of": "2026-10-05T00:00:00",
+            "status": "complete"
+          },
+          {
+            "dataset": "device_mapping",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-04T00:00:00",
+            "snapshot_as_of": "2026-10-05T00:00:00",
+            "status": "complete"
+          },
+          {
+            "dataset": "market_reference",
+            "period_start": "2026-08-01T00:00:00",
+            "period_end": "2026-09-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-09-01T00:00:00",
+            "loaded_at": "2026-10-04T00:00:00",
+            "snapshot_as_of": "2026-10-05T00:00:00",
+            "status": "complete"
+          },
+          {
+            "dataset": "market_reference",
+            "period_start": "2026-09-01T00:00:00",
+            "period_end": "2026-10-01T00:00:00",
+            "complete": true,
+            "available_through": "2026-10-01T00:00:00",
+            "loaded_at": "2026-10-04T00:00:00",
+            "snapshot_as_of": "2026-10-05T00:00:00",
+            "status": "complete"
+          }
+        ],
+        "events": {
+          "raw_rows": 826335,
+          "unique_events": 822232,
+          "late_events": 16321,
+          "join_cardinality": "pass"
+        },
+        "complete": true,
+        "freshness_basis": "Historical synthetic snapshot 2026-10-05"
+      },
+      "evidence": [
+        {
+          "query_id": "6f2f51a52b980aeb",
+          "template": "metric.mau.total",
+          "duration_ms": 7692.794,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "group_by": null,
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            }
+          },
+          "sources": [
+            "users",
+            "service_activity",
+            "service_membership",
+            "device_mapping"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "65474dbf37535ce3",
+          "template": "metric.mau.total",
+          "duration_ms": 7805.346,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "group_by": null,
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            }
+          },
+          "sources": [
+            "users",
+            "service_activity",
+            "service_membership",
+            "device_mapping"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "ecb4bb4f8d2a5942",
+          "template": "quality.coverage",
+          "duration_ms": 1.847,
+          "rows": 10,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "538dd2dff63febbb",
+          "template": "quality.events",
+          "duration_ms": 4703.606,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "service_activity",
+            "users",
+            "device_mapping"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "bfce48b930610310",
+          "template": "quality.temporal_keys",
+          "duration_ms": 1098.141,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "users",
+            "service_activity",
+            "service_membership",
+            "device_mapping",
+            "market_reference"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "c13bd202e7b353e0",
+          "template": "quality.source_grain",
+          "duration_ms": 1296.032,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "service_activity"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "ce8066eafb8be6a6",
+          "template": "quality.join_cardinality",
+          "duration_ms": 8307.707,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "users",
+            "service_activity",
+            "service_membership",
+            "device_mapping"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "c73c979e55b87ca9",
+          "template": "quality.conflicting_duplicates",
+          "duration_ms": 1997.916,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "service_activity"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "82c5047ba608904f",
+          "template": "trend.dau",
+          "duration_ms": 8704.496,
+          "rows": 61,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-08-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            }
+          },
+          "sources": [
+            "users",
+            "service_activity",
+            "service_membership",
+            "device_mapping",
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ],
+      "reconciliation": {},
+      "duration_ms": 42750.079
+    }
+  ],
+  "followups": [
+    "Investigate the change across markets and cohorts for the same periods.",
+    "Now compare only Market A for the same periods.",
+    "Now compare only Nova Mini for the same periods."
+  ],
+  "trace": [
+    {
+      "component_id": 1,
+      "stage": "User Query",
+      "status": "complete",
+      "elapsed_ms": 0.23,
+      "duration_ms": 0.23,
+      "characters": 42,
+      "execution_mode": "demo"
+    },
+    {
+      "component_id": 2,
+      "stage": "Intent Understanding",
+      "status": "complete",
+      "elapsed_ms": 2.107,
+      "duration_ms": 1.877,
+      "domain": "usage",
+      "action": "execute",
+      "request": {
+        "metric": "mau",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "service": null,
+        "device_model": null,
+        "scenario": "primary"
+      }
+    },
+    {
+      "component_id": 3,
+      "stage": "Domain & Skill Selection",
+      "status": "complete",
+      "elapsed_ms": 2.138,
+      "duration_ms": 0.031,
+      "registry": {
+        "version": "1.0",
+        "skill_id": "usage_analytics",
+        "name": "Account and Service Usage",
+        "operations": [
+          "K1",
+          "K2",
+          "K3"
+        ],
+        "metrics": [
+          "mau",
+          "dau",
+          "new_users",
+          "active_existing_users",
+          "activation_rate",
+          "service_adoption_rate"
+        ],
+        "source": "synthetic_usage",
+        "date_range": "July–September 2026 UTC"
+      },
+      "skills": [
+        "K1"
+      ]
+    },
+    {
+      "component_id": 4,
+      "stage": "Knowledge Retrieval",
+      "status": "complete",
+      "elapsed_ms": 9.669,
+      "duration_ms": 7.531,
+      "source": "metrics.yaml",
+      "registered_metrics": [
+        "mau",
+        "dau",
+        "new_users",
+        "active_existing_users",
+        "activation_rate",
+        "service_adoption_rate"
+      ]
+    },
+    {
+      "component_id": 5,
+      "stage": "Approved Query Generation",
+      "status": "complete",
+      "elapsed_ms": 9.692,
+      "duration_ms": 0.023,
+      "policy": "Internal parameterized usage templates; SQL cannot be supplied by the model."
+    },
+    {
+      "component_id": 6,
+      "stage": "Execute & Validate",
+      "status": "complete",
+      "elapsed_ms": 42760.408,
+      "duration_ms": 42750.716,
+      "executed_skills": [
+        "K1"
+      ],
+      "query_evidence": [
+        {
+          "query_id": "6f2f51a52b980aeb",
+          "template": "metric.mau.total",
+          "duration_ms": 7692.794,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "group_by": null,
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            }
+          },
+          "sources": [
+            "users",
+            "service_activity",
+            "service_membership",
+            "device_mapping"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "65474dbf37535ce3",
+          "template": "metric.mau.total",
+          "duration_ms": 7805.346,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "group_by": null,
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            }
+          },
+          "sources": [
+            "users",
+            "service_activity",
+            "service_membership",
+            "device_mapping"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "ecb4bb4f8d2a5942",
+          "template": "quality.coverage",
+          "duration_ms": 1.847,
+          "rows": 10,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "538dd2dff63febbb",
+          "template": "quality.events",
+          "duration_ms": 4703.606,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "service_activity",
+            "users",
+            "device_mapping"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "bfce48b930610310",
+          "template": "quality.temporal_keys",
+          "duration_ms": 1098.141,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "users",
+            "service_activity",
+            "service_membership",
+            "device_mapping",
+            "market_reference"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "c13bd202e7b353e0",
+          "template": "quality.source_grain",
+          "duration_ms": 1296.032,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "service_activity"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "ce8066eafb8be6a6",
+          "template": "quality.join_cardinality",
+          "duration_ms": 8307.707,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "users",
+            "service_activity",
+            "service_membership",
+            "device_mapping"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "c73c979e55b87ca9",
+          "template": "quality.conflicting_duplicates",
+          "duration_ms": 1997.916,
+          "rows": 1,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary"
+          },
+          "sources": [
+            "service_activity"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        },
+        {
+          "query_id": "82c5047ba608904f",
+          "template": "trend.dau",
+          "duration_ms": 8704.496,
+          "rows": 61,
+          "parameters": {
+            "metric": "mau",
+            "baseline": {
+              "start": "2026-08-01",
+              "end": "2026-09-01"
+            },
+            "current": {
+              "start": "2026-09-01",
+              "end": "2026-10-01"
+            },
+            "market": null,
+            "service": null,
+            "device_model": null,
+            "scenario": "primary",
+            "executed_period": {
+              "start": "2026-08-01",
+              "end": "2026-10-01"
+            },
+            "authorized_scope": {
+              "domains": [
+                "usage",
+                "sales",
+                "marketing",
+                "finance"
+              ],
+              "markets": [
+                "Market A",
+                "Market B",
+                "Market C",
+                "Market D",
+                "Market E"
+              ],
+              "services": [
+                "Service Alpha",
+                "Service Beta",
+                "Service Gamma"
+              ],
+              "skills": [
+                "K1",
+                "K2",
+                "K3"
+              ]
+            }
+          },
+          "sources": [
+            "users",
+            "service_activity",
+            "service_membership",
+            "device_mapping",
+            "data_quality_status"
+          ],
+          "query_version": "1.1",
+          "cache_hit": false
+        }
+      ],
+      "execution_trace": [
+        {
+          "stage": "Understanding",
+          "status": "complete"
+        },
+        {
+          "stage": "Skill Selection",
+          "status": "complete",
+          "skills": [
+            "K1"
+          ]
+        },
+        {
+          "stage": "Query Execution",
+          "skill": "K1",
+          "status": "complete",
+          "duration_ms": 42750.079
+        },
+        {
+          "stage": "Validation",
+          "status": "complete"
+        },
+        {
+          "stage": "Findings",
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "component_id": 7,
+      "stage": "Results & Insights",
+      "status": "complete",
+      "elapsed_ms": 42760.446,
+      "duration_ms": 0.038,
+      "result_count": 1
+    }
+  ],
+  "context": {
+    "domain": "usage",
+    "usage": {
+      "request": {
+        "metric": "mau",
+        "baseline": {
+          "start": "2026-08-01",
+          "end": "2026-09-01"
+        },
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-10-01"
+        },
+        "market": null,
+        "service": null,
+        "device_model": null,
+        "scenario": "primary"
+      }
+    },
+    "sales": {
+      "request": null
+    },
+    "marketing": {
+      "request": null
+    },
+    "finance": {
+      "request": null
+    }
+  },
+  "elapsed_ms": 42760.45435597189,
+  "tool_calls": 1,
+  "knowledge": {
+    "definitions": {
+      "mau": {
+        "metric_id": "mau",
+        "version": "1.0",
+        "business_meaning": "Unique activated eligible users with at least one usage event in the selected period.",
+        "calculation_method": "COUNT DISTINCT user_id across all selected services; overlapping service populations are unioned.",
+        "source_datasets": [
+          "users",
+          "service_activity",
+          "service_membership",
+          "device_mapping"
+        ],
+        "required_joins": [
+          "user_id",
+          "service",
+          "device_id",
+          "event-time membership and device validity"
+        ],
+        "timezone": "UTC",
+        "aggregation_grain": "calendar month or explicitly selected period",
+        "supported_dimensions": [
+          "market",
+          "device_model",
+          "service"
+        ],
+        "numerator": "distinct active users",
+        "denominator": null,
+        "owner": "Fictional BDC Analytics Demo",
+        "data_quality_requirements": [
+          "complete reporting period",
+          "deduplicated event_id",
+          "valid temporal joins",
+          "valid denominator",
+          "snapshot freshness"
+        ]
+      },
+      "dau": {
+        "metric_id": "dau",
+        "version": "1.0",
+        "business_meaning": "Mean daily unique activated eligible users, including zero-activity days.",
+        "calculation_method": "Sum daily distinct user counts divided by the number of calendar days.",
+        "source_datasets": [
+          "users",
+          "service_activity",
+          "service_membership",
+          "device_mapping"
+        ],
+        "required_joins": [
+          "user_id",
+          "service",
+          "device_id",
+          "event-time membership and device validity"
+        ],
+        "timezone": "UTC",
+        "aggregation_grain": "day; period value is a daily mean",
+        "supported_dimensions": [
+          "market",
+          "device_model",
+          "service"
+        ],
+        "numerator": "mean daily active users",
+        "denominator": null,
+        "owner": "Fictional BDC Analytics Demo",
+        "data_quality_requirements": [
+          "complete reporting period",
+          "deduplicated event_id",
+          "valid temporal joins",
+          "valid denominator",
+          "snapshot freshness"
+        ]
+      },
+      "new_users": {
+        "metric_id": "new_users",
+        "version": "1.0",
+        "business_meaning": "Users registered in the period and eligible for a selected service during that period.",
+        "calculation_method": "COUNT DISTINCT eligible user_id with registration within the half-open period.",
+        "source_datasets": [
+          "users",
+          "service_membership",
+          "device_mapping"
+        ],
+        "required_joins": [
+          "user_id",
+          "service",
+          "device_id",
+          "event-time membership and device validity"
+        ],
+        "timezone": "UTC",
+        "aggregation_grain": "selected period",
+        "supported_dimensions": [
+          "market",
+          "device_model",
+          "service"
+        ],
+        "numerator": "distinct eligible registrations",
+        "denominator": null,
+        "owner": "Fictional BDC Analytics Demo",
+        "data_quality_requirements": [
+          "complete reporting period",
+          "deduplicated event_id",
+          "valid temporal joins",
+          "valid denominator",
+          "snapshot freshness"
+        ]
+      },
+      "active_existing_users": {
+        "metric_id": "active_existing_users",
+        "version": "1.0",
+        "business_meaning": "Active users registered before the period start.",
+        "calculation_method": "COUNT DISTINCT active user_id where registered_at is before period start.",
+        "source_datasets": [
+          "users",
+          "service_activity",
+          "service_membership",
+          "device_mapping"
+        ],
+        "required_joins": [
+          "user_id",
+          "service",
+          "device_id",
+          "event-time membership and device validity"
+        ],
+        "timezone": "UTC",
+        "aggregation_grain": "selected period",
+        "supported_dimensions": [
+          "market",
+          "device_model",
+          "service"
+        ],
+        "numerator": "distinct active existing users",
+        "denominator": null,
+        "owner": "Fictional BDC Analytics Demo",
+        "data_quality_requirements": [
+          "complete reporting period",
+          "deduplicated event_id",
+          "valid temporal joins",
+          "valid denominator",
+          "snapshot freshness"
+        ]
+      },
+      "activation_rate": {
+        "metric_id": "activation_rate",
+        "version": "1.0",
+        "business_meaning": "Share of new eligible registrations activated within the same period.",
+        "calculation_method": "New eligible users activated in the period divided by all new eligible registrations.",
+        "source_datasets": [
+          "users",
+          "service_membership",
+          "device_mapping"
+        ],
+        "required_joins": [
+          "user_id",
+          "service",
+          "device_id",
+          "event-time membership and device validity"
+        ],
+        "timezone": "UTC",
+        "aggregation_grain": "selected period; ratio is not additive",
+        "supported_dimensions": [
+          "market",
+          "device_model",
+          "service"
+        ],
+        "numerator": "new eligible registrations activated in the period",
+        "denominator": "all new eligible registrations",
+        "owner": "Fictional BDC Analytics Demo",
+        "data_quality_requirements": [
+          "complete reporting period",
+          "deduplicated event_id",
+          "valid temporal joins",
+          "valid denominator",
+          "snapshot freshness"
+        ]
+      },
+      "service_adoption_rate": {
+        "metric_id": "service_adoption_rate",
+        "version": "1.1",
+        "business_meaning": "Share of eligible users active in the selected service population during the period.",
+        "calculation_method": "Distinct active eligible users divided by distinct users eligible at any time in the period; device filters include time-valid associations overlapping the period in both populations.",
+        "source_datasets": [
+          "users",
+          "service_activity",
+          "service_membership",
+          "device_mapping"
+        ],
+        "required_joins": [
+          "user_id",
+          "service",
+          "device_id",
+          "event-time membership and device validity"
+        ],
+        "timezone": "UTC",
+        "aggregation_grain": "selected period; ratio is not additive",
+        "supported_dimensions": [
+          "market",
+          "device_model",
+          "service"
+        ],
+        "numerator": "distinct active eligible users",
+        "denominator": "distinct users eligible during the period",
+        "owner": "Fictional BDC Analytics Demo",
+        "data_quality_requirements": [
+          "complete reporting period",
+          "deduplicated event_id",
+          "valid temporal joins",
+          "valid denominator",
+          "snapshot freshness"
+        ]
+      }
+    }
+  }
+}

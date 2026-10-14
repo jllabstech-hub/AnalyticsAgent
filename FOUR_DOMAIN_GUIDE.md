@@ -18,6 +18,11 @@ SQL bindings, source schemas, quality checks and component durations. **Data
 Explorer** provides each domain's source schemas, physical row counts and samples.
 CSV, Excel, PDF and complete trace JSON downloads contain executed results.
 
+The four-domain release is live at the [Free Render app](https://bdc-analytics-agent-prototype.onrender.com)
+on the existing Free service. No sign-in or API key is needed for public synthetic
+analytics. The public Settings cannot enable providers. Free cold starts and the
+large Usage calculation can take longer than the smaller business domains.
+
 ## Example questions
 
 - Usage: "Compare August and September active users."
@@ -82,6 +87,20 @@ The pandas oracle computes 55 new independent metric/filter cases. Runtime
 agents never import reference answers. Actual traces for all twenty documented
 workflows are in reports/four_domain_pipeline_trace.json. Existing Usage and
 Sales references and behaviors are preserved.
+
+Final Windows and Linux CI: 459 passed, zero failed, two optional live-provider
+skips of 461. The defined suite matches 125 independent calculations and 125
+natural-language questions. All ten new-domain hosted demonstrations pass;
+107 independent numerical comparisons cover their totals, trends and groups.
+An actual hosted restart preserves reference comparisons across all four domains.
+See reports/four_domain_hosted_verification.json for actual source and evidence.
+
+To trace a component, run a suggested question, select **Agent Execution**, and
+expand the numbered component. It records executed inputs, validated domain and
+skill selection, retrieved schemas/definitions, approved SQL and bindings,
+quality/reconciliation checks, query-backed findings and elapsed time. Download
+the complete JSON to inspect the same evidence outside the application. This
+trace displays component functionality and outputs, without hidden model reasoning.
 
 ## Access and hosting
 

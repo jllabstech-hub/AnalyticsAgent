@@ -1,7 +1,7 @@
 # Implementation status — BDC Analytics Agent Prototype V1
 
 All twelve phases' feasible local implementation, testing and documentation are complete.
-Evidence timestamp (UTC): 2026-10-14T11:05:55.223893+00:00.
+Current release: four domains, application source a8203bc65066decdaabf5432b58e69b098f905b5, verified 14 October 2026. Later sections preserve the dated implementation history.
 
 | Phase | Status | Evidence |
 |---|---|---|
@@ -13,9 +13,9 @@ Evidence timestamp (UTC): 2026-10-14T11:05:55.223893+00:00.
 | 6 Hybrid providers | Complete; OpenAI connection and K1 live verified | Real browser inference; broader live evaluation pending |
 | 7 Orchestrator | Complete | Bounded planning, execution, context and clarification tests |
 | 8 Streamlit | Complete | AppTest plus browser verification |
-| 9 Evaluation | Complete | 306 passed, 0 failed, 2 skipped of 308 on Windows and Linux CI |
-| 10 Render | Two-domain public synthetic demo verified | Five Sales workflows and preserved Usage comparison pass after actual restart; seven components and exports verified; Free only, no LLM calls |
-| 11 EVP package | Complete | Five complete executed demonstration workflows |
+| 9 Evaluation | Complete | 459 passed, 0 failed, 2 skipped of 461 on Windows and Linux CI; 125 independent calculations and 125 question workflows match |
+| 10 Render | Four-domain public synthetic demo verified | Ten new-domain workflows and fresh comparisons across all four domains pass after actual restart; seven components, exports and new-domain Explorer verified; Free only, no LLM calls |
+| 11 EVP package | Complete | Twenty complete executed demonstration workflows across four domains |
 | 12 Final integration | Complete locally | Full suite, performance, security, startup/browser and final reports |
 
 Phase 12 supplied the complete five workflows missing from the truncated Phase 11.
@@ -129,3 +129,7 @@ Registered domains are Account/Service Usage, Sales, Marketing and Finance. New 
 ### 2026-10-14T11:56:44.010724+00:00 - Four-domain local final suite complete
 
 Full shipping suite passes 459/0/2 of 461 (263.38s); all 125 independent calculations and 125 actual natural-language reference questions match. Twenty budget-configured demonstrations produce 140 completed components. Startup/restart smoke passes 200/ok twice. Existing private grants remain Usage-only by default; public mode is limited to four fixed fictional bundles. GitHub and Free hosted verification follow.
+
+### 14 October 2026 - Four-domain hosted delivery complete
+
+Usage, Sales, Marketing and Finance are complete for the synthetic core pipeline: 21 metrics, nine approved operations, twenty local demonstrations and 140 completed component events. Runtime source a8203bc is Live on the existing Free Render app. Windows and Linux CI pass 459/0/2 of 461; all 125 independent calculations and 125 natural-language questions match. Ten new-domain hosted workflows pass independent checks on every total, monthly trend and contribution group (107 numerical comparisons). Actual restart at 17:48 Asia/Calcutta preserves reference comparisons across all four domains, with seven completed components each and root/health 200/ok. New-domain Explorer, evaluation dashboard and actual CSV/Excel/PDF/JSON downloads are verified. Reports/four_domain_hosted_verification.json contains source, measured timings and evidence. Public mode remains synthetic, anonymous and deterministic with no provider calls. Actual new-domain LLM inference, real identity lifecycle, enterprise connectors and sustained hosted capacity remain outside verified acceptance; Finance is a modeled subtotal rather than audited net income.

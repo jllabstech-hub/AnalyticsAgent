@@ -1,30 +1,34 @@
 # Final validation report
 
-Updated UTC: 2026-10-14T11:05:55.223893+00:00. Supersedes the initial phase-12 report.
+Updated 14 October 2026 for four-domain application source a8203bc65066decdaabf5432b58e69b098f905b5. Supersedes the initial phase-12 and two-domain release reports. Dated sections below preserve implementation history.
 
-Verdict: **hardened synthetic prototype with five verified public Free Render workflows and startup/restart; production approval still requires broader live-provider, real-identity and hosted capacity validation.**
+Verdict: **hardened four-domain synthetic prototype with actual public Free Render workflows and startup/restart; production approval still requires broader live-provider, real-identity and hosted capacity validation.**
 
 | Check | Actual result | Evidence |
 |---|---|---|
-| Full Windows automated suite | 306 passed / 0 failed / 2 skipped; 308 total | reports/test_results.xml; reports/evaluation.json |
-| Independent pandas reference comparisons | Usage 30/30; Sales 40/40 matched | tests/fixtures/reference_answers.json; tests/fixtures/sales_reference_answers.json |
-| Human-question agent workflows | Usage 30/30; Sales 40/40 matched | tests/test_e2e_references.py; tests/test_sales_pipeline.py |
-| Demonstration workflows | Five Usage demos preserved; five fresh Sales demos verified after restart | reports/demo_results.json; reports/platform_hosted_verification.json |
+| Full Windows automated suite | 459 passed / 0 failed / 2 skipped; 461 total; 263.38s pytest | reports/test_results.xml; reports/evaluation.json |
+| Independent pandas reference comparisons | Usage 30/30; Sales 40/40; Marketing/Finance 55/55 matched | tests/fixtures/reference_answers.json; tests/fixtures/sales_reference_answers.json; tests/fixtures/business_reference_answers.json |
+| Human-question agent workflows | Usage 30/30; Sales 40/40; Marketing/Finance 55/55 matched | tests/test_e2e_references.py; tests/test_sales_pipeline.py; tests/test_business_domains.py |
+| Demonstration workflows | All twenty documented local demos; 140 completed components; ten new-domain hosted demos | reports/four_domain_pipeline_trace.json; reports/four_domain_hosted_verification.json |
 | Synthetic Usage integrity | 100,000 users; 1,186,245 activity rows; 1,180,343 unique events | data/synthetic/validation_report.json |
 | Synthetic Sales integrity | 25,000 orders; 50,000 canonical lines; 500 duplicates; 1,987 late lines | data/synthetic_sales/validation_report.json |
+| Synthetic Marketing integrity | 60,000 canonical observations; 600 duplicates; 3,095 late observations | data/synthetic_marketing/validation_report.json |
+| Synthetic Finance integrity | 30,000 booked transactions; 300 duplicates; 1,465 late transactions | data/synthetic_finance/validation_report.json |
 | Published dependency advisories | 0 known vulnerability records across 86 scanned packages; no skipped packages | reports/dependencies_audit.json |
 | Four simultaneous investigations | 4/4 succeeded with identical totals | reports/performance.json |
-| Startup/restart | Two actual HTTP 200 / ok starts | reports/deployment_smoke.json |
-| GitHub Linux CI | 306 passed / 0 failed / 2 skipped; credential and dependency scans plus both restarts pass | reports/github_validation.json; Actions run 38551074152 |
-| Free Render deployment | Two-domain demo Live; five fresh Sales workflows, seven components, downloads, Sales Explorer and Usage comparison pass after actual restart; root/health HTTP 200 | reports/render_deployment.json; reports/platform_hosted_verification.json |
+| Four-domain UI/export memory | 423.57 MiB peak on Windows; one process; 320MB DuckDB; not hosted capacity | reports/four_domain_memory_smoke.json |
+| Startup/restart | Two actual local HTTP 200 / ok starts; actual hosted restart and four fresh domain comparisons | reports/deployment_smoke.json; reports/four_domain_hosted_restart_health.json |
+| GitHub Linux CI | 459 passed / 0 failed / 2 skipped; 153.62s; credential and dependency scans plus both restarts pass | reports/github_validation.json; Actions run 38560216690 |
+| Free Render deployment | Four-domain demo Live; ten new-domain workflows, seven components, downloads and new-domain Explorer pass; fresh four-domain references pass after restart; root/health HTTP 200 | reports/render_deployment.json; reports/four_domain_hosted_verification.json |
+| Independent hosted numbers | Ten Marketing/Finance totals, trends and groups pass 107 numerical comparisons; four post-restart totals add 12 comparisons | reports/four_domain_hosted_reference_check.json |
 | Browser review | Desktop and compact layout, computed charts, quality warnings, Settings failure and Explorer verified | reports/browser_e2e_verification.json |
 | Production access | Anonymous, expired/unapproved and malformed grants blocked; scoped UI and revocation regression pass | tests/test_access.py |
 
 Independent comparison accuracy is 100% on the defined synthetic suite. This is not enterprise accuracy or broad live-LLM routing accuracy. The full automated run intentionally disables live opt-in checks. Separate real OpenAI inference, application Test Connection and the August/September K1 browser comparison now pass. Ollama remains unavailable. See reports/openai_live_validation.json for the live evidence and limits.
 
-## Measured execution
+## Historical Usage benchmark
 
-Cold three-skill investigation: 7.196s. Warm investigation: 5.683ms. Four simultaneous requests: 7.333–7.334s. Peak backend working set: 385.04 MiB. DuckDB budget: 512MB, one thread and one shared warehouse execution slot; disk spill disabled.
+Earlier Usage-only backend measurement: cold three-skill investigation 7.196s; warm 5.683ms; four simultaneous requests 7.333–7.334s; peak 385.04 MiB at a 512MB DuckDB budget. The current Free configuration is 320MB, one thread and one process-wide warehouse execution slot; disk spill disabled. Actual four-domain UI/export peak is 423.57 MiB.
 
 These are Windows backend measurements, excluding hosted behavior and additional Streamlit/LLM overhead. They do not establish sustained traffic capacity. Latest public-mode Windows startup times were 1.311s and 1.231s. Public Free hosted queries took 43.08s for the first comparison and 44.14s after restart; later cached comparisons are faster. Private production sign-in must be separately configured and tested.
 
@@ -65,7 +69,7 @@ The new sales pack implements the supplied seven-stage core workflow with fictio
 The primary example returns net sales of USD 1,748,539.73 in Q2 and USD 3,218,017.11 in Q3 for Orion One / Market A (+84.04%). These values are generated by approved queries, not supplied reference answers. Local both-domain UI/export peak is 424.27 MiB with 320MB DuckDB. The PDF report is two pages, rendered and visually checked; exports operate in memory. The current startup/restart smoke passes 200/ok twice. New-source GitHub CI and actual Free hosted sales verification now pass; the final section records exact source and evidence. Enterprise connectors, message channels, real Sales LLM inference and sustained hosted load are not established by this synthetic test.
 
 
-## Final two-domain hosted evidence
+## Historical two-domain hosted evidence
 
 Runtime source 94bbe25 is Live on Free Render. Five Sales workflows pass after a real service restart at 16:21 Asia/Calcutta; all totals, monthly chart values and group values match independent pandas calculations. Seven component events complete on every workflow. The preserved Usage comparison also returns 66025 / 65292 / -733, with seven completed components (36.946s). The Sales example takes 3.704s; the other Sales cases range from 3.552s to 4.855s. CSV/Excel/PDF/JSON downloads and Sales Explorer are actually verified. Long currency cards were corrected and visually checked; phone width and viewport restoration are recorded. Full corrected-source tests pass on Windows (306/0/2, 222.71s) and Linux CI (306/0/2, 127.30s), including scans and startup/restart. Final local startup smoke passes twice. Reports/platform_hosted_verification.json and its six downloaded traces contain actual evidence. Earlier pending statements describe intermediate gates and are superseded by this section. Public mode uses no LLM; this does not establish real enterprise integrations, live Sales provider behavior or sustained hosted capacity.
 
@@ -81,3 +85,29 @@ startup/restart smoke is 200/ok twice (1.379s, 1.155s). New-domain malformed sou
 unauthorized scopes, SQL/binding tampering, zero denominators, incomplete periods,
 provider arguments and context switching are tested. Linux CI and actual four-domain
 hosted acceptance follow; prior hosted evidence above belongs to the two-domain release.
+
+## Final four-domain hosted acceptance
+
+Runtime a8203bc is Live on the existing Free Render service (1m58s displayed deploy
+duration; Live at 17:30 Asia/Calcutta). All five Marketing and five Finance
+questions pass, including Aug/Sep and contextual entity follow-ups. Independent
+pandas calculations match every total, monthly value and contribution group in
+their downloaded traces (107 numerical comparisons). Seven component events
+complete on all ten workflows. New-domain Explorer shows 60,600 Marketing and
+30,300 Finance physical rows with actual schemas and fictional samples. Hosted
+CSV, Excel and PDF downloads reopen; rates retain percentage formats and pp
+changes, finance retains USD values, and all seven components appear in exports.
+
+Render records an actual service restart at 17:48 Asia/Calcutta. Fresh comparisons
+then match all four independent domain references: Usage 66,025 to 65,292
+(42.760s), Sales USD 1,748,539.73 to 3,218,017.11 (4.254s), Marketing CTR 14.11%
+to 14.41% (4.049s), Finance modeled profit USD 4,003,078.54 to 2,896,087.27
+(3.209s). All seven components complete again; root and health return 200/ok.
+Evaluation Dashboard displays the actual 461/459/0/2 report and four registered
+domains. Final code is unchanged from the passing Windows and Linux suites.
+This acceptance supersedes earlier pending new-source CI/hosted statements.
+
+Finance is a modeled booked revenue/expense subtotal, not audited net income or
+a double-entry ledger. Public mode uses no LLM. Real sources, messaging channels,
+actual identity lifecycle, live business-domain provider inference and sustained
+hosted capacity remain outside verified synthetic acceptance.
