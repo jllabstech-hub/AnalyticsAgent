@@ -1,12 +1,12 @@
 # Final validation report
 
-Updated UTC: 2026-10-13T20:12:13.520512+00:00. Supersedes the initial phase-12 report.
+Updated UTC: 2026-10-14T02:25:18.182168+00:00. Supersedes the initial phase-12 report.
 
 Verdict: **hardened synthetic prototype, verified locally; production approval remains blocked by live-provider, real-identity and hosted validation.**
 
 | Check | Actual result | Evidence |
 |---|---|---|
-| Full automated suite | 190 passed / 0 failed / 2 skipped; 192 total | reports/test_results.xml; reports/evaluation.json |
+| Full automated suite | 191 passed / 0 failed / 2 skipped; 193 total | reports/test_results.xml; reports/evaluation.json |
 | Independent pandas reference comparisons | 30/30 matched | tests/fixtures/reference_answers.json |
 | Human-question agent workflows | 30/30 matched | tests/test_e2e_references.py |
 | Five EVP workflows | All executed successfully | reports/demo_results.json |
@@ -14,6 +14,7 @@ Verdict: **hardened synthetic prototype, verified locally; production approval r
 | Published dependency advisories | 0 known vulnerability records across 83 scanned packages; no skipped packages | reports/dependencies_audit.json |
 | Four simultaneous investigations | 4/4 succeeded with identical totals | reports/performance.json |
 | Startup/restart | Two actual HTTP 200 / ok starts | reports/deployment_smoke.json |
+| GitHub Linux CI | 191 passed / 0 failed / 2 skipped; credential and dependency scans plus both restarts pass | reports/github_validation.json; Actions run 38500606126 |
 | Browser review | Desktop and compact layout, computed charts, quality warnings, Settings failure and Explorer verified | reports/browser_e2e_verification.json |
 | Production access | Anonymous, expired/unapproved and malformed grants blocked; scoped UI and revocation regression pass | tests/test_access.py |
 
@@ -23,7 +24,7 @@ Independent comparison accuracy is 100% on the defined synthetic suite. This is 
 
 Cold three-skill investigation: 7.196s. Warm investigation: 5.683ms. Four simultaneous requests: 7.333–7.334s. Peak backend working set: 385.04 MiB. DuckDB budget: 512MB, one thread and one shared warehouse execution slot; disk spill disabled.
 
-These are Windows backend measurements, excluding hosted behavior and additional Streamlit/LLM overhead. They do not establish sustained traffic capacity. Startup times were 1.264s and 1.178s. HTTP health verifies server availability; production sign-in must be separately configured and tested.
+These are Windows backend measurements, excluding hosted behavior and additional Streamlit/LLM overhead. They do not establish sustained traffic capacity. Latest Windows startup times were 1.643s and 1.629s. HTTP health verifies server availability; production sign-in must be separately configured and tested.
 
 ## Corrections verified in this audit
 
@@ -44,7 +45,7 @@ These are Windows backend measurements, excluding hosted behavior and additional
 
 1. Rotate the exposed OpenAI key and expand live reference/failure-path evaluation. One real OpenAI K1 question has succeeded; live Ollama and broader live accuracy still require verification.
 2. Register a real OIDC client and verify HTTPS login/logout, returned claims, expiry, revoked accounts and scoped data behavior. Current authentication tests use simulated verified claims.
-3. Authorize hosting/resources, verify the GitHub Linux CI result, deploy to staging, and validate memory, restart, expected concurrency and monitoring there. Source upload is authorized; public application deployment and paid resources remain unauthorized.
+3. Authorize hosting/resources, deploy to staging, and validate memory, restart, expected concurrency and monitoring there. GitHub source upload and Linux CI are verified; public application deployment and paid resources remain unauthorized.
 4. Keep this release synthetic-only. Real enterprise data accuracy, lineage and operational controls require a separate approved integration/evaluation.
 
 Full audit and release gates: PRODUCTION_READINESS.md. Setup: README.md and DEPLOYMENT_GUIDE.md.

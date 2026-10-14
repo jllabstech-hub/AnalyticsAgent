@@ -7,16 +7,16 @@
       "restart": 0,
       "http_status": 200,
       "health": "ok",
-      "startup_seconds": 1.504
+      "startup_seconds": 1.643
     },
     {
       "restart": 1,
       "http_status": 200,
       "health": "ok",
-      "startup_seconds": 1.65
+      "startup_seconds": 1.629
     }
   ],
   "platform": "win32",
   "persistent_storage_required": false,
-  "limitation": "Local Windows test with Render flags; not a hosted Linux/Render deployment."
+  "limitation": "Local runner test with Render flags; not a hosted Render deployment."
 }

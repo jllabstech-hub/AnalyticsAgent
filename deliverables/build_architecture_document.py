@@ -209,13 +209,13 @@ doc.add_paragraph('Architecture and Technical Handover', style='Title')
 doc.add_paragraph('Prototype V1', style='Subtitle')
 p('Prepared for the engineering analytics and leadership teams\n14 October 2026')
 p('This document describes the implemented application, its technical contracts, and the controls that keep analytical answers traceable. It gives the team the information needed to operate the local prototype, review its calculations, extend approved capabilities, and prepare a controlled hosted release.')
-p('Current assessment. The application is a hardened synthetic prototype verified locally, including one real OpenAI workflow. Production approval requires broader live model evaluation, real identity-provider lifecycle testing, and hosted reliability validation.', 'Current assessment.')
+p('Current assessment. The synthetic prototype passes Windows and GitHub Linux CI, including a separately verified real OpenAI workflow. Production approval requires broader live model evaluation, real identity-provider lifecycle testing, and hosted reliability validation.', 'Current assessment.')
 table(['Item','Implemented scope'],[
     ('Data','100,000 fictional accounts; July to September 2026; six Parquet datasets'),
     ('Analytics','Six governed metrics; K1 comparison, K2 contribution, K3 cohorts'),
     ('Interaction','Streamlit; default Ollama; optional explicitly selected OpenAI; explicit demo mode'),
     ('Recorded verification',f"{evaluation['total']} tests: {evaluation['passed']} passed, {evaluation['failed']} failed, {evaluation['skipped']} skipped"),
-    ('Release status','Local acceptance testing complete; live integrations and hosting pending')
+    ('Release status','Windows and Linux CI pass; broader live integration and hosting pending')
 ], [1.55,5.28])
 h('Reading guide')
 p('Pages 2 to 5 explain the architecture, technology stack, and warehouse. Pages 6 to 9 explain metrics, quality controls, contracts, orchestration, and providers. Pages 10 to 13 cover security, execution resources, the interface, and deployment. Pages 14 to 16 cover measured validation, development stages, and team handover.')
@@ -241,7 +241,7 @@ p('Recognized questions carry approved period and skill contracts. Original mode
 
 # Page 3
 page('2 Technology stack and source modules')
-p('The recorded build was tested on Windows with Python 3.14.5. Direct dependencies are pinned in requirements.txt. This is not a complete transitive lock; the target installation must be checked and scanned again.')
+p('The recorded build was tested on Windows and GitHub Linux CI with Python 3.14.5. Direct dependencies are pinned in requirements.txt. This is not a complete transitive lock; target installations must be checked and scanned again.')
 table(['Technology','Pinned version','Purpose'],[
     ('Streamlit','1.65.0','Workspace, session state, UI tests, OIDC integration'),
     ('DuckDB','1.5.6','Embedded analytical SQL over Parquet'),
@@ -483,7 +483,7 @@ code('streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server
 p('Bind to the assigned PORT. Configure OPENAI_API_KEY in environment variables or use a separately secured reachable Ollama endpoint. Localhost on Render refers to Render, not the Windows laptop.')
 h('Release procedure')
 p('Review and push the source and synthetic datasets to the authorized jllabstech-hub/AnalyticsAgent GitHub repository. Run the prepared Linux quality workflow. After hosting and resource authorization, configure staging secrets and account grants, deploy, verify sign-in and all five demos, restart, and repeat the comparison. Monitor failures, memory, latency, and API expenditure before release approval.')
-p('The 2 GB plan is prepared, not purchased. A 256 MB DuckDB budget failed warehouse join validation; a 512 MB total host should not be assumed sufficient. GitHub source upload is authorized; no public application deployment has been performed.')
+p('The 2 GB plan is prepared, not purchased. A 256 MB DuckDB budget failed warehouse join validation; a 512 MB total host should not be assumed sufficient. Source is uploaded to main and Linux CI passes; public application hosting remains unauthorized.')
 
 # Page 14
 page('13 Validation performance and reproducibility')
@@ -500,7 +500,7 @@ table(['Recorded check','Result'],[
     ('Peak backend working set',f"{performance['peak_process_memory_mb']:.2f} MiB on Windows")
 ], [2.55,4.28], compact=True)
 p('Evidence is from the recorded local validation run on 14 October 2026 India time. Accuracy is 100% on the defined synthetic reference suite; it is not enterprise accuracy or live-model routing accuracy. Backend timings exclude live LLM latency and additional hosted/UI overhead. Four simultaneous requests do not establish sustained production capacity.')
-p('Separate live evidence confirms OpenAI inference and the full August and September K1 browser comparison: 66,025 to 65,292 users, change -733, completed in 49.12 seconds with demo mode off. See reports/openai_live_validation.json.')
+p('Separate live evidence confirms OpenAI inference and the full August and September K1 browser comparison: 66,025 to 65,292 users, change -733, completed in 49.12 seconds with demo mode off. See reports/openai_live_validation.json. Linux CI also passes the full suite, credential and dependency scans, and both restarts; see reports/github_validation.json.')
 h('Reproduce the checks')
 code('.\\.venv\\Scripts\\python.exe -m scripts.validate_data\n.\\.venv\\Scripts\\python.exe -m scripts.evaluate\n.\\.venv\\Scripts\\python.exe -m scripts.run_demos\n.\\.venv\\Scripts\\python.exe -m scripts.benchmark\n.\\.venv\\Scripts\\python.exe -m scripts.security_check\n.\\.venv\\Scripts\\python.exe -m scripts.smoke_deployment --port 8765')
 p('To rebuild source data and independent references, run scripts.generate_data followed by scripts.validate_data and scripts.reference_answers before evaluation. This replaces the generated synthetic warehouse intentionally. Use requirements-dev.txt for advisory scanning. Verify hosted CI results in the repository Actions tab.')
@@ -518,7 +518,7 @@ table(['Stage','Main deliverable','Status'],[
     ('7 Agent','Bounded planning, context, findings','Complete locally'),
     ('8 Interface','Workspace, Settings, Explorer, Evaluation','Complete locally'),
     ('9 Evaluation','Independent calculations and regressions','Complete locally'),
-    ('10 Hosting','Render blueprint and restart checks','Prepared; hosted unverified'),
+    ('10 Hosting','Render blueprint and restart checks','Linux CI pass; Render pending'),
     ('11 EVP demos','Five executed executive workflows','Complete locally'),
     ('12 Hardening','Integration, audit, performance, reports','Complete locally')
 ], [.98,3.83,2.02], compact=True)
@@ -532,7 +532,7 @@ page('15 Team handover and release requirements')
 h('Required verification before production approval')
 bullet('Model integration: rotate the exposed server key, evaluate the reference suite and failure paths in each enabled provider, and install a local model only after approval. One real OpenAI K1 workflow is already verified.')
 bullet('Identity integration: register the actual OIDC client; verify HTTPS login/logout, issuer/subject/expiry claims, expired and revoked users, and restricted market/service access.')
-bullet('Hosted reliability: run Linux CI and authorized staging; measure representative sustained load, memory, restart, network failures, and operational monitoring against agreed acceptance targets.')
+bullet('Hosted reliability: Linux CI passes. In authorized staging, measure sustained load, memory, restart, network failures, and operational monitoring against agreed acceptance targets.')
 bullet('Operating controls: assign ownership for identity grants, model configuration, release review, incident handling, and account-level API expenditure limits. These team responsibilities are proposed, not assigned.')
 h('How to extend the application')
 p('For a new metric, add the versioned YAML definition, update the approved contract and query implementation, calculate independent reference answers, and add population and boundary tests. For a new skill, register its validated inputs and outputs and update the skill allowlist. For a new provider, implement the common adapter contract without changing the calculation layer or weakening selection and fallback controls.')

@@ -1,0 +1,111 @@
+{
+  "checked_at_utc": "2026-10-14T02:25:18.182168+00:00",
+  "repository": "jllabstech-hub/AnalyticsAgent",
+  "branch": "main",
+  "local_sha": "2060e661aa98b2a8443a21a1d90ed0dcade7e336",
+  "remote_sha": "2060e661aa98b2a8443a21a1d90ed0dcade7e336",
+  "commit_verified": true,
+  "run": {
+    "id": 38500606126,
+    "name": "Analytics quality",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/jllabstech-hub/AnalyticsAgent/actions/runs/38500606126",
+    "head_sha": "2060e661aa98b2a8443a21a1d90ed0dcade7e336"
+  },
+  "jobs": [
+    {
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v7",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v7",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install checked dependencies",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Full analytical and UI evaluation",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Credential source check",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Published dependency advisories",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Startup and restart smoke",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v7",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v7",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "log_evidence": [
+    {
+      "log": "validate/5_Full analytical and UI evaluation.txt",
+      "line": "2026-10-14T02:24:42.0594080Z 191 passed, 2 skipped in 142.91s (0:02:22)"
+    },
+    {
+      "log": "validate/6_Credential source check.txt",
+      "line": "2026-10-14T02:24:42.5214123Z   \"status\": \"pass\","
+    },
+    {
+      "log": "validate/7_Published dependency advisories.txt",
+      "line": "2026-10-14T02:24:43.7339423Z No known vulnerabilities found"
+    },
+    {
+      "log": "validate/8_Startup and restart smoke.txt",
+      "line": "2026-10-14T02:24:46.1392273Z   \"status\": \"pass\","
+    },
+    {
+      "log": "validate/8_Startup and restart smoke.txt",
+      "line": "2026-10-14T02:24:46.1398302Z       \"health\": \"ok\","
+    },
+    {
+      "log": "validate/8_Startup and restart smoke.txt",
+      "line": "2026-10-14T02:24:46.1400660Z       \"health\": \"ok\","
+    },
+    {
+      "log": "validate/8_Startup and restart smoke.txt",
+      "line": "2026-10-14T02:24:46.1401449Z   \"platform\": \"linux\","
+    }
+  ],
+  "verification_scope": "Application source commit shown above. Later documentation/evidence-only commits do not repeat this runtime check."
+}
