@@ -17,6 +17,10 @@ def smoke(port=8765):
     attempts = []
     for restart in range(2):
         with socket.socket() as check:
+            if os.name != "nt":
+                # The previous health request can leave this port in TIME_WAIT.
+                # POSIX reuse still rejects a port with an active listener.
+                check.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             check.bind(("127.0.0.1",port))
         started = time.perf_counter()
         environment = dict(os.environ,PORT=str(port),OPENAI_API_KEY="")
@@ -40,7 +44,7 @@ def smoke(port=8765):
                     if os.name == "nt": subprocess.run(["taskkill","/PID",str(process.pid),"/T","/F"],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,check=False)
                     else: process.terminate()
                 process.wait(timeout=10)
-    result = {"status":"pass","address":"0.0.0.0","port":port,"starts":attempts,"platform":sys.platform,"persistent_storage_required":False,"limitation":"Local Windows test with Render flags; not a hosted Linux/Render deployment."}
+    result = {"status":"pass","address":"0.0.0.0","port":port,"starts":attempts,"platform":sys.platform,"persistent_storage_required":False,"limitation":"Local runner test with Render flags; not a hosted Render deployment."}
     (reports / "deployment_smoke.json").write_text(json.dumps(result,indent=2),encoding="utf-8")
     return result
 

@@ -1,4 +1,5 @@
 from pathlib import Path
+import socket
 import yaml
 import tomllib
 from analytics_agent.engine import Engine
@@ -31,3 +32,18 @@ def test_production_config_requires_auth_and_clean_source_restarts():
     configuration = tomllib.loads((ROOT / ".streamlit" / "config.toml").read_text())
     assert configuration["server"]["fileWatcherType"] == "none"
     assert "/etc/secrets/secrets.toml" in configuration["secrets"]["files"]
+
+
+def test_smoke_restarts_same_port_after_real_health_request(tmp_path, monkeypatch):
+    from scripts import smoke_deployment
+
+    (tmp_path / "app.py").write_text("import streamlit as st\nst.write('Restart check')\n", encoding="utf-8")
+    monkeypatch.setattr(smoke_deployment, "PROJECT_ROOT", tmp_path)
+    with socket.socket() as reserve:
+        reserve.bind(("127.0.0.1", 0))
+        port = reserve.getsockname()[1]
+    result = smoke_deployment.smoke(port)
+    assert result["status"] == "pass"
+    assert [start["restart"] for start in result["starts"]] == [0, 1]
+    assert all(start["http_status"] == 200 and start["health"] == "ok" for start in result["starts"])
+    assert result["persistent_storage_required"] is False
