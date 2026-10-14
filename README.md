@@ -3,9 +3,16 @@
 A working synthetic enterprise analytics prototype with a Streamlit workspace,
 DuckDB, YAML metrics, K1–K3 skills, a bounded orchestrator, Ollama by default and
 optional OpenAI. All accounts, users, markets, devices and services are fictional.
-The platform now also includes a complete synthetic Sales Analytics domain:
-25,000 orders, 50,000 unique lines, Q2/Q3 2026 comparisons, governed SQL, source
-metadata, validation, charts, CSV/Excel/PDF and a seven-component functionality trace.
+Four registered domains share governed SQL, source metadata, validation, charts,
+CSV/Excel/PDF exports and a seven-component functionality trace:
+
+- Account/Service Usage: 100,000 fictional users and six metrics.
+- Sales: 25,000 orders, 50,000 canonical lines and four metrics.
+- Marketing: 60,000 impression observations, seven campaign/spend/conversion metrics.
+- Finance: 30,000 booked transactions, revenue/expense/profit/margin metrics.
+
+Sales, Marketing and Finance cover complete Q2/Q3 2026 with separate incomplete scenarios.
+See `FOUR_DOMAIN_GUIDE.md` for metrics, examples, permissions and reproducible commands.
 See `PIPELINE_COMPONENT_TRACE.md` for the executed architecture mapping.
 
 Repository: https://github.com/jllabstech-hub/AnalyticsAgent
@@ -19,11 +26,11 @@ See `PRODUCTION_READINESS.md` for current evidence and deployment blockers.
 Local mode runs only on your own machine. `APP_ENV=production` (forced on Render)
 requires OIDC sign-in and server-defined account scopes before private analytics is shown.
 The owner-authorized public Free demo uses `PUBLIC_DEMO_ENABLED=true`: anonymous
-access to the two bundled fictional warehouses, locked deterministic execution, no LLM
+access to the four bundled fictional warehouses, locked deterministic execution, no LLM
 connections and no provider Settings. The application default is false.
 OpenAI connection and one complete live MAU comparison have been verified locally.
 Actual identity-provider login, Ollama inference, broader live model evaluation,
-and hosted behavior remain unverified. See reports/openai_live_validation.json.
+and sustained hosted capacity remain unverified. See reports/openai_live_validation.json.
 
 ## Quick start — Windows PowerShell
 

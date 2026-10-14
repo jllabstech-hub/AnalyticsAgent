@@ -441,7 +441,7 @@
               {
                 "query_id": "6f2f51a52b980aeb",
                 "template": "metric.mau.total",
-                "duration_ms": 815.134,
+                "duration_ms": 764.702,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -497,7 +497,7 @@
               {
                 "query_id": "65474dbf37535ce3",
                 "template": "metric.mau.total",
-                "duration_ms": 1028.913,
+                "duration_ms": 805.113,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -553,7 +553,7 @@
               {
                 "query_id": "ecb4bb4f8d2a5942",
                 "template": "quality.coverage",
-                "duration_ms": 2.935,
+                "duration_ms": 3.155,
                 "rows": 10,
                 "parameters": {
                   "metric": "mau",
@@ -579,7 +579,7 @@
               {
                 "query_id": "538dd2dff63febbb",
                 "template": "quality.events",
-                "duration_ms": 468.793,
+                "duration_ms": 353.163,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -607,7 +607,7 @@
               {
                 "query_id": "bfce48b930610310",
                 "template": "quality.temporal_keys",
-                "duration_ms": 128.489,
+                "duration_ms": 127.202,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -637,7 +637,7 @@
               {
                 "query_id": "c13bd202e7b353e0",
                 "template": "quality.source_grain",
-                "duration_ms": 115.418,
+                "duration_ms": 115.362,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -663,7 +663,7 @@
               {
                 "query_id": "ce8066eafb8be6a6",
                 "template": "quality.join_cardinality",
-                "duration_ms": 970.868,
+                "duration_ms": 932.984,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -692,7 +692,7 @@
               {
                 "query_id": "c73c979e55b87ca9",
                 "template": "quality.conflicting_duplicates",
-                "duration_ms": 214.416,
+                "duration_ms": 209.842,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -718,7 +718,7 @@
               {
                 "query_id": "82c5047ba608904f",
                 "template": "trend.dau",
-                "duration_ms": 785.54,
+                "duration_ms": 824.332,
                 "rows": 61,
                 "parameters": {
                   "metric": "mau",
@@ -773,7 +773,7 @@
               }
             ],
             "reconciliation": {},
-            "duration_ms": 4633.603
+            "duration_ms": 4235.997
           }
         ],
         "followups": [
@@ -797,7 +797,7 @@
             "stage": "Query Execution",
             "skill": "K1",
             "status": "complete",
-            "duration_ms": 4633.603
+            "duration_ms": 4235.997
           },
           {
             "stage": "Validation",
@@ -825,7 +825,7 @@
             "scenario": "primary"
           }
         },
-        "elapsed_ms": 4633.892699843273,
+        "elapsed_ms": 4236.312400083989,
         "tool_calls": 1
       }
     },
@@ -1343,7 +1343,7 @@
               {
                 "query_id": "df70a922f67877c9",
                 "template": "metric.mau.market",
-                "duration_ms": 746.978,
+                "duration_ms": 788.071,
                 "rows": 5,
                 "parameters": {
                   "metric": "mau",
@@ -1399,7 +1399,7 @@
               {
                 "query_id": "9b595ff6c9938133",
                 "template": "metric.mau.market",
-                "duration_ms": 742.211,
+                "duration_ms": 735.927,
                 "rows": 5,
                 "parameters": {
                   "metric": "mau",
@@ -1460,7 +1460,7 @@
               "sum_group_changes": -733.0,
               "total_change": -733.0
             },
-            "duration_ms": 1534.846
+            "duration_ms": 1571.809
           }
         ],
         "followups": [
@@ -1484,7 +1484,7 @@
             "stage": "Query Execution",
             "skill": "K2",
             "status": "complete",
-            "duration_ms": 1534.846
+            "duration_ms": 1571.809
           },
           {
             "stage": "Validation",
@@ -1512,7 +1512,7 @@
             "scenario": "primary"
           }
         },
-        "elapsed_ms": 1535.027700010687,
+        "elapsed_ms": 1572.0282001420856,
         "tool_calls": 1
       }
     },
@@ -2292,7 +2292,7 @@
               }
             ],
             "reconciliation": {},
-            "duration_ms": 1.836
+            "duration_ms": 1.87
           },
           {
             "skill": "K2",
@@ -2910,7 +2910,7 @@
               "sum_group_changes": -733.0,
               "total_change": -733.0
             },
-            "duration_ms": 1.748
+            "duration_ms": 1.851
           },
           {
             "skill": "K3",
@@ -3388,7 +3388,7 @@
               {
                 "query_id": "0c4e21aa232ccbd7",
                 "template": "metric.mau.new_existing",
-                "duration_ms": 728.845,
+                "duration_ms": 750.808,
                 "rows": 2,
                 "parameters": {
                   "metric": "mau",
@@ -3444,7 +3444,7 @@
               {
                 "query_id": "5ccca2903b1c6e9d",
                 "template": "metric.mau.new_existing",
-                "duration_ms": 725.793,
+                "duration_ms": 778.471,
                 "rows": 2,
                 "parameters": {
                   "metric": "mau",
@@ -3505,7 +3505,7 @@
               "sum_group_changes": -733.0,
               "total_change": -733.0
             },
-            "duration_ms": 1498.821
+            "duration_ms": 1577.805
           }
         ],
         "followups": [
@@ -3531,19 +3531,19 @@
             "stage": "Query Execution",
             "skill": "K1",
             "status": "complete",
-            "duration_ms": 1.836
+            "duration_ms": 1.87
           },
           {
             "stage": "Query Execution",
             "skill": "K2",
             "status": "complete",
-            "duration_ms": 1.748
+            "duration_ms": 1.851
           },
           {
             "stage": "Query Execution",
             "skill": "K3",
             "status": "complete",
-            "duration_ms": 1498.821
+            "duration_ms": 1577.805
           },
           {
             "stage": "Validation",
@@ -3571,7 +3571,7 @@
             "scenario": "primary"
           }
         },
-        "elapsed_ms": 1502.6556998491287,
+        "elapsed_ms": 1581.862400053069,
         "tool_calls": 3
       }
     },
@@ -4347,7 +4347,7 @@
               }
             ],
             "reconciliation": {},
-            "duration_ms": 1.834
+            "duration_ms": 1.983
           }
         ],
         "followups": [
@@ -4371,7 +4371,7 @@
             "stage": "Query Execution",
             "skill": "K1",
             "status": "complete",
-            "duration_ms": 1.834
+            "duration_ms": 1.983
           },
           {
             "stage": "Validation",
@@ -4399,7 +4399,7 @@
             "scenario": "primary"
           }
         },
-        "elapsed_ms": 1.9941998180001974,
+        "elapsed_ms": 2.2030998952686787,
         "tool_calls": 1
       }
     },
@@ -4842,7 +4842,7 @@
               {
                 "query_id": "1a241568789e10b1",
                 "template": "metric.mau.total",
-                "duration_ms": 548.637,
+                "duration_ms": 605.086,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -4898,7 +4898,7 @@
               {
                 "query_id": "110932c9c316fd58",
                 "template": "metric.mau.total",
-                "duration_ms": 590.634,
+                "duration_ms": 555.52,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -4954,7 +4954,7 @@
               {
                 "query_id": "ecb4bb4f8d2a5942",
                 "template": "quality.coverage",
-                "duration_ms": 2.155,
+                "duration_ms": 2.211,
                 "rows": 10,
                 "parameters": {
                   "metric": "mau",
@@ -4980,7 +4980,7 @@
               {
                 "query_id": "51f35dc6c87d255d",
                 "template": "quality.events",
-                "duration_ms": 148.022,
+                "duration_ms": 139.102,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -5008,7 +5008,7 @@
               {
                 "query_id": "bfce48b930610310",
                 "template": "quality.temporal_keys",
-                "duration_ms": 128.061,
+                "duration_ms": 132.448,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -5038,7 +5038,7 @@
               {
                 "query_id": "c13bd202e7b353e0",
                 "template": "quality.source_grain",
-                "duration_ms": 119.35,
+                "duration_ms": 116.642,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -5064,7 +5064,7 @@
               {
                 "query_id": "ce8066eafb8be6a6",
                 "template": "quality.join_cardinality",
-                "duration_ms": 1132.583,
+                "duration_ms": 921.763,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -5093,7 +5093,7 @@
               {
                 "query_id": "c73c979e55b87ca9",
                 "template": "quality.conflicting_duplicates",
-                "duration_ms": 269.913,
+                "duration_ms": 207.918,
                 "rows": 1,
                 "parameters": {
                   "metric": "mau",
@@ -5119,7 +5119,7 @@
               {
                 "query_id": "146df0dba92cde00",
                 "template": "trend.dau",
-                "duration_ms": 688.236,
+                "duration_ms": 623.76,
                 "rows": 61,
                 "parameters": {
                   "metric": "mau",
@@ -5174,7 +5174,7 @@
               }
             ],
             "reconciliation": {},
-            "duration_ms": 3719.001
+            "duration_ms": 3394.878
           }
         ],
         "followups": [
@@ -5198,7 +5198,7 @@
             "stage": "Query Execution",
             "skill": "K1",
             "status": "complete",
-            "duration_ms": 3719.001
+            "duration_ms": 3394.878
           },
           {
             "stage": "Validation",
@@ -5226,7 +5226,7 @@
             "scenario": "primary"
           }
         },
-        "elapsed_ms": 3719.1854999400675,
+        "elapsed_ms": 3395.082399947569,
         "tool_calls": 1
       }
     }

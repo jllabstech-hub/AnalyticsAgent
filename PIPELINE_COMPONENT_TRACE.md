@@ -1,7 +1,7 @@
 # Synthetic analytics pipeline and component trace
 
-Two registered domain packs run in the same platform: existing account/service
-usage and new fictional sales. The seven-stage sales workflow follows the supplied
+Four registered domain packs run in the same platform: account/service usage,
+sales, marketing and finance. Each seven-stage workflow follows the supplied
 architecture diagram. All businesses, products, markets, orders and identifiers
 are fictional. Real enterprise databases and messaging channels are not connected.
 
@@ -49,12 +49,16 @@ under reports. UI exports run in memory and require no persistent Render storage
 
 ## Access and extensions
 
-Public Free mode accepts only the two bundled synthetic warehouses and blocks all
+Marketing and Finance retain the same seven components, with
+business_models.py/business_parser.py contracts, business_metrics.yaml semantics
+and business_engine.py/business_skills.py approved operations. See FOUR_DOMAIN_GUIDE.md.
+
+Public Free mode accepts only the four bundled synthetic warehouses and blocks all
 LLM providers. Local/private mode retains Ollama/OpenAI selection. Private grants
 default to usage only; sales requires `domains = ["usage", "sales"]` in the approved
 server principal scope. Existing grants are not silently expanded. Market and K1/K2
 operation restrictions also apply to sales. Domain switches clear incompatible
-period/filter context. One process-wide warehouse lock serializes both adapters
+period/filter context. One process-wide warehouse lock serializes all four adapters
 within the Free memory budget.
 
 A new domain needs its own validated request contract, source adapter, semantic
@@ -64,7 +68,7 @@ than producing invented results. Actual enterprise connectors, Teams/Slack/email
 real identity lifecycle and sustained production load remain separate integrations.
 
 
-## Actual delivery verification
+## Prior two-domain hosted delivery verification
 
 The corrected build runs on the existing Free Render app. All five documented sales
 questions execute successfully after an actual service restart. Downloaded hosted

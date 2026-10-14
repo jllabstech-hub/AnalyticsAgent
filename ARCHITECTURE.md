@@ -2,7 +2,7 @@
 
 The Streamlit UI is a presentation layer. Agent, provider, semantic, skill and
 query contracts are Python modules independent of Streamlit, so a later React
-frontend can use the same backend. PlatformAgent routes two registered domains; no LangGraph,
+frontend can use the same backend. PlatformAgent routes four registered domains; no LangGraph,
 vector database, microservices or multiple agents are introduced.
 
 ```mermaid
@@ -13,9 +13,13 @@ flowchart TD
     A -. Private mode only .-> P[ProviderManager: explicit Ollama or OpenAI]
     R --> U[Usage skills K1 / K2 / K3]
     R --> S[Sales operations S1 / S2]
+    R --> M[Marketing operations M1 / M2]
+    R --> B[Finance operations F1 / F2]
     U --> E[Approved parameterized queries; shared execution slot]
     S --> E
-    E --> D[Bundled fictional Usage and Sales Parquet views]
+    M --> E
+    B --> E
+    E --> D[Four bundled fictional Parquet warehouses]
     E --> V[Quality, population and reconciliation validation]
     V --> F[Computed findings, seven component events and exports]
     F --> UI
@@ -36,6 +40,8 @@ flowchart TD
 | `platform.py`, `domains.yaml` | Domain routing, separate authorized contexts, real metadata retrieval and seven component events |
 | `sales_models.py`, `sales_parser.py` | Typed sales periods, metric/filter contracts and bounded question interpretation |
 | `sales_metrics.yaml`, `sales_engine.py`, `sales_skills.py` | Sales source catalog, integer-cent queries and S1/S2 validation/execution |
+| `business_models.py`, `business_parser.py`, `business_metrics.yaml` | Typed Marketing/Finance requests, bounded intent and versioned business meanings |
+| `business_engine.py`, `business_skills.py` | Two fixed source adapters, temporal joins, ratios, integer cents and M1/M2/F1/F2 operations |
 | `platform_ui.py`, `exports.py` | Component inputs/outputs, sales charts and in-memory CSV/Excel/PDF/JSON downloads |
 | `scripts/` | Reproducible generation, independent validation/oracle, diagnostics, evaluation, demos and startup |
 | `tests/fixtures/` | Independent reference answers, never imported by the agent |
@@ -119,9 +125,17 @@ Render forces production mode. Local mode uses the fictional demonstration scope
 Actual identity-provider login is unverified. Scope changes discard retained
 results/conversation; raw OIDC secrets never enter application session state.
 Existing private grants default to usage only; sales requires an explicit domain
-grant. Public mode permits only the two fixed bundled synthetic paths/manifests
+grant. Marketing and Finance also require explicit domain grants. Public mode permits only the four fixed bundled synthetic paths/manifests
 and blocks provider initialization and all non-demo calls. Enterprise databases,
 Teams/Slack/email and cross-domain joins are unconnected or unsupported.
+
+Marketing and Finance share only guarded execution mechanics, not data or metric
+populations. Marketing ratios use canonical impression/click/conversion counters.
+Finance uses booked revenue/expense transactions with integer cents; modeled profit
+and margin exclude tax, financing and FX. Source schemas are retrieved using actual
+DESCRIBE queries. Nonadditive ratios are never summed; zero denominators and
+nonpositive growth baselines are undefined. See FOUR_DOMAIN_GUIDE.md for full
+definitions, examples, scope configuration and independent verification commands.
 
 DuckDB connections are created and closed within each operation, never shared
 between Streamlit threads. The database is in memory, with read-only Parquet

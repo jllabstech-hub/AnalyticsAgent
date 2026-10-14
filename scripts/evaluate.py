@@ -22,12 +22,16 @@ def evaluate():
     e2e_correct = sum(c.find("failure") is None and c.find("error") is None and c.find("skipped") is None for c in e2e)
     sales = [c for c in cases if c.attrib["name"].startswith("test_independent_sales_references[")]
     sales_e2e = [c for c in cases if c.attrib["name"].startswith("test_natural_language_sales_reference_e2e[")]
+    business = [c for c in cases if c.attrib["name"].startswith("test_independent_business_references[")]
+    business_e2e = [c for c in cases if c.attrib["name"].startswith("test_natural_language_business_reference_e2e[")]
     def correct_count(items): return sum(c.find("failure") is None and c.find("error") is None and c.find("skipped") is None for c in items)
     report = {"generated_at_utc":datetime.now(timezone.utc).isoformat(),"total":len(cases),"passed":len(cases)-len(failed)-len(skipped),"failed":len(failed),"skipped":len(skipped),
         "reference_questions":len(references),"correct_reference_questions":correct,"analytical_accuracy_defined_suite":correct/len(references) if references else None,
         "natural_language_e2e_questions":len(e2e),"correct_natural_language_e2e_questions":e2e_correct,
         "sales_reference_questions":len(sales),"correct_sales_reference_questions":correct_count(sales),
         "sales_natural_language_e2e_questions":len(sales_e2e),"correct_sales_natural_language_e2e_questions":correct_count(sales_e2e),
+        "marketing_finance_reference_questions":len(business),"correct_marketing_finance_reference_questions":correct_count(business),
+        "marketing_finance_natural_language_e2e_questions":len(business_e2e),"correct_marketing_finance_natural_language_e2e_questions":correct_count(business_e2e),
         "test_duration_seconds":round(time.perf_counter()-started,3),"limitations":["Synthetic evaluation only; not enterprise production accuracy.","Live LLM inference requires services, credentials and explicit opt-in.","DAU charts are supporting engagement trends for other metrics.","OIDC and server scope guards tested with claims; actual identity-provider login remains unverified."],
         "skipped_reasons":[c.find("skipped").attrib.get("message","") for c in skipped]}
     (output / "evaluation.json").write_text(json.dumps(report,indent=2),encoding="utf-8")

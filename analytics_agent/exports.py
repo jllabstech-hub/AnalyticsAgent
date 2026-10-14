@@ -35,7 +35,9 @@ def excel_report(answer):
     summary.append(["Domain",getattr(answer,"domain","usage")])
     summary.append(["Metric",first.request.metric]); summary.append(["Provider",answer.provider])
     summary.append(["Baseline",first.baseline]); summary.append(["Current",first.current])
-    summary.append(["Absolute change",first.absolute_change]); summary.append(["Relative percent change",first.percentage_change])
+    unit=first.definition.get("unit","usd" if first.request.metric in ("net_sales","avg_order_value") else "count")
+    ratio=unit=="ratio"
+    summary.append(["Absolute change (pp)" if ratio else "Absolute change",first.absolute_change*100 if ratio and first.absolute_change is not None else first.absolute_change]); summary.append(["Relative percent change",first.percentage_change])
     summary.append(["Baseline UTC",f"{first.request.baseline.start} to {first.request.baseline.end} (exclusive)"])
     summary.append(["Current UTC",f"{first.request.current.start} to {first.request.current.end} (exclusive)"])
     summary.append(["Synthetic only","Observed associations do not establish a confirmed cause."])
@@ -61,8 +63,7 @@ def excel_report(answer):
                     cell.data_type="s"
             if sheet is trace: sheet.row_dimensions[row[0].row].height=48
         sheet.auto_filter.ref=sheet.dimensions
-    money=first.request.metric in ("net_sales","avg_order_value")
-    for row in (5,6,7): summary.cell(row,2).number_format='"$"#,##0.00' if money else '#,##0.00'
+    for row in (5,6,7): summary.cell(row,2).number_format='"$"#,##0.00' if unit=="usd" else '0.00%' if ratio and row!=7 else '0.00" pp"' if ratio else '#,##0.00'
     output=io.BytesIO(); workbook.save(output)
     return output.getvalue()
 
@@ -73,6 +74,7 @@ def pdf_report(answer):
     from reportlab.lib.styles import getSampleStyleSheet
     from reportlab.platypus import SimpleDocTemplate,Paragraph,Spacer,Table,TableStyle,PageBreak
     rows=result_rows(answer); first=answer.results[0]; buffer=io.BytesIO()
+    ratio=first.definition.get("unit")=="ratio"
     styles=getSampleStyleSheet(); styles["Normal"].fontSize=9; styles["Normal"].leading=13
     def para(text,style="Normal"):
         ascii_text=str(text).replace("→","->").replace("–","-").replace("·","|")
@@ -92,7 +94,8 @@ def pdf_report(answer):
         values=[]
         for key in selected:
             value=row.get(key)
-            values.append(para("Undefined" if value is None else f"{value:,.2f}" if isinstance(value,(int,float)) and not isinstance(value,bool) else value))
+            display="Undefined" if value is None else f"{value:.2%}" if ratio and key in ("value","baseline","current") else f"{value*100:+.2f} pp" if ratio and key=="change" else f"{value:,.2f}" if isinstance(value,(int,float)) and not isinstance(value,bool) else value
+            values.append(para(display))
         table_data.append(values)
     table=Table(table_data,colWidths=[480/len(selected)]*len(selected),repeatRows=1,hAlign="LEFT")
     table.setStyle(TableStyle([("BACKGROUND",(0,0),(-1,0),colors.HexColor("#E7F3F4")),("VALIGN",(0,0),(-1,-1),"TOP"),
@@ -116,7 +119,7 @@ def pdf_report(answer):
             content=f"Prepared {len(event['queries'])} read-only queries using approved total/trend/breakdown templates. UTC dates and population filters are bound separately; SQL text cannot be supplied by questions or models."
         elif event["stage"]=="Execute & Validate" and event.get("quality"):
             quality=event["quality"]; stats=quality["events"]
-            content=f"Executed {', '.join(event['executed_skills'])}. Integrity {quality['integrity']}; coverage complete: {quality['complete']}; freshness valid: {quality['freshness_valid']}. {stats['raw_rows']:,} scoped rows, {stats['unique_lines']:,} canonical lines, {stats['late_lines']:,} late lines."
+            content=f"Executed {', '.join(event['executed_skills'])}. Integrity {quality['integrity']}; coverage complete: {quality['complete']}; freshness valid: {quality['freshness_valid']}. {stats['raw_rows']:,} scoped rows, {stats['unique_lines']:,} canonical observations, {stats['late_lines']:,} late observations."
         elif event["stage"]=="Results & Insights" and "chart_rows" in event:
             content=f"Produced {event['result_count']} skill result(s) and {event['chart_rows']} chart/table rows from executed values. Follow-ups and CSV, Excel, PDF and complete trace JSON are available."
         if isinstance(content,dict): content=json.dumps(content,ensure_ascii=True,default=str)

@@ -1,0 +1,20 @@
+{
+  "is_synthetic": true,
+  "domain": "finance",
+  "seed": 20260403,
+  "canonical_rows": 30000,
+  "row_counts": {
+    "finance_fact": 30300,
+    "department_dim": 3,
+    "market_dim": 5,
+    "calendar_dim": 183,
+    "data_quality_status": 60
+  },
+  "period_start": "2026-04-01",
+  "period_end_exclusive": "2026-10-01",
+  "relative_period_anchor": "2026-10-01",
+  "timezone": "UTC",
+  "currency": "USD",
+  "grain": "one booked revenue or expense transaction; not a double-entry general ledger",
+  "quality_scenario": "incomplete September 24\u201330 isolated from primary"
+}

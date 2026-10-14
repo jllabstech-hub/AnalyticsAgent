@@ -27,40 +27,47 @@ def downloads(answer):
             st.download_button(label,builder(answer),filename,mime,key="export_"+filename)
 
 
-def sales_panel(answer):
-    st.caption("Domain: Sales Analytics | Provider "+("attempted: " if answer.status=="error" else "used: ")+answer.provider)
+def domain_panel(answer):
+    st.caption("Domain: "+answer.domain.title()+" Analytics | Provider "+("attempted: " if answer.status=="error" else "used: ")+answer.provider)
     if answer.status!="ok":
         (st.info if answer.status=="clarification" else st.warning)(answer.message)
         trace_panel(answer)
         return
-    first=answer.results[0]; money=first.request.metric in ("net_sales","avg_order_value")
-    def fmt(value): return "Undefined" if value is None else f"${value:,.2f}" if money else f"{value:,.0f}"
-    if not first.quality["complete"]: st.warning("Provisional sales results: reporting coverage is incomplete. Partial months are labeled.")
+    first=answer.results[0]
+    unit=first.definition.get("unit","usd" if first.request.metric in ("net_sales","avg_order_value") else "count")
+    money=unit=="usd";ratio=unit=="ratio"
+    def fmt(value): return "Undefined" if value is None else f"${value:,.2f}" if money else f"{value:.2%}" if ratio else f"{value:,.0f}"
+    if not first.quality["complete"]: st.warning("Provisional results: reporting coverage is incomplete. Partial months are labeled.")
     st.subheader(first.request.metric.replace("_"," ").title()+(" · USD" if money else ""))
     st.caption(f"UTC | {first.request.baseline.start} to {first.request.baseline.end} vs {first.request.current.start} to {first.request.current.end} | End dates exclusive")
-    with st.container(horizontal=True,wrap=True,gap="small",key="sales_kpis"):
+    with st.container(horizontal=True,wrap=True,gap="small",key="domain_kpis"):
         st.metric("Baseline",fmt(first.baseline),border=True,width=280)
         st.metric("Current",fmt(first.current),border=True,width=280)
-        st.metric("Absolute change",fmt(first.absolute_change),f"{first.percentage_change:+.2f}% relative" if first.percentage_change is not None else None,border=True,width=280)
+        absolute=f"{first.absolute_change*100:+.2f} pp" if ratio and first.absolute_change is not None else fmt(first.absolute_change)
+        st.metric("Absolute change",absolute,f"{first.percentage_change:+.2f}% relative" if first.percentage_change is not None else None,delta_color="normal" if answer.domain=="sales" else "off",border=True,width=280)
     for result in answer.results:
         if result.trend:
             data=pd.DataFrame(result.trend)
             data["month_in_period"]=data.groupby("period").cumcount()+1
-            chart=px.bar(data,x="month_in_period",y="value",color="period",barmode="group",hover_data=["month","units_sold","orders","coverage_complete"],
+            if ratio:data["value"]=data["value"]*100
+            chart=px.bar(data,x="month_in_period",y="value",color="period",barmode="group",hover_data=[c for c in ("month","units_sold","orders","coverage_complete") if c in data],
                 color_discrete_map={"baseline":"#183B56","current":"#18A5A2"},title="Monthly comparison · Hover for actual calendar month")
-            chart.update_layout(height=300,xaxis_title="Month within comparison period",yaxis_title="USD" if money else "Value",margin=dict(l=0,r=0,t=45,b=0))
-            st.plotly_chart(chart,width="stretch",key="sales_trend")
+            chart.update_layout(height=300,xaxis_title="Month within comparison period",yaxis_title="USD" if money else "Percent" if ratio else "Value",margin=dict(l=0,r=0,t=45,b=0))
+            st.plotly_chart(chart,width="stretch",key="domain_trend")
             st.dataframe(data.drop(columns="month_in_period"),hide_index=True,width="stretch")
         if result.records:
             data=pd.DataFrame(result.records)
-            chart=px.bar(data,x="group",y="change",color="change",color_continuous_scale=["#183B56","#18A5A2"],title="Observed sales group changes")
-            chart.update_layout(height=280,coloraxis_showscale=False,xaxis_title="Group",yaxis_title="USD change" if money else "Change")
-            st.plotly_chart(chart,width="stretch",key="sales_contribution")
+            if ratio:
+                for column in ("baseline","current","change"):data[column]=data[column]*100
+            chart=px.bar(data,x="group",y="change",color="change",color_continuous_scale=["#183B56","#18A5A2"],title="Observed domain group changes")
+            chart.update_layout(height=280,coloraxis_showscale=False,xaxis_title="Group",yaxis_title="USD change" if money else "Percentage points" if ratio else "Change")
+            st.plotly_chart(chart,width="stretch",key="domain_contribution")
             st.dataframe(data,hide_index=True,width="stretch")
             st.caption("Group changes reconcile to the total." if result.reconciliation.get("reconciled") else "Overlapping populations or ratios: group deltas cannot be summed.")
+            if ratio:st.caption("Baseline/current are percentages; change uses percentage points. Totals use summed numerators and denominators.")
     st.subheader("Analytical findings")
     for finding in answer.findings: st.write(finding)
-    with st.expander("Sales definitions, sources and quality"):
+    with st.expander(answer.domain.title()+" definitions, sources and quality"):
         st.json(answer.knowledge)
         st.json(first.quality)
         for warning in first.warnings: st.warning(warning)
@@ -72,3 +79,6 @@ def sales_panel(answer):
         st.caption("Parameters are bound separately. Questions and models cannot supply SQL.")
     downloads(answer)
     trace_panel(answer)
+
+
+sales_panel=domain_panel

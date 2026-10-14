@@ -68,3 +68,16 @@ The primary example returns net sales of USD 1,748,539.73 in Q2 and USD 3,218,01
 ## Final two-domain hosted evidence
 
 Runtime source 94bbe25 is Live on Free Render. Five Sales workflows pass after a real service restart at 16:21 Asia/Calcutta; all totals, monthly chart values and group values match independent pandas calculations. Seven component events complete on every workflow. The preserved Usage comparison also returns 66025 / 65292 / -733, with seven completed components (36.946s). The Sales example takes 3.704s; the other Sales cases range from 3.552s to 4.855s. CSV/Excel/PDF/JSON downloads and Sales Explorer are actually verified. Long currency cards were corrected and visually checked; phone width and viewport restoration are recorded. Full corrected-source tests pass on Windows (306/0/2, 222.71s) and Linux CI (306/0/2, 127.30s), including scans and startup/restart. Final local startup smoke passes twice. Reports/platform_hosted_verification.json and its six downloaded traces contain actual evidence. Earlier pending statements describe intermediate gates and are superseded by this section. Public mode uses no LLM; this does not establish real enterprise integrations, live Sales provider behavior or sustained hosted capacity.
+
+
+## 2026-10-14T11:54:50.189856+00:00 - Four-domain local acceptance
+
+Full exact-source Windows suite: 459 passed, zero failed, two opt-in live-provider
+skips of 461 (263.38s pytest; 264.661s evaluator). Usage references 30/30 and human
+questions 30/30; Sales 40/40 and 40/40; Marketing/Finance 55/55 and 55/55. Twenty
+documented workflows execute with 140 completed component events under the
+320MB/100-row budget. Actual four-domain UI/export peak is 423.57 MiB. Final
+startup/restart smoke is 200/ok twice (1.379s, 1.155s). New-domain malformed sources,
+unauthorized scopes, SQL/binding tampering, zero denominators, incomplete periods,
+provider arguments and context switching are tested. Linux CI and actual four-domain
+hosted acceptance follow; prior hosted evidence above belongs to the two-domain release.

@@ -8,6 +8,8 @@ Market = Literal["Market A", "Market B", "Market C", "Market D", "Market E"]
 Service = Literal["Service Alpha", "Service Beta", "Service Gamma"]
 Device = Literal["Orion One", "Orion Plus", "Nova Mini", "Nova Fold"]
 Dimension = Literal["market", "device_model", "service"]
+Domain = Literal["usage", "sales", "marketing", "finance"]
+ALL_DOMAINS = ("usage", "sales", "marketing", "finance")
 
 
 class Contract(BaseModel):
@@ -36,8 +38,8 @@ class AnalyticsRequest(Contract):
 
 
 class AccessScope(Contract):
-    # Existing private grants stay usage-only until sales is explicitly approved.
-    domains: tuple[Literal["usage", "sales"], ...] = ("usage",)
+    # Existing private grants stay usage-only until additional domains are approved.
+    domains: tuple[Domain, ...] = ("usage",)
     markets: tuple[Market, ...] = ("Market A", "Market B", "Market C", "Market D", "Market E")
     services: tuple[Service, ...] = ("Service Alpha", "Service Beta", "Service Gamma")
     skills: tuple[Literal["K1", "K2", "K3"], ...] = ("K1", "K2", "K3")

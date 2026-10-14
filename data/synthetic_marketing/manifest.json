@@ -1,0 +1,20 @@
+{
+  "is_synthetic": true,
+  "domain": "marketing",
+  "seed": 20260402,
+  "canonical_rows": 60000,
+  "row_counts": {
+    "marketing_fact": 60600,
+    "campaign_dim": 4,
+    "market_dim": 5,
+    "calendar_dim": 183,
+    "data_quality_status": 60
+  },
+  "period_start": "2026-04-01",
+  "period_end_exclusive": "2026-10-01",
+  "relative_period_anchor": "2026-10-01",
+  "timezone": "UTC",
+  "currency": "USD",
+  "grain": "one impression observation",
+  "quality_scenario": "incomplete September 24\u201330 isolated from primary"
+}

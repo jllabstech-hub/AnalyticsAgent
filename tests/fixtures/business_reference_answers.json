@@ -1,0 +1,541 @@
+[
+  {
+    "id": "marketing-impressions-0",
+    "domain": "marketing",
+    "metric": "impressions",
+    "filters": {},
+    "baseline": 29696,
+    "current": 30304
+  },
+  {
+    "id": "marketing-impressions-1",
+    "domain": "marketing",
+    "metric": "impressions",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 5866,
+    "current": 5994
+  },
+  {
+    "id": "marketing-impressions-2",
+    "domain": "marketing",
+    "metric": "impressions",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 5925,
+    "current": 5957
+  },
+  {
+    "id": "marketing-impressions-3",
+    "domain": "marketing",
+    "metric": "impressions",
+    "filters": {
+      "entity": "Campaign Aurora"
+    },
+    "baseline": 7361,
+    "current": 7519
+  },
+  {
+    "id": "marketing-impressions-4",
+    "domain": "marketing",
+    "metric": "impressions",
+    "filters": {
+      "market": "Market C",
+      "channel": "Channel Email"
+    },
+    "baseline": 2060,
+    "current": 2035
+  },
+  {
+    "id": "marketing-clicks-0",
+    "domain": "marketing",
+    "metric": "clicks",
+    "filters": {},
+    "baseline": 4189,
+    "current": 4367
+  },
+  {
+    "id": "marketing-clicks-1",
+    "domain": "marketing",
+    "metric": "clicks",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 826,
+    "current": 789
+  },
+  {
+    "id": "marketing-clicks-2",
+    "domain": "marketing",
+    "metric": "clicks",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 841,
+    "current": 1263
+  },
+  {
+    "id": "marketing-clicks-3",
+    "domain": "marketing",
+    "metric": "clicks",
+    "filters": {
+      "entity": "Campaign Aurora"
+    },
+    "baseline": 1043,
+    "current": 807
+  },
+  {
+    "id": "marketing-clicks-4",
+    "domain": "marketing",
+    "metric": "clicks",
+    "filters": {
+      "market": "Market C",
+      "channel": "Channel Email"
+    },
+    "baseline": 308,
+    "current": 245
+  },
+  {
+    "id": "marketing-conversions-0",
+    "domain": "marketing",
+    "metric": "conversions",
+    "filters": {},
+    "baseline": 787,
+    "current": 820
+  },
+  {
+    "id": "marketing-conversions-1",
+    "domain": "marketing",
+    "metric": "conversions",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 142,
+    "current": 148
+  },
+  {
+    "id": "marketing-conversions-2",
+    "domain": "marketing",
+    "metric": "conversions",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 164,
+    "current": 248
+  },
+  {
+    "id": "marketing-conversions-3",
+    "domain": "marketing",
+    "metric": "conversions",
+    "filters": {
+      "entity": "Campaign Aurora"
+    },
+    "baseline": 201,
+    "current": 156
+  },
+  {
+    "id": "marketing-conversions-4",
+    "domain": "marketing",
+    "metric": "conversions",
+    "filters": {
+      "market": "Market C",
+      "channel": "Channel Email"
+    },
+    "baseline": 43,
+    "current": 52
+  },
+  {
+    "id": "marketing-marketing_spend-0",
+    "domain": "marketing",
+    "metric": "marketing_spend",
+    "filters": {},
+    "baseline": 5928.06,
+    "current": 6080.58
+  },
+  {
+    "id": "marketing-marketing_spend-1",
+    "domain": "marketing",
+    "metric": "marketing_spend",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 1167.95,
+    "current": 1211.24
+  },
+  {
+    "id": "marketing-marketing_spend-2",
+    "domain": "marketing",
+    "metric": "marketing_spend",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 1182.26,
+    "current": 1193.68
+  },
+  {
+    "id": "marketing-marketing_spend-3",
+    "domain": "marketing",
+    "metric": "marketing_spend",
+    "filters": {
+      "entity": "Campaign Aurora"
+    },
+    "baseline": 1464.65,
+    "current": 1497.17
+  },
+  {
+    "id": "marketing-marketing_spend-4",
+    "domain": "marketing",
+    "metric": "marketing_spend",
+    "filters": {
+      "market": "Market C",
+      "channel": "Channel Email"
+    },
+    "baseline": 410.83,
+    "current": 406.2
+  },
+  {
+    "id": "marketing-click_through_rate-0",
+    "domain": "marketing",
+    "metric": "click_through_rate",
+    "filters": {},
+    "baseline": 0.1410627693965517,
+    "current": 0.14410638859556493
+  },
+  {
+    "id": "marketing-click_through_rate-1",
+    "domain": "marketing",
+    "metric": "click_through_rate",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 0.14081145584725538,
+    "current": 0.13163163163163163
+  },
+  {
+    "id": "marketing-click_through_rate-2",
+    "domain": "marketing",
+    "metric": "click_through_rate",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 0.1419409282700422,
+    "current": 0.2120194728890381
+  },
+  {
+    "id": "marketing-click_through_rate-3",
+    "domain": "marketing",
+    "metric": "click_through_rate",
+    "filters": {
+      "entity": "Campaign Aurora"
+    },
+    "baseline": 0.14169270479554408,
+    "current": 0.1073281021412422
+  },
+  {
+    "id": "marketing-click_through_rate-4",
+    "domain": "marketing",
+    "metric": "click_through_rate",
+    "filters": {
+      "market": "Market C",
+      "channel": "Channel Email"
+    },
+    "baseline": 0.14951456310679612,
+    "current": 0.12039312039312039
+  },
+  {
+    "id": "marketing-conversion_rate-0",
+    "domain": "marketing",
+    "metric": "conversion_rate",
+    "filters": {},
+    "baseline": 0.18787300071616136,
+    "current": 0.1877719258071903
+  },
+  {
+    "id": "marketing-conversion_rate-1",
+    "domain": "marketing",
+    "metric": "conversion_rate",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 0.17191283292978207,
+    "current": 0.18757921419518378
+  },
+  {
+    "id": "marketing-conversion_rate-2",
+    "domain": "marketing",
+    "metric": "conversion_rate",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 0.19500594530321047,
+    "current": 0.19635787806809185
+  },
+  {
+    "id": "marketing-conversion_rate-3",
+    "domain": "marketing",
+    "metric": "conversion_rate",
+    "filters": {
+      "entity": "Campaign Aurora"
+    },
+    "baseline": 0.19271332694151486,
+    "current": 0.19330855018587362
+  },
+  {
+    "id": "marketing-conversion_rate-4",
+    "domain": "marketing",
+    "metric": "conversion_rate",
+    "filters": {
+      "market": "Market C",
+      "channel": "Channel Email"
+    },
+    "baseline": 0.1396103896103896,
+    "current": 0.21224489795918366
+  },
+  {
+    "id": "marketing-cost_per_click-0",
+    "domain": "marketing",
+    "metric": "cost_per_click",
+    "filters": {},
+    "baseline": 1.4151492002864647,
+    "current": 1.3923929471032745
+  },
+  {
+    "id": "marketing-cost_per_click-1",
+    "domain": "marketing",
+    "metric": "cost_per_click",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 1.4139830508474578,
+    "current": 1.5351584283903676
+  },
+  {
+    "id": "marketing-cost_per_click-2",
+    "domain": "marketing",
+    "metric": "cost_per_click",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 1.4057788347205706,
+    "current": 0.9451148060174189
+  },
+  {
+    "id": "marketing-cost_per_click-3",
+    "domain": "marketing",
+    "metric": "cost_per_click",
+    "filters": {
+      "entity": "Campaign Aurora"
+    },
+    "baseline": 1.4042665388302973,
+    "current": 1.8552292441140026
+  },
+  {
+    "id": "marketing-cost_per_click-4",
+    "domain": "marketing",
+    "metric": "cost_per_click",
+    "filters": {
+      "market": "Market C",
+      "channel": "Channel Email"
+    },
+    "baseline": 1.3338636363636363,
+    "current": 1.6579591836734693
+  },
+  {
+    "id": "finance-finance_revenue-0",
+    "domain": "finance",
+    "metric": "finance_revenue",
+    "filters": {},
+    "baseline": 9739994.03,
+    "current": 9865218.64
+  },
+  {
+    "id": "finance-finance_revenue-1",
+    "domain": "finance",
+    "metric": "finance_revenue",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 1955666.56,
+    "current": 1969105.26
+  },
+  {
+    "id": "finance-finance_revenue-2",
+    "domain": "finance",
+    "metric": "finance_revenue",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 1939413.52,
+    "current": 1976334.23
+  },
+  {
+    "id": "finance-finance_revenue-3",
+    "domain": "finance",
+    "metric": "finance_revenue",
+    "filters": {
+      "entity": "Department Boreal"
+    },
+    "baseline": 3287216.08,
+    "current": 3309349.86
+  },
+  {
+    "id": "finance-finance_revenue-4",
+    "domain": "finance",
+    "metric": "finance_revenue",
+    "filters": {
+      "market": "Market C",
+      "category": "Operating Expense"
+    },
+    "baseline": 0.0,
+    "current": 0.0
+  },
+  {
+    "id": "finance-expenses-0",
+    "domain": "finance",
+    "metric": "expenses",
+    "filters": {},
+    "baseline": 5736915.49,
+    "current": 6969131.37
+  },
+  {
+    "id": "finance-expenses-1",
+    "domain": "finance",
+    "metric": "expenses",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 1190426.56,
+    "current": 1368657.01
+  },
+  {
+    "id": "finance-expenses-2",
+    "domain": "finance",
+    "metric": "expenses",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 1165829.66,
+    "current": 1361604.24
+  },
+  {
+    "id": "finance-expenses-3",
+    "domain": "finance",
+    "metric": "expenses",
+    "filters": {
+      "entity": "Department Boreal"
+    },
+    "baseline": 1913745.17,
+    "current": 3007630.1
+  },
+  {
+    "id": "finance-expenses-4",
+    "domain": "finance",
+    "metric": "expenses",
+    "filters": {
+      "market": "Market C",
+      "category": "Operating Expense"
+    },
+    "baseline": 468025.55,
+    "current": 557503.08
+  },
+  {
+    "id": "finance-profit-0",
+    "domain": "finance",
+    "metric": "profit",
+    "filters": {},
+    "baseline": 4003078.54,
+    "current": 2896087.27
+  },
+  {
+    "id": "finance-profit-1",
+    "domain": "finance",
+    "metric": "profit",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 765240.0,
+    "current": 600448.25
+  },
+  {
+    "id": "finance-profit-2",
+    "domain": "finance",
+    "metric": "profit",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 773583.86,
+    "current": 614729.99
+  },
+  {
+    "id": "finance-profit-3",
+    "domain": "finance",
+    "metric": "profit",
+    "filters": {
+      "entity": "Department Boreal"
+    },
+    "baseline": 1373470.91,
+    "current": 301719.76
+  },
+  {
+    "id": "finance-profit-4",
+    "domain": "finance",
+    "metric": "profit",
+    "filters": {
+      "market": "Market C",
+      "category": "Operating Expense"
+    },
+    "baseline": -468025.55,
+    "current": -557503.08
+  },
+  {
+    "id": "finance-profit_margin-0",
+    "domain": "finance",
+    "metric": "profit_margin",
+    "filters": {},
+    "baseline": 0.4109939418515229,
+    "current": 0.29356544195152273
+  },
+  {
+    "id": "finance-profit_margin-1",
+    "domain": "finance",
+    "metric": "profit_margin",
+    "filters": {
+      "market": "Market A"
+    },
+    "baseline": 0.39129369783773366,
+    "current": 0.3049345620050804
+  },
+  {
+    "id": "finance-profit_margin-2",
+    "domain": "finance",
+    "metric": "profit_margin",
+    "filters": {
+      "market": "Market B"
+    },
+    "baseline": 0.39887515066926005,
+    "current": 0.3110455613573014
+  },
+  {
+    "id": "finance-profit_margin-3",
+    "domain": "finance",
+    "metric": "profit_margin",
+    "filters": {
+      "entity": "Department Boreal"
+    },
+    "baseline": 0.41782191269884517,
+    "current": 0.09117191374864185
+  },
+  {
+    "id": "finance-profit_margin-4",
+    "domain": "finance",
+    "metric": "profit_margin",
+    "filters": {
+      "market": "Market C",
+      "category": "Operating Expense"
+    },
+    "baseline": null,
+    "current": null
+  }
+]

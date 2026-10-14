@@ -1,6 +1,7 @@
-version: '1.0'
+version: '1.1'
 domains:
   usage:
+    version: '1.0'
     skill_id: usage_analytics
     name: Account and Service Usage
     operations: [K1, K2, K3]
@@ -8,11 +9,28 @@ domains:
     source: synthetic_usage
     date_range: July–September 2026 UTC
   sales:
+    version: '1.0'
     skill_id: sales_analytics
     name: Sales Analytics
     operations: [S1, S2]
     metrics: [net_sales, units_sold, orders, avg_order_value]
     source: synthetic_sales
+    date_range: April–September 2026 UTC
+  marketing:
+    version: '1.0'
+    skill_id: marketing_analytics
+    name: Marketing Analytics
+    operations: [M1, M2]
+    metrics: [impressions, clicks, conversions, marketing_spend, click_through_rate, conversion_rate, cost_per_click]
+    source: synthetic_marketing
+    date_range: April–September 2026 UTC
+  finance:
+    version: '1.0'
+    skill_id: finance_analytics
+    name: Finance Analytics
+    operations: [F1, F2]
+    metrics: [finance_revenue, expenses, profit, profit_margin]
+    source: synthetic_finance
     date_range: April–September 2026 UTC
 sales_catalog:
   logical_database: synthetic_sales

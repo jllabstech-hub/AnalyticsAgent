@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "domain": "finance",
+  "row_counts": {
+    "finance_fact": 30300,
+    "department_dim": 3,
+    "market_dim": 5,
+    "calendar_dim": 183,
+    "data_quality_status": 60
+  },
+  "canonical_rows": 30000,
+  "duplicate_rows": 300,
+  "late_canonical_rows": 1465,
+  "market_distribution": {
+    "Market A": 5998,
+    "Market B": 5966,
+    "Market C": 6010,
+    "Market D": 5992,
+    "Market E": 6034
+  },
+  "monthly_rows": {
+    "2026-04": 4786,
+    "2026-05": 5181,
+    "2026-06": 4903,
+    "2026-07": 5053,
+    "2026-08": 5101,
+    "2026-09": 4976
+  },
+  "join_cardinality": "pass",
+  "primary_Q2_Q3_complete": true,
+  "quality_scenario": "separate incomplete September partition"
+}

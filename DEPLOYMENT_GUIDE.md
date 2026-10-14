@@ -153,3 +153,20 @@ comparison. Linux/cloud hosting remains unverified until that happens.
 References: [Render port binding](https://render.com/docs/web-services),
 [Python versions](https://render.com/docs/python-version),
 [compute plans](https://render.com/docs/compute-plans).
+
+
+## Four registered domains
+
+Bundle data/synthetic, data/synthetic_sales, data/synthetic_marketing and
+data/synthetic_finance. The new Marketing and Finance bundles add less than
+8 MiB combined, including separate incomplete scenarios. Generators run locally;
+Render loads bundled read-only Parquet. No new service, dependency, disk or paid
+plan is required. All four adapters share one warehouse execution slot, a 320MB
+DuckDB budget and 100-row limits. The actual local four-domain UI/export peak
+is 423.57 MiB; hosted memory telemetry and sustained load remain unverified.
+
+PUBLIC_DEMO_ENABLED=true permits only these four fixed synthetic paths and
+blocks providers. Private principals need explicit marketing/finance domain
+grants; existing grants still default Usage-only. Keep real credentials off the
+public demo. FOUR_DOMAIN_GUIDE.md documents all metrics, supported questions,
+source populations and regeneration/testing commands.

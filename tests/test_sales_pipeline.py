@@ -185,4 +185,4 @@ def test_public_sales_blocks_providers_and_uses_registered_synthetic_source(engi
     assert agent.run(SALES_DEMOS[0],mode="openai",manager=manager).status=="error"
     manager.chat.assert_not_called()
     assert agent.run(SALES_DEMOS[0],mode="demo").status=="ok"
-    assert set(domain_registry())=={"usage","sales"}
+    assert {"usage","sales"}.issubset(domain_registry())

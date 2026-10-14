@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-10-14T10:42:12.319635+00:00",
-  "total": 308,
-  "passed": 306,
+  "generated_at_utc": "2026-10-14T11:49:11.829425+00:00",
+  "total": 461,
+  "passed": 459,
   "failed": 0,
   "skipped": 2,
   "reference_questions": 30,
@@ -13,7 +13,11 @@
   "correct_sales_reference_questions": 40,
   "sales_natural_language_e2e_questions": 40,
   "correct_sales_natural_language_e2e_questions": 40,
-  "test_duration_seconds": 223.918,
+  "marketing_finance_reference_questions": 55,
+  "correct_marketing_finance_reference_questions": 55,
+  "marketing_finance_natural_language_e2e_questions": 55,
+  "correct_marketing_finance_natural_language_e2e_questions": 55,
+  "test_duration_seconds": 264.661,
   "limitations": [
     "Synthetic evaluation only; not enterprise production accuracy.",
     "Live LLM inference requires services, credentials and explicit opt-in.",

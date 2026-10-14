@@ -9,13 +9,18 @@ from analytics_agent.config import PROJECT_ROOT, load_settings
 from analytics_agent.engine import Engine, TABLES
 from analytics_agent.providers import ProviderError, manager_from_settings
 from analytics_agent.skills import SkillRegistry
-from analytics_agent.models import AccessScope
+from analytics_agent.models import AccessScope,ALL_DOMAINS
 from analytics_agent.access import scope_for_claims, valid_auth_configuration
 from analytics_agent.platform import PlatformAgent,PlatformContext,domain_registry
 from analytics_agent.sales_engine import SalesEngine,SALES_TABLES
 from analytics_agent.sales_parser import SALES_DEMOS
 from analytics_agent.sales_skills import SalesSkills
+from analytics_agent.business_engine import BusinessEngine
+from analytics_agent.business_skills import BusinessSkills
+from analytics_agent.business_parser import BUSINESS_DEMOS
 from analytics_agent.platform_ui import sales_panel,trace_panel,downloads
+
+DEMO_QUESTIONS={"usage":DEMOS,"sales":SALES_DEMOS,**BUSINESS_DEMOS}
 
 
 def current_scope(settings):
@@ -24,8 +29,8 @@ def current_scope(settings):
             for key in ("last_answer", "context", "messages", "connection_status", "last_fallback_reason", "suggested_domain", "explorer_domain"):
                 st.session_state.pop(key, None)
             st.session_state.access_fingerprint = "public_synthetic_demo"
-        return AccessScope(domains=("usage","sales"))
-    if settings.app_env != "production": return AccessScope(domains=("usage","sales"))
+        return AccessScope(domains=ALL_DOMAINS)
+    if settings.app_env != "production": return AccessScope(domains=ALL_DOMAINS)
     try:
         auth = st.secrets["auth"].to_dict()
         access = st.secrets["access"].to_dict()
@@ -63,8 +68,14 @@ def sales_engine(result_limit):
     return SalesEngine(result_limit=result_limit,memory=os.getenv("DUCKDB_MEMORY_LIMIT","320MB"))
 
 
+@st.cache_resource
+def business_engine(domain,result_limit):
+    import os
+    return BusinessEngine(domain,result_limit=result_limit,memory=os.getenv("DUCKDB_MEMORY_LIMIT","320MB"))
+
+
 def results_panel(answer):
-    if getattr(answer,"domain",None)=="sales":
+    if getattr(answer,"domain",None) in ("sales","marketing","finance"):
         sales_panel(answer)
         return
     st.caption(f"Provider {'attempted' if answer.status == 'error' else 'used'}: {answer.provider}" + (f" · Model: {answer.model}" if answer.model else ""))
@@ -183,12 +194,14 @@ def workspace(settings, engine, scope=AccessScope()):
         st.subheader("Analytics assistant")
         for message in st.session_state.messages[-12:]:
             with st.chat_message(message["role"]): st.write(message["content"])
-        question = st.chat_input("Ask about fictional account usage or sales", key="question")
+        question = st.chat_input("Ask about fictional usage, sales, marketing or finance", key="question")
         available=list(scope.domains)
         st.selectbox("Suggested domain",available,format_func=lambda name:domain_registry()[name].name,
             key="suggested_domain",on_change=switch_suggested_domain)
         with st.expander("Suggested questions", expanded=not st.session_state.messages):
-            for index, demo in enumerate(SALES_DEMOS if st.session_state.suggested_domain=="sales" else DEMOS):
+            domain=st.session_state.suggested_domain
+            demos=DEMO_QUESTIONS[domain]
+            for index, demo in enumerate(demos):
                 if st.button(demo, key=f"demo_{index}", width="stretch"): question = demo
         previous = st.session_state.get("last_answer")
         if previous and previous.status == "ok":
@@ -201,7 +214,8 @@ def workspace(settings, engine, scope=AccessScope()):
             try:
                 manager = None if mode == "demo" else manager_from_settings(settings, mode, st.session_state.ollama_model, st.session_state.openai_model, st.session_state.automatic_fallback)
                 with st.status("Understanding → Skill Selection → Query Execution → Validation → Findings", expanded=True) as status:
-                    answer = PlatformAgent(SkillRegistry(engine),lambda:SalesSkills(sales_engine(settings.result_limit)),settings,scope).run(question, st.session_state.context, mode, manager)
+                    factories={domain:lambda domain=domain:BusinessSkills(domain,business_engine(domain,settings.result_limit)) for domain in BUSINESS_DEMOS}
+                    answer = PlatformAgent(SkillRegistry(engine),lambda:SalesSkills(sales_engine(settings.result_limit)),settings,scope,business_skills=factories).run(question, st.session_state.context, mode, manager)
                     for step in answer.trace: st.write(f"{step['stage']} · {step.get('skill','')} · {step['status']}")
                     status.update(label="Analysis complete" if answer.status == "ok" else "Analysis needs attention", state="complete" if answer.status == "ok" else "error", expanded=False)
                 st.session_state.last_answer, st.session_state.context = answer, answer.context
@@ -227,10 +241,10 @@ def main():
         st.error("Server configuration is invalid. Check provider selection and finite, positive execution limits.")
         st.stop()
     st.set_page_config(page_title=settings.app_title, page_icon="📊", layout="wide")
-    st.markdown("<style>h1{font-size:1.9rem!important}h2{font-size:1.3rem!important}h3{font-size:1.05rem!important}.block-container{padding-top:1.7rem}.stMetric{border:1px solid #e6ebef;border-radius:8px;padding:12px}.st-key-sales_kpis [data-testid='stMetricValue']{font-size:1.6rem!important;white-space:normal;overflow:visible;text-overflow:clip}.st-key-sales_kpis [data-testid='stMetricValue'] p{white-space:normal;overflow-wrap:anywhere;overflow:visible;text-overflow:clip}</style>", unsafe_allow_html=True)
+    st.markdown("<style>h1{font-size:1.9rem!important}h2{font-size:1.3rem!important}h3{font-size:1.05rem!important}.block-container{padding-top:1.7rem}.stMetric{border:1px solid #e6ebef;border-radius:8px;padding:12px}.st-key-domain_kpis [data-testid='stMetricValue']{font-size:1.6rem!important;white-space:normal;overflow:visible;text-overflow:clip}.st-key-domain_kpis [data-testid='stMetricValue'] p{white-space:normal;overflow-wrap:anywhere;overflow:visible;text-overflow:clip}</style>", unsafe_allow_html=True)
     st.caption("BDC / ANALYTICS WORKSPACE")
     st.title(settings.app_title)
-    st.caption("Synthetic data only · Usage: July–September 2026 · Sales: April–September 2026 · UTC")
+    st.caption("Synthetic data only · Four domains · Usage: July–September 2026 · Sales, Marketing and Finance: April–September 2026 · UTC")
     scope = current_scope(settings)
     defaults = {"selected_provider":settings.llm_provider,"ollama_model":settings.ollama_model,
         "openai_model":settings.openai_model,"automatic_fallback":settings.fallback_to_ollama,
@@ -278,15 +292,15 @@ def main():
     elif page == "Data Explorer":
         st.subheader("Data Explorer · Synthetic data")
         source=st.selectbox("Data domain",list(scope.domains),key="explorer_domain")
-        selected_engine=sales_engine(settings.result_limit) if source=="sales" else engine
-        if source=="sales" and settings.public_demo_enabled:
+        selected_engine=sales_engine(settings.result_limit) if source=="sales" else business_engine(source,settings.result_limit) if source in BUSINESS_DEMOS else engine
+        if source!="usage" and settings.public_demo_enabled:
             try:
                 marker=json.loads((selected_engine.data_dir/"manifest.json").read_text(encoding="utf-8"))
-                if selected_engine.data_dir!=(PROJECT_ROOT/"data"/"synthetic_sales").resolve() or marker.get("is_synthetic") is not True: raise ValueError()
+                if selected_engine.data_dir!=(PROJECT_ROOT/"data"/f"synthetic_{source}").resolve() or marker.get("is_synthetic") is not True or marker.get("domain")!=source: raise ValueError()
             except (OSError,ValueError):
-                st.error("Public sales data validation failed.")
+                st.error("Public domain data validation failed.")
                 return
-        table = st.selectbox("Dataset", list(SALES_TABLES if source=="sales" else TABLES))
+        table = st.selectbox("Dataset", list(SALES_TABLES if source=="sales" else selected_engine.tables if source in BUSINESS_DEMOS else TABLES))
         try: schema, count, sample = selected_engine.explore(table,scope)
         except (PermissionError,TimeoutError,FileNotFoundError):
             st.warning("Data Explorer is unavailable for this account or warehouse state. Use scoped analytics or retry later.")
@@ -294,12 +308,12 @@ def main():
         st.metric("Dataset rows", f"{count:,}")
         st.dataframe(pd.DataFrame(schema, columns=["column","type","nullable","key","default","extra"]), hide_index=True)
         st.dataframe(sample, hide_index=True, width="stretch")
-        st.caption("Read-only samples. All account, user and device identifiers are fictional.")
+        st.caption("Read-only samples. All accounts, users, devices, products, campaigns and departments are fictional.")
     else:
         st.subheader("Evaluation Dashboard")
         report_path = PROJECT_ROOT / "reports" / "evaluation.json"
         if report_path.is_file(): st.json(json.loads(report_path.read_text(encoding="utf-8")))
         else: st.info("The evaluation report has not been generated yet.")
-        st.write("Supported skills: " + ", ".join(list(SkillRegistry.names.values())+list(SalesSkills.names.values())))
+        st.write("Supported skills: " + ", ".join(list(SkillRegistry.names.values())+list(SalesSkills.names.values())+list(BusinessSkills.names.values())))
         st.json({key:value.model_dump() for key,value in domain_registry().items()})
         st.caption("Synthetic evaluation does not establish enterprise production accuracy. Live provider tests are tracked separately.")

@@ -1,0 +1,46 @@
+{
+  "checked_at_utc": "2026-10-14T11:45:07.828689+00:00",
+  "status": "pass",
+  "duckdb_memory_limit": "320MB",
+  "result_limit": 100,
+  "results": [
+    {
+      "domain": "usage",
+      "status": "ok",
+      "elapsed_ms": 5231.498,
+      "baseline": 66025.0,
+      "current": 65292.0,
+      "executed_component_count": 7,
+      "export_buttons": 4
+    },
+    {
+      "domain": "sales",
+      "status": "ok",
+      "elapsed_ms": 559.986,
+      "baseline": 1748539.73,
+      "current": 3218017.11,
+      "executed_component_count": 7,
+      "export_buttons": 4
+    },
+    {
+      "domain": "marketing",
+      "status": "ok",
+      "elapsed_ms": 626.94,
+      "baseline": 0.1410627693965517,
+      "current": 0.14410638859556493,
+      "executed_component_count": 7,
+      "export_buttons": 4
+    },
+    {
+      "domain": "finance",
+      "status": "ok",
+      "elapsed_ms": 463.575,
+      "baseline": 4003078.54,
+      "current": 2896087.27,
+      "executed_component_count": 7,
+      "export_buttons": 4
+    }
+  ],
+  "peak_process_memory_mib": 423.57,
+  "limitation": "Single-process Windows Streamlit AppTest, with generated downloads. Not hosted memory telemetry or sustained load certification."
+}
