@@ -1,0 +1,39 @@
+{
+  "checked_at_utc": "2026-10-14T13:55:11.609740+00:00",
+  "status": "pass",
+  "local_url": "http://localhost:8502/",
+  "command": ".\\.venv\\Scripts\\python.exe -m scripts.run_local --demo",
+  "mode": "synthetic deterministic; no LLM calls",
+  "prior_ipv4_health": "200 / ok",
+  "prior_ipv6_health": "connection refused",
+  "after_restart": [
+    {
+      "host": "localhost",
+      "http_status": 200,
+      "health": "ok",
+      "websocket_upgrade": "pass"
+    },
+    {
+      "host": "127.0.0.1",
+      "http_status": 200,
+      "health": "ok",
+      "websocket_upgrade": "pass"
+    },
+    {
+      "host": "[::1]",
+      "http_status": 200,
+      "health": "ok",
+      "websocket_upgrade": "pass"
+    }
+  ],
+  "listeners": "127.0.0.1 and ::1 only; single server process",
+  "invalid_port_rejections_checked": 2,
+  "owner_browser_confirmation": "The app opens now",
+  "browser_automation": "blocked by browser URL policy; no workaround attempted",
+  "cors_xsrf_protection": "retained",
+  "render_configuration_changed": false,
+  "limitations": [
+    "Transport/startup fix; full analytical suite was not rerun for this local-only launcher.",
+    "Actual owner browser access confirmed; automated screenshot inspection remains blocked."
+  ]
+}

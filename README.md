@@ -17,7 +17,7 @@ See `PIPELINE_COMPONENT_TRACE.md` for the executed architecture mapping.
 
 Repository: https://github.com/jllabstech-hub/AnalyticsAgent
 
-Open http://localhost:8501 after startup. Explicitly enable **Deterministic demo
+Open http://localhost:8502 after startup. Explicitly enable **Deterministic demo
 mode** in the sidebar to use the complete prototype without any LLM or API key.
 Ollama remains the default; cloud processing requires explicit Settings selection.
 
@@ -52,8 +52,20 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m pip check
 if (-not (Test-Path .env)) { Copy-Item .env.example .env }
-.\.venv\Scripts\python.exe -m streamlit run app.py
+.\.venv\Scripts\python.exe -m scripts.run_local
 ```
+
+The local runner serves the same application on both IPv4 and IPv6 localhost,
+using port 8502 by default. This avoids connection refusal when a browser resolves
+localhost to `::1`. It listens only on this computer. To lock the local workspace
+to synthetic analytics without any LLM calls, add `--demo`:
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.run_local --demo
+```
+
+Use `--port 8503` if the default port is already occupied. Render continues to use
+the Streamlit start command in render.yaml with its assigned `$PORT`.
 
 The generated Parquet files are bundled already. To reproduce them and the
 independent test fixtures:

@@ -75,6 +75,20 @@ snapshot freshness is assessed against October 10 rather than represented as liv
 
 ## Reproduce and test
 
+Start a local synthetic demo in PowerShell:
+
+```powershell
+Set-Location 'D:\Office\AnalyticsAgent'
+.\.venv\Scripts\python.exe -m scripts.run_local --demo
+```
+
+Open [http://localhost:8502/](http://localhost:8502/). The single local process
+accepts both IPv4 and IPv6 loopback connections. Stop a foreground run with Ctrl+C;
+choose another port with `--port 8503` if needed. The local runner preserves CORS
+and XSRF protection and does not expose the service on the LAN. Actual HTTP and
+WebSocket checks pass for localhost, 127.0.0.1 and ::1; the owner confirmed that
+the page opens after correction. See reports/local_preview_validation.json.
+
 ```powershell
 .\.venv\Scripts\python.exe -m scripts.generate_business_data
 .\.venv\Scripts\python.exe -m scripts.business_reference
