@@ -57,6 +57,16 @@ def test_remote_ollama_requires_secured_endpoint():
         OllamaProvider("https://ollama.com", token="test-token")
 
 
+def test_unconfigured_ollama_fails_safely_without_network():
+    session = Mock()
+    provider = OllamaProvider("", session=session)
+    for operation in (provider.health, lambda: provider.chat([]), provider.test_connection, provider.metadata):
+        with pytest.raises(ProviderError) as raised:
+            operation()
+        assert raised.value.code == "configuration"
+    session.request.assert_not_called()
+
+
 @pytest.mark.parametrize("body", [[],{"models":"malformed"},{"models":[{}]}])
 def test_malformed_model_discovery_is_a_safe_provider_error(body):
     session = Mock()

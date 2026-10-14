@@ -75,6 +75,22 @@ def test_missing_key_does_not_make_network_calls():
     assert raised.value.code == "missing_key"
 
 
+def test_explicit_openai_selection_works_without_ollama_endpoint(monkeypatch):
+    from analytics_agent.config import Settings
+    from analytics_agent import providers
+
+    cloud = fake_provider("openai")
+    monkeypatch.setattr(providers, "OpenAIProvider", lambda *args: cloud)
+    settings = Settings(app_title="Test", openai_model="test", openai_api_key="", ollama_base_url="")
+    manager = providers.manager_from_settings(settings, selected="openai")
+    try:
+        assert manager.chat([]).content == "OK"
+        assert manager.actual_provider == "openai"
+        cloud.chat.assert_called_once()
+    finally:
+        manager.close()
+
+
 def test_fallback_stays_local_for_the_remainder_of_an_answer():
     ollama, cloud = fake_provider("ollama"), fake_provider("openai")
     cloud.chat.side_effect = ProviderError("timeout","temporary",True)

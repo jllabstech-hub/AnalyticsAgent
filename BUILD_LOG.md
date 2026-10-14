@@ -238,3 +238,8 @@ Corrected preparation commit c57cc8c44e49a4b6dcbc638a0f63f448ad5a49b6 is pushed 
 ### 2026-10-14T03:34:06.583914+00:00 - User selected Free Render hosting
 
 Paid deployment approval request is superseded by the explicit free-only instruction. Selected Free in the prepared form (US$0/month compute), 0.1 CPU and 512 MB RAM. Lowered the hosted DuckDB budget to 320MB and results to 100 rows; investigation deadline 180s. A real backend K1/K2/K3 run succeeds (9.559s, peak 372.37 MiB). Actual Streamlit AppTest also succeeds with all three skills and correct 66025/65292 totals (10.145s, peak 422.12 MiB). Configuration/access regression: 17 passed, 0 failed (7.18s). All 100000 fictional users and source partitions are preserved. No API key transmitted, authentication bypassed or paid resource purchased. Independent low-budget references and hosted creation/health checks follow.
+
+
+### 2026-10-14 - Hosted provider selection correction
+
+Final hosted review found that manager_from_settings constructed both providers, and the intentionally unset Ollama endpoint prevented even explicit OpenAI selection. Added two regressions first: both failed. An empty Ollama endpoint now represents an unconfigured adapter; all inference/discovery requests return a safe configuration error before network access. Nonempty remote endpoints retain HTTPS/token checks and cloud-origin rejection. Explicit OpenAI selection can initialize independently; no cloud credentials or actual billed calls were added. Provider/UI suite: 36 passed (14.82s). Full Free-settings regression is running. This fixes the hosted configuration without bypassing production sign-in or enabling automatic local-to-cloud fallback.

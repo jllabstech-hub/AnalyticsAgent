@@ -38,16 +38,19 @@ class OllamaProvider:
     name = "ollama"
 
     def __init__(self, base_url="http://localhost:11434", model="qwen3:8b", timeout=30, token="", session=None):
-        url = urlsplit(base_url)
-        local = url.hostname in ("localhost", "127.0.0.1", "::1")
-        if url.username or url.password or url.query or url.fragment or url.path not in ("", "/"):
-            raise ValueError("Use an Ollama origin without credentials, path, query or fragment.")
-        if url.scheme not in ("http", "https") or not url.hostname:
+        if not isinstance(base_url, str):
             raise ValueError("Invalid Ollama endpoint.")
-        if url.hostname.endswith("ollama.com"):
-            raise ValueError("Ollama cloud endpoints are not local processing.")
-        if not local and (url.scheme != "https" or not token):
-            raise ValueError("Remote Ollama requires HTTPS and a server-side authorization token.")
+        if base_url:
+            url = urlsplit(base_url)
+            local = url.hostname in ("localhost", "127.0.0.1", "::1")
+            if url.username or url.password or url.query or url.fragment or url.path not in ("", "/"):
+                raise ValueError("Use an Ollama origin without credentials, path, query or fragment.")
+            if url.scheme not in ("http", "https") or not url.hostname:
+                raise ValueError("Invalid Ollama endpoint.")
+            if url.hostname.endswith("ollama.com"):
+                raise ValueError("Ollama cloud endpoints are not local processing.")
+            if not local and (url.scheme != "https" or not token):
+                raise ValueError("Remote Ollama requires HTTPS and a server-side authorization token.")
         self.base_url, self.model, self.timeout = base_url.rstrip("/"), model, timeout
         self._token, self._session = token, session or requests.Session()
         self._owns_session = session is None
@@ -56,6 +59,8 @@ class OllamaProvider:
         if self._owns_session: self._session.close()
 
     def _request(self, method, path, body=None):
+        if not self.base_url:
+            raise ProviderError("configuration", "Ollama endpoint is not configured. Configure a secured reachable endpoint or select deterministic demo mode.")
         headers = {"Authorization": f"Bearer {self._token}"} if self._token else {}
         try:
             response = self._session.request(method, self.base_url + path, json=body, headers=headers,
