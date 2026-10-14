@@ -3,8 +3,9 @@
 The user authorized Render deployment and selected the Free compute plan on
 14 October 2026. The Blueprint uses Free only, with no paid disk or autoscaling.
 The service is live at https://bdc-analytics-agent-prototype.onrender.com.
-Root/health HTTP 200 and a recorded restart are verified. Production login
-configuration remains required before analytics can be opened.
+Root/health HTTP 200 and a recorded restart are verified. The owner subsequently
+authorized a public synthetic demo without sign-in. `PUBLIC_DEMO_ENABLED=true`
+opens only the bundled fictional warehouse and disables all LLM connections.
 
 ## Windows setup
 
@@ -55,6 +56,7 @@ Blueprint with the same settings is supplied in `render.yaml`. Auto-deploy is of
 - Region: Singapore (`singapore`)
 - DuckDB: `DUCKDB_MEMORY_LIMIT=320MB`; one thread, no disk spill.
 - Results: `RESULT_LIMIT=100`; investigation deadline `INVESTIGATION_TIMEOUT_SECONDS=180`.
+- Public demo: `PUBLIC_DEMO_ENABLED=true`; anonymous synthetic analytics only, no LLM calls.
 - Selected plan: `free` (0.1 CPU, 512 MB RAM, US$0/month compute).
 
 The 256 MB DuckDB budget failed full-warehouse join validation. A 320 MB budget
@@ -66,7 +68,19 @@ quotas. Do not upgrade or add paid resources. Without a payment method, exhauste
 quotas suspend service/builds; with a payment method, overage billing can apply.
 See [Render Free limits](https://render.com/docs/free) and review account usage.
 
-Put API keys only in Render environment variables. Default provider is Ollama;
+The public demo has no provider Settings page. Its deterministic toggle is locked
+on, and server checks reject Ollama/OpenAI connections even if a key is configured
+or a stale session requests a provider. No API key is needed or copied to Render.
+The app validates the bundled warehouse's `is_synthetic=true` manifest before
+rendering analytics; a different warehouse or missing synthetic marker is rejected.
+Questions, charts, evidence, follow-ups and Data Explorer use the same approved
+queries and analytical skills as private mode. Unsupported questions are refused
+or clarified by the bounded demonstration parser. Anyone with the URL can view
+the fictional data; this mode is inappropriate for real enterprise data.
+
+For a private deployment set `PUBLIC_DEMO_ENABLED=false`, configure the sign-in
+settings below and then verify account scopes. Put API keys only in Render
+environment variables. Default provider is Ollama;
 OLLAMA_BASE_URL is deliberately empty in the hosted configuration until a secured
 reachable endpoint is supplied. The Windows laptop's localhost is unreachable from Render. Use explicit demo
 mode when no provider is reachable, or select configured OpenAI in Settings.
@@ -76,13 +90,16 @@ API account usage can incur charges; passive status checks do not make cloud cal
 For remote Ollama, set `OLLAMA_BASE_URL` to an independently hosted HTTPS origin
 and `OLLAMA_API_TOKEN` for a proxy that actually enforces bearer authentication.
 Do not expose port 11434 publicly. Local processing never selects OpenAI silently.
-Production access requires the OIDC configuration below, which remains unverified with a real identity provider.
+Private production access requires the OIDC configuration below, which remains
+unverified with a real identity provider.
 
 ## Required production sign-in
 
 `APP_ENV=production` is set by the Blueprint; Render also forces it automatically.
-The app stops before analytics or provider calls until OIDC and an explicit access
-map are configured. Local demos retain `APP_ENV=local` and bind to localhost.
+When `PUBLIC_DEMO_ENABLED=false` (the application default), the app stops before
+analytics or provider calls until OIDC and an explicit access map are configured.
+The public Free Blueprint explicitly enables the separate synthetic-only mode.
+Local demos retain `APP_ENV=local` and bind to localhost.
 Do not expose local mode as a public service with an API key.
 
 1. Register an OIDC client with your approved identity provider. Configure the exact

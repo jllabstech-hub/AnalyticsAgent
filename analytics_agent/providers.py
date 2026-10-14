@@ -243,6 +243,8 @@ class ProviderManager:
 
 
 def manager_from_settings(settings, selected=None, ollama_model=None, openai_model=None, fallback=None, timeout=None):
+    if settings.public_demo_enabled:
+        raise ProviderError("authorization", "LLM connections are disabled in the public synthetic demo.")
     timeout = timeout or settings.llm_timeout
     return ProviderManager(
         OllamaProvider(settings.ollama_base_url, ollama_model or settings.ollama_model, timeout, settings.ollama_api_token),

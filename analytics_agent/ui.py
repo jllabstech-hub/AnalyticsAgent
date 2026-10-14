@@ -14,6 +14,12 @@ from analytics_agent.access import scope_for_claims, valid_auth_configuration
 
 
 def current_scope(settings):
+    if settings.public_demo_enabled:
+        if st.session_state.get("access_fingerprint") != "public_synthetic_demo":
+            for key in ("last_answer", "context", "messages", "connection_status", "last_fallback_reason"):
+                st.session_state.pop(key, None)
+            st.session_state.access_fingerprint = "public_synthetic_demo"
+        return AccessScope()
     if settings.app_env != "production": return AccessScope()
     try:
         auth = st.secrets["auth"].to_dict()
@@ -104,6 +110,9 @@ def save_preference(name):
 
 
 def settings_panel(settings):
+    if settings.public_demo_enabled:
+        st.info("Provider settings are disabled in the public synthetic demo. No LLM connections are used.")
+        return
     st.subheader("Settings")
     for name in ("selected_provider","ollama_model","openai_model","automatic_fallback"):
         st.session_state["_" + name] = st.session_state[name]
@@ -161,7 +170,7 @@ def workspace(settings, engine, scope=AccessScope()):
                 for index, followup in enumerate(previous.followups):
                     if st.button(followup, key=f"followup_{index}", width="stretch"): question = followup
         if question:
-            mode = "demo" if st.session_state.demo_mode else st.session_state.selected_provider
+            mode = "demo" if settings.public_demo_enabled or st.session_state.demo_mode else st.session_state.selected_provider
             manager = None
             try:
                 manager = None if mode == "demo" else manager_from_settings(settings, mode, st.session_state.ollama_model, st.session_state.openai_model, st.session_state.automatic_fallback)
@@ -202,9 +211,16 @@ def main():
         "demo_mode":False,"messages":[],"context":ConversationContext()}
     for key, value in defaults.items():
         if key not in st.session_state: st.session_state[key] = value
+    if settings.public_demo_enabled:
+        st.session_state.demo_mode = True
+        st.info("Public synthetic demo · No sign-in required · Deterministic analytics · No LLM calls")
     with st.sidebar:
-        page = st.selectbox("Workspace section", ["Analytics Workspace","Agent Execution","Settings","Data Explorer","Evaluation Dashboard"], key="page")
-        st.toggle("Deterministic demo mode", key="demo_mode")
+        pages = ["Analytics Workspace","Agent Execution","Settings","Data Explorer","Evaluation Dashboard"]
+        if settings.public_demo_enabled:
+            pages.remove("Settings")
+            if st.session_state.get("page") not in pages: st.session_state.page = pages[0]
+        page = st.selectbox("Workspace section", pages, key="page")
+        st.toggle("Deterministic demo mode", key="demo_mode", disabled=settings.public_demo_enabled)
         st.caption("Mode: " + ("Deterministic demo · no LLM" if st.session_state.demo_mode else st.session_state.selected_provider))
         if not st.session_state.demo_mode:
             st.caption("A configured LLM connection is required. Use Settings to test it.")
@@ -218,6 +234,14 @@ def main():
     if not (engine.data_dir / "manifest.json").is_file():
         st.warning("Synthetic datasets are missing. Follow the generation instructions in README before analysis.")
         return
+    if settings.public_demo_enabled:
+        try:
+            manifest = json.loads((engine.data_dir / "manifest.json").read_text(encoding="utf-8"))
+            if engine.data_dir != (PROJECT_ROOT / "data" / "synthetic").resolve() or manifest.get("is_synthetic") is not True:
+                raise ValueError("Public data must be the bundled synthetic warehouse.")
+        except (ValueError, OSError, AttributeError):
+            st.error("Public demo data validation failed. Only the bundled synthetic warehouse is permitted.")
+            st.stop()
     if page == "Analytics Workspace": workspace(settings, engine,scope)
     elif page == "Settings": settings_panel(settings)
     elif page == "Agent Execution":

@@ -28,6 +28,7 @@ class Settings:
     investigation_timeout: float = 120
     result_limit: int = 500
     app_env: str = "local"
+    public_demo_enabled: bool = False
 
 
 def load_settings(env_file: Path | None = None) -> Settings:
@@ -39,6 +40,9 @@ def load_settings(env_file: Path | None = None) -> Settings:
     app_env = "production" if os.getenv("RENDER", "").lower() == "true" else os.getenv("APP_ENV", "local").strip().lower()
     if app_env not in ("local","production"):
         raise ValueError("APP_ENV must be local or production.")
+    public_demo = os.getenv("PUBLIC_DEMO_ENABLED", "false").strip().lower()
+    if public_demo not in ("true", "false"):
+        raise ValueError("PUBLIC_DEMO_ENABLED must be true or false.")
     settings = Settings(
         app_title=os.getenv("APP_TITLE", "").strip() or DEFAULT_APP_TITLE,
         openai_model=os.getenv("OPENAI_MODEL", "").strip() or "gpt-4.1-mini",
@@ -54,6 +58,7 @@ def load_settings(env_file: Path | None = None) -> Settings:
         investigation_timeout=float(os.getenv("INVESTIGATION_TIMEOUT_SECONDS", "120")),
         result_limit=int(os.getenv("RESULT_LIMIT", "500")),
         app_env=app_env,
+        public_demo_enabled=public_demo == "true",
     )
     limits = (settings.llm_timeout, settings.max_tool_calls, settings.investigation_depth, settings.investigation_timeout, settings.result_limit)
     if any(not math.isfinite(value) or value <= 0 for value in limits):

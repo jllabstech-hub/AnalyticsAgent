@@ -14,7 +14,7 @@ Verdict: **hardened prototype suitable for controlled acceptance testing; not ye
 
 2. **Real identity-provider behavior is unverified.**
    - What this is: access.py and ui.current_scope derive permissions from validated OIDC identities and a server-owned scope map.
-   - Problem: No actual client/issuer has been registered or logged in. Production mode intentionally denies access without configuration. Claim availability and revocation vary by IdP.
+   - Problem: No actual client/issuer has been registered or logged in. Private production mode intentionally denies access without configuration. The owner explicitly authorized a separate public synthetic demo; it cannot use providers or another warehouse. Claim availability and revocation vary by IdP.
    - Fix: Configure the secret template and test signed login/logout, iss/sub/exp claims, expired/revoked users, scope changes and restricted Explorer access with the actual IdP.
    - If we skip it: Approved users may be unable to sign in, or identity lifecycle behavior may differ from the simulated contract.
 

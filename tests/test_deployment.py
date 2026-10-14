@@ -20,6 +20,7 @@ def test_render_configuration_uses_assigned_port_and_bundled_data():
     assert {item["key"]:item.get("value") for item in service["envVars"]}["OLLAMA_BASE_URL"] == ""
     assert {item["key"]:item.get("value") for item in service["envVars"]}["DUCKDB_MEMORY_LIMIT"] == "320MB"
     assert {item["key"]:item.get("value") for item in service["envVars"]}["RESULT_LIMIT"] == "100"
+    assert {item["key"]:item.get("value") for item in service["envVars"]}["PUBLIC_DEMO_ENABLED"] == "true"
     assert not any(item["key"] == "OPENAI_API_KEY" and item.get("value") for item in service["envVars"])
 
 

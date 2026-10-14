@@ -13,7 +13,7 @@ Evidence timestamp (Asia/Calcutta): 2026-10-14T09:35:34.621482+05:30.
 | 6 Hybrid providers | Complete; OpenAI connection and K1 live verified | Real browser inference; broader live evaluation pending |
 | 7 Orchestrator | Complete | Bounded planning, execution, context and clarification tests |
 | 8 Streamlit | Complete | AppTest plus browser verification |
-| 9 Evaluation | Complete | 193 passed, 0 failed, 2 skipped of 195 on Windows and Linux CI |
+| 9 Evaluation | Public demo regression complete locally | 203 passed, 0 failed, 2 skipped of 205 on Windows; new Linux CI pending |
 | 10 Render | Free service live; login pending | Hosted HTTP 200/ok and confirmed restart; no paid resources |
 | 11 EVP package | Complete | Five complete executed demonstration workflows |
 | 12 Final integration | Complete locally | Full suite, performance, security, startup/browser and final reports |
@@ -28,7 +28,7 @@ to jllabstech-hub/AnalyticsAgent on main, and matching local/remote commits veri
 
 1. Install Ollama and a chosen model only when authorized; verify actual local inference.
 2. Rotate the exposed OpenAI server key and expand live evaluation only with authorization.
-3. Configure OIDC login/scopes on the deployed Free service. Paid resources are not authorized.
+3. Configure OIDC login/scopes before enabling private team/provider access. The owner authorized a separate public synthetic demo without sign-in; paid resources remain prohibited.
 4. Verify signed-in hosted workflows, memory, provider behavior and load. Startup and restart already pass.
 
 Remaining product limits: synthetic data only, governed explanations, bounded demo
@@ -93,3 +93,7 @@ Created the user-authorized Free service from commit 5219517; hosted root and he
 ### 2026-10-14T04:05:34.621482+00:00 - Final Free deployment verified
 
 Final build 35accac2d5bec66c2d306ec1cc839db76c12cf42 is Live on the same Free Render service (2m13s deployment). Public root and health both return HTTP 200; health is ok. Browser confirms Free and Live, with the expected login setup guard and no traceback. The initial deployed build's actual restart also passed; its source is identified separately in reports/render_deployment.json. Final Windows and Linux suites remain 193 passed, 0 failed, 2 skipped of 195. No paid resource or provider credential was added. Analytics awaits OIDC login/scopes and hosted workflow validation. Final sanitized evidence is committed separately without another runtime deployment.
+
+### 2026-10-14T05:18:46.747992+00:00 - Public synthetic demo approved and verified locally
+
+The owner explicitly chose public synthetic analytics without sign-in, deterministic only and no LLM calls. Added PUBLIC_DEMO_ENABLED as a server-only opt-in (application default false); the Free Blueprint enables it. Private OIDC scope checks remain active when disabled. Public mode locks deterministic execution, hides provider Settings, blocks provider initialization and non-demo agent requests, validates the bundled synthetic warehouse path/manifest, and clears prior private session results. Ten new independent regressions cover these controls. Targeted access/provider/UI suite: 51 passed. Full Windows evaluation: 203 passed, 0 failed, 2 skipped of 205 (175.81s pytest; 176.974s evaluator), both reference suites 30/30. GitHub CI and actual hosted demo verification follow. User attachments are now ignored; credentials remain server-side and untracked.

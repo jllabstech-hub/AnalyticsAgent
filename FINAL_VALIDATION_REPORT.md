@@ -6,7 +6,7 @@ Verdict: **hardened synthetic prototype with verified Free Render startup/restar
 
 | Check | Actual result | Evidence |
 |---|---|---|
-| Full automated suite | 193 passed / 0 failed / 2 skipped; 195 total | reports/test_results.xml; reports/evaluation.json |
+| Full Windows automated suite | 203 passed / 0 failed / 2 skipped; 205 total | reports/test_results.xml; reports/evaluation.json |
 | Independent pandas reference comparisons | 30/30 matched | tests/fixtures/reference_answers.json |
 | Human-question agent workflows | 30/30 matched | tests/test_e2e_references.py |
 | Five EVP workflows | All executed successfully | reports/demo_results.json |

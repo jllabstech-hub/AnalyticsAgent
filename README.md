@@ -13,7 +13,10 @@ Ollama remains the default; cloud processing requires explicit Settings selectio
 The end-to-end audit hardened numerical output, concurrent execution and access.
 See `PRODUCTION_READINESS.md` for current evidence and deployment blockers.
 Local mode runs only on your own machine. `APP_ENV=production` (forced on Render)
-requires OIDC sign-in and server-defined account scopes before analytics is shown.
+requires OIDC sign-in and server-defined account scopes before private analytics is shown.
+The owner-authorized public Free demo uses `PUBLIC_DEMO_ENABLED=true`: anonymous
+access to the bundled fictional data, locked deterministic execution, no LLM
+connections and no provider Settings. The application default is false.
 OpenAI connection and one complete live MAU comparison have been verified locally.
 Actual identity-provider login, Ollama inference, broader live model evaluation,
 and hosted behavior remain unverified. See reports/openai_live_validation.json.
@@ -164,8 +167,9 @@ and external blockers; `BUILD_LOG.md` records commands, failures and fixes.
 `render.yaml` binds to `$PORT` on `0.0.0.0`, reads bundled Parquet and requires no
 persistent disk. The selected Render plan is Free, with a 320 MB DuckDB budget,
 100-row result limit and 180-second investigation deadline. Free hosting is
-authorized; paid resources are not. Production login must be configured before
-analytics is accessible. Free services sleep on idle and have usage quotas.
+authorized; paid resources are not. The Blueprint explicitly enables the public
+synthetic demo. Private team deployments must disable `PUBLIC_DEMO_ENABLED` and
+configure OIDC before using providers. Free services sleep on idle and have usage quotas.
 Use `DEPLOYMENT_GUIDE.md` for exact Git and Render steps and local restart checks.
 
 ## Project files

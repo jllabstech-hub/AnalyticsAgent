@@ -13,6 +13,7 @@ jobs:
     env:
       APP_ENV: local
       RENDER: 'false'
+      PUBLIC_DEMO_ENABLED: 'false'
       OPENAI_API_KEY: ''
       RUN_LIVE_OPENAI: '0'
       RUN_LIVE_OLLAMA: '0'

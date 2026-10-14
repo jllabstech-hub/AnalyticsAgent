@@ -36,3 +36,5 @@ tools/ollama/
 # Render dashboard screenshots contain account context; retain locally only.
 reports/render-prepared.png
 reports/render-private/
+# User attachments can contain private screenshots; keep them local.
+.codex-remote-attachments/

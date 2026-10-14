@@ -199,13 +199,15 @@ class AnalyticsAgent:
 
     def run(self, question, context=ConversationContext(), mode=None, manager=None):
         started = time.perf_counter()
-        mode = mode or self.settings.llm_provider
+        mode = mode or ("demo" if self.settings.public_demo_enabled else self.settings.llm_provider)
         provider, model, fallback = "deterministic demo" if mode == "demo" else mode, "", None
         trace = [{"stage":"Understanding", "status":"complete"}]
         results = []
         owns_manager = manager is None and mode != "demo"
         token = DEADLINE.set(started + self.settings.investigation_timeout)
         try:
+            if self.settings.public_demo_enabled and mode != "demo":
+                raise PermissionError("Only deterministic analytics is allowed in the public synthetic demo.")
             if len(question) > 2000:
                 raise ValueError("Question exceeds supported size.")
             if context.request:

@@ -12,6 +12,10 @@ services:
     envVars:
       - key: APP_ENV
         value: production
+      # Owner authorized a public fictional-data demo without sign-in.
+      # Private team deployments must set this false and configure OIDC.
+      - key: PUBLIC_DEMO_ENABLED
+        value: 'true'
       - key: PYTHON_VERSION
         value: 3.14.5
       - key: LLM_PROVIDER
