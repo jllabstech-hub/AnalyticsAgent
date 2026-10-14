@@ -1,21 +1,21 @@
 {
-  "checked_at_utc": "2026-10-14T03:38:50.435456+00:00",
+  "checked_at_utc": "2026-10-14T04:05:34.621482+00:00",
   "public_url": "https://bdc-analytics-agent-prototype.onrender.com",
   "plan": "free",
   "compute_USD_per_month": 0,
   "status": "live",
-  "deployed_commit": "5219517befe037a92caa1183652f670a8281bd44",
+  "deployed_commit": "35accac2d5bec66c2d306ec1cc839db76c12cf42",
   "health_checks": [
     {
       "path": "/_stcore/health",
       "http_status": 200,
-      "elapsed_seconds": 0.315,
+      "elapsed_seconds": 1.309,
       "health": "ok"
     },
     {
       "path": "/",
       "http_status": 200,
-      "elapsed_seconds": 0.274,
+      "elapsed_seconds": 1.254,
       "health": null
     }
   ],
@@ -30,12 +30,39 @@
     "verified_at_utc": "2026-10-14T03:41:29.529193+00:00",
     "http_status": 200,
     "health": "ok",
-    "elapsed_seconds": 0.326
+    "elapsed_seconds": 0.326,
+    "deployed_commit": "5219517befe037a92caa1183652f670a8281bd44"
   },
   "browser_validation": {
     "title": "BDC Analytics Agent",
     "guard_message_visible": true,
     "unhandled_traceback_visible": false,
-    "authenticated_workflows": "not tested; OIDC configuration missing"
+    "authenticated_workflows": "not tested; OIDC configuration missing",
+    "checked_at_utc": "2026-10-14T04:05:34.621482+00:00",
+    "deployed_commit": "35accac2d5bec66c2d306ec1cc839db76c12cf42"
+  },
+  "initial_deployment": {
+    "deployed_commit": "5219517befe037a92caa1183652f670a8281bd44",
+    "checked_at_utc": "2026-10-14T03:38:50.435456+00:00",
+    "health_checks": [
+      {
+        "path": "/_stcore/health",
+        "http_status": 200,
+        "elapsed_seconds": 0.315,
+        "health": "ok"
+      },
+      {
+        "path": "/",
+        "http_status": 200,
+        "elapsed_seconds": 0.274,
+        "health": null
+      }
+    ]
+  },
+  "final_deployment": {
+    "dashboard_status": "Deploy succeeded | Live",
+    "duration_seconds": 133,
+    "source_commit": "35accac2d5bec66c2d306ec1cc839db76c12cf42",
+    "deployed_at_displayed": "14 October 2026 at 09:28:27 Asia/Calcutta"
   }
 }

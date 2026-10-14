@@ -1,7 +1,7 @@
 {
-  "checked_at_utc": "2026-10-14T03:34:06.583914+00:00",
+  "checked_at_utc": "2026-10-14T04:05:34.621482+00:00",
   "authorization": "User explicitly selected free Render hosting; paid resources prohibited",
-  "status": "free_creation_form_ready",
+  "status": "live",
   "repository": "https://github.com/jllabstech-hub/AnalyticsAgent",
   "branch": "main",
   "service_name": "bdc-analytics-agent-prototype",
@@ -15,34 +15,34 @@
   "oidc_configured": false,
   "ollama_remote_endpoint_configured": false,
   "ollama_base_url": "",
-  "created_service": false,
+  "created_service": true,
   "known_blockers": [
     "OIDC login and approved principal scopes missing",
     "Secured reachable Ollama endpoint not supplied; deterministic mode requires explicit opt-in after sign-in",
     "Hosted analytics memory/latency must be checked after sign-in is configured"
   ],
-  "proof": "reports/render-private/free-prepared.png",
+  "proof": "reports/render-private/free-final-live.png",
   "local_configuration_access_tests": {
     "passed": 17,
     "failed": 0,
     "duration_seconds": 7.62
   },
   "proof_visibility": "Local-only account screenshot; excluded from Git",
-  "github_validated_commit": "c57cc8c44e49a4b6dcbc638a0f63f448ad5a49b6",
+  "github_validated_commit": "36e0c7c0c72279f4af713d8fb6519952ab2e8f32",
   "github_quality_run": {
-    "id": 38502026568,
+    "id": 38508157329,
     "name": "Analytics quality",
     "status": "completed",
     "conclusion": "success",
-    "html_url": "https://github.com/jllabstech-hub/AnalyticsAgent/actions/runs/38502026568",
-    "head_sha": "c57cc8c44e49a4b6dcbc638a0f63f448ad5a49b6"
+    "html_url": "https://github.com/jllabstech-hub/AnalyticsAgent/actions/runs/38508157329",
+    "head_sha": "36e0c7c0c72279f4af713d8fb6519952ab2e8f32"
   },
   "github_full_suite": {
-    "passed": 191,
+    "passed": 193,
     "failed": 0,
     "skipped": 2,
-    "total": 193,
-    "duration_seconds": 109.83
+    "total": 195,
+    "duration_seconds": 146.01
   },
   "explicit_backend_demo_without_llm": {
     "status": "pass",
@@ -51,12 +51,16 @@
     "absolute_change": -733,
     "ui_identity_verification": "not performed"
   },
-  "prepared_ui_verified": {
+  "duckdb_memory_limit": "320MB",
+  "result_limit": 100,
+  "investigation_timeout_seconds": 180,
+  "public_url": "https://bdc-analytics-agent-prototype.onrender.com",
+  "deployed_commit": "35accac2d5bec66c2d306ec1cc839db76c12cf42",
+  "paid_resources_created": false,
+  "production_login_configured": false,
+  "ui_verified": {
     "runtime": "Python 3",
     "auto_deploy": "Off",
     "health_check": "/_stcore/health"
-  },
-  "duckdb_memory_limit": "320MB",
-  "result_limit": 100,
-  "investigation_timeout_seconds": 180
+  }
 }

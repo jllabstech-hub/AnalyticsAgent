@@ -1,7 +1,7 @@
 # Implementation status — BDC Analytics Agent Prototype V1
 
 All twelve phases' feasible local implementation, testing and documentation are complete.
-Evidence timestamp (Asia/Calcutta): 2026-10-14T07:54:06.530019+05:30.
+Evidence timestamp (Asia/Calcutta): 2026-10-14T09:35:34.621482+05:30.
 
 | Phase | Status | Evidence |
 |---|---|---|
@@ -89,3 +89,7 @@ Paid deployment approval request is superseded by the explicit free-only instruc
 ### 2026-10-14 - Free deployment validation and handover
 
 Created the user-authorized Free service from commit 5219517; hosted root and health return HTTP 200, and Render records a real service restart with subsequent 200/ok. Hosted browser shows the expected missing-login guard without a traceback. No cloud LLM key was copied, paid plan purchased or security guard disabled. Provider correction 36e0c7c now passes the final Windows suite (193 passed, 0 failed, 2 skipped of 195; 169.81s) and actual Linux run 38508157329 (193/0/2; 146.01s), including scans and both local runner restarts. Independent reduced-budget comparisons match 30/30; local UI peak is 422.12 MiB. Refreshed the sixteen-page handover for Free hosting and the new counts; all final pages reviewed and accessibility findings zero. Private Render account screenshots remain local and ignored. The final corrected/evidence build will be applied to the same Free service.
+
+### 2026-10-14T04:05:34.621482+00:00 - Final Free deployment verified
+
+Final build 35accac2d5bec66c2d306ec1cc839db76c12cf42 is Live on the same Free Render service (2m13s deployment). Public root and health both return HTTP 200; health is ok. Browser confirms Free and Live, with the expected login setup guard and no traceback. The initial deployed build's actual restart also passed; its source is identified separately in reports/render_deployment.json. Final Windows and Linux suites remain 193 passed, 0 failed, 2 skipped of 195. No paid resource or provider credential was added. Analytics awaits OIDC login/scopes and hosted workflow validation. Final sanitized evidence is committed separately without another runtime deployment.
