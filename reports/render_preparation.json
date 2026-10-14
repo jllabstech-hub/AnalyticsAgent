@@ -1,7 +1,7 @@
 {
-  "checked_at_utc": "2026-10-14T04:05:34.621482+00:00",
+  "checked_at_utc": "2026-10-14T05:34:55.827638+00:00",
   "authorization": "User explicitly selected free Render hosting; paid resources prohibited",
-  "status": "live",
+  "status": "public_synthetic_demo_live",
   "repository": "https://github.com/jllabstech-hub/AnalyticsAgent",
   "branch": "main",
   "service_name": "bdc-analytics-agent-prototype",
@@ -17,32 +17,32 @@
   "ollama_base_url": "",
   "created_service": true,
   "known_blockers": [
-    "OIDC login and approved principal scopes missing",
-    "Secured reachable Ollama endpoint not supplied; deterministic mode requires explicit opt-in after sign-in",
-    "Hosted analytics memory/latency must be checked after sign-in is configured"
+    "Private team/provider access requires OIDC login and approved scopes",
+    "Public demo intentionally disables LLM connections",
+    "Sustained hosted load and memory telemetry are unverified; no paid upgrade authorized"
   ],
-  "proof": "reports/render-private/free-final-live.png",
+  "proof": "reports/render-private/public-demo-free-live.png",
   "local_configuration_access_tests": {
     "passed": 17,
     "failed": 0,
     "duration_seconds": 7.62
   },
   "proof_visibility": "Local-only account screenshot; excluded from Git",
-  "github_validated_commit": "36e0c7c0c72279f4af713d8fb6519952ab2e8f32",
+  "github_validated_commit": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
   "github_quality_run": {
-    "id": 38508157329,
+    "id": 38516053075,
     "name": "Analytics quality",
     "status": "completed",
     "conclusion": "success",
-    "html_url": "https://github.com/jllabstech-hub/AnalyticsAgent/actions/runs/38508157329",
-    "head_sha": "36e0c7c0c72279f4af713d8fb6519952ab2e8f32"
+    "html_url": "https://github.com/jllabstech-hub/AnalyticsAgent/actions/runs/38516053075",
+    "head_sha": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0"
   },
   "github_full_suite": {
-    "passed": 193,
+    "passed": 203,
     "failed": 0,
     "skipped": 2,
-    "total": 195,
-    "duration_seconds": 146.01
+    "total": 205,
+    "duration_seconds": 151.32
   },
   "explicit_backend_demo_without_llm": {
     "status": "pass",
@@ -55,12 +55,14 @@
   "result_limit": 100,
   "investigation_timeout_seconds": 180,
   "public_url": "https://bdc-analytics-agent-prototype.onrender.com",
-  "deployed_commit": "35accac2d5bec66c2d306ec1cc839db76c12cf42",
+  "deployed_commit": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
   "paid_resources_created": false,
   "production_login_configured": false,
   "ui_verified": {
     "runtime": "Python 3",
     "auto_deploy": "Off",
     "health_check": "/_stcore/health"
-  }
+  },
+  "public_demo_enabled": true,
+  "hosted_demo_workflows_verified": true
 }

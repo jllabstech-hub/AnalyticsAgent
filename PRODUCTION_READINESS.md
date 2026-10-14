@@ -20,7 +20,7 @@ Verdict: **hardened prototype suitable for controlled acceptance testing; not ye
 
 3. **Hosted reliability and operational limits are unverified.**
    - What this is: render.yaml uses the user-selected Free single-process service with 512 MB host RAM and a 320 MB DuckDB budget; paid resources are not authorized.
-   - Current evidence: GitHub Linux CI verifies all 195 tests. The Free Render service is live, with root/health HTTP 200, a recorded restart and the expected login-configuration guard. Local Streamlit peaks at 422.12 MiB with the reduced budget. Hosted authenticated analytics memory and sustained capacity remain unverified.
+   - Current evidence: GitHub Linux CI verifies all 205 tests. The Free Render service runs the owner-authorized public synthetic demo, with root/health HTTP 200 and a working anonymous MAU comparison. Local Streamlit peaks at 422.12 MiB with the reduced budget. Hosted authenticated analytics memory and sustained capacity remain unverified. Free-plan application memory/CPU telemetry requires an upgrade, which is not authorized.
    - Remaining work: Configure OIDC, test hosted authenticated workflows and representative load, establish monitoring and any separately authorized API spend limit, then assess against an agreed traffic/SLA target.
    - If we skip it: Local success may be mistaken for a reliable hosted service or a tested operating budget.
 
@@ -46,7 +46,7 @@ Verdict: **hardened prototype suitable for controlled acceptance testing; not ye
 
 ## Actual acceptance evidence
 
-193 passed, 0 failed, 2 skipped of 195 tests on both Windows and GitHub Linux CI. Both the 30 independent calculations and 30 human-question deterministic workflows matched all references. Five EVP demos were actually executed. All displayed numerical findings in these workflows came from the shared skills and approved queries. A separate real OpenAI browser comparison also returned the independent MAU totals.
+203 passed, 0 failed, 2 skipped of 205 tests on both Windows and GitHub Linux CI. Both the 30 independent calculations and 30 human-question deterministic workflows matched all references. Five EVP demos were actually executed. All displayed numerical findings in these workflows came from the shared skills and approved queries. A separate real OpenAI browser comparison also returned the independent MAU totals; public mode disables providers.
 
 Measured cold investigation 7.196s, warm 5.683ms, four simultaneous investigations all passed, peak backend 385.04 MiB. Two real startup/restart checks passed. Desktop 1366x900 and normal compact browser layouts were inspected; production guard and revocation paths were exercised with simulated claims.
 

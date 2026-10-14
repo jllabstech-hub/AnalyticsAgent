@@ -2,7 +2,7 @@
 
 Updated UTC: 2026-10-14T02:25:18.182168+00:00. Supersedes the initial phase-12 report.
 
-Verdict: **hardened synthetic prototype with verified Free Render startup/restart; production approval still requires broader live-provider, real-identity and hosted analytics validation.**
+Verdict: **hardened synthetic prototype with five verified public Free Render workflows and startup/restart; production approval still requires broader live-provider, real-identity and hosted capacity validation.**
 
 | Check | Actual result | Evidence |
 |---|---|---|
@@ -14,8 +14,8 @@ Verdict: **hardened synthetic prototype with verified Free Render startup/restar
 | Published dependency advisories | 0 known vulnerability records across 83 scanned packages; no skipped packages | reports/dependencies_audit.json |
 | Four simultaneous investigations | 4/4 succeeded with identical totals | reports/performance.json |
 | Startup/restart | Two actual HTTP 200 / ok starts | reports/deployment_smoke.json |
-| GitHub Linux CI | 193 passed / 0 failed / 2 skipped; credential and dependency scans plus both restarts pass | reports/github_validation.json; Actions run 38508157329 |
-| Free Render deployment | Live; root/health HTTP 200; recorded restart and subsequent health pass | reports/render_deployment.json |
+| GitHub Linux CI | 203 passed / 0 failed / 2 skipped; credential and dependency scans plus both restarts pass | reports/github_validation.json; Actions run 38516053075 |
+| Free Render deployment | Public demo Live; five workflows, Explorer, evaluation, phone UI and fresh post-restart comparison pass; root/health HTTP 200 | reports/render_deployment.json; reports/public_demo_hosted.json |
 | Browser review | Desktop and compact layout, computed charts, quality warnings, Settings failure and Explorer verified | reports/browser_e2e_verification.json |
 | Production access | Anonymous, expired/unapproved and malformed grants blocked; scoped UI and revocation regression pass | tests/test_access.py |
 
@@ -25,7 +25,7 @@ Independent comparison accuracy is 100% on the defined synthetic suite. This is 
 
 Cold three-skill investigation: 7.196s. Warm investigation: 5.683ms. Four simultaneous requests: 7.333–7.334s. Peak backend working set: 385.04 MiB. DuckDB budget: 512MB, one thread and one shared warehouse execution slot; disk spill disabled.
 
-These are Windows backend measurements, excluding hosted behavior and additional Streamlit/LLM overhead. They do not establish sustained traffic capacity. Latest Windows startup times were 1.643s and 1.629s. HTTP health verifies server availability; production sign-in must be separately configured and tested.
+These are Windows backend measurements, excluding hosted behavior and additional Streamlit/LLM overhead. They do not establish sustained traffic capacity. Latest public-mode Windows startup times were 1.311s and 1.231s. Public Free hosted queries took 43.08s for the first comparison and 44.14s after restart; later cached comparisons are faster. Private production sign-in must be separately configured and tested.
 
 ## Corrections verified in this audit
 

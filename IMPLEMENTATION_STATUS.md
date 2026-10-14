@@ -1,7 +1,7 @@
 # Implementation status — BDC Analytics Agent Prototype V1
 
 All twelve phases' feasible local implementation, testing and documentation are complete.
-Evidence timestamp (Asia/Calcutta): 2026-10-14T09:35:34.621482+05:30.
+Evidence timestamp (UTC): 2026-10-14T05:37:04.406879+00:00.
 
 | Phase | Status | Evidence |
 |---|---|---|
@@ -13,14 +13,15 @@ Evidence timestamp (Asia/Calcutta): 2026-10-14T09:35:34.621482+05:30.
 | 6 Hybrid providers | Complete; OpenAI connection and K1 live verified | Real browser inference; broader live evaluation pending |
 | 7 Orchestrator | Complete | Bounded planning, execution, context and clarification tests |
 | 8 Streamlit | Complete | AppTest plus browser verification |
-| 9 Evaluation | Public demo regression complete locally | 203 passed, 0 failed, 2 skipped of 205 on Windows; new Linux CI pending |
-| 10 Render | Free service live; login pending | Hosted HTTP 200/ok and confirmed restart; no paid resources |
+| 9 Evaluation | Complete | 203 passed, 0 failed, 2 skipped of 205 on Windows and Linux CI |
+| 10 Render | Public synthetic demo verified | Five hosted demos, read-only Explorer, evaluation, phone UI and restart pass; Free only, no LLM calls |
 | 11 EVP package | Complete | Five complete executed demonstration workflows |
 | 12 Final integration | Complete locally | Full suite, performance, security, startup/browser and final reports |
 
 Phase 12 supplied the complete five workflows missing from the truncated Phase 11.
 No real enterprise data or fabricated model results are used. A user-authorized Free
-Render service is live with analytics protected pending login setup. No paid resource
+Render service is live with the owner-approved public synthetic demo. Private
+team/provider access still requires login configuration. No paid resource
 was purchased or model downloaded. GitHub source was delivered
 to jllabstech-hub/AnalyticsAgent on main, and matching local/remote commits verified.
 
@@ -29,7 +30,7 @@ to jllabstech-hub/AnalyticsAgent on main, and matching local/remote commits veri
 1. Install Ollama and a chosen model only when authorized; verify actual local inference.
 2. Rotate the exposed OpenAI server key and expand live evaluation only with authorization.
 3. Configure OIDC login/scopes before enabling private team/provider access. The owner authorized a separate public synthetic demo without sign-in; paid resources remain prohibited.
-4. Verify signed-in hosted workflows, memory, provider behavior and load. Startup and restart already pass.
+4. Verify signed-in hosted workflows, memory, provider behavior and sustained load before private production approval. Five public demos, phone UI, startup and restart already pass.
 
 Remaining product limits: synthetic data only, governed explanations, bounded demo
 parser, actual identity-provider login unverified, no production load certification. See the
@@ -97,3 +98,8 @@ Final build 35accac2d5bec66c2d306ec1cc839db76c12cf42 is Live on the same Free Re
 ### 2026-10-14T05:18:46.747992+00:00 - Public synthetic demo approved and verified locally
 
 The owner explicitly chose public synthetic analytics without sign-in, deterministic only and no LLM calls. Added PUBLIC_DEMO_ENABLED as a server-only opt-in (application default false); the Free Blueprint enables it. Private OIDC scope checks remain active when disabled. Public mode locks deterministic execution, hides provider Settings, blocks provider initialization and non-demo agent requests, validates the bundled synthetic warehouse path/manifest, and clears prior private session results. Ten new independent regressions cover these controls. Targeted access/provider/UI suite: 51 passed. Full Windows evaluation: 203 passed, 0 failed, 2 skipped of 205 (175.81s pytest; 176.974s evaluator), both reference suites 30/30. GitHub CI and actual hosted demo verification follow. User attachments are now ignored; credentials remain server-side and untracked.
+
+
+### 2026-10-14T05:37:04.406879+00:00 - Public Free demo delivered
+
+Source dfcdebd is Live and both Windows/Linux suites pass 203/0/2 of 205. All five actual anonymous hosted demonstration workflows match executed/reference results. Explorer shows 100000 fictional users; evaluation displays 205 tests. Unsupported enterprise-record requests are refused. Phone workspace verified at 390x844 and viewport restored to 1536x738. Render recorded a real restart at 11:02 Asia/Calcutta, health remains 200/ok, and a fresh comparison returns 66025/65292/-733 in 44.14s. No LLM calls, keys, paid resources or authentication bypass for private data. Sustained hosted load and private identity/provider behavior remain unverified. Sanitized evidence is reports/public_demo_hosted.json; account screenshots stay local and ignored.

@@ -1,0 +1,163 @@
+{
+  "checked_at_utc": "2026-10-14T05:35:47.876Z",
+  "status": "pass",
+  "public_url": "https://bdc-analytics-agent-prototype.onrender.com",
+  "deployed_commit": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
+  "plan": "free",
+  "public_demo_enabled": true,
+  "sign_in_required": false,
+  "llm_connections_enabled": false,
+  "api_key_transferred": false,
+  "paid_resources_created": false,
+  "health_checks": [
+    {
+      "path": "/_stcore/health",
+      "http_status": 200,
+      "health": "ok",
+      "elapsed_seconds": 0.412
+    },
+    {
+      "path": "/",
+      "http_status": 200,
+      "health": null,
+      "elapsed_seconds": 0.417
+    }
+  ],
+  "workflows": [
+    {
+      "question": "Compare August and September active users.",
+      "status": "pass",
+      "provider": "deterministic demo",
+      "baseline": 66025,
+      "current": 65292,
+      "absolute_change": -733,
+      "skills": [
+        "K1"
+      ],
+      "displayed_elapsed_seconds": 43.08
+    },
+    {
+      "question": "Which markets contributed most to the decline?",
+      "status": "pass",
+      "provider": "deterministic demo",
+      "baseline": 66025,
+      "current": 65292,
+      "absolute_change": -733,
+      "skills": [
+        "K2"
+      ],
+      "market_a_change": -4506,
+      "market_b_change": 1828,
+      "group_changes_reconciled": true,
+      "displayed_elapsed_seconds": 15.88
+    },
+    {
+      "question": "Investigate the September decline across markets and cohorts.",
+      "status": "pass",
+      "provider": "deterministic demo",
+      "baseline": 66025,
+      "current": 65292,
+      "absolute_change": -733,
+      "skills": [
+        "K1",
+        "K2",
+        "K3"
+      ],
+      "existing_change": -484,
+      "new_change": -249,
+      "group_changes_reconciled": true,
+      "displayed_elapsed_seconds": 16.26
+    },
+    {
+      "question": "Can we trust the September activity data?",
+      "status": "pass",
+      "provider": "deterministic demo",
+      "baseline": 66025,
+      "current": 65292,
+      "skills": [
+        "K1"
+      ],
+      "raw_event_rows": 826335,
+      "duplicate_rows_removed": 4103,
+      "late_unique_events": 16321,
+      "join_cardinality": "passed",
+      "displayed_elapsed_seconds": 0.02
+    },
+    {
+      "question": "Now compare only Market A for the same periods.",
+      "status": "pass",
+      "provider": "deterministic demo",
+      "baseline": 13149,
+      "current": 8643,
+      "absolute_change": -4506,
+      "skills": [
+        "K1"
+      ],
+      "retained_baseline_period": [
+        "2026-08-01",
+        "2026-09-01"
+      ],
+      "retained_current_period": [
+        "2026-09-01",
+        "2026-10-01"
+      ],
+      "displayed_elapsed_seconds": 30.96
+    }
+  ],
+  "provider_settings_exposed": false,
+  "public_sections": [
+    "Analytics Workspace",
+    "Agent Execution",
+    "Data Explorer",
+    "Evaluation Dashboard"
+  ],
+  "unsupported_request": {
+    "question": "Show actual enterprise customer records.",
+    "refused": true,
+    "message": "This follow-up requests unsupported data. Use the documented account-usage questions.",
+    "new_metric_panel_rendered": false
+  },
+  "hosted_memory_cpu_telemetry": "Unavailable on Free; no paid upgrade performed",
+  "restart": {
+    "deployed_commit": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
+    "dashboard_event": "Service restarted by you",
+    "event_displayed_at": "14 October 2026 at 11:02 Asia/Calcutta",
+    "verified_at_utc": "2026-10-14T05:34:55.827638+00:00",
+    "http_status": 200,
+    "health": "ok",
+    "elapsed_seconds": 0.316,
+    "sign_in_required_after_restart": false,
+    "fresh_comparison": {
+      "status": "pass",
+      "baseline": 66025,
+      "current": 65292,
+      "absolute_change": -733,
+      "provider": "deterministic demo",
+      "skills": [
+        "K1"
+      ],
+      "displayed_elapsed_seconds": 44.14
+    }
+  },
+  "data_explorer": {
+    "status": "pass",
+    "dataset": "users",
+    "rows": 100000,
+    "read_only": true
+  },
+  "evaluation_dashboard": {
+    "status": "pass",
+    "total": 205,
+    "passed": 203,
+    "failed": 0,
+    "skipped": 2
+  },
+  "phone_viewport": {
+    "status": "pass",
+    "width": 390,
+    "height": 844,
+    "public_workspace_accessible": true,
+    "sign_in_guard_visible": false,
+    "proof": "reports/render-private/public-demo-phone.png"
+  }
+}

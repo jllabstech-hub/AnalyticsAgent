@@ -1,17 +1,17 @@
 {
-  "checked_at_utc": "2026-10-14T03:53:18.871772+00:00",
+  "checked_at_utc": "2026-10-14T05:23:40.769417+00:00",
   "repository": "jllabstech-hub/AnalyticsAgent",
   "branch": "main",
-  "local_sha": "36e0c7c0c72279f4af713d8fb6519952ab2e8f32",
-  "remote_sha": "36e0c7c0c72279f4af713d8fb6519952ab2e8f32",
+  "local_sha": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
+  "remote_sha": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
   "commit_verified": true,
   "run": {
-    "id": 38508157329,
+    "id": 38516053075,
     "name": "Analytics quality",
     "status": "completed",
     "conclusion": "success",
-    "html_url": "https://github.com/jllabstech-hub/AnalyticsAgent/actions/runs/38508157329",
-    "head_sha": "36e0c7c0c72279f4af713d8fb6519952ab2e8f32"
+    "html_url": "https://github.com/jllabstech-hub/AnalyticsAgent/actions/runs/38516053075",
+    "head_sha": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0"
   },
   "jobs": [
     {
@@ -80,32 +80,31 @@
   "log_evidence": [
     {
       "log": "validate/5_Full analytical and UI evaluation.txt",
-      "line": "2026-10-14T03:51:51.1326733Z 193 passed, 2 skipped in 146.01s (0:02:26)"
+      "line": "2026-10-14T05:23:22.5156311Z 203 passed, 2 skipped in 151.32s (0:02:31)"
     },
     {
       "log": "validate/6_Credential source check.txt",
-      "line": "2026-10-14T03:51:51.5795662Z   \"status\": \"pass\","
+      "line": "2026-10-14T05:23:23.0920403Z   \"status\": \"pass\","
     },
     {
       "log": "validate/7_Published dependency advisories.txt",
-      "line": "2026-10-14T03:51:52.9122591Z No known vulnerabilities found"
+      "line": "2026-10-14T05:23:24.3358012Z No known vulnerabilities found"
     },
     {
       "log": "validate/8_Startup and restart smoke.txt",
-      "line": "2026-10-14T03:51:55.2229049Z   \"status\": \"pass\","
+      "line": "2026-10-14T05:23:26.8561459Z   \"status\": \"pass\","
     },
     {
       "log": "validate/8_Startup and restart smoke.txt",
-      "line": "2026-10-14T03:51:55.2231356Z       \"health\": \"ok\","
+      "line": "2026-10-14T05:23:26.8566447Z       \"health\": \"ok\","
     },
     {
       "log": "validate/8_Startup and restart smoke.txt",
-      "line": "2026-10-14T03:51:55.2233286Z       \"health\": \"ok\","
+      "line": "2026-10-14T05:23:26.8568020Z       \"health\": \"ok\","
     },
     {
       "log": "validate/8_Startup and restart smoke.txt",
-      "line": "2026-10-14T03:51:55.2234562Z   \"platform\": \"linux\","
+      "line": "2026-10-14T05:23:26.8568867Z   \"platform\": \"linux\","
     }
-  ],
-  "verification_scope": "Validated runtime source commit shown above; later documentation/evidence commits retain that runtime."
+  ]
 }

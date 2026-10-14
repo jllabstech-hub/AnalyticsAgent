@@ -1,45 +1,37 @@
 {
-  "checked_at_utc": "2026-10-14T04:05:34.621482+00:00",
+  "checked_at_utc": "2026-10-14T05:35:47.876Z",
   "public_url": "https://bdc-analytics-agent-prototype.onrender.com",
   "plan": "free",
   "compute_USD_per_month": 0,
   "status": "live",
-  "deployed_commit": "35accac2d5bec66c2d306ec1cc839db76c12cf42",
+  "deployed_commit": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
   "health_checks": [
     {
       "path": "/_stcore/health",
       "http_status": 200,
-      "elapsed_seconds": 1.309,
-      "health": "ok"
+      "health": "ok",
+      "elapsed_seconds": 0.412
     },
     {
       "path": "/",
       "http_status": 200,
-      "elapsed_seconds": 1.254,
-      "health": null
+      "health": null,
+      "elapsed_seconds": 0.417
     }
   ],
   "production_login_configured": false,
-  "hosted_analytics_verified": false,
+  "hosted_analytics_verified": true,
   "api_key_transferred": false,
   "paid_resources_created": false,
-  "limitation": "Server availability verified; analytics is intentionally locked until OIDC and approved scopes are configured.",
-  "restart": {
-    "dashboard_event": "Service restarted by you",
-    "event_displayed_at": "14 October 2026 at 09:09 Asia/Calcutta",
-    "verified_at_utc": "2026-10-14T03:41:29.529193+00:00",
-    "http_status": 200,
-    "health": "ok",
-    "elapsed_seconds": 0.326,
-    "deployed_commit": "5219517befe037a92caa1183652f670a8281bd44"
-  },
+  "limitation": "Public synthetic demonstration verified. Private OIDC, live providers and sustained hosted load remain unverified.",
   "browser_validation": {
     "title": "BDC Analytics Agent",
-    "guard_message_visible": true,
+    "sign_in_required": false,
+    "guard_message_visible": false,
     "unhandled_traceback_visible": false,
-    "authenticated_workflows": "not tested; OIDC configuration missing",
-    "checked_at_utc": "2026-10-14T04:05:34.621482+00:00",
-    "deployed_commit": "35accac2d5bec66c2d306ec1cc839db76c12cf42"
+    "mode": "Public synthetic demo; deterministic only; no LLM calls",
+    "demonstration_workflows_passed": 5,
+    "private_authenticated_workflows": "not tested; OIDC configuration missing"
   },
   "initial_deployment": {
     "deployed_commit": "5219517befe037a92caa1183652f670a8281bd44",
@@ -61,8 +53,65 @@
   },
   "final_deployment": {
     "dashboard_status": "Deploy succeeded | Live",
-    "duration_seconds": 133,
-    "source_commit": "35accac2d5bec66c2d306ec1cc839db76c12cf42",
-    "deployed_at_displayed": "14 October 2026 at 09:28:27 Asia/Calcutta"
+    "duration_seconds": 118,
+    "source_commit": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
+    "deployed_at_displayed": "14 October 2026 at 10:51:08 Asia/Calcutta"
+  },
+  "prior_protected_deployment": {
+    "deployed_commit": "35accac2d5bec66c2d306ec1cc839db76c12cf42",
+    "checked_at_utc": "2026-10-14T04:05:34.621482+00:00",
+    "health_checks": [
+      {
+        "path": "/_stcore/health",
+        "http_status": 200,
+        "elapsed_seconds": 1.309,
+        "health": "ok"
+      },
+      {
+        "path": "/",
+        "http_status": 200,
+        "elapsed_seconds": 1.254,
+        "health": null
+      }
+    ],
+    "browser_validation": {
+      "title": "BDC Analytics Agent",
+      "guard_message_visible": true,
+      "unhandled_traceback_visible": false,
+      "authenticated_workflows": "not tested; OIDC configuration missing",
+      "checked_at_utc": "2026-10-14T04:05:34.621482+00:00",
+      "deployed_commit": "35accac2d5bec66c2d306ec1cc839db76c12cf42"
+    }
+  },
+  "initial_restart": {
+    "dashboard_event": "Service restarted by you",
+    "event_displayed_at": "14 October 2026 at 09:09 Asia/Calcutta",
+    "verified_at_utc": "2026-10-14T03:41:29.529193+00:00",
+    "http_status": 200,
+    "health": "ok",
+    "elapsed_seconds": 0.326,
+    "deployed_commit": "5219517befe037a92caa1183652f670a8281bd44"
+  },
+  "public_demo_enabled": true,
+  "restart": {
+    "deployed_commit": "dfcdebdaf00d5c0a7e9ec911728946c5fb20b4f0",
+    "dashboard_event": "Service restarted by you",
+    "event_displayed_at": "14 October 2026 at 11:02 Asia/Calcutta",
+    "verified_at_utc": "2026-10-14T05:34:55.827638+00:00",
+    "http_status": 200,
+    "health": "ok",
+    "elapsed_seconds": 0.316,
+    "sign_in_required_after_restart": false,
+    "fresh_comparison": {
+      "status": "pass",
+      "baseline": 66025,
+      "current": 65292,
+      "absolute_change": -733,
+      "provider": "deterministic demo",
+      "skills": [
+        "K1"
+      ],
+      "displayed_elapsed_seconds": 44.14
+    }
   }
 }
