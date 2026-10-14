@@ -14,7 +14,7 @@ Verdict: **hardened synthetic prototype, verified locally; production approval r
 | Published dependency advisories | 0 known vulnerability records across 83 scanned packages; no skipped packages | reports/dependencies_audit.json |
 | Four simultaneous investigations | 4/4 succeeded with identical totals | reports/performance.json |
 | Startup/restart | Two actual HTTP 200 / ok starts | reports/deployment_smoke.json |
-| GitHub Linux CI | 191 passed / 0 failed / 2 skipped; credential and dependency scans plus both restarts pass | reports/github_validation.json; Actions run 38500606126 |
+| GitHub Linux CI | 191 passed / 0 failed / 2 skipped; credential and dependency scans plus both restarts pass | reports/github_validation.json; Actions run 38502026568 |
 | Browser review | Desktop and compact layout, computed charts, quality warnings, Settings failure and Explorer verified | reports/browser_e2e_verification.json |
 | Production access | Anonymous, expired/unapproved and malformed grants blocked; scoped UI and revocation regression pass | tests/test_access.py |
 

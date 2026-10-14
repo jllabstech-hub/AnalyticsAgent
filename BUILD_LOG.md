@@ -228,3 +228,8 @@ User authorized Render deployment. Inspected the signed-in Render workspace and 
 Prepared Render configuration and production access regression: 17 passed, 0 failed (7.62s). Source credential scan passes. No production auth bypass, credential transmission or paid service creation. The prepared Ollama endpoint is intentionally empty; authorized users can explicitly select deterministic demo mode until a real provider is configured.
 
 Public push of the unpublished preparation commit was rejected by automatic approval review because a Render dashboard screenshot could disclose private account metadata. Kept that screenshot local and excluded it from Git, removed the private workspace label from preparation metadata/docs, and will amend the unpushed commit before retrying. No remote disclosure occurred.
+
+
+### 2026-10-14T02:40:51.404733+00:00 - Render preparation validated; creation pending user decisions
+
+Corrected preparation commit c57cc8c44e49a4b6dcbc638a0f63f448ad5a49b6 is pushed and matches remote main. Actual Linux quality run 38502026568 succeeds: 191 passed, 0 failed, 2 skipped of 193 (109.83s), source/advisory scans and both startup/restart checks. Backend explicit deterministic demo with hosted settings, empty Ollama endpoint and no OpenAI secret returns 66025 / 65292 / -733; this is not actual production sign-in verification. Render form confirms Python 3, manual deploys Off, correct name/health path. No service has been created and no key has been transmitted. Recurring-cost approval and login/deployment preference questions remain pending. Dashboard proof is retained locally and excluded from Git and reachable source history.

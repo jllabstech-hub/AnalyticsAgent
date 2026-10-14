@@ -27,5 +27,33 @@
     "failed": 0,
     "duration_seconds": 7.62
   },
-  "proof_visibility": "Local-only account screenshot; excluded from Git"
+  "proof_visibility": "Local-only account screenshot; excluded from Git",
+  "github_validated_commit": "c57cc8c44e49a4b6dcbc638a0f63f448ad5a49b6",
+  "github_quality_run": {
+    "id": 38502026568,
+    "name": "Analytics quality",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/jllabstech-hub/AnalyticsAgent/actions/runs/38502026568",
+    "head_sha": "c57cc8c44e49a4b6dcbc638a0f63f448ad5a49b6"
+  },
+  "github_full_suite": {
+    "passed": 191,
+    "failed": 0,
+    "skipped": 2,
+    "total": 193,
+    "duration_seconds": 109.83
+  },
+  "explicit_backend_demo_without_llm": {
+    "status": "pass",
+    "baseline": 66025,
+    "current": 65292,
+    "absolute_change": -733,
+    "ui_identity_verification": "not performed"
+  },
+  "prepared_ui_verified": {
+    "runtime": "Python 3",
+    "auto_deploy": "Off",
+    "health_check": "/_stcore/health"
+  }
 }
